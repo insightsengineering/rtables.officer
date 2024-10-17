@@ -1,0 +1,86 @@
+---
+# All available hooks: https://pre-commit.com/hooks.html
+# R specific hooks: https://github.com/lorenzwalthert/precommit
+default_stages: [commit]
+default_language_version:
+  python: python3
+repos:
+  - repo: https://github.com/lorenzwalthert/precommit
+    rev: v0.4.3.9001
+    hooks:
+      - id: roxygenize
+        additional_dependencies:
+          - formatters
+          - magrittr
+          - methods
+          - checkmate
+          - htmltools
+          - lifecycle
+          - stats
+          - stringi
+      - id: use-tidy-description
+      - id: spell-check
+        exclude: >
+          (?x)^(
+          .*\.[rR]|
+          .*\.feather|
+          .*\.jpeg|
+          .*\.pdf|
+          .*\.png|
+          .*\.py|
+          .*\.RData|
+          .*\.rds|
+          .*\.Rds|
+          .*\.Rproj|
+          .*\.sh|
+          (.*/|)\.gitignore|
+          (.*/|)\.covrignore|
+          (.*/|)\.gitlab-ci\.y[a]?ml|
+          (.*/|)\.lintr|
+          (.*/|)\.pre-commit-.*|
+          (.*/|)\.Rbuildignore|
+          (.*/|)\.Renviron|
+          (.*/|)\.Rprofile|
+          (.*/|)\.travis\.y[a]?ml|
+          (.*/|)appveyor\.y[a]?ml|
+          (.*/|)CODEOWNERS|
+          (.*/|)DESCRIPTION|
+          (.*/|)LICENSE|
+          (.*/|)NAMESPACE|
+          (.*/|)staged_dependencies\.y[a]?ml|
+          (.*/|)renv/settings\.dcf|
+          (.*/|)renv\.lock|
+          (.*/|)WORDLIST|
+          \.github/workflows/.*|
+          data/.*|
+          )$
+      - id: readme-rmd-rendered
+      - id: parsable-R
+      - id: no-browser-statement
+      - id: no-debug-statement
+      - id: deps-in-desc
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-added-large-files
+        args: ['--maxkb=200']
+      - id: file-contents-sorter
+        files: '^\.Rbuildignore$'
+      - id: end-of-file-fixer
+        exclude: '\.Rd'
+  - repo: https://github.com/pre-commit-ci/pre-commit-ci-config
+    rev: v1.6.1
+    hooks:
+    # Only reuiqred when https://pre-commit.ci is used for config validation
+      - id: check-pre-commit-ci-config
+  - repo: local
+    hooks:
+      - id: forbid-to-commit
+        name: Don't commit common R artifacts
+        entry: Cannot commit .Rhistory, .RData, .Rds or .rds.
+        language: fail
+        files: '\.(Rhistory|RData|Rds|rds)$'
+        # `exclude: <regex>` to allow committing specific files
+
+ci:
+  autoupdate_schedule: monthly

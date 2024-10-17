@@ -1,0 +1,10 @@
+current_repo:
+  repo: insightsengineering/rtables.officer
+  host: https://github.com
+upstream_repos:
+  insightsengineering/formatters:
+    repo: insightsengineering/formatters
+    host: https://github.com
+  insightsengineering/rtables:
+    repo: insightsengineering/rtables
+    host: https://github.com

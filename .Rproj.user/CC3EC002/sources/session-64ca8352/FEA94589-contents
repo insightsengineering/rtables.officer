@@ -1,0 +1,64 @@
+Package: rtables.officer
+Title: Reporting Tables
+Version: 0.0.1
+Date: 2024-09-20
+Authors@R: c(
+    person("Gabriel", "Becker", , "gabembecker@gmail.com", role = "ctb"),
+    person("Adrian", "Waddell", , "adrian.waddell@gene.com", role = "ctb"),
+    person("Davide", "Garolini", , "davide.garolini@roche.com", role = "aut"),
+    person("Emily", "de la Rua", , "emily.de_la_rua@contractors.roche.com", role = "aut"),
+    person("Abinaya", "Yogasekaram", , "abinaya.yogasekaram@contractors.roche.com", role = "aut"),
+    person("Joe", "Zhu", , "joe.zhu@roche.com", role = c("aut", "cre")),
+    person("F. Hoffmann-La Roche AG", role = c("cph", "fnd"))
+  )
+Description: Rtables to officer
+License: Apache License 2.0 | file LICENSE
+URL: https://github.com/insightsengineering/rtables.officer,
+    https://insightsengineering.github.io/rtables.officer/
+BugReports: https://github.com/insightsengineering/rtables.officer/issues
+Depends:
+    formatters (>= 0.5.9),
+    rtables (>= 0.6.9),
+    magrittr (>= 1.5),
+    methods,
+    R (>= 2.10)
+Imports:
+    checkmate (>= 2.1.0),
+    htmltools (>= 0.5.4),
+    lifecycle (>= 0.2.0),
+    stats,
+    stringi (>= 1.6)
+Suggests:
+    broom (>= 1.0.6),
+    car (>= 3.0-13),
+    dplyr (>= 1.0.5),
+    flextable (>= 0.9.6),
+    knitr (>= 1.42),
+    officer (>= 0.6.6),
+    r2rtf (>= 0.3.2),
+    rmarkdown (>= 2.23),
+    survival (>= 3.3-1),
+    testthat (>= 3.0.4),
+    tibble (>= 3.2.1),
+    tidyr (>= 1.1.3),
+    withr (>= 2.0.0),
+    xml2 (>= 1.1.0)
+VignetteBuilder:
+    knitr,
+    rmarkdown
+Config/Needs/verdepcheck: insightsengineering/formatters, insightsengineering/rtables,
+    tidyverse/magrittr, mllg/checkmate, rstudio/htmltools,
+    gagolews/stringi, tidymodels/broom, cran/car, tidyverse/dplyr,
+    davidgohel/flextable, yihui/knitr, r-lib/lifecycle,
+    davidgohel/officer, Merck/r2rtf, rstudio/rmarkdown, therneau/survival,
+    r-lib/testthat, tidyverse/tibble, tidyverse/tidyr, r-lib/withr,
+    r-lib/xml2
+Encoding: UTF-8
+Language: en-US
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Collate:
+    'package.R'
+    'tt_export.R'
+    
