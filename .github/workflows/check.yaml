@@ -28,6 +28,7 @@ jobs:
       deps-installation-method: setup-r-dependencies
       lookup-refs: |
         insightsengineering/formatters
+        insightsengineering/rtables
       additional-env-vars: |
         _R_CHECK_CRAN_INCOMING_REMOTE_=false
       additional-r-cmd-check-params: --as-cran
@@ -51,6 +52,7 @@ jobs:
     with:
       deps-installation-method: setup-r-dependencies
       lookup-refs: |
+        insightsengineering/rtables
         insightsengineering/formatters
       additional-env-vars: |
         NOT_CRAN=true
@@ -74,6 +76,7 @@ jobs:
     with:
       deps-installation-method: setup-r-dependencies
       lookup-refs: |
+        insightsengineering/rtables
         insightsengineering/formatters
       additional-env-vars: |
         NOT_CRAN=true
@@ -89,6 +92,7 @@ jobs:
     with:
       deps-installation-method: setup-r-dependencies
       lookup-refs: |
+        insightsengineering/rtables
         insightsengineering/formatters
       auto-update: true
   gitleaks:
