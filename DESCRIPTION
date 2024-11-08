@@ -17,10 +17,12 @@ URL: https://github.com/insightsengineering/rtables.officer,
 BugReports: https://github.com/insightsengineering/rtables.officer/issues
 Depends:
     formatters (>= 0.5.9),
+    flextable (>= 0.9.6),
     magrittr (>= 1.5),
     methods,
+    officer (>= 0.6.6),
     R (>= 2.10),
-    rtables (>= 0.6.9)
+    rtables (>= 0.6.10.9003)
 Imports:
     checkmate (>= 2.1.0),
     htmltools (>= 0.5.4),
@@ -31,9 +33,7 @@ Suggests:
     broom (>= 1.0.6),
     car (>= 3.0-13),
     dplyr (>= 1.0.5),
-    flextable (>= 0.9.6),
     knitr (>= 1.42),
-    officer (>= 0.6.6),
     r2rtf (>= 0.3.2),
     rmarkdown (>= 2.23),
     survival (>= 3.3-1),
@@ -60,3 +60,4 @@ RoxygenNote: 7.3.2
 Collate:
     'package.R'
     'tt_export.R'
+    'tt_as_flextable.R'

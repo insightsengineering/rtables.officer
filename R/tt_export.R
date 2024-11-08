@@ -126,8 +126,7 @@ formatters::export_as_pdf
 #'
 #' @seealso [tt_to_flextable()]
 #'
-#' @examplesIf require(flextable)
-#' library(flextable)
+#' @examples
 #' lyt <- basic_table() %>%
 #'   split_cols_by("ARM") %>%
 #'   analyze(c("AGE", "BMRKR2", "COUNTRY"))

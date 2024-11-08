@@ -17,6 +17,8 @@ export_as_tsv(
 import_from_tsv(file)
 }
 \arguments{
+\item{tt}{(\code{TableTree} or related class)\cr a \code{TableTree} object representing a populated table.}
+
 \item{file}{(\code{string})\cr the path of the file to written to or read from.}
 
 \item{sep}{(\code{string})\cr defaults to \verb{\\t}. See \code{\link[utils:write.table]{utils::write.table()}} for more details.}

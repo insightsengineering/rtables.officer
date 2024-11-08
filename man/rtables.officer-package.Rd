@@ -32,7 +32,6 @@ Authors:
 Other contributors:
 \itemize{
   \item Gabriel Becker \email{gabembecker@gmail.com} [contributor]
-  \item Adrian Waddell \email{adrian.waddell@gene.com} [contributor]
   \item F. Hoffmann-La Roche AG [copyright holder, funder]
 }
 
