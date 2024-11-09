@@ -5,6 +5,8 @@
 #' @importFrom magrittr %>%
 #' @import methods
 #' @import rtables
+#' @import officer
+#' @import flextable
 NULL
 
 
