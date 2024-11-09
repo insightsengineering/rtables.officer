@@ -234,9 +234,6 @@ test_that("export_as_rtf works", {
 })
 
 test_that("export_as_doc works thanks to tt_to_flextable", {
-  skip_if_not_installed("flextable")
-  require("flextable", quietly = TRUE)
-
   lyt <- make_big_lyt()
   tbl <- build_table(lyt, rawdat)
   top_left(tbl) <- "Ethnicity"
@@ -273,4 +270,25 @@ test_that("export_as_doc works thanks to tt_to_flextable", {
   ))
 
   expect_true(file.exists(doc_file))
+})
+
+
+
+
+test_that("export_as_doc produces a warning if manual column widths are used", {
+  lyt <- basic_table() %>%
+    split_rows_by("Species") %>%
+    analyze("Petal.Length")
+  tbl <- build_table(lyt, iris)
+
+  doc_file <- tempfile(fileext = ".docx")
+
+  # Get the flextable
+  expect_warning(
+    export_as_docx(tbl,
+                   colwidths = c(1, 2),
+                   file = doc_file,
+                   section_properties = section_properties_default()
+    ), "The total table width does not match the page width"
+  )
 })
