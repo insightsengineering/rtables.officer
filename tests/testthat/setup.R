@@ -7,7 +7,7 @@ makefakedat <- function(n = 1000) {
     RACE = c("WHITE", sample(c("WHITE", "BLACK"), n - 1, replace = TRUE)),
     AGE = runif(n, 40, 70),
     VAR3 = c("level1", sample(c("level1", "level2"), n - 1,
-                              replace = TRUE
+      replace = TRUE
     ))
   )
 
@@ -33,7 +33,7 @@ makefakedat2 <- function(n = 1000) {
       many2s
     ),
     RACE = rep(sample(c("WHITE", "BLACK"), n / 2, replace = TRUE),
-               times = many2s
+      times = many2s
     ),
     PATID = rep(seq(1, n / 2), many2s),
     VISIT = rep(c("BASELINE", "FOLLOWUP"))
@@ -74,9 +74,9 @@ make_big_lyt <- function() {
     ## using a split function that excludes level C
     ## value labels from fac2_label
     split_rows_by("FACTOR2", "Factor2",
-                  split_fun = remove_split_levels("C"),
-                  labels_var = "fac2_label",
-                  label_pos = "hidden"
+      split_fun = remove_split_levels("C"),
+      labels_var = "fac2_label",
+      label_pos = "hidden"
     ) %>%
     ## Add count summary within FACTOR2 categories
     summarize_row_groups("FACTOR2") %>%
@@ -92,10 +92,10 @@ make_big_lyt <- function() {
     ## level of nesting as all previous analysis blocks, rather than
     ## attempting to further nest them
     analyze("AGE",
-            "Age Analysis redux",
-            afun = range,
-            format = "xx.x - xx.x",
-            table_names = "AgeRedux"
+      "Age Analysis redux",
+      afun = range,
+      format = "xx.x - xx.x",
+      table_names = "AgeRedux"
     ) %>%
     ## Note nested=TRUE, this creates a NEW subtable directly under the
     ## root split
