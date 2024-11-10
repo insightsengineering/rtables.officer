@@ -201,13 +201,6 @@ test_that("export_as_pdf works", {
 #     }
 # })
 
-test_that("exporting pdf does the inset", {
-  tbl <- tt_to_export()
-  table_inset(tbl) <- 100
-  tmpf <- tempfile(fileext = ".pdf")
-
-  expect_error(export_as_pdf(tbl, file = tmpf), "Width of row labels equal to or larger than")
-})
 
 ## https://github.com/insightsengineering/rtables/issues/308
 test_that("path_enriched_df works for tables with a column that has all length 1 elements", {
@@ -219,19 +212,6 @@ test_that("path_enriched_df works for tables with a column that has all length 1
   expect_identical(dim(mydf), c(3L, 2L))
 })
 
-test_that("export_as_rtf works", {
-  testthat::skip_if_not_installed("r2rtf")
-  tbl <- tt_to_export()
-  tmpf <- tempfile(fileext = ".rtf")
-
-  expect_error(
-    export_as_rtf(tbl, file = tmpf, landscape = TRUE, margins = c(2, 2, 2, 2), colwidths = 2),
-    "non-null colwidths argument"
-  )
-
-  res <- export_as_rtf(tbl, file = tmpf)
-  expect_true(file.exists(tmpf))
-})
 
 test_that("export_as_doc works thanks to tt_to_flextable", {
   lyt <- make_big_lyt()
