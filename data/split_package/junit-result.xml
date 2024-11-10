@@ -1,48 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Exporting to txt, pdf, rtf, and docx" timestamp="2024-11-10T12:21:18Z" hostname="f0fa65e7a2da" tests="8" skipped="0" failures="1" errors="4" time="1.372">
-    <testcase time="0.656" classname="Exporting_to_txt_pdf_rtf_and_docx" name="export_as_txt_works_with_and_without_pagination"/>
-    <testcase time="0.167" classname="Exporting_to_txt_pdf_rtf_and_docx" name="export_as_txt_works_with_and_without_pagination"/>
-    <testcase time="0.018" classname="Exporting_to_txt_pdf_rtf_and_docx" name="export_as_txt_works_with_wrapping">
-      <error type="error" message="Error in `eval(code, test_env)`: object 'tt_for_wrap' not found ('test-exporters.R:30:3')">Error in `eval(code, test_env)`: object 'tt_for_wrap' not found
-Backtrace:
-    ▆
- 1. └─formatters::export_as_txt(...) at test-exporters.R:30:3
- 2.   └─formatters:::.is_list_of_tables_or_listings(x)
- 3.     └─methods::is(a_list, "list")</error>
-    </testcase>
-    <testcase time="0.0329999999999999" classname="Exporting_to_txt_pdf_rtf_and_docx" name="tsv_roundtripping_for_path_enriched_df">
-      <error type="error" message="Error in `tt_to_export()`: could not find function &quot;tt_to_export&quot; ('test-exporters.R:124:3')">Error in `tt_to_export()`: could not find function "tt_to_export"</error>
-    </testcase>
-    <testcase time="0.0270000000000001" classname="Exporting_to_txt_pdf_rtf_and_docx" name="export_as_pdf_works">
-      <error type="error" message="Error in `tt_to_export()`: could not find function &quot;tt_to_export&quot; ('test-exporters.R:145:3')">Error in `tt_to_export()`: could not find function "tt_to_export"</error>
-    </testcase>
-    <testcase time="0.0799999999999998" classname="Exporting_to_txt_pdf_rtf_and_docx" name="path_enriched_df_works_for_tables_with_a_column_that_has_all_length_1_elements"/>
-    <testcase time="0.00600000000000001" classname="Exporting_to_txt_pdf_rtf_and_docx" name="export_as_doc_works_thanks_to_tt_to_flextable">
-      <error type="error" message="Error in `make_big_lyt()`: could not find function &quot;make_big_lyt&quot; ('test-exporters.R:217:3')">Error in `make_big_lyt()`: could not find function "make_big_lyt"</error>
-    </testcase>
-    <testcase time="0.385" classname="Exporting_to_txt_pdf_rtf_and_docx" name="export_as_doc_produces_a_warning_if_manual_column_widths_are_used">
-      <failure type="failure" message="`export_as_docx(tbl, colwidths = c(1, 2), file = doc_file, section_properties = section_properties_default())` did not produce any warnings. ('test-exporters.R:267:3')">`export_as_docx(tbl, colwidths = c(1, 2), file = doc_file, section_properties = section_properties_default())` did not produce any warnings.</failure>
-    </testcase>
+  <testsuite name="Exporting to txt, pdf, rtf, and docx" timestamp="2024-11-10T13:49:43Z" hostname="02fc414f3358" tests="8" skipped="0" failures="0" errors="0" time="3.814">
+    <testcase time="0.64" classname="Exporting_to_txt_pdf_rtf_and_docx" name="export_as_txt_works_with_and_without_pagination"/>
+    <testcase time="0.166" classname="Exporting_to_txt_pdf_rtf_and_docx" name="export_as_txt_works_with_and_without_pagination"/>
+    <testcase time="0.0800000000000001" classname="Exporting_to_txt_pdf_rtf_and_docx" name="path_enriched_df_works_for_tables_with_a_column_that_has_all_length_1_elements"/>
+    <testcase time="1.677" classname="Exporting_to_txt_pdf_rtf_and_docx" name="export_as_doc_works_thanks_to_tt_to_flextable"/>
+    <testcase time="0.218" classname="Exporting_to_txt_pdf_rtf_and_docx" name="export_as_doc_works_thanks_to_tt_to_flextable"/>
+    <testcase time="0.745" classname="Exporting_to_txt_pdf_rtf_and_docx" name="export_as_doc_works_thanks_to_tt_to_flextable"/>
+    <testcase time="0.00300000000000011" classname="Exporting_to_txt_pdf_rtf_and_docx" name="export_as_doc_works_thanks_to_tt_to_flextable"/>
+    <testcase time="0.285" classname="Exporting_to_txt_pdf_rtf_and_docx" name="export_as_doc_produces_a_warning_if_manual_column_widths_are_used"/>
   </testsuite>
-  <testsuite name="tt_as_flextable" timestamp="2024-11-10T12:21:20Z" hostname="f0fa65e7a2da" tests="13" skipped="0" failures="1" errors="1" time="5.62">
-    <testcase time="0.787" classname="tt_as_flextable" name="Can_create_flextable_object_that_works_with_different_styles">
+  <testsuite name="tt_as_flextable" timestamp="2024-11-10T13:49:46Z" hostname="02fc414f3358" tests="13" skipped="0" failures="1" errors="1" time="5.581">
+    <testcase time="0.786" classname="tt_as_flextable" name="Can_create_flextable_object_that_works_with_different_styles">
       <failure type="failure" message="sum(unlist(nrow(ft))) not equal to 20. ('test-tt_as_flextable.R:25:3')">sum(unlist(nrow(ft))) not equal to 20.
 1/1 mismatches
 [1] 10 - 20 == -10</failure>
     </testcase>
-    <testcase time="0.384" classname="tt_as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
-    <testcase time="0.432" classname="tt_as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
-    <testcase time="0.424" classname="tt_as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
-    <testcase time="0.892" classname="tt_as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
+    <testcase time="0.399999999999999" classname="tt_as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
+    <testcase time="0.431" classname="tt_as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
+    <testcase time="0.43" classname="tt_as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
+    <testcase time="0.915" classname="tt_as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
+    <testcase time="0.00200000000000067" classname="tt_as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
     <testcase time="0.000999999999999446" classname="tt_as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
-    <testcase time="0.00100000000000033" classname="tt_as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
     <testcase time="0.00499999999999989" classname="tt_as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
-    <testcase time="0.721" classname="tt_as_flextable" name="tt_to_flextable_does_not_create_different_cells_when_colcounts_or_multiple_on_different_lines"/>
-    <testcase time="0.529" classname="tt_as_flextable" name="check_titles_bold_and_html_theme"/>
-    <testcase time="0.304" classname="tt_as_flextable" name="check_titles_bold_and_html_theme"/>
-    <testcase time="0.305" classname="tt_as_flextable" name="check_titles_bold_and_html_theme"/>
-    <testcase time="0.835" classname="tt_as_flextable" name="check_pagination">
+    <testcase time="0.815" classname="tt_as_flextable" name="tt_to_flextable_does_not_create_different_cells_when_colcounts_or_multiple_on_different_lines"/>
+    <testcase time="0.494" classname="tt_as_flextable" name="check_titles_bold_and_html_theme"/>
+    <testcase time="0.282" classname="tt_as_flextable" name="check_titles_bold_and_html_theme"/>
+    <testcase time="0.290000000000001" classname="tt_as_flextable" name="check_titles_bold_and_html_theme"/>
+    <testcase time="0.729999999999999" classname="tt_as_flextable" name="check_pagination">
       <error type="error" message="Error in `pos_splits(pos)`: could not find function &quot;pos_splits&quot; ('test-tt_as_flextable.R:145:3')">Error in `pos_splits(pos)`: could not find function "pos_splits"
 Backtrace:
      ▆
