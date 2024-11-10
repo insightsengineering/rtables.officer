@@ -61,3 +61,4 @@ Collate:
     'package.R'
     'tt_export.R'
     'tt_as_flextable.R'
+    'tt_to_paginate_office.R'
