@@ -25,9 +25,7 @@ Depends:
     rtables (>= 0.6.10.9003)
 Imports:
     checkmate (>= 2.1.0),
-    htmltools (>= 0.5.4),
     lifecycle (>= 0.2.0),
-    stats,
     stringi (>= 1.6)
 Suggests:
     broom (>= 1.0.6),
