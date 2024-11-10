@@ -3,6 +3,7 @@
 
 #' @importFrom lifecycle deprecated
 #' @importFrom magrittr %>%
+#' @importFrom stats setNames
 #' @import methods
 #' @import rtables
 #' @import officer

@@ -26,6 +26,7 @@ Depends:
 Imports:
     checkmate (>= 2.1.0),
     lifecycle (>= 0.2.0),
+    stats,
     stringi (>= 1.6)
 Suggests:
     broom (>= 1.0.6),
