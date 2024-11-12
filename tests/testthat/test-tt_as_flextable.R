@@ -1,5 +1,4 @@
 test_that("Can create flextable object that works with different styles", {
-
   analysisfun <- function(x, ...) {
     in_rows(
       row1 = 5,
@@ -80,7 +79,6 @@ test_that("Can create flextable object that works with different styles", {
 
 
 test_that("tt_to_flextable does not create different cells when colcounts (or multiple) on different lines", {
-
   lyt <- basic_table(show_colcounts = TRUE) %>%
     split_rows_by("ARM", label_pos = "topleft") %>%
     split_rows_by("STRATA1", label_pos = "topleft") %>%
@@ -97,7 +95,6 @@ test_that("tt_to_flextable does not create different cells when colcounts (or mu
 })
 
 test_that("check titles bold and html theme", {
-
   lyt <- basic_table(show_colcounts = TRUE) %>%
     split_rows_by("ARM", label_pos = "topleft") %>%
     split_rows_by("STRATA1", label_pos = "topleft") %>%
@@ -118,7 +115,6 @@ test_that("check titles bold and html theme", {
 
 
 test_that("check pagination", {
-
   lyt <- basic_table(show_colcounts = TRUE) %>%
     split_rows_by("ARM", label_pos = "topleft", page_by = TRUE) %>%
     split_rows_by("STRATA1", label_pos = "topleft") %>%

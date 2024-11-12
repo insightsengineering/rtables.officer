@@ -7,8 +7,8 @@
 #' from an `rtables` table. If `theme = NULL`, `rtables`-like style will be used. Otherwise,
 #' [theme_docx_default()] will produce a `.docx`-friendly table.
 #'
-#' @inheritParams gen_args
-#' @inheritParams paginate_table
+#' @inheritParams rtables::gen_args
+#' @inheritParams rtables::paginate_table
 #' @param theme (`function` or `NULL`)\cr A theme function that is designed internally as a function of a `flextable`
 #'   object to change its layout and style. If `NULL`, it will produce a table similar to `rtables` default. Defaults
 #'   to `theme_docx_default()` that is a classic Word output. See details for more information.

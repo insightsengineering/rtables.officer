@@ -80,12 +80,28 @@ on the same line.}
 Microsoft Word pagination system. If \code{TRUE}, this option splits \code{tt} into different "pages" as multiple
 \code{flextables}. Cooperation between the two mechanisms is not guaranteed. Defaults to \code{FALSE}.}
 
+\item{fontspec}{(\code{font_spec})\cr a font_spec object specifying the font information to use for
+calculating string widths and heights, as returned by \code{\link[formatters:font_spec]{font_spec()}}.}
+
+\item{lpp}{(\code{numeric(1)})\cr maximum lines per page including (re)printed header and context rows.}
+
+\item{cpp}{(\code{numeric(1)} or \code{NULL})\cr width (in characters) of the pages for horizontal pagination.
+\code{NA} (the default) indicates \code{cpp} should be inferred from the page size; \code{NULL} indicates no horizontal
+pagination should be done regardless of page size.}
+
 \item{...}{(\code{any})\cr additional parameters to be passed to the pagination function. See \code{\link[=paginate_table]{paginate_table()}}
 for further details.}
 
 \item{colwidths}{(\code{numeric})\cr column widths for the resulting flextable(s). If \code{NULL}, the column widths estimated
 with \code{\link[formatters:propose_column_widths]{formatters::propose_column_widths()}} will be used. When exporting into \code{.docx} these values are normalized
 to represent a fraction of the \code{total_page_width}. If these are specified, \code{autofit_to_page} is set to \code{FALSE}.}
+
+\item{tf_wrap}{(\code{flag})\cr whether the text for title, subtitles, and footnotes should be wrapped.}
+
+\item{max_width}{(\code{integer(1)}, \code{string} or \code{NULL})\cr width that title and footer (including
+footnotes) materials should be word-wrapped to. If \code{NULL}, it is set to the current print width of the
+session (\code{getOption("width")}). If set to \code{"auto"}, the width of the table (plus any table inset) is
+used. Parameter is ignored if \code{tf_wrap = FALSE}.}
 
 \item{total_page_height}{(\code{numeric(1)})\cr total page height (in inches) for the resulting flextable(s). Used only
 to estimate number of lines per page (\code{lpp}) when \code{paginate = TRUE}. Defaults to 10.}
