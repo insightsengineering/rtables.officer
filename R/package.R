@@ -10,4 +10,3 @@
 #' @import officer
 #' @import flextable
 NULL
-
