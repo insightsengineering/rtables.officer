@@ -55,4 +55,5 @@ reference:
     desc: These functions create ascii or html representations of the table
     contents:
     - tt_to_flextable
+    - export_as_docx
 
