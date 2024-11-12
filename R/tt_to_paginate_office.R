@@ -1,6 +1,6 @@
 pos_to_path <- function(pos) {
-  spls <- pos_splits(pos)
-  vals <- pos_splvals(pos)
+  spls <- rtables:::pos_splits(pos)
+  vals <- rtables:::pos_splvals(pos)
 
   path <- character()
   for (i in seq_along(spls)) {

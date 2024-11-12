@@ -417,7 +417,7 @@ tt_to_flextable <- function(tt,
 .tab_to_colpath_set <- function(tt) {
   vapply(
     collect_leaves(coltree(tt)),
-    function(y) paste(pos_to_path(tree_pos(y)), collapse = " "),
+    function(y) paste(pos_to_path(rtables:::tree_pos(y)), collapse = " "),
     ""
   )
 }

@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Rtables to officer
+This package is dedicated to convert `rtables` object to tables in use in pptx and docx files.
 }
 \seealso{
 Useful links:
