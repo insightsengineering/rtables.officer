@@ -47,27 +47,9 @@ articles:
     navbar: Getting Started
     contents:
     - rtables.officer
-    - exploratory_analysis
-
-
-  - title: \{rtables.officer\} Concepts
-    contents:
-    - subsetting_tables
-    - split_functions
-    - format_precedence
-    - tabulation_concepts
-    - introspecting_tables
 
 
 reference:
-  - title: Argument Conventions
-    desc: The following dummy functions are unexported and used to document argument conventions in the framework.
-    contents:
-    - lyt_args
-    - constr_args
-    - compat_args
-    - gen_args
-    - sf_args
 
   - title: Output Functions
     desc: These functions create ascii or html representations of the table
