@@ -17,15 +17,15 @@ URL: https://github.com/insightsengineering/rtables.officer,
 BugReports: https://github.com/insightsengineering/rtables.officer/issues
 Depends:
     formatters (>= 0.5.9),
-    flextable (>= 0.9.6),
     magrittr (>= 1.5),
     methods,
-    officer (>= 0.6.6),
     R (>= 2.10),
     rtables (>= 0.6.10.9003)
 Imports:
     checkmate (>= 2.1.0),
+    flextable (>= 0.9.6),
     lifecycle (>= 0.2.0),
+    officer (>= 0.6.6),
     stats,
     stringi (>= 1.6)
 Suggests:
