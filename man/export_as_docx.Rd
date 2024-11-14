@@ -28,11 +28,22 @@ margins_potrait()
 margins_landscape()
 }
 \arguments{
+\item{tt}{(\code{TableTree} or related class)\cr a \code{TableTree} object representing a populated table.}
+
 \item{file}{(\code{string})\cr string that indicates the final file output. Must have \code{.docx} extension.}
 
 \item{doc_metadata}{(\code{list} of \code{string}s)\cr any value that can be used as metadata by
 \code{?officer::set_doc_properties}. Important text values are \code{title}, \code{subject}, \code{creator}, and \code{description},
 while \code{created} is a date object.}
+
+\item{titles_as_header}{(\code{flag})\cr defaults to \code{TRUE} for \code{\link[=tt_to_flextable]{tt_to_flextable()}}, so the table is self-contained
+as it makes additional header rows for \code{\link[formatters:title_footer]{formatters::main_title()}} string and \code{\link[formatters:title_footer]{formatters::subtitles()}} character
+vector (one per element). \code{FALSE} is suggested for \code{\link[=export_as_docx]{export_as_docx()}}. This adds titles and subtitles as a text
+paragraph above the table. The same style is applied.}
+
+\item{footers_as_text}{(\code{flag})\cr defaults to \code{FALSE} for \code{\link[=tt_to_flextable]{tt_to_flextable()}}, so the table is self-contained with
+the \code{flextable} definition of footnotes. \code{TRUE} is used for \code{\link[=export_as_docx]{export_as_docx()}} to add the footers as a new
+paragraph after the table. The same style is applied, but with a smaller font.}
 
 \item{template_file}{(\code{string})\cr template file that \code{officer} will use as a starting point for the final
 document. Document attaches the table and uses the defaults defined in the template file.}
@@ -67,8 +78,6 @@ we suggest that you use \code{\link[=tt_to_flextable]{tt_to_flextable()}} prior 
 \code{footer_as_text} parameters must be re-specified if the table is changed first using \code{\link[=tt_to_flextable]{tt_to_flextable()}}.
 }
 \examples{
-\dontshow{if (require(flextable)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-library(flextable)
 lyt <- basic_table() \%>\%
   split_cols_by("ARM") \%>\%
   analyze(c("AGE", "BMRKR2", "COUNTRY"))
@@ -81,7 +90,7 @@ export_as_docx(tbl,
   file = tf,
   section_properties = section_properties_default(orientation = "landscape")
 )
-\dontshow{\}) # examplesIf}
+
 }
 \seealso{
 \code{\link[=tt_to_flextable]{tt_to_flextable()}}

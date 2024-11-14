@@ -38,6 +38,7 @@ customizations
 de
 decrementing
 dimensioned
+docx
 dplyr
 emph
 facetted
@@ -60,6 +61,7 @@ orderable
 pathing
 postfix
 postprocessing
+pptx
 pre
 priori
 programmatically
@@ -89,3 +91,5 @@ useR
 visibilty
 visiblities
 xtable
+rtables
+Rtables

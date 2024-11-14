@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Rtables to officer
+This package is dedicated to convert `rtables` object to tables in use in `pptx` and `docx` files.
 }
 \seealso{
 Useful links:
@@ -32,7 +32,6 @@ Authors:
 Other contributors:
 \itemize{
   \item Gabriel Becker \email{gabembecker@gmail.com} [contributor]
-  \item Adrian Waddell \email{adrian.waddell@gene.com} [contributor]
   \item F. Hoffmann-La Roche AG [copyright holder, funder]
 }
 

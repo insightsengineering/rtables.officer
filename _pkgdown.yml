@@ -1,0 +1,59 @@
+url: https://insightsengineering.github.io/rtables.officer
+
+template:
+  package: nesttemplate
+
+navbar:
+  structure:
+    left: [intro, reference, articles, dev-guide, news, reports]
+    right: [search, github]
+  components:
+    github:
+      icon: fa-github fa-lg
+      href: https://github.com/insightsengineering/rtables.officer
+    dev-guide:
+      text: Developer Guide
+      menu:
+        - text: Split Machinery
+    reports:
+      text: Reports
+      menu:
+        - text: Coverage report
+          href: coverage-report/
+        - text: Unit test report
+          href: unit-test-report/
+        - text: Non-CRAN unit test report
+          href: unit-test-report-non-cran/
+
+repo:
+  url:
+    home: https://github.com/insightsengineering/rtables.officer/
+    source: https://github.com/insightsengineering/rtables.officer/blob/main/
+    issue: https://github.com/insightsengineering/rtables.officer/issues/
+    user: https://github.com/
+news:
+  cran_dates: true
+
+authors:
+  before: "We define *authors* as those who are actively maintaining the code base, and *contributors* as those who made a significant contribution in the past. For all acknowledgements, see the eponymous section in the [Home Page](https://insightsengineering.github.io/rtables.officer/)."
+  footer:
+    roles: [aut, ctb, cre, fnd]
+    text: "Developed by"
+  sidebar:
+    roles: [aut]
+
+articles:
+  - title: Getting Started
+    navbar: Getting Started
+    contents:
+    - rtables.officer
+
+
+reference:
+
+  - title: Output Functions
+    desc: These functions create ascii or html representations of the table
+    contents:
+    - tt_to_flextable
+    - export_as_docx
+

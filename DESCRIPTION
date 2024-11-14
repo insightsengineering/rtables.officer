@@ -10,7 +10,7 @@ Authors@R: c(
     person("Joe", "Zhu", , "joe.zhu@roche.com", role = c("aut", "cre")),
     person("F. Hoffmann-La Roche AG", role = c("cph", "fnd"))
   )
-Description: Rtables to officer
+Description: This package is dedicated to convert `rtables` object to tables in use in `pptx` and `docx` files.
 License: Apache License 2.0 | file LICENSE
 URL: https://github.com/insightsengineering/rtables.officer,
     https://insightsengineering.github.io/rtables.officer/
@@ -20,20 +20,19 @@ Depends:
     magrittr (>= 1.5),
     methods,
     R (>= 2.10),
-    rtables (>= 0.6.9)
+    rtables (>= 0.6.10.9003)
 Imports:
     checkmate (>= 2.1.0),
-    htmltools (>= 0.5.4),
+    flextable (>= 0.9.6),
     lifecycle (>= 0.2.0),
+    officer (>= 0.6.6),
     stats,
     stringi (>= 1.6)
 Suggests:
     broom (>= 1.0.6),
     car (>= 3.0-13),
     dplyr (>= 1.0.5),
-    flextable (>= 0.9.6),
     knitr (>= 1.42),
-    officer (>= 0.6.6),
     r2rtf (>= 0.3.2),
     rmarkdown (>= 2.23),
     survival (>= 3.3-1),
@@ -60,3 +59,5 @@ RoxygenNote: 7.3.2
 Collate:
     'package.R'
     'tt_export.R'
+    'tt_as_flextable.R'
+    'tt_to_paginate_office.R'

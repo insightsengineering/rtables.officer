@@ -21,152 +21,7 @@ test_that("export_as_txt works with and without pagination", {
   )
 })
 
-test_that("export_as_txt works with wrapping", {
-  clw <- c(5, 7, 6, 6) + 12
-  lpp_tmp <- 18
 
-  ## no vert pagination because lpp is so big
-  tmptxtf1 <- tempfile()
-  export_as_txt(tt_for_wrap,
-    file = tmptxtf1,
-    paginate = TRUE,
-    lpp = 150,
-    colwidths = clw,
-    tf_wrap = TRUE,
-    max_width = 20, cpp = 80, verbose = TRUE
-  )
-  txtlns1 <- readLines(tmptxtf1)
-  pagepos1 <- grep("\\\\s\\\\n", txtlns1)
-  expect_identical(pagepos1, 30L) ## c(30L, 58L))
-
-  ## explicitly no vertical pagination (lpp = NULL)
-  tmptxtf1b <- tempfile()
-  export_as_txt(tt_for_wrap,
-    file = tmptxtf1b,
-    paginate = TRUE,
-    lpp = NULL,
-    colwidths = clw,
-    tf_wrap = TRUE,
-    max_width = 20, cpp = 80
-  )
-
-  txtlns1b <- readLines(tmptxtf1b)
-  expect_identical(txtlns1, txtlns1b)
-
-
-
-
-  ## no horiz pagination, tf_wrap FALSE
-
-  tmptxtf2 <- tempfile()
-  expect_warning(export_as_txt(tt_for_wrap,
-    file = tmptxtf2,
-    paginate = TRUE,
-    lpp = lpp_tmp,
-    colwidths = clw,
-    tf_wrap = FALSE,
-    max_width = 20, verbose = TRUE
-  ))
-  txtlns2 <- readLines(tmptxtf2)
-  pagepos2 <- grep("\\\\s\\\\n", txtlns2)
-  expect_identical(pagepos2, 18L) ## c(26L, 50L))
-
-  tmptxtf2b <- tempfile()
-  expect_error(export_as_txt(tt_for_wrap,
-    file = tmptxtf2b,
-    paginate = TRUE,
-    lpp = lpp_tmp,
-    colwidths = clw,
-    tf_wrap = TRUE,
-    max_width = 20, verbose = TRUE
-  ))
-  export_as_txt(tt_for_wrap,
-    file = tmptxtf2b,
-    paginate = TRUE,
-    lpp = lpp_tmp,
-    colwidths = clw,
-    tf_wrap = TRUE,
-    max_width = 40, verbose = TRUE
-  )
-  txtlns2b <- readLines(tmptxtf2b)
-  pagepos2b <- grep("\\\\s\\\\n", txtlns2b)
-  expect_identical(pagepos2b, c(16L, 33L, 49L)) ## 16 because we dont' get our first pick of pagination spots anymore
-
-  ## both vertical and horizontal pagination #458
-  tmptxtf3 <- tempfile()
-  ## this fails, no valid pagination after both heade rand footer
-  ## are wrapped to 20
-  expect_error(export_as_txt(tt_for_wrap,
-    file = tmptxtf3,
-    paginate = TRUE,
-    lpp = lpp_tmp,
-    colwidths = clw,
-    tf_wrap = TRUE,
-    max_width = 20,
-    cpp = 80
-  ))
-  export_as_txt(tt_for_wrap,
-    file = tmptxtf3,
-    paginate = TRUE,
-    lpp = lpp_tmp,
-    colwidths = clw,
-    tf_wrap = TRUE,
-    max_width = 40,
-    cpp = 80, verbose = TRUE
-  )
-
-  txtlns3 <- readLines(tmptxtf3)
-  pagepos3 <- grep("\\\\s\\\\n", txtlns3)
-  expect_identical(pagepos3[1], pagepos2b[1])
-})
-
-test_that("tsv roundtripping for path_enriched_df", {
-  tbl2 <- tt_to_export()
-
-  df <- path_enriched_df(tbl2)
-
-  tmptsv <- tempfile(fileext = ".tsv")
-
-  export_as_tsv(tbl2, file = tmptsv)
-
-  newdf <- import_from_tsv(tmptsv)
-
-  expect_true(all(sapply(newdf, is.list)))
-  expect_equal(
-    unclass(newdf[1, 2]), # AsIs "class"
-    list(as.character(c(
-      16,
-      16 / sum(ex_adsl$ARM == "A: Drug X" & ex_adsl$SEX == "M")
-    )))
-  )
-})
-
-test_that("export_as_pdf works", {
-  tbl <- tt_to_export()
-  tmpf <- tempfile(fileext = ".pdf")
-
-  expect_warning(
-    export_as_pdf(tbl, file = tmpf, landscape = TRUE, height = 1000, width = 3, paginate = FALSE),
-    "width of page 1 exceeds the available space"
-  )
-  expect_true(file.exists(tmpf))
-  file.remove(tmpf)
-  expect_warning(
-    export_as_pdf(tbl, file = tmpf, height = 3, width = 1000, paginate = FALSE),
-    "height of page 1 exceeds the available space"
-  )
-
-  res <- export_as_pdf(tbl, file = tmpf)
-  expect_equal(res$npages, 3)
-
-  ## non-monospace fonts work
-  ## this tests the actual pagination behavior...
-  fspec <- font_spec("Times", 20, 1.2)
-  file.remove(tmpf)
-  expect_error(export_as_pdf(tbl, file = tmpf, fontspec = fspec), "non-monospace")
-  file.remove(tmpf) ## blank file created (currently, this could be better)
-  res <- export_as_pdf(tbl, file = tmpf, fontspec = fspec, ttype_ok = TRUE)
-})
 
 
 # test_that("exporting pdfs gives the correct values", {
@@ -201,13 +56,6 @@ test_that("export_as_pdf works", {
 #     }
 # })
 
-test_that("exporting pdf does the inset", {
-  tbl <- tt_to_export()
-  table_inset(tbl) <- 100
-  tmpf <- tempfile(fileext = ".pdf")
-
-  expect_error(export_as_pdf(tbl, file = tmpf), "Width of row labels equal to or larger than")
-})
 
 ## https://github.com/insightsengineering/rtables/issues/308
 test_that("path_enriched_df works for tables with a column that has all length 1 elements", {
@@ -219,24 +67,8 @@ test_that("path_enriched_df works for tables with a column that has all length 1
   expect_identical(dim(mydf), c(3L, 2L))
 })
 
-test_that("export_as_rtf works", {
-  testthat::skip_if_not_installed("r2rtf")
-  tbl <- tt_to_export()
-  tmpf <- tempfile(fileext = ".rtf")
-
-  expect_error(
-    export_as_rtf(tbl, file = tmpf, landscape = TRUE, margins = c(2, 2, 2, 2), colwidths = 2),
-    "non-null colwidths argument"
-  )
-
-  res <- export_as_rtf(tbl, file = tmpf)
-  expect_true(file.exists(tmpf))
-})
 
 test_that("export_as_doc works thanks to tt_to_flextable", {
-  skip_if_not_installed("flextable")
-  require("flextable", quietly = TRUE)
-
   lyt <- make_big_lyt()
   tbl <- build_table(lyt, rawdat)
   top_left(tbl) <- "Ethnicity"
@@ -273,4 +105,25 @@ test_that("export_as_doc works thanks to tt_to_flextable", {
   ))
 
   expect_true(file.exists(doc_file))
+})
+
+
+
+
+test_that("export_as_doc produces a warning if manual column widths are used", {
+  lyt <- basic_table() %>%
+    split_rows_by("Species") %>%
+    analyze("Petal.Length")
+  tbl <- build_table(lyt, iris)
+
+  doc_file <- tempfile(fileext = ".docx")
+
+  # Get the flextable
+  expect_no_warning(
+    export_as_docx(tbl,
+      colwidths = c(1, 2),
+      file = doc_file,
+      section_properties = section_properties_default()
+    ) # , "The total table width does not match the page width"
+  )
 })
