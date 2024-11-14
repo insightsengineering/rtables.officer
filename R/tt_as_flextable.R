@@ -546,7 +546,10 @@ tt_to_flextable <- function(tt,
 #'     flx <- theme_docx_default(font_size = font_size)(flx, ...)
 #'
 #'     # Then apply additional styling
-#'     flx <- flextable::border_inner(flx, part = "body", border = flextable::fp_border_default(width = 0.5))
+#'     flx <- flextable::border_inner(flx,
+#'       part = "body",
+#'       border = flextable::fp_border_default(width = 0.5)
+#'     )
 #'
 #'     return(flx)
 #'   }
