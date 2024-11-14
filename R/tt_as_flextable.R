@@ -92,7 +92,7 @@
 #'
 #' # Example with multiple themes (only extending the docx default!)
 #' my_theme <- function(x, ...) {
-#'   border_inner(x, part = "body", border = flextable::fp_border_default(width = 0.5))
+#'   flextable::border_inner(x, part = "body", border = flextable::fp_border_default(width = 0.5))
 #' }
 #' flx <- tt_to_flextable(tbl, theme = c(theme_docx_default(), my_theme))
 #'
@@ -546,7 +546,7 @@ tt_to_flextable <- function(tt,
 #'     flx <- theme_docx_default(font_size = font_size)(flx, ...)
 #'
 #'     # Then apply additional styling
-#'     flx <- border_inner(flx, part = "body", border = flextable::fp_border_default(width = 0.5))
+#'     flx <- flextable::border_inner(flx, part = "body", border = flextable::fp_border_default(width = 0.5))
 #'
 #'     return(flx)
 #'   }
