@@ -38,9 +38,6 @@ test_that("export_as_docx works thanks to tt_to_flextable", {
 })
 
 test_that("export_as_docx produces a warning if manual column widths are used", {
-  skip_if_not_installed("flextable")
-  require("flextable", quietly = TRUE)
-
   lyt <- basic_table() %>%
     split_rows_by("Species") %>%
     analyze("Petal.Length")

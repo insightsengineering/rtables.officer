@@ -198,8 +198,6 @@ my_theme <- function(x, ...) {
 }
 flx <- tt_to_flextable(tbl, theme = c(theme_docx_default(), my_theme))
 
-\dontshow{if (require(flextable)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-library(flextable)
 # Custom theme
 special_bold <- list(
   "header" = list("i" = 1, "j" = c(1, 3)),
@@ -230,7 +228,7 @@ my_theme <- function(font_size = 6) { # here can pass additional arguments for d
   }
 }
 flx <- tt_to_flextable(tbl, theme = my_theme())
-\dontshow{\}) # examplesIf}
+
 }
 \seealso{
 \code{\link[=export_as_docx]{export_as_docx()}}

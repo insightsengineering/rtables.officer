@@ -536,8 +536,7 @@ tt_to_flextable <- function(tt,
 #'
 #' @seealso [export_as_docx()]
 #'
-#' @examplesIf require(flextable)
-#' library(flextable)
+#' @examples
 #' # Custom theme
 #' special_bold <- list(
 #'   "header" = list("i" = 1, "j" = c(1, 3)),
