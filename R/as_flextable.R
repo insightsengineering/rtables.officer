@@ -1,3 +1,22 @@
+# Helper function for position to path
+pos_to_path <- function(pos) {
+  spls <- rtables:::pos_splits(pos)
+  vals <- rtables:::pos_splvals(pos)
+
+  path <- character()
+  for (i in seq_along(spls)) {
+    nm <- obj_name(spls[[i]])
+    val_i <- value_names(vals[[i]])
+    path <- c(
+      path,
+      obj_name(spls[[i]]),
+      ## rawvalues(vals[[i]]))
+      if (!is.na(val_i)) val_i
+    )
+  }
+  path
+}
+
 # Flextable conversion ---------------------------------------------------------
 #
 
@@ -82,9 +101,6 @@
 #'
 #' tbl <- build_table(lyt, ex_adsl)
 #'
-#' @examples
-#' # example code
-#'
 #' # rtables style
 #' tt_to_flextable(tbl, theme = NULL)
 #'
@@ -92,7 +108,7 @@
 #'
 #' # Example with multiple themes (only extending the docx default!)
 #' my_theme <- function(x, ...) {
-#'   flextable::border_inner(x, part = "body", border = flextable::fp_border_default(width = 0.5))
+#'   border_inner(x, part = "body", border = flextable::fp_border_default(width = 0.5))
 #' }
 #' flx <- tt_to_flextable(tbl, theme = c(theme_docx_default(), my_theme))
 #'
@@ -116,7 +132,6 @@ tt_to_flextable <- function(tt,
                             total_page_height = 10, # portrait 11 landscape  8.5
                             total_page_width = 10, # portrait 8.5 landscape  11
                             autofit_to_page = TRUE) {
-  check_required_packages("flextable")
   if (!inherits(tt, "VTableTree")) {
     stop("Input table is not an rtables' object.")
   }
@@ -521,7 +536,8 @@ tt_to_flextable <- function(tt,
 #'
 #' @seealso [export_as_docx()]
 #'
-#' @examples
+#' @examplesIf require(flextable)
+#' library(flextable)
 #' # Custom theme
 #' special_bold <- list(
 #'   "header" = list("i" = 1, "j" = c(1, 3)),
@@ -546,10 +562,7 @@ tt_to_flextable <- function(tt,
 #'     flx <- theme_docx_default(font_size = font_size)(flx, ...)
 #'
 #'     # Then apply additional styling
-#'     flx <- flextable::border_inner(flx,
-#'       part = "body",
-#'       border = flextable::fp_border_default(width = 0.5)
-#'     )
+#'     flx <- border_inner(flx, part = "body", border = flextable::fp_border_default(width = 0.5))
 #'
 #'     return(flx)
 #'   }
@@ -569,7 +582,6 @@ theme_docx_default <- function(font = "Arial",
                                bold_manual = NULL,
                                border = flextable::fp_border_default(width = 0.5)) {
   function(flx, ...) {
-    check_required_packages("flextable")
     if (!inherits(flx, "flextable")) {
       stop(sprintf(
         "Function `%s` supports only flextable objects.",
@@ -670,7 +682,6 @@ theme_html_default <- function(font = "Courier",
                                remove_internal_borders = "label_rows",
                                border = flextable::fp_border_default(width = 1, color = "black")) {
   function(flx, ...) {
-    check_required_packages("flextable")
     if (!inherits(flx, "flextable")) {
       stop(sprintf(
         "Function `%s` supports only flextable objects.",
