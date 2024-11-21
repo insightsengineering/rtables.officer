@@ -1,22 +1,3 @@
-# Helper function for position to path
-pos_to_path <- function(pos) {
-  spls <- rtables:::pos_splits(pos)
-  vals <- rtables:::pos_splvals(pos)
-
-  path <- character()
-  for (i in seq_along(spls)) {
-    nm <- obj_name(spls[[i]])
-    val_i <- value_names(vals[[i]])
-    path <- c(
-      path,
-      obj_name(spls[[i]]),
-      ## rawvalues(vals[[i]]))
-      if (!is.na(val_i)) val_i
-    )
-  }
-  path
-}
-
 # Flextable conversion ---------------------------------------------------------
 #
 
@@ -60,7 +41,7 @@ pos_to_path <- function(pos) {
 #' @param autofit_to_page (`flag`)\cr defaults to `TRUE`. If `TRUE`, the column widths are automatically adjusted to
 #'   fit the total page width. If `FALSE`, the `colwidths` are used as an indicative proportion of `total_page_width`.
 #'   See `flextable::set_table_properties(layout)` for more details.
-#' @param ... (`any`)\cr additional parameters to be passed to the pagination function. See [paginate_table()]
+#' @param ... (`any`)\cr additional parameters to be passed to the pagination function. See [rtables::paginate_table()]
 #'   for further details.
 #'
 #' @return A `flextable` object.
@@ -76,7 +57,7 @@ pos_to_path <- function(pos) {
 #' theme like shown in the examples. Please pay attention to the parameters' inputs as they are relevant
 #' for this to work properly.
 #' Indeed, it is possible to use some hidden values for building your own theme (hence the need of `...`).
-#' In particular, `tt_to_flextable` sends in the following variable: `tbl_row_class = make_row_df(tt)$node_class`.
+#' In particular, `tt_to_flextable` sends in the following variable: `tbl_row_class = rtables::make_row_df(tt)$node_class`.
 #' This is ignored if not used in the theme. See `theme_docx_default` for an example on own to retrieve
 #' these values and how to use them.
 #'
@@ -184,7 +165,7 @@ tt_to_flextable <- function(tt,
         " each table will be too long to fit each page."
       )
     }
-    tabs <- paginate_table(tt,
+    tabs <- rtables::paginate_table(tt,
       fontspec = fontspec,
       lpp = lpp,
       cpp = cpp, tf_wrap = tf_wrap, max_width = max_width, # This can only be trial an error
@@ -208,16 +189,16 @@ tt_to_flextable <- function(tt,
   }
 
   # Extract relevant information
-  matform <- matrix_form(tt, fontspec = fontspec, indent_rownames = FALSE)
-  body <- mf_strings(matform) # Contains header
-  spans <- mf_spans(matform) # Contains header
-  mpf_aligns <- mf_aligns(matform) # Contains header
-  hnum <- mf_nlheader(matform) # Number of lines for the header
-  rdf <- make_row_df(tt) # Row-wise info
+  matform <- rtables::matrix_form(tt, fontspec = fontspec, indent_rownames = FALSE)
+  body <- formatters::mf_strings(matform) # Contains header
+  spans <- formatters::mf_spans(matform) # Contains header
+  mpf_aligns <- formatters::mf_aligns(matform) # Contains header
+  hnum <- formatters::mf_nlheader(matform) # Number of lines for the header
+  rdf <- rtables::make_row_df(tt) # Row-wise info
 
   # decimal alignment pre-proc
   if (any(grepl("dec", mpf_aligns))) {
-    body <- decimal_align(body, mpf_aligns)
+    body <- formatters::decimal_align(body, mpf_aligns)
     # Coercion for flextable
     mpf_aligns[mpf_aligns == "decimal"] <- "center"
     mpf_aligns[mpf_aligns == "dec_left"] <- "left"
@@ -309,7 +290,7 @@ tt_to_flextable <- function(tt,
   # If there are more rows -> add them
   if (hnum > 1) {
     for (i in seq(hnum - 1, 1)) {
-      sel <- spans_to_viscell(spans[i, ])
+      sel <- formatters::spans_to_viscell(spans[i, ])
       flx <- flextable::add_header_row(
         flx,
         top = TRUE,
@@ -379,13 +360,13 @@ tt_to_flextable <- function(tt,
   }
 
   # Footer lines
-  if (length(all_footers(tt)) > 0 && isFALSE(footers_as_text)) {
-    flx <- flextable::add_footer_lines(flx, values = all_footers(tt)) %>%
+  if (length(formatters::all_footers(tt)) > 0 && isFALSE(footers_as_text)) {
+    flx <- flextable::add_footer_lines(flx, values = formatters::all_footers(tt)) %>%
       .add_hborder(part = "body", ii = nrow(tt), border = border)
   }
 
   # Apply the theme
-  flx <- .apply_themes(flx, theme = theme, tbl_row_class = make_row_df(tt)$node_class)
+  flx <- .apply_themes(flx, theme = theme, tbl_row_class = rtables::make_row_df(tt)$node_class)
 
   # lets do some digging into the choice of fonts etc
   if (is.null(fontspec)) {
@@ -394,14 +375,14 @@ tt_to_flextable <- function(tt,
   # Calculate the needed colwidths
   if (is.null(colwidths)) {
     # what about margins?
-    colwidths <- propose_column_widths(matform, fontspec = fontspec, indent_size = indent_size)
+    colwidths <- formatters::propose_column_widths(matform, fontspec = fontspec, indent_size = indent_size)
   }
 
   # Title lines (after theme for problems with lines)
-  if (titles_as_header && length(all_titles(tt)) > 0 && any(nzchar(all_titles(tt)))) {
-    flx <- .add_titles_as_header(flx, all_titles = all_titles(tt), bold = bold_titles) %>%
+  if (titles_as_header && length(formatters::all_titles(tt)) > 0 && any(nzchar(formatters::all_titles(tt)))) {
+    flx <- .add_titles_as_header(flx, all_titles = formatters::all_titles(tt), bold = bold_titles) %>%
       flextable::border(
-        part = "header", i = length(all_titles(tt)),
+        part = "header", i = length(formatters::all_titles(tt)),
         border.bottom = border
       )
   }
@@ -431,8 +412,8 @@ tt_to_flextable <- function(tt,
 # only used in pagination
 .tab_to_colpath_set <- function(tt) {
   vapply(
-    collect_leaves(coltree(tt)),
-    function(y) paste(pos_to_path(rtables:::tree_pos(y)), collapse = " "),
+    rtables::collect_leaves(rtables::coltree(tt)),
+    function(y) paste(rtables:::pos_to_path(rtables:::tree_pos(y)), collapse = " "),
     ""
   )
 }
@@ -492,7 +473,7 @@ tt_to_flextable <- function(tt,
   font_fam <- test_flx$header$styles$text$font.family$data[1, 1]
   font_fam <- "Courier" # Fix if we need it -> coming from gpar and fontfamily Arial not being recognized
 
-  font_spec(font_family = font_fam, font_size = font_sz, lineheight = 1)
+  formatters::font_spec(font_family = font_fam, font_size = font_sz, lineheight = 1)
 }
 
 .apply_alignments <- function(flx, aligns_df, part) {
@@ -561,7 +542,10 @@ tt_to_flextable <- function(tt,
 #'     flx <- theme_docx_default(font_size = font_size)(flx, ...)
 #'
 #'     # Then apply additional styling
-#'     flx <- flextable::border_inner(flx, part = "body", border = flextable::fp_border_default(width = 0.5))
+#'     flx <- flextable::border_inner(flx,
+#'       part = "body",
+#'       border = flextable::fp_border_default(width = 0.5)
+#'     )
 #'
 #'     return(flx)
 #'   }
@@ -648,13 +632,13 @@ theme_docx_default <- function(font = "Arial",
     # Content rows are effectively our labels in row names
     if (any(bold == "content_rows")) {
       if (is.null(tbl_row_class)) {
-        stop('bold = "content_rows" needs tbl_row_class = make_row_df(tt).')
+        stop('bold = "content_rows" needs tbl_row_class = rtables::make_row_df(tt).')
       }
       flx <- flextable::bold(flx, j = 1, i = which(tbl_row_class == "ContentRow"), part = "body")
     }
     if (any(bold == "label_rows")) {
       if (is.null(tbl_row_class)) {
-        stop('bold = "content_rows" needs tbl_row_class = make_row_df(tt).')
+        stop('bold = "content_rows" needs tbl_row_class = rtables::make_row_df(tt).')
       }
       flx <- flextable::bold(flx, j = 1, i = which(tbl_row_class == "LabelRow"), part = "body")
     }

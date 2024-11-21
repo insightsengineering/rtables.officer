@@ -89,7 +89,7 @@ calculating string widths and heights, as returned by \code{\link[formatters:fon
 \code{NA} (the default) indicates \code{cpp} should be inferred from the page size; \code{NULL} indicates no horizontal
 pagination should be done regardless of page size.}
 
-\item{...}{(\code{any})\cr additional parameters to be passed to the pagination function. See \code{\link[=paginate_table]{paginate_table()}}
+\item{...}{(\code{any})\cr additional parameters to be passed to the pagination function. See \code{\link[rtables:paginate]{rtables::paginate_table()}}
 for further details.}
 
 \item{colwidths}{(\code{numeric})\cr column widths for the resulting flextable(s). If \code{NULL}, the column widths estimated
@@ -150,7 +150,7 @@ add your own theme to the theme call (e.g. \code{c(theme_docx_default(), my_them
 theme like shown in the examples. Please pay attention to the parameters' inputs as they are relevant
 for this to work properly.
 Indeed, it is possible to use some hidden values for building your own theme (hence the need of \code{...}).
-In particular, \code{tt_to_flextable} sends in the following variable: \code{tbl_row_class = make_row_df(tt)$node_class}.
+In particular, \code{tt_to_flextable} sends in the following variable: \code{tbl_row_class = rtables::make_row_df(tt)$node_class}.
 This is ignored if not used in the theme. See \code{theme_docx_default} for an example on own to retrieve
 these values and how to use them.
 }
@@ -194,7 +194,7 @@ tt_to_flextable(tbl, theme = theme_docx_default(font_size = 6))
 
 # Example with multiple themes (only extending the docx default!)
 my_theme <- function(x, ...) {
-  border_inner(x, part = "body", border = flextable::fp_border_default(width = 0.5))
+  flextable::border_inner(x, part = "body", border = flextable::fp_border_default(width = 0.5))
 }
 flx <- tt_to_flextable(tbl, theme = c(theme_docx_default(), my_theme))
 
@@ -222,7 +222,10 @@ my_theme <- function(font_size = 6) { # here can pass additional arguments for d
     flx <- theme_docx_default(font_size = font_size)(flx, ...)
 
     # Then apply additional styling
-    flx <- border_inner(flx, part = "body", border = flextable::fp_border_default(width = 0.5))
+    flx <- flextable::border_inner(flx,
+      part = "body",
+      border = flextable::fp_border_default(width = 0.5)
+    )
 
     return(flx)
   }

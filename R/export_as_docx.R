@@ -129,7 +129,7 @@ export_as_docx <- function(tt,
 
   # Extract title
   if (isFALSE(titles_as_header) && inherits(tt, "VTableTree")) {
-    ts_tbl <- all_titles(tt)
+    ts_tbl <- formatters::all_titles(tt)
     if (length(ts_tbl) > 0) {
       doc <- add_text_par(doc, ts_tbl, fpt)
     }
@@ -142,13 +142,13 @@ export_as_docx <- function(tt,
   if (isTRUE(footers_as_text) && inherits(tt, "VTableTree")) {
     # Adding referential footer line separator if present
     # (this is usually done differently, i.e. inside footnotes)
-    matform <- matrix_form(tt, indent_rownames = TRUE)
+    matform <- rtables::matrix_form(tt, indent_rownames = TRUE)
     if (length(matform$ref_footnotes) > 0) {
       doc <- add_text_par(doc, matform$ref_footnotes, fpt_footer)
     }
     # Footer lines
-    if (length(all_footers(tt)) > 0) {
-      doc <- add_text_par(doc, all_footers(tt), fpt_footer)
+    if (length(formatters::all_footers(tt)) > 0) {
+      doc <- add_text_par(doc, formatters::all_footers(tt), fpt_footer)
     }
   }
 
