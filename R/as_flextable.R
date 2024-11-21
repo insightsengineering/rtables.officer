@@ -57,9 +57,9 @@
 #' theme like shown in the examples. Please pay attention to the parameters' inputs as they are relevant
 #' for this to work properly.
 #' Indeed, it is possible to use some hidden values for building your own theme (hence the need of `...`).
-#' In particular, `tt_to_flextable` sends in the following variable: `tbl_row_class = rtables::make_row_df(tt)$node_class`.
-#' This is ignored if not used in the theme. See `theme_docx_default` for an example on own to retrieve
-#' these values and how to use them.
+#' In particular, `tt_to_flextable` sends in the following variable:
+#' `tbl_row_class = rtables::make_row_df(tt)$node_class`. This is ignored if not used in the theme.
+#' See `theme_docx_default` for an example on own to retrieve these values and how to use them.
 #'
 #' @seealso [export_as_docx()]
 #'
