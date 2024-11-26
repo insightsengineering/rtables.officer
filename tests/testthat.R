@@ -1,2 +1,3 @@
 library(testthat)
-test_check("rtables", reporter = "check")
+library(rtables.officer)
+test_check("rtables.officer", reporter = "check")

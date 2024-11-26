@@ -63,3 +63,4 @@ Collate:
     'package.R'
     'export_as_docx.R'
     'as_flextable.R'
+Config/testthat/edition: 3
