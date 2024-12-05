@@ -30,7 +30,7 @@ Imports:
     stats,
     stringi (>= 1.6)
 Suggests:
-    broom (>= 1.0.6),
+    broom (>= 1.0.5),
     car (>= 3.0-13),
     dplyr (>= 1.0.5),
     knitr (>= 1.42),
@@ -45,8 +45,6 @@ Suggests:
 VignetteBuilder:
     knitr,
     rmarkdown
-Remotes:
-    insightsengineering/rtables@main
 Config/Needs/verdepcheck: insightsengineering/formatters,
     insightsengineering/rtables, tidyverse/magrittr, mllg/checkmate,
     rstudio/htmltools, gagolews/stringi, tidymodels/broom, cran/car,
