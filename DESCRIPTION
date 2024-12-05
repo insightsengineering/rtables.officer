@@ -45,8 +45,6 @@ Suggests:
 VignetteBuilder:
     knitr,
     rmarkdown
-Remotes:
-    insightsengineering/rtables@main
 Config/Needs/verdepcheck: insightsengineering/formatters,
     insightsengineering/rtables, tidyverse/magrittr, mllg/checkmate,
     rstudio/htmltools, gagolews/stringi, tidymodels/broom, cran/car,
