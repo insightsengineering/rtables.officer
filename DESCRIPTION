@@ -1,7 +1,7 @@
 Package: rtables.officer
 Title: Reporting Tables
-Version: 0.0.1.9009
-Date: 2024-12-05
+Version: 0.0.1.9010
+Date: 2024-12-13
 Authors@R: c(
     person("Gabriel", "Becker", , "gabembecker@gmail.com", role = "ctb"),
     person("Davide", "Garolini", , "davide.garolini@roche.com", role = "aut"),
@@ -45,6 +45,8 @@ Suggests:
 VignetteBuilder:
     knitr,
     rmarkdown
+Remotes:
+    insightsengineering/rtables@main
 Config/Needs/verdepcheck: insightsengineering/formatters,
     insightsengineering/rtables, tidyverse/magrittr, mllg/checkmate,
     rstudio/htmltools, gagolews/stringi, tidymodels/broom, cran/car,
@@ -52,8 +54,6 @@ Config/Needs/verdepcheck: insightsengineering/formatters,
     davidgohel/officer, Merck/r2rtf, rstudio/rmarkdown, therneau/survival,
     r-lib/testthat, tidyverse/tibble, tidyverse/tidyr, r-lib/withr,
     r-lib/xml2
-Remotes:
-    insightsengineering/rtables@main
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
