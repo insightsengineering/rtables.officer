@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# rtables <a href='https://github.com/insightsengineering/rtables'><img src="man/figures/logo.png" align="right" height="200" width="200"/></a>
+# rtables.officer <a href='https://github.com/insightsengineering/rtables'><img src="man/figures/logo.png" align="right" height="200" width="200"/></a>
 
 <!-- start badges -->
 
@@ -35,8 +35,6 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 [![Open
 Issues](https://img.shields.io/github/issues-raw/insightsengineering/rtables.officer?color=red&label=open%20issues)](https://github.com/insightsengineering/rtables.officer/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
 
-[![CRAN
-Version](https://www.r-pkg.org/badges/version/rtables.officer)](https://CRAN.R-project.org/package=rtables.officer)
 [![Current
 Version](https://img.shields.io/github/r-package/v/insightsengineering/rtables.officer/main?color=purple&label=Development%20Version)](https://github.com/insightsengineering/rtables.officer/tree/main)
 <!-- end badges -->
@@ -49,7 +47,8 @@ data structure which can then be displayed with cell-specific formatting
 instructions. Currently, `rtables` can be outputted in `ascii` `html`,
 and `pdf`, as well Power Point (via conversion to `flextable` objects).
 This package `rtables.officer` is designed to support the exporting
-outputs relate Microsoft office softwares such as word and powerpoint.
+outputs relate Microsoft office software such as `word` and
+`powerpoint`.
 
 `rtables` and `rtables.officer` is developed and copy written by
 `F. Hoffmann-La Roche` and it is released open source under Apache
