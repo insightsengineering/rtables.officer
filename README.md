@@ -44,19 +44,20 @@ Version](https://img.shields.io/github/r-package/v/insightsengineering/rtables.o
 The `rtables` R package was designed to create and display complex
 tables with R. The cells in an `rtable` may contain any high-dimensional
 data structure which can then be displayed with cell-specific formatting
-instructions. Currently, `rtables` can be outputted in `ascii` `html`,
-and `pdf`, as well Power Point (via conversion to `flextable` objects).
-This package `rtables.officer` is designed to support the exporting
-outputs relate Microsoft office software such as `word` and
-`powerpoint`.
+instructions. Currently, `rtables` can export tables in `ascii` `html`,
+and `pdf` formats.
 
-`rtables` and `rtables.officer` is developed and copy written by
-`F. Hoffmann-La Roche` and it is released open source under Apache
-License Version 2.
+The `rtables.officer` package is designed to support export formats
+related to the Microsoft Office software suite, including Microsoft Word
+(`docx`) and Microsoft PowerPoint (`pptx`).
+
+`rtables` and `rtables.officer` are developed and copy written by
+`F. Hoffmann-La Roche` and are released open source under Apache License
+Version 2.
 
 ## Installation
 
-`rtables.officer` can be installed with the latest development version
+You can install the latest development version of `rtables.officer`
 directly from GitHub with:
 
 ``` r
