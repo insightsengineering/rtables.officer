@@ -44,7 +44,7 @@ Version](https://img.shields.io/github/r-package/v/insightsengineering/rtables.o
 The `rtables` R package was designed to create and display complex
 tables with R. The cells in an `rtable` may contain any high-dimensional
 data structure which can then be displayed with cell-specific formatting
-instructions. Currently, `rtables` can export tables in `ascii` `html`,
+instructions. Currently, `rtables` can export tables in `ascii`, `html`,
 and `pdf` formats.
 
 The `rtables.officer` package is designed to support export formats
