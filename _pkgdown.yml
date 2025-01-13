@@ -16,9 +16,7 @@ navbar:
       href: articles/rtables.officer.html
     dev-guide:
       text: Developer Guide
-      menu:
-        - text: Developer Guide
-          href: articles/dev_guide_ph.html
+      href: articles/dev_guide_ph.html
     reports:
       text: Reports
       menu:
@@ -56,12 +54,9 @@ articles:
     contents:
     - dev_guide_ph
 
-
 reference:
-
   - title: Output Functions
     desc: These functions create ascii or html representations of the table
     contents:
     - tt_to_flextable
     - export_as_docx
-

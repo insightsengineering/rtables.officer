@@ -37,17 +37,16 @@ have their origin in studying tables that are commonly used to report
 analyses from clinical trials; however, we were careful to keep
 `rtables` a general purpose toolkit.
 
-In this vignette, we give a short introduction into `rtables` and
-tabulating a table.
+In this vignette, we give a short introduction into creating tables with `rtables` and exporting them into `docx` files with `rtables.officer`.
 
-The content in this vignette is based on the following two resources:
+The content of this vignette is based on the following two resources:
 
 * The [`rtables` useR 2020 presentation](https://www.youtube.com/watch?v=CBQzZ8ZhXLA)
 by Gabriel Becker
 * [`rtables` - A Framework For Creating Complex Structured Reporting Tables Via
 Multi-Level Faceted Computations](https://arxiv.org/pdf/2306.16610).
 
-The packages used in this vignette are `rtables` and `dplyr`:
+The packages used in this vignette are `rtables.officer`, `rtables`, and `dplyr`:
 
 ```{r, message=FALSE}
 library(rtables.officer)
@@ -98,9 +97,9 @@ information of `df` below.
 
 ## Building a Table
 
-The aim of this vignette is to build the following table and export it as a `docx` document:
+The aim of this vignette is to build the following table and then use `rtables.officer` to export it to a `docx` file.
 
-```{r}
+```{r tbl, echo=FALSE}
 lyt <- basic_table(show_colcounts = TRUE) %>%
   split_cols_by("arm") %>%
   split_cols_by("gender") %>%
@@ -114,12 +113,18 @@ tbl <- build_table(lyt, df)
 tbl
 ```
 
-We will export the `rtables` object into a `docx` file, namely `example.docx`.
+First, we build the table as follows:
 
-```{r, echo = FALSE}
-output_dir <- tempdir()
-# output_dir <- "." try this line yourself
+```{r tbl, echo=TRUE}
+```
+
+## Exporting to a `docx` File
+
+Next, we will export the `rtables` object generated above (`tbl`) into a `docx` file, namely `example.docx`.
+
+```{r, eval=FALSE}
+output_dir <- "." # specify here where the file should be saved
 export_as_docx(tbl, file = file.path(output_dir, "example.docx"))
 ```
 
-The code internally converts the `rtables` object into a flextable object and uses the `officer` package to save the output as a `docx` file.
+The `export_as_docx()` function used above first converts the `rtables` object into a `flextable` object and then uses the `officer` package to save the output to a `docx` file.
