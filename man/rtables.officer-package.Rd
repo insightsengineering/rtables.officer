@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-This package is dedicated to convert `rtables` object to tables in use in `pptx` and `docx` files.
+This package is dedicated to converting `rtables` table objects for use in `docx` and `pptx` files.
 }
 \seealso{
 Useful links:
