@@ -122,4 +122,4 @@ output_dir <- tempdir()
 export_as_docx(tbl, file = file.path(output_dir, "example.docx"))
 ```
 
-The internal of the code convert the `rtables` object into `flextable` object, and uses `officer` package to save the `docx` output file.
+The code internally converts the `rtables` object into a flextable object and uses the `officer` package to save the output as a `docx` file.
