@@ -1,5 +1,5 @@
 ---
-title: "Introduction to {rtables.offier}"
+title: "Introduction to {rtables.officer}"
 author: "Davide Garolini and Joe Zhu"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
