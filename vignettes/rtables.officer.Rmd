@@ -62,7 +62,7 @@ data structure which can then be displayed with cell-specific formatting
 instructions. Currently, `rtables` can be outputted in `ascii` `html`,
 and `pdf`, as well Power Point (via conversion to `flextable` objects).
 This package `rtables.officer` is designed to support the exporting
-outputs relate Microsoft office software such as `word` and
+outputs related to Microsoft office software such as `word` and
 `powerpoint`.
 
 For a detailed `rtables` getting started guide, please refer to [this page](https://insightsengineering.github.io/rtables/latest-release/articles/rtables.html).
@@ -98,7 +98,7 @@ information of `df` below.
 
 ## Building a Table
 
-The aim of this vignette is to build the following table and export as a `docx` document:
+The aim of this vignette is to build the following table and export it as a `docx` document:
 
 ```{r}
 lyt <- basic_table(show_colcounts = TRUE) %>%
