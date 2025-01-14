@@ -1,5 +1,5 @@
 Package: rtables.officer
-Title: Reporting Tables
+Title: Exporting tools for 'rtables'
 Version: 0.0.2
 Date: 2025-01-14
 Authors@R: c(
