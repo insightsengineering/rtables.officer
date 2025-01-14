@@ -4,11 +4,11 @@
 \name{rtables.officer-package}
 \alias{rtables.officer}
 \alias{rtables.officer-package}
-\title{rtables.officer: Exporting tools for 'rtables'}
+\title{rtables.officer: Exporting Tools for 'rtables'}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-This package is dedicated to converting `rtables` table objects for use in `docx` and `pptx` files.
+Convert and export `rtables` table objects for use in `docx` and `pptx` files.
 }
 \seealso{
 Useful links:
