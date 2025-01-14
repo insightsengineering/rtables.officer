@@ -1,61 +1,131 @@
 ---
-output: github_document
+title: "Introduction to {rtables.officer}"
+author: "Davide Garolini and Joe Zhu"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to {rtables.officer}}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
 editor_options:
   chunk_output_type: console
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, echo = FALSE}
+```{r, include = FALSE}
+suggested_dependent_pkgs <- c("dplyr")
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "man/figures/README-"
+  eval = all(vapply(
+    suggested_dependent_pkgs,
+    requireNamespace,
+    logical(1),
+    quietly = TRUE
+  ))
 )
-suppressPackageStartupMessages(library(rtables.officer))
-suppressPackageStartupMessages(library(rtables))
-suppressPackageStartupMessages(library(dplyr))
+```
+```{r, echo=FALSE}
+knitr::opts_chunk$set(comment = "#")
 ```
 
-# rtables.officer <a href='https://github.com/insightsengineering/rtables'><img src="man/figures/logo.png" align="right" height="200" width="200"/></a>
+## Introduction
 
-<!-- start badges -->
-[![Check 🛠](https://github.com/insightsengineering/rtables.officer/actions/workflows/check.yaml/badge.svg)](https://github.com/insightsengineering/rtables.officer/actions/workflows/check.yaml)
-[![Docs 📚](https://github.com/insightsengineering/rtables.officer/actions/workflows/docs.yaml/badge.svg)](https://insightsengineering.github.io/rtables.officer/)
-[![Code Coverage 📔](https://raw.githubusercontent.com/insightsengineering/rtables.officer/_xml_coverage_reports/data/main/badge.svg)](https://raw.githubusercontent.com/insightsengineering/rtables.officer/_xml_coverage_reports/data/main/coverage.xml)
+The `rtables` package provides a framework to create, tabulate, and
+output tables in R. Most of the design requirements for `rtables`
+have their origin in studying tables that are commonly used to report
+analyses from clinical trials; however, we were careful to keep
+`rtables` a general purpose toolkit.
 
-![GitHub forks](https://img.shields.io/github/forks/insightsengineering/rtables.officer?style=social)
-![GitHub repo stars](https://img.shields.io/github/stars/insightsengineering/rtables.officer?style=social)
+In this vignette, we give a short introduction into creating tables with `rtables` and exporting them into `docx` files with `rtables.officer`.
 
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/insightsengineering/rtables.officer)
-![GitHub contributors](https://img.shields.io/github/contributors/insightsengineering/rtables.officer)
-![GitHub last commit](https://img.shields.io/github/last-commit/insightsengineering/rtables.officer)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/insightsengineering/rtables.officer)
-![GitHub repo size](https://img.shields.io/github/repo-size/insightsengineering/rtables.officer)
-![GitHub language count](https://img.shields.io/github/languages/count/insightsengineering/rtables.officer)
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Open Issues](https://img.shields.io/github/issues-raw/insightsengineering/rtables.officer?color=red\&label=open%20issues)](https://github.com/insightsengineering/rtables.officer/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+The content of this vignette is based on the following two resources:
 
-[![Current Version](https://img.shields.io/github/r-package/v/insightsengineering/rtables.officer/main?color=purple\&label=Development%20Version)](https://github.com/insightsengineering/rtables.officer/tree/main)
-<!-- end badges -->
+* The [`rtables` useR 2020 presentation](https://www.youtube.com/watch?v=CBQzZ8ZhXLA)
+by Gabriel Becker
+* [`rtables` - A Framework For Creating Complex Structured Reporting Tables Via
+Multi-Level Faceted Computations](https://arxiv.org/pdf/2306.16610).
 
-## Reporting Tables with R
+The packages used in this vignette are `rtables.officer`, `rtables`, and `dplyr`:
 
-The `rtables` R package was designed to create and display complex tables with R. The cells in an `rtable` may contain
-any high-dimensional data structure which can then be displayed with cell-specific formatting instructions. Currently,
-`rtables` can be outputted in `ascii` `html`, and `pdf`, as well Power Point (via conversion to `flextable` objects). This package `rtables.officer` is designed to support the exporting outputs relate Microsoft office software such as `word` and `powerpoint`. 
-
-`rtables` and `rtables.officer` is developed and copy written by `F. Hoffmann-La Roche` and it is released open source under Apache
-License Version 2.
-
-
-## Installation
-
-`rtables.officer` can be installed with the latest development version directly from GitHub with:
-
-```r
-# install.packages("pak")
-pak::pak("insightsengineering/rtables.officer")
+```{r, message=FALSE}
+library(rtables.officer)
+library(dplyr)
 ```
 
+## Overview
 
+The `rtables` R package was designed to create and display complex
+tables with R. The cells in an `rtable` may contain any high-dimensional
+data structure which can then be displayed with cell-specific formatting
+instructions. Currently, `rtables` can output tables in `ascii`, `html`, and 
+`pdf` formats.
+
+The `rtables.officer` package is designed to support export formats related to 
+the Microsoft Office software suite, including Microsoft Word (`docx`) and 
+Microsoft PowerPoint (`pptx`).
+
+For a detailed guide on getting started with `rtables`, please refer to [this page](https://insightsengineering.github.io/rtables/latest-release/articles/rtables.html).
+
+## Data
+
+The data used in this vignette is a made up using random number
+generators. The data content is relatively simple: one row per
+imaginary person and one column per measurement: study arm, the
+country of origin, gender, handedness, age, and weight.
+
+```{r data}
+n <- 400
+
+set.seed(1)
+
+df <- tibble(
+  arm = factor(sample(c("Arm A", "Arm B"), n, replace = TRUE), levels = c("Arm A", "Arm B")),
+  country = factor(sample(c("CAN", "USA"), n, replace = TRUE, prob = c(.55, .45)), levels = c("CAN", "USA")),
+  gender = factor(sample(c("Female", "Male"), n, replace = TRUE), levels = c("Female", "Male")),
+  handed = factor(sample(c("Left", "Right"), n, prob = c(.6, .4), replace = TRUE), levels = c("Left", "Right")),
+  age = rchisq(n, 30) + 10
+) %>% mutate(
+  weight = 35 * rnorm(n, sd = .5) + ifelse(gender == "Female", 140, 180)
+)
+
+head(df)
+```
+
+Note that we use factor variables so that the level order is
+represented in the row or column order when we tabulate the
+information of `df` below.
+
+## Building a Table
+
+The aim of this vignette is to build the following table and then use `rtables.officer` to export it to a `docx` file.
+
+```{r tbl, echo=FALSE}
+lyt <- basic_table(show_colcounts = TRUE) %>%
+  split_cols_by("arm") %>%
+  split_cols_by("gender") %>%
+  split_rows_by("country") %>%
+  summarize_row_groups() %>%
+  split_rows_by("handed") %>%
+  summarize_row_groups() %>%
+  analyze("age", afun = mean, format = "xx.xx")
+
+tbl <- build_table(lyt, df)
+tbl
+```
+
+First, we build the table as follows:
+
+```{r tbl, echo=TRUE}
+```
+
+## Exporting to a `docx` File
+
+Next, we will export the `rtables` object generated above (`tbl`) into a `docx` file, namely `example.docx`.
+
+```{r, eval=FALSE}
+output_dir <- "." # specify here where the file should be saved
+export_as_docx(tbl, file = file.path(output_dir, "example.docx"))
+```
+
+The `export_as_docx()` function used above first converts the `rtables` object into a `flextable` object and then uses the `officer` package to save the output to a `docx` file.
