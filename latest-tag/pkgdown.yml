@@ -1,0 +1,10 @@
+pandoc: 3.1.13
+pkgdown: 2.1.1
+pkgdown_sha: ~
+articles:
+  dev_guide_ph: dev_guide_ph.html
+  rtables.officer: rtables.officer.html
+last_built: 2025-01-14T13:34Z
+urls:
+  reference: https://insightsengineering.github.io/rtables.officer/reference
+  article: https://insightsengineering.github.io/rtables.officer/articles
