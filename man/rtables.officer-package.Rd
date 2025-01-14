@@ -4,7 +4,7 @@
 \name{rtables.officer-package}
 \alias{rtables.officer}
 \alias{rtables.officer-package}
-\title{rtables.officer: Reporting Tables}
+\title{rtables.officer: Exporting tools for 'rtables'}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
