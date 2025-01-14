@@ -11,7 +11,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-7566-2787")),
     person("F. Hoffmann-La Roche AG", role = c("cph", "fnd"))
   )
-Description: Convert and export `rtables` table objects for use in `docx` and `pptx` files.
+Description: Convert and export 'rtables' table objects for use in 'docx' and 'pptx' files.
 License: Apache License 2.0 | file LICENSE
 URL: https://github.com/insightsengineering/rtables.officer,
     https://insightsengineering.github.io/rtables.officer/

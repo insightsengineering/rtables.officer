@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Convert and export `rtables` table objects for use in `docx` and `pptx` files.
+Convert and export 'rtables' table objects for use in 'docx' and 'pptx' files.
 }
 \seealso{
 Useful links:
