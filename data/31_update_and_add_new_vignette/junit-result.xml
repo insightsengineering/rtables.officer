@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="as_flextable" timestamp="2025-01-14T00:28:42Z" hostname="d72b56a04b46" tests="14" skipped="0" failures="0" errors="0" time="6.994">
-    <testcase time="1.076" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
-    <testcase time="0.381" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
-    <testcase time="0.413" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
-    <testcase time="0.414" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
-    <testcase time="0.892" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
-    <testcase time="0.00199999999999978" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
+  <testsuite name="as_flextable" timestamp="2025-01-14T00:28:56Z" hostname="a447106e1e84" tests="14" skipped="0" failures="0" errors="0" time="7.423">
+    <testcase time="1.144" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
+    <testcase time="0.398" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
+    <testcase time="0.428" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
+    <testcase time="0.433" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
+    <testcase time="0.933" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
     <testcase time="0.00300000000000011" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
-    <testcase time="0.707" classname="as_flextable" name="tt_to_flextable_does_not_create_different_cells_when_colcounts_or_multiple_on_different_lines"/>
-    <testcase time="0.515000000000001" classname="as_flextable" name="check_titles_bold_and_html_theme"/>
-    <testcase time="0.292" classname="as_flextable" name="check_titles_bold_and_html_theme"/>
-    <testcase time="0.297" classname="as_flextable" name="check_titles_bold_and_html_theme"/>
-    <testcase time="1.458" classname="as_flextable" name="check_pagination"/>
-    <testcase time="0.00300000000000011" classname="as_flextable" name="check_pagination"/>
-    <testcase time="0.540999999999999" classname="as_flextable" name="check_colwidths_in_flextable_object"/>
+    <testcase time="0.00300000000000011" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
+    <testcase time="0.746" classname="as_flextable" name="tt_to_flextable_does_not_create_different_cells_when_colcounts_or_multiple_on_different_lines"/>
+    <testcase time="0.542" classname="as_flextable" name="check_titles_bold_and_html_theme"/>
+    <testcase time="0.309" classname="as_flextable" name="check_titles_bold_and_html_theme"/>
+    <testcase time="0.313000000000001" classname="as_flextable" name="check_titles_bold_and_html_theme"/>
+    <testcase time="1.575" classname="as_flextable" name="check_pagination"/>
+    <testcase time="0.00400000000000045" classname="as_flextable" name="check_pagination"/>
+    <testcase time="0.592" classname="as_flextable" name="check_colwidths_in_flextable_object"/>
   </testsuite>
-  <testsuite name="export_as_docx" timestamp="2025-01-14T00:28:49Z" hostname="d72b56a04b46" tests="5" skipped="0" failures="0" errors="0" time="2.893">
-    <testcase time="1.666" classname="export_as_docx" name="export_as_docx_works_thanks_to_tt_to_flextable"/>
-    <testcase time="0.218" classname="export_as_docx" name="export_as_docx_works_thanks_to_tt_to_flextable"/>
-    <testcase time="0.720000000000001" classname="export_as_docx" name="export_as_docx_works_thanks_to_tt_to_flextable"/>
+  <testsuite name="export_as_docx" timestamp="2025-01-14T00:29:04Z" hostname="a447106e1e84" tests="5" skipped="0" failures="0" errors="0" time="3.152">
+    <testcase time="1.811" classname="export_as_docx" name="export_as_docx_works_thanks_to_tt_to_flextable"/>
+    <testcase time="0.237" classname="export_as_docx" name="export_as_docx_works_thanks_to_tt_to_flextable"/>
+    <testcase time="0.791" classname="export_as_docx" name="export_as_docx_works_thanks_to_tt_to_flextable"/>
     <testcase time="0.00300000000000011" classname="export_as_docx" name="export_as_docx_works_thanks_to_tt_to_flextable"/>
-    <testcase time="0.286" classname="export_as_docx" name="export_as_docx_produces_a_warning_if_manual_column_widths_are_used"/>
+    <testcase time="0.31" classname="export_as_docx" name="export_as_docx_produces_a_warning_if_manual_column_widths_are_used"/>
   </testsuite>
 </testsuites>
