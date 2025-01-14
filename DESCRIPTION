@@ -1,7 +1,7 @@
 Package: rtables.officer
 Title: Reporting Tables
-Version: 0.0.1.9012
-Date: 2025-01-10
+Version: 0.0.1.9013
+Date: 2025-01-14
 Authors@R: c(
     person("Gabriel", "Becker", , "gabembecker@gmail.com", role = "ctb"),
     person("Davide", "Garolini", , "davide.garolini@roche.com", role = "aut"),
@@ -11,8 +11,8 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-7566-2787")),
     person("F. Hoffmann-La Roche AG", role = c("cph", "fnd"))
   )
-Description: This package is dedicated to converting `rtables` table objects 
-    for use in `docx` and `pptx` files.
+Description: This package is dedicated to converting `rtables` table
+    objects for use in `docx` and `pptx` files.
 License: Apache License 2.0 | file LICENSE
 URL: https://github.com/insightsengineering/rtables.officer,
     https://insightsengineering.github.io/rtables.officer/
