@@ -11,10 +11,12 @@ navbar:
     github:
       icon: fa-github fa-lg
       href: https://github.com/insightsengineering/rtables.officer
+    intro:
+      text: Getting Started
+      href: articles/rtables.officer.html
     dev-guide:
       text: Developer Guide
-      menu:
-        - text: Split Machinery
+      href: articles/dev_guide_ph.html
     reports:
       text: Reports
       menu:
@@ -44,16 +46,17 @@ authors:
 
 articles:
   - title: Getting Started
-    navbar: Getting Started
+    navbar: ~
     contents:
     - rtables.officer
 
+  - title: Developer Guide
+    contents:
+    - dev_guide_ph
 
 reference:
-
   - title: Output Functions
     desc: These functions create ascii or html representations of the table
     contents:
     - tt_to_flextable
     - export_as_docx
-
