@@ -1,5 +1,5 @@
 ---
-title: "Developer guide"
+title: "Developer Guide"
 output:
     rmarkdown::html_document:
         theme: "spacelab"
@@ -9,7 +9,7 @@ output:
 author:
   - Joe Zhu ([`shajoezhu`](https://github.com/shajoezhu))
 vignette: >
-  %\VignetteIndexEntry{Developer guide}
+  %\VignetteIndexEntry{Developer Guide}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,4 +21,4 @@ knitr::opts_chunk$set(
 )
 ```
 
-For `rtables` core code and development, please refer to [https://insightsengineering.github.io/rtables/latest-release/articles/](https://insightsengineering.github.io/rtables/latest-release/articles/).
+For core `rtables` articles and developer guides, please refer to [https://insightsengineering.github.io/rtables/latest-release/articles/](https://insightsengineering.github.io/rtables/latest-release/articles/).
