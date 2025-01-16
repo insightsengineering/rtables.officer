@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Convert and export 'rtables' table objects for use in 'docx' and 'pptx' files.
+The 'rtables' R package was designed to create and display complex tables with R. The cells in an 'rtables' object may contain any high-dimensional data structure which can then be displayed with cell-specific formatting instructions. The 'rtables.officer' package is designed to support export formats related to the Microsoft Office software suite, including Microsoft Word ('docx') and Microsoft PowerPoint ('pptx').
 }
 \seealso{
 Useful links:

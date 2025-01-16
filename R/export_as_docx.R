@@ -27,6 +27,8 @@
 #'   we suggest that you use [tt_to_flextable()] prior to `export_as_docx()`. If the table is modified first using
 #'   [tt_to_flextable()], the `titles_as_header` and `footer_as_text` parameters must be re-specified.
 #'
+#' @return No return value, called for side effects
+#'
 #' @seealso [tt_to_flextable()]
 #'
 #' @examples
