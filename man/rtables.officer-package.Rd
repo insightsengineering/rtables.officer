@@ -4,11 +4,11 @@
 \name{rtables.officer-package}
 \alias{rtables.officer}
 \alias{rtables.officer-package}
-\title{rtables.officer: Reporting Tables}
+\title{rtables.officer: Exporting Tools for 'rtables'}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-This package is dedicated to converting `rtables` table objects for use in `docx` and `pptx` files.
+Designed to create and display complex tables with R, the 'rtables' R package allows cells in an 'rtables' object to contain any high-dimensional data structure, which can then be displayed with cell-specific formatting instructions. Additionally, the 'rtables.officer' package supports export formats related to the Microsoft Office software suite, including Microsoft Word ('docx') and Microsoft PowerPoint ('pptx').
 }
 \seealso{
 Useful links:

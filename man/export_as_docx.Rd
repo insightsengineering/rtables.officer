@@ -56,6 +56,9 @@ page size. Defaults to \code{\link[=section_properties_default]{section_properti
 
 \item{orientation}{(\code{string}) page orientation. Can be \code{"portrait"} or \code{"landscape"}. Defaults to \code{"portrait"}.}
 }
+\value{
+No return value, called for side effects
+}
 \description{
 From an \code{rtables} table, produce a self-contained Word document or attach it to a template Word
 file (\code{template_file}). This function is based on the \code{\link[=tt_to_flextable]{tt_to_flextable()}} transformer and
