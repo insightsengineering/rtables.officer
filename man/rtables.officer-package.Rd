@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-The 'rtables' R package was designed to create and display complex tables with R. The cells in an 'rtables' object may contain any high-dimensional data structure which can then be displayed with cell-specific formatting instructions. The 'rtables.officer' package is designed to support export formats related to the Microsoft Office software suite, including Microsoft Word ('docx') and Microsoft PowerPoint ('pptx').
+Designed to create and display complex tables with R, the 'rtables' R package allows cells in an 'rtables' object to contain any high-dimensional data structure, which can then be displayed with cell-specific formatting instructions. Additionally, the 'rtables.officer' package supports export formats related to the Microsoft Office software suite, including Microsoft Word ('docx') and Microsoft PowerPoint ('pptx').
 }
 \seealso{
 Useful links:

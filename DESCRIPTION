@@ -11,11 +11,11 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-7566-2787")),
     person("F. Hoffmann-La Roche AG", role = c("cph", "fnd"))
   )
-Description: The 'rtables' R package was designed to create and display complex tables with R. The
-    cells in an 'rtables' object may contain any high-dimensional data structure which can then be displayed
-    with cell-specific formatting instructions. The 'rtables.officer' package is designed to support
-    export formats related to the Microsoft Office software suite, including Microsoft Word
-    ('docx') and Microsoft PowerPoint ('pptx').
+Description: Designed to create and display complex tables with R, the 'rtables' R package allows
+    cells in an 'rtables' object to contain any high-dimensional data structure, which can then be
+    displayed with cell-specific formatting instructions. Additionally, the 'rtables.officer'
+    package supports export formats related to the Microsoft Office software suite, including
+    Microsoft Word ('docx') and Microsoft PowerPoint ('pptx').
 License: Apache License 2.0
 URL: https://github.com/insightsengineering/rtables.officer,
     https://insightsengineering.github.io/rtables.officer/
