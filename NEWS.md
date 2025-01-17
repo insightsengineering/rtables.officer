@@ -1,4 +1,4 @@
-## rtables.officer 0.0.2
+## rtables.officer 0.0.2.9000
 
 ### New Features
  * Experimental pagination is now possible in `tt_as_flextable()` and `export_as_docx()`.
