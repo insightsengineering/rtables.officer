@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   dev_guide_ph: dev_guide_ph.html
   rtables.officer: rtables.officer.html
-last_built: 2025-01-17T11:57Z
+last_built: 2025-01-17T12:04Z
 urls:
   reference: https://insightsengineering.github.io/rtables.officer/reference
   article: https://insightsengineering.github.io/rtables.officer/articles
