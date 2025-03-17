@@ -118,11 +118,13 @@ prov_footer(result) <- "Program: demo_poc_docx.R\nDate: 2024-11-06\nVersion: 0.0
 Convert the table to a `flextable` object and export it to a Word document:
 
 ```{r}
+output_dir <- "." # Specify here where the file should be saved
+file_location <- file.path(output_dir, "example.docx")
 flx_res <- tt_to_flextable(result)
-# export_as_docx(flx_res,
-#   file = "<file_location.docx>",
-#   section_properties = section_properties_default(orientation = "landscape")
-# )
+export_as_docx(flx_res,
+  file = file_location,
+  section_properties = section_properties_default(orientation = "landscape")
+)
 flx_res
 ```
 ## Advanced Customizations
@@ -142,8 +144,8 @@ flex_tbl <- tt_to_flextable(result,
                             autofit_to_page = FALSE,
                             bold_titles = TRUE,
                             colwidths = cw)
+export_as_docx(flex_tbl, file = file_location)
 flex_tbl
-# export_as_docx(flex_tbl, file = "<file_location.docx>")
 ```
 ### Pagination
 ```{r}
@@ -156,8 +158,8 @@ flx_res <- tt_to_flextable(
   bold_titles = TRUE,
   theme = theme_docx_default()
 )
+export_as_docx(flx_res, file = file_location)
 flx_res[[1]]
-# export_as_docx(flx_res, file =  "<file_location.docx>")
 ```
 ## Contributions
 To contribute to this package, please fork the repository, create a branch, make your changes, and submit a pull request. Your contributions are greatly appreciated!
