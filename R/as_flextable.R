@@ -3,63 +3,63 @@
 
 #' Create a `flextable` from an `rtables` table
 #'
-#' Principally used for export ([export_as_docx()]), this function produces a `flextable`
-#' from an `rtables` table. If `theme = NULL`, `rtables`-like style will be used. Otherwise,
-#' [theme_docx_default()] will produce a `.docx`-friendly table.
+#' Principally used within [export_as_docx()], this function produces a `flextable` from an `rtables` table.
+#' If `theme = theme_docx_default()` (default), a `.docx`-friendly table will be produced.
+#' If `theme = NULL`, the table will be produced in an `rtables`-like style.
 #'
 #' @inheritParams rtables::gen_args
 #' @inheritParams rtables::paginate_table
-#' @param theme (`function` or `NULL`)\cr A theme function that is designed internally as a function of a `flextable`
-#'   object to change its layout and style. If `NULL`, it will produce a table similar to `rtables` default. Defaults
-#'   to `theme_docx_default()` that is a classic Word output. See details for more information.
-#' @param border (`officer` border object)\cr defaults to `officer::fp_border(width = 0.5)`.
-#' @param indent_size (`numeric(1)`)\cr if `NULL`, the default indent size of the table (see [formatters::matrix_form()]
-#'   `indent_size`, default is 2) is used. To work with `docx`, any size is multiplied by 1 mm (2.83 pt) by default.
-#' @param titles_as_header (`flag`)\cr defaults to `TRUE` for [tt_to_flextable()], so the table is self-contained
-#'   as it makes additional header rows for [formatters::main_title()] string and [formatters::subtitles()] character
-#'   vector (one per element). `FALSE` is suggested for [export_as_docx()]. This adds titles and subtitles as a text
-#'   paragraph above the table. The same style is applied.
-#' @param bold_titles (`flag` or `integer`)\cr defaults to `TRUE` for [tt_to_flextable()], so the titles are bold. If
-#'   it is one or more integers, those lines will be bold.
-#' @param footers_as_text (`flag`)\cr defaults to `FALSE` for [tt_to_flextable()], so the table is self-contained with
-#'   the `flextable` definition of footnotes. `TRUE` is used for [export_as_docx()] to add the footers as a new
-#'   paragraph after the table. The same style is applied, but with a smaller font.
-#' @param counts_in_newline (`flag`)\cr defaults to `FALSE`. In `rtables` text printing ([formatters::toString()]),
-#'   the column counts, i.e. `(N=xx)`, are always on a new line. For `docx` exports it could be necessary to print it
-#'   on the same line.
-#' @param paginate (`flag`)\cr when exporting `.docx` documents using `export_as_docx`, we suggest relying on the
-#'   Microsoft Word pagination system. If `TRUE`, this option splits `tt` into different "pages" as multiple
-#'   `flextables`. Cooperation between the two mechanisms is not guaranteed. Defaults to `FALSE`.
+#' @param theme (`function` or `NULL`)\cr a theme function designed to change the layout and style of a `flextable`
+#'   object. Defaults to `theme_docx_default()`, the classic Microsoft Word output style. If `NULL`, a table with style
+#'   similar to the `rtables` default will be produced. See Details below for more information.
+#' @param indent_size (`numeric(1)`)\cr indentation size. If `NULL`, the default indent size of the table (see
+#'   [formatters::matrix_form()] `indent_size`, default is 2) is used. To work with `docx`, any size is multiplied by
+#'   1 mm (2.83 pt) by default.
+#' @param titles_as_header (`flag`)\cr whether the table should be self-contained and additional header rows created for
+#'   the [formatters::main_title()] string and [formatters::subtitles()] character vector (one row per element).
+#'   Defaults to `TRUE`. If `FALSE`, titles and subtitles are added as a paragraph of text above the table.
+#' @param bold_titles (`flag` or `integer`)\cr whether titles should be bold (defaults to `TRUE`). If one or more
+#'   integers are provided, these integers are used as indices for lines at which titles should be bold.
+#' @param footers_as_text (`flag`)\cr whether footers should be added as a new paragraph after the table (`TRUE`) or
+#'   the table should be self-contained, implementing `flextable`-style footnotes (`FALSE`) with the same style but a
+#'   smaller font. Defaults to `FALSE`.
+#' @param counts_in_newline (`flag`)\cr whether column counts should be printed on a new line. In `rtables`, column
+#'   counts (i.e. `(N=xx)`) are always printed on a new line (`TRUE`). For `docx` exports it may be preferred to print
+#'   these counts on the same line (`FALSE`). Defaults to `FALSE`.
+#' @param paginate (`flag`)\cr whether the `rtables` pagination mechanism should be used. If `TRUE`, this option splits
+#'   `tt` into multiple `flextables` as different "pages". When using [export_as_docx()] we suggest setting this to
+#'   `FALSE` and relying only on the default Microsoft Word pagination system as co-operation between the two mechanisms
+#'   is not guaranteed. Defaults to `FALSE`.
 #' @param total_page_width (`numeric(1)`)\cr total page width (in inches) for the resulting flextable(s). Any values
-#'   added for column widths is normalized by the total page width. Defaults to 10. If `autofit_to_page = TRUE`, this
+#'   added for column widths are normalized by the total page width. Defaults to 10. If `autofit_to_page = TRUE`, this
 #'   value is automatically set to the allowed page width.
 #' @param total_page_height (`numeric(1)`)\cr total page height (in inches) for the resulting flextable(s). Used only
 #'   to estimate number of lines per page (`lpp`) when `paginate = TRUE`. Defaults to 10.
 #' @param colwidths (`numeric`)\cr column widths for the resulting flextable(s). If `NULL`, the column widths estimated
 #'   with [formatters::propose_column_widths()] will be used. When exporting into `.docx` these values are normalized
 #'   to represent a fraction of the `total_page_width`. If these are specified, `autofit_to_page` is set to `FALSE`.
-#' @param autofit_to_page (`flag`)\cr defaults to `TRUE`. If `TRUE`, the column widths are automatically adjusted to
-#'   fit the total page width. If `FALSE`, the `colwidths` are used as an indicative proportion of `total_page_width`.
+#' @param autofit_to_page (`flag`)\cr whether column widths should be automatically adjusted to fit the total page
+#'   width. If `FALSE`, `colwidths` is used to indicate proportions of `total_page_width`. Defaults to `TRUE`.
 #'   See `flextable::set_table_properties(layout)` for more details.
 #' @param ... (`any`)\cr additional parameters to be passed to the pagination function. See [rtables::paginate_table()]
-#'   for further details.
+#'   for options. If `paginate = FALSE` this argument is ignored.
 #'
 #' @return A `flextable` object.
 #'
 #' @note
-#' Currently `cpp`, `tf_wrap`, and `max_width` are only used in pagination and do not yet have a
-#' clear cooperation with `colwidths` and `autofit_to_page`. at the moment it is suggested to use the `cpp`
-#' parameter family cautiously. If issues arise, please communicate with the maintainers or raise an issue.
+#' Currently `cpp`, `tf_wrap`, and `max_width` are only used in pagination and should be used cautiously if used in
+#' combination with `colwidths` and `autofit_to_page`. If issues arise, please raise an issue on GitHub or communicate
+#' this to the package maintainers directly.
 #'
 #' @details
-#' Themes can also be extended when you need only a minor change from a default style. You can either
-#' add your own theme to the theme call (e.g. `c(theme_docx_default(), my_theme)`) or create a new
-#' theme like shown in the examples. Please pay attention to the parameters' inputs as they are relevant
-#' for this to work properly.
-#' Indeed, it is possible to use some hidden values for building your own theme (hence the need of `...`).
-#' In particular, `tt_to_flextable` sends in the following variable:
-#' `tbl_row_class = rtables::make_row_df(tt)$node_class`. This is ignored if not used in the theme.
-#' See `theme_docx_default` for an example on own to retrieve these values and how to use them.
+#' If you would like to make a minor change to a pre-existing style, this can be done by extending themes. You can do
+#' this by either adding your own theme to the theme call (e.g. `theme = c(theme_docx_default(), my_theme)`) or creating
+#' a new theme as shown in the examples below. Please pay close attention to the parameters' inputs.
+#'
+#' It is possible to use some hidden values to build your own theme (hence the need for the `...` parameter). In
+#' particular, [tt_to_flextable()] uses the following variable: `tbl_row_class = rtables::make_row_df(tt)$node_class`.
+#' This is ignored if not used in the theme. See [theme_docx_default()] for an example on how to retrieve and use these
+#' values.
 #'
 #' @seealso [export_as_docx()]
 #'
@@ -82,12 +82,13 @@
 #'
 #' tbl <- build_table(lyt, ex_adsl)
 #'
-#' # rtables style
+#' # Example 1: rtables style ---------------------------------------------------
 #' tt_to_flextable(tbl, theme = NULL)
 #'
+#' # Example 2: docx style ------------------------------------------------------
 #' tt_to_flextable(tbl, theme = theme_docx_default(font_size = 6))
 #'
-#' # Example with multiple themes (only extending the docx default!)
+#' # Example 3: Extending the docx theme ----------------------------------------
 #' my_theme <- function(x, ...) {
 #'   flextable::border_inner(x, part = "body", border = flextable::fp_border_default(width = 0.5))
 #' }
@@ -110,8 +111,8 @@ tt_to_flextable <- function(tt,
                             colwidths = NULL,
                             tf_wrap = !is.null(cpp),
                             max_width = cpp,
-                            total_page_height = 10, # portrait 11 landscape  8.5
-                            total_page_width = 10, # portrait 8.5 landscape  11
+                            total_page_height = 10, # portrait 11 landscape 8.5
+                            total_page_width = 10, # portrait 8.5 landscape 11
                             autofit_to_page = TRUE) {
   if (!inherits(tt, "VTableTree")) {
     stop("Input table is not an rtables' object.")
@@ -501,11 +502,11 @@ tt_to_flextable <- function(tt,
 
 #' @describeIn tt_to_flextable Main theme function for [export_as_docx()].
 #'
-#' @param font (`string`)\cr defaults to `"Arial"`. If the font is not available, `flextable` default is used.
-#'   Please consider consulting the family column from `system_fonts` from package `{systemfonts}`.
+#' @param font (`string`)\cr font. Defaults to `"Arial"`. If the font given is not available, the `flextable` default
+#'   is used instead. For options, consult the family column from `systemfonts::system_fonts()`.
 #' @param font_size (`integer(1)`)\cr font size. Defaults to 9.
 #' @param cell_margins (`numeric(1)` or `numeric(4)`)\cr a numeric or a vector of four numbers indicating
-#'   `c("left", "right", "top", "bottom")`. It defaults to 0 for top and bottom, and to 0.19 `mm` in word `pt`
+#'   `c("left", "right", "top", "bottom")`. It defaults to 0 for top and bottom, and to 0.19 `mm` in Word `pt`
 #'   for left and right.
 #' @param bold (`character`)\cr parts of the table text that should be in bold. Can be any combination of
 #'   `c("header", "content_rows", "label_rows", "top_left")`. The first one renders all column names bold
@@ -515,10 +516,8 @@ tt_to_flextable <- function(tt,
 #'   groupings/names are `c("header", "body")`.
 #' @param border (`flextable::fp_border()`)\cr border style. Defaults to `flextable::fp_border_default(width = 0.5)`.
 #'
-#' @seealso [export_as_docx()]
-#'
 #' @examples
-#' # Custom theme
+#' # Example 4: Creating a custom theme -----------------------------------------
 #' special_bold <- list(
 #'   "header" = list("i" = 1, "j" = c(1, 3)),
 #'   "body" = list("i" = c(1, 2), "j" = 1)
@@ -535,7 +534,7 @@ tt_to_flextable <- function(tt,
 #'   theme = custom_theme
 #' )
 #'
-#' # Extending themes
+#' # Example 5: Extending the docx theme ----------------------------------------
 #' my_theme <- function(font_size = 6) { # here can pass additional arguments for default theme
 #'   function(flx, ...) {
 #'     # First apply theme_docx_default
@@ -555,12 +554,7 @@ tt_to_flextable <- function(tt,
 #' @export
 theme_docx_default <- function(font = "Arial",
                                font_size = 9,
-                               cell_margins = c(
-                                 word_mm_to_pt(1.9),
-                                 word_mm_to_pt(1.9),
-                                 0,
-                                 0
-                               ), # Default in docx
+                               cell_margins = c(word_mm_to_pt(1.9), word_mm_to_pt(1.9), 0, 0), # Default in docx
                                bold = c("header", "content_rows", "label_rows", "top_left"),
                                bold_manual = NULL,
                                border = flextable::fp_border_default(width = 0.5)) {
@@ -655,8 +649,9 @@ theme_docx_default <- function(font = "Arial",
 }
 
 #' @describeIn tt_to_flextable Theme function for html outputs.
-#' @param remove_internal_borders (`character`)\cr defaults to `"label_rows"`. Remove internal borders between rows.
-#'   Currently there are no other options and can be turned off by providing any character value.
+#' @param remove_internal_borders (`character`)\cr where to remove internal borders between rows. Defaults to
+#'   `"label_rows"`. Currently there are no other options and this can be turned off by providing any other character
+#'   value.
 #'
 #' @examples
 #' # html theme

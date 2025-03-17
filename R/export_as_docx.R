@@ -1,25 +1,33 @@
 # docx (flextable) -----------------------------------------------------------
-#' Export as word document
+#' Export to a Word document
 #'
-#' From a table, produce a self-contained word document or attach it to a template word
+#' From an `rtables` table, produce a self-contained Word document or attach it to a template Word
 #' file (`template_file`). This function is based on the [tt_to_flextable()] transformer and
 #' the `officer` package.
 #'
 #' @inheritParams rtables::gen_args
-#' @param file (`string`)\cr string that indicates the final file output. Must have `.docx` extension.
-#' @param doc_metadata (`list` of `string`s)\cr any value that can be used as metadata by
-#'   `?officer::set_doc_properties`. Important text values are `title`, `subject`, `creator`, and `description`,
-#'   while `created` is a date object.
 #' @inheritParams tt_to_flextable
+#' @param file (`string`)\cr output file. Must have `.docx` extension.
+#' @param doc_metadata (`list` of `string`)\cr any value that can be used as metadata by
+#'   [officer::set_doc_properties()]. Important text values are `title`, `subject`, `creator`, and `description`,
+#'   while `created` is a date object.
+#' @param titles_as_header (`flag`)\cr whether the table should be self-contained with additional header rows created
+#'   for titles and subtitles (`TRUE`), or titles and subtitles should be added as a paragraph of text above the table
+#'   (`FALSE`). Defaults to `FALSE`.
+#' @param footers_as_text (`flag`)\cr whether footers should be added as a new paragraph after the table (`TRUE`) or
+#'   the table should be self-contained, implementing `flextable`-style footnotes (`FALSE`) with the same style but a
+#'   smaller font. Defaults to `TRUE`.
 #' @param template_file (`string`)\cr template file that `officer` will use as a starting point for the final
 #'   document. Document attaches the table and uses the defaults defined in the template file.
 #' @param section_properties (`officer::prop_section`)\cr an [officer::prop_section()] object which sets margins and
-#'   page size. Defaults to `section_properties_default()`.
+#'   page size. Defaults to [section_properties_default()].
 #' @param ... (`any`)\cr additional arguments passed to [tt_to_flextable()].
 #'
 #' @note `export_as_docx()` has few customization options available. If you require specific formats and details,
-#'   we suggest that you use [tt_to_flextable()] prior to `export_as_docx`. Only the `titles_as_header` and
-#'   `footer_as_text` parameters must be re-specified if the table is changed first using [tt_to_flextable()].
+#'   we suggest that you use [tt_to_flextable()] prior to `export_as_docx()`. If the table is modified first using
+#'   [tt_to_flextable()], the `titles_as_header` and `footer_as_text` parameters must be re-specified.
+#'
+#' @return No return value, called for side effects
 #'
 #' @seealso [tt_to_flextable()]
 #'
@@ -30,7 +38,7 @@
 #'
 #' tbl <- build_table(lyt, ex_adsl)
 #'
-#' # See how section_properties_portrait function is built for custom
+#' # See how the section_properties_portrait() function is built for customization
 #' tf <- tempfile(fileext = ".docx")
 #' export_as_docx(tbl,
 #'   file = tf,
@@ -173,9 +181,8 @@ add_text_par <- function(doc, chr_v, text_format) {
 }
 
 #' @describeIn export_as_docx Helper function that defines standard portrait properties for tables.
-#' @param page_size (`character(1)`) page size. Can be `"letter"` or `"A4"`. Defaults to `"letter"`.
-#' @param orientation (`character(1)`) page orientation. Can be `"portrait"` or `"landscape"`. Defaults to
-#'   `"portrait"`.
+#' @param page_size (`string`) page size. Can be `"letter"` or `"A4"`. Defaults to `"letter"`.
+#' @param orientation (`string`) page orientation. Can be `"portrait"` or `"landscape"`. Defaults to `"portrait"`.
 #'
 #' @export
 section_properties_default <- function(page_size = c("letter", "A4"),

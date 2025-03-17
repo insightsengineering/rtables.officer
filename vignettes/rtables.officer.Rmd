@@ -1,6 +1,6 @@
 ---
 title: "Introduction to {rtables.officer}"
-author: "Davide Garolini"
+author: "Davide Garolini, Emily de la Rua and Joe Zhu"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >

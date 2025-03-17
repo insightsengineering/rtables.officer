@@ -1,0 +1,24 @@
+---
+title: "Developer Guide"
+output:
+    rmarkdown::html_document:
+        theme: "spacelab"
+        highlight: "kate"
+        toc: true
+        toc_float: true
+author:
+  - Joe Zhu ([`shajoezhu`](https://github.com/shajoezhu))
+vignette: >
+  %\VignetteIndexEntry{Developer Guide}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+For core `rtables` articles and developer guides, please refer to [https://insightsengineering.github.io/rtables/latest-release/articles/](https://insightsengineering.github.io/rtables/latest-release/articles/).

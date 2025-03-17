@@ -31,10 +31,13 @@ authors:
 
 articles:
   - title: Getting Started
-    navbar: Getting Started
+    navbar: ~
     contents:
     - rtables.officer
 
+  - title: Developer Guide
+    contents:
+    - dev_guide_ph
 
 reference:
   - title: Output Functions
@@ -42,4 +45,3 @@ reference:
     contents:
     - tt_to_flextable
     - export_as_docx
-

@@ -1,44 +1,42 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# rtables <a href='https://github.com/insightsengineering/rtables'><img src="man/figures/logo.png" align="right" height="200" width="200"/></a>
+# rtables.officer <a href='https://github.com/insightsengineering/rtables'><img src="man/figures/logo.png" align="right" height="200" width="200"/></a>
 
 <!-- start badges -->
 
 [![Check
-🛠](https://github.com/insightsengineering/rtables/actions/workflows/check.yaml/badge.svg)](https://github.com/insightsengineering/rtables/actions/workflows/check.yaml)
+🛠](https://github.com/insightsengineering/rtables.officer/actions/workflows/check.yaml/badge.svg)](https://github.com/insightsengineering/rtables.officer/actions/workflows/check.yaml)
 [![Docs
-📚](https://github.com/insightsengineering/rtables/actions/workflows/docs.yaml/badge.svg)](https://insightsengineering.github.io/rtables/)
+📚](https://github.com/insightsengineering/rtables.officer/actions/workflows/docs.yaml/badge.svg)](https://insightsengineering.github.io/rtables.officer/)
 [![Code Coverage
-📔](https://raw.githubusercontent.com/insightsengineering/rtables/_xml_coverage_reports/data/main/badge.svg)](https://raw.githubusercontent.com/insightsengineering/rtables/_xml_coverage_reports/data/main/coverage.xml)
+📔](https://raw.githubusercontent.com/insightsengineering/rtables.officer/_xml_coverage_reports/data/main/badge.svg)](https://raw.githubusercontent.com/insightsengineering/rtables.officer/_xml_coverage_reports/data/main/coverage.xml)
 
 ![GitHub
-forks](https://img.shields.io/github/forks/insightsengineering/rtables?style=social)
+forks](https://img.shields.io/github/forks/insightsengineering/rtables.officer?style=social)
 ![GitHub repo
-stars](https://img.shields.io/github/stars/insightsengineering/rtables?style=social)
+stars](https://img.shields.io/github/stars/insightsengineering/rtables.officer?style=social)
 
 ![GitHub commit
-activity](https://img.shields.io/github/commit-activity/m/insightsengineering/rtables)
+activity](https://img.shields.io/github/commit-activity/m/insightsengineering/rtables.officer)
 ![GitHub
-contributors](https://img.shields.io/github/contributors/insightsengineering/rtables)
+contributors](https://img.shields.io/github/contributors/insightsengineering/rtables.officer)
 ![GitHub last
-commit](https://img.shields.io/github/last-commit/insightsengineering/rtables)
+commit](https://img.shields.io/github/last-commit/insightsengineering/rtables.officer)
 ![GitHub pull
-requests](https://img.shields.io/github/issues-pr/insightsengineering/rtables)
+requests](https://img.shields.io/github/issues-pr/insightsengineering/rtables.officer)
 ![GitHub repo
-size](https://img.shields.io/github/repo-size/insightsengineering/rtables)
+size](https://img.shields.io/github/repo-size/insightsengineering/rtables.officer)
 ![GitHub language
-count](https://img.shields.io/github/languages/count/insightsengineering/rtables)
+count](https://img.shields.io/github/languages/count/insightsengineering/rtables.officer)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Open
-Issues](https://img.shields.io/github/issues-raw/insightsengineering/rtables?color=red&label=open%20issues)](https://github.com/insightsengineering/rtables/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+Issues](https://img.shields.io/github/issues-raw/insightsengineering/rtables.officer?color=red&label=open%20issues)](https://github.com/insightsengineering/rtables.officer/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
 
-[![CRAN
-Version](https://www.r-pkg.org/badges/version/rtables)](https://CRAN.R-project.org/package=rtables)
 [![Current
-Version](https://img.shields.io/github/r-package/v/insightsengineering/rtables/main?color=purple&label=Development%20Version)](https://github.com/insightsengineering/rtables/tree/main)
+Version](https://img.shields.io/github/r-package/v/insightsengineering/rtables.officer/main?color=purple&label=Development%20Version)](https://github.com/insightsengineering/rtables.officer/tree/main)
 <!-- end badges -->
 
 ## Exporting `rtables` to Microsoft Word and beyond

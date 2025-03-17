@@ -51,34 +51,35 @@ word_mm_to_pt(mm)
 \arguments{
 \item{tt}{(\code{TableTree} or related class)\cr a \code{TableTree} object representing a populated table.}
 
-\item{theme}{(\code{function} or \code{NULL})\cr A theme function that is designed internally as a function of a \code{flextable}
-object to change its layout and style. If \code{NULL}, it will produce a table similar to \code{rtables} default. Defaults
-to \code{theme_docx_default()} that is a classic Word output. See details for more information.}
+\item{theme}{(\code{function} or \code{NULL})\cr a theme function designed to change the layout and style of a \code{flextable}
+object. Defaults to \code{theme_docx_default()}, the classic Microsoft Word output style. If \code{NULL}, a table with style
+similar to the \code{rtables} default will be produced. See Details below for more information.}
 
 \item{border}{(\code{flextable::fp_border()})\cr border style. Defaults to \code{flextable::fp_border_default(width = 0.5)}.}
 
-\item{indent_size}{(\code{numeric(1)})\cr if \code{NULL}, the default indent size of the table (see \code{\link[formatters:matrix_form]{formatters::matrix_form()}}
-\code{indent_size}, default is 2) is used. To work with \code{docx}, any size is multiplied by 1 mm (2.83 pt) by default.}
+\item{indent_size}{(\code{numeric(1)})\cr indentation size. If \code{NULL}, the default indent size of the table (see
+\code{\link[formatters:matrix_form]{formatters::matrix_form()}} \code{indent_size}, default is 2) is used. To work with \code{docx}, any size is multiplied by
+1 mm (2.83 pt) by default.}
 
-\item{titles_as_header}{(\code{flag})\cr defaults to \code{TRUE} for \code{\link[=tt_to_flextable]{tt_to_flextable()}}, so the table is self-contained
-as it makes additional header rows for \code{\link[formatters:title_footer]{formatters::main_title()}} string and \code{\link[formatters:title_footer]{formatters::subtitles()}} character
-vector (one per element). \code{FALSE} is suggested for \code{\link[=export_as_docx]{export_as_docx()}}. This adds titles and subtitles as a text
-paragraph above the table. The same style is applied.}
+\item{titles_as_header}{(\code{flag})\cr whether the table should be self-contained and additional header rows created for
+the \code{\link[formatters:title_footer]{formatters::main_title()}} string and \code{\link[formatters:title_footer]{formatters::subtitles()}} character vector (one row per element).
+Defaults to \code{TRUE}. If \code{FALSE}, titles and subtitles are added as a paragraph of text above the table.}
 
-\item{bold_titles}{(\code{flag} or \code{integer})\cr defaults to \code{TRUE} for \code{\link[=tt_to_flextable]{tt_to_flextable()}}, so the titles are bold. If
-it is one or more integers, those lines will be bold.}
+\item{bold_titles}{(\code{flag} or \code{integer})\cr whether titles should be bold (defaults to \code{TRUE}). If one or more
+integers are provided, these integers are used as indices for lines at which titles should be bold.}
 
-\item{footers_as_text}{(\code{flag})\cr defaults to \code{FALSE} for \code{\link[=tt_to_flextable]{tt_to_flextable()}}, so the table is self-contained with
-the \code{flextable} definition of footnotes. \code{TRUE} is used for \code{\link[=export_as_docx]{export_as_docx()}} to add the footers as a new
-paragraph after the table. The same style is applied, but with a smaller font.}
+\item{footers_as_text}{(\code{flag})\cr whether footers should be added as a new paragraph after the table (\code{TRUE}) or
+the table should be self-contained, implementing \code{flextable}-style footnotes (\code{FALSE}) with the same style but a
+smaller font. Defaults to \code{FALSE}.}
 
-\item{counts_in_newline}{(\code{flag})\cr defaults to \code{FALSE}. In \code{rtables} text printing (\code{\link[formatters:tostring]{formatters::toString()}}),
-the column counts, i.e. \code{(N=xx)}, are always on a new line. For \code{docx} exports it could be necessary to print it
-on the same line.}
+\item{counts_in_newline}{(\code{flag})\cr whether column counts should be printed on a new line. In \code{rtables}, column
+counts (i.e. \code{(N=xx)}) are always printed on a new line (\code{TRUE}). For \code{docx} exports it may be preferred to print
+these counts on the same line (\code{FALSE}). Defaults to \code{FALSE}.}
 
-\item{paginate}{(\code{flag})\cr when exporting \code{.docx} documents using \code{export_as_docx}, we suggest relying on the
-Microsoft Word pagination system. If \code{TRUE}, this option splits \code{tt} into different "pages" as multiple
-\code{flextables}. Cooperation between the two mechanisms is not guaranteed. Defaults to \code{FALSE}.}
+\item{paginate}{(\code{flag})\cr whether the \code{rtables} pagination mechanism should be used. If \code{TRUE}, this option splits
+\code{tt} into multiple \code{flextables} as different "pages". When using \code{\link[=export_as_docx]{export_as_docx()}} we suggest setting this to
+\code{FALSE} and relying only on the default Microsoft Word pagination system as co-operation between the two mechanisms
+is not guaranteed. Defaults to \code{FALSE}.}
 
 \item{fontspec}{(\code{font_spec})\cr a font_spec object specifying the font information to use for
 calculating string widths and heights, as returned by \code{\link[formatters:font_spec]{font_spec()}}.}
@@ -90,7 +91,7 @@ calculating string widths and heights, as returned by \code{\link[formatters:fon
 pagination should be done regardless of page size.}
 
 \item{...}{(\code{any})\cr additional parameters to be passed to the pagination function. See \code{\link[rtables:paginate]{rtables::paginate_table()}}
-for further details.}
+for options. If \code{paginate = FALSE} this argument is ignored.}
 
 \item{colwidths}{(\code{numeric})\cr column widths for the resulting flextable(s). If \code{NULL}, the column widths estimated
 with \code{\link[formatters:propose_column_widths]{formatters::propose_column_widths()}} will be used. When exporting into \code{.docx} these values are normalized
@@ -107,20 +108,20 @@ used. Parameter is ignored if \code{tf_wrap = FALSE}.}
 to estimate number of lines per page (\code{lpp}) when \code{paginate = TRUE}. Defaults to 10.}
 
 \item{total_page_width}{(\code{numeric(1)})\cr total page width (in inches) for the resulting flextable(s). Any values
-added for column widths is normalized by the total page width. Defaults to 10. If \code{autofit_to_page = TRUE}, this
+added for column widths are normalized by the total page width. Defaults to 10. If \code{autofit_to_page = TRUE}, this
 value is automatically set to the allowed page width.}
 
-\item{autofit_to_page}{(\code{flag})\cr defaults to \code{TRUE}. If \code{TRUE}, the column widths are automatically adjusted to
-fit the total page width. If \code{FALSE}, the \code{colwidths} are used as an indicative proportion of \code{total_page_width}.
+\item{autofit_to_page}{(\code{flag})\cr whether column widths should be automatically adjusted to fit the total page
+width. If \code{FALSE}, \code{colwidths} is used to indicate proportions of \code{total_page_width}. Defaults to \code{TRUE}.
 See \code{flextable::set_table_properties(layout)} for more details.}
 
-\item{font}{(\code{string})\cr defaults to \code{"Arial"}. If the font is not available, \code{flextable} default is used.
-Please consider consulting the family column from \code{system_fonts} from package \code{{systemfonts}}.}
+\item{font}{(\code{string})\cr font. Defaults to \code{"Arial"}. If the font given is not available, the \code{flextable} default
+is used instead. For options, consult the family column from \code{systemfonts::system_fonts()}.}
 
 \item{font_size}{(\code{integer(1)})\cr font size. Defaults to 9.}
 
 \item{cell_margins}{(\code{numeric(1)} or \code{numeric(4)})\cr a numeric or a vector of four numbers indicating
-\code{c("left", "right", "top", "bottom")}. It defaults to 0 for top and bottom, and to 0.19 \code{mm} in word \code{pt}
+\code{c("left", "right", "top", "bottom")}. It defaults to 0 for top and bottom, and to 0.19 \code{mm} in Word \code{pt}
 for left and right.}
 
 \item{bold}{(\code{character})\cr parts of the table text that should be in bold. Can be any combination of
@@ -131,8 +132,9 @@ label rows as bold.}
 \item{bold_manual}{(named \code{list} or \code{NULL})\cr list of index lists. See example for needed structure. Accepted
 groupings/names are \code{c("header", "body")}.}
 
-\item{remove_internal_borders}{(\code{character})\cr defaults to \code{"label_rows"}. Remove internal borders between rows.
-Currently there are no other options and can be turned off by providing any character value.}
+\item{remove_internal_borders}{(\code{character})\cr where to remove internal borders between rows. Defaults to
+\code{"label_rows"}. Currently there are no other options and this can be turned off by providing any other character
+value.}
 
 \item{mm}{(\code{numeric(1)})\cr the value in mm to transform to pt.}
 }
@@ -140,19 +142,19 @@ Currently there are no other options and can be turned off by providing any char
 A \code{flextable} object.
 }
 \description{
-Principally used for export (\code{\link[=export_as_docx]{export_as_docx()}}), this function produces a \code{flextable}
-from an \code{rtables} table. If \code{theme = NULL}, \code{rtables}-like style will be used. Otherwise,
-\code{\link[=theme_docx_default]{theme_docx_default()}} will produce a \code{.docx}-friendly table.
+Principally used within \code{\link[=export_as_docx]{export_as_docx()}}, this function produces a \code{flextable} from an \code{rtables} table.
+If \code{theme = theme_docx_default()} (default), a \code{.docx}-friendly table will be produced.
+If \code{theme = NULL}, the table will be produced in an \code{rtables}-like style.
 }
 \details{
-Themes can also be extended when you need only a minor change from a default style. You can either
-add your own theme to the theme call (e.g. \code{c(theme_docx_default(), my_theme)}) or create a new
-theme like shown in the examples. Please pay attention to the parameters' inputs as they are relevant
-for this to work properly.
-Indeed, it is possible to use some hidden values for building your own theme (hence the need of \code{...}).
-In particular, \code{tt_to_flextable} sends in the following variable:
-\code{tbl_row_class = rtables::make_row_df(tt)$node_class}. This is ignored if not used in the theme.
-See \code{theme_docx_default} for an example on own to retrieve these values and how to use them.
+If you would like to make a minor change to a pre-existing style, this can be done by extending themes. You can do
+this by either adding your own theme to the theme call (e.g. \code{theme = c(theme_docx_default(), my_theme)}) or creating
+a new theme as shown in the examples below. Please pay close attention to the parameters' inputs.
+
+It is possible to use some hidden values to build your own theme (hence the need for the \code{...} parameter). In
+particular, \code{\link[=tt_to_flextable]{tt_to_flextable()}} uses the following variable: \code{tbl_row_class = rtables::make_row_df(tt)$node_class}.
+This is ignored if not used in the theme. See \code{\link[=theme_docx_default]{theme_docx_default()}} for an example on how to retrieve and use these
+values.
 }
 \section{Functions}{
 \itemize{
@@ -164,9 +166,9 @@ See \code{theme_docx_default} for an example on own to retrieve these values and
 
 }}
 \note{
-Currently \code{cpp}, \code{tf_wrap}, and \code{max_width} are only used in pagination and do not yet have a
-clear cooperation with \code{colwidths} and \code{autofit_to_page}. at the moment it is suggested to use the \code{cpp}
-parameter family cautiously. If issues arise, please communicate with the maintainers or raise an issue.
+Currently \code{cpp}, \code{tf_wrap}, and \code{max_width} are only used in pagination and should be used cautiously if used in
+combination with \code{colwidths} and \code{autofit_to_page}. If issues arise, please raise an issue on GitHub or communicate
+this to the package maintainers directly.
 }
 \examples{
 analysisfun <- function(x, ...) {
@@ -187,18 +189,19 @@ lyt <- basic_table(
 
 tbl <- build_table(lyt, ex_adsl)
 
-# rtables style
+# Example 1: rtables style ---------------------------------------------------
 tt_to_flextable(tbl, theme = NULL)
 
+# Example 2: docx style ------------------------------------------------------
 tt_to_flextable(tbl, theme = theme_docx_default(font_size = 6))
 
-# Example with multiple themes (only extending the docx default!)
+# Example 3: Extending the docx theme ----------------------------------------
 my_theme <- function(x, ...) {
   flextable::border_inner(x, part = "body", border = flextable::fp_border_default(width = 0.5))
 }
 flx <- tt_to_flextable(tbl, theme = c(theme_docx_default(), my_theme))
 
-# Custom theme
+# Example 4: Creating a custom theme -----------------------------------------
 special_bold <- list(
   "header" = list("i" = 1, "j" = c(1, 3)),
   "body" = list("i" = c(1, 2), "j" = 1)
@@ -215,7 +218,7 @@ tt_to_flextable(tbl,
   theme = custom_theme
 )
 
-# Extending themes
+# Example 5: Extending the docx theme ----------------------------------------
 my_theme <- function(font_size = 6) { # here can pass additional arguments for default theme
   function(flx, ...) {
     # First apply theme_docx_default
@@ -257,7 +260,5 @@ flextable::save_as_html(tbl_html, path = "test.html")
 
 }
 \seealso{
-\code{\link[=export_as_docx]{export_as_docx()}}
-
 \code{\link[=export_as_docx]{export_as_docx()}}
 }
