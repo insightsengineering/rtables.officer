@@ -115,7 +115,7 @@ fit the total page width. If \code{FALSE}, the \code{colwidths} are used as an i
 See \code{flextable::set_table_properties(layout)} for more details.}
 
 \item{font}{(\code{string})\cr defaults to \code{"Arial"}. If the font is not available, \code{flextable} default is used.
-Please consider consulting the family column from \code{systemfonts::system_fonts()}.}
+Please consider consulting the family column from \code{system_fonts} from package \code{{systemfonts}}.}
 
 \item{font_size}{(\code{integer(1)})\cr font size. Defaults to 9.}
 
@@ -231,6 +231,29 @@ my_theme <- function(font_size = 6) { # here can pass additional arguments for d
   }
 }
 flx <- tt_to_flextable(tbl, theme = my_theme())
+
+# html theme
+
+# Define a layout for the table
+lyt <- basic_table() \%>\%
+  # Split columns by the "ARM" variable
+  split_cols_by("ARM") \%>\%
+  # Analyze the "AGE", "BMRKR2", and "COUNTRY" variables
+  analyze(c("AGE", "BMRKR2", "COUNTRY"))
+
+# Build the table using the defined layout and example data 'ex_adsl'
+tbl <- build_table(lyt, ex_adsl)
+
+# Convert the table to a flextable object suitable for HTML,
+# applying the default HTML theme and setting the orientation to landscape
+tbl_html <- tt_to_flextable(
+  tbl,
+  theme = theme_html_default(),
+  section_properties = section_properties_default(orientation = "landscape")
+)
+
+# Save the flextable as an HTML file named "test.html"
+flextable::save_as_html(tbl_html, path = "test.html")
 
 }
 \seealso{

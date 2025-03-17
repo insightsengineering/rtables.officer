@@ -5,25 +5,12 @@ template:
 
 navbar:
   structure:
-    left: [intro, reference, articles, dev-guide, news, reports]
+    left: [intro, reference, articles, news]
     right: [search, github]
   components:
     github:
       icon: fa-github fa-lg
       href: https://github.com/insightsengineering/rtables.officer
-    dev-guide:
-      text: Developer Guide
-      menu:
-        - text: Split Machinery
-    reports:
-      text: Reports
-      menu:
-        - text: Coverage report
-          href: coverage-report/
-        - text: Unit test report
-          href: unit-test-report/
-        - text: Non-CRAN unit test report
-          href: unit-test-report-non-cran/
 
 repo:
   url:
@@ -50,7 +37,6 @@ articles:
 
 
 reference:
-
   - title: Output Functions
     desc: These functions create ascii or html representations of the table
     contents:

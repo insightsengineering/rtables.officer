@@ -502,7 +502,7 @@ tt_to_flextable <- function(tt,
 #' @describeIn tt_to_flextable Main theme function for [export_as_docx()].
 #'
 #' @param font (`string`)\cr defaults to `"Arial"`. If the font is not available, `flextable` default is used.
-#'   Please consider consulting the family column from `systemfonts::system_fonts()`.
+#'   Please consider consulting the family column from `system_fonts` from package `{systemfonts}`.
 #' @param font_size (`integer(1)`)\cr font size. Defaults to 9.
 #' @param cell_margins (`numeric(1)` or `numeric(4)`)\cr a numeric or a vector of four numbers indicating
 #'   `c("left", "right", "top", "bottom")`. It defaults to 0 for top and bottom, and to 0.19 `mm` in word `pt`
@@ -658,6 +658,30 @@ theme_docx_default <- function(font = "Arial",
 #' @param remove_internal_borders (`character`)\cr defaults to `"label_rows"`. Remove internal borders between rows.
 #'   Currently there are no other options and can be turned off by providing any character value.
 #'
+#' @examples
+#' # html theme
+#'
+#' # Define a layout for the table
+#' lyt <- basic_table() %>%
+#'   # Split columns by the "ARM" variable
+#'   split_cols_by("ARM") %>%
+#'   # Analyze the "AGE", "BMRKR2", and "COUNTRY" variables
+#'   analyze(c("AGE", "BMRKR2", "COUNTRY"))
+#'
+#' # Build the table using the defined layout and example data 'ex_adsl'
+#' tbl <- build_table(lyt, ex_adsl)
+#'
+#' # Convert the table to a flextable object suitable for HTML,
+#' # applying the default HTML theme and setting the orientation to landscape
+#' tbl_html <- tt_to_flextable(
+#'   tbl,
+#'   theme = theme_html_default(),
+#'   section_properties = section_properties_default(orientation = "landscape")
+#' )
+#'
+#' # Save the flextable as an HTML file named "test.html"
+#' flextable::save_as_html(tbl_html, path = "test.html")
+#'
 #' @export
 theme_html_default <- function(font = "Courier",
                                font_size = 9,
@@ -721,7 +745,7 @@ theme_html_default <- function(font = "Courier",
   # all borders
   flx <- flx %>%
     flextable::border_outer(part = "body", border = border) %>%
-    # flextable::border_outer(part = "header", border = border) %>%
+    flextable::border_outer(part = "header", border = border) %>%
     flextable::border(
       part = "header", j = 1,
       border.left = border,
