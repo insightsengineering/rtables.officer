@@ -40,13 +40,12 @@ library(dplyr)
 library(rtables.officer)
 
 # Load example datasets
-adsl <- random.cdisc.data::cadsl
-adlb <- random.cdisc.data::cadlb
+adsl <- formatters::ex_adae
+adlb <- formatters::ex_adlb
 
 # Convert character variables to factors and handle missing levels
 adsl <- df_explicit_na(adsl)
-adlb <- df_explicit_na(adlb) %>%
-  filter(ANL01FL == "Y")
+adlb <- df_explicit_na(adlb)
   
 ```
 2. Data Filtering
