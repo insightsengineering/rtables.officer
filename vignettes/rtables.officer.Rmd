@@ -46,7 +46,6 @@ adlb <- formatters::ex_adlb
 # Convert character variables to factors and handle missing levels
 adsl <- df_explicit_na(adsl)
 adlb <- df_explicit_na(adlb)
-  
 ```
 2. Data Filtering
 Filter the dataset for specific parameters and visits:
@@ -68,7 +67,7 @@ afun <- function(x, .var, .spl_context, ...) {
   mean_sd_fun <- if (n_fun == 0) c(NA, NA) else c(mean(x, na.rm = TRUE), sd(x, na.rm = TRUE))
   median_fun <- if (n_fun == 0) NA else median(x, na.rm = TRUE)
   min_max_fun <- if (n_fun == 0) c(NA, NA) else c(min(x), max(x))
-  
+
   is_chg <- .var == "CHG"
   is_baseline <- .spl_context$value[which(.spl_context$split == "AVISIT")] == "BASELINE"
   if (is_baseline && is_chg) n_fun <- mean_sd_fun <- median_fun <- min_max_fun <- NULL
@@ -138,11 +137,12 @@ spd <- section_properties_default(orientation = "landscape")
 fin_cw <- cw * spd$page_size$width / 2 / sum(cw)
 
 flex_tbl <- tt_to_flextable(result,
-                            total_page_width = spd$page_size$width / 2,
-                            counts_in_newline = TRUE,
-                            autofit_to_page = FALSE,
-                            bold_titles = TRUE,
-                            colwidths = cw)
+  total_page_width = spd$page_size$width / 2,
+  counts_in_newline = TRUE,
+  autofit_to_page = FALSE,
+  bold_titles = TRUE,
+  colwidths = cw
+)
 export_as_docx(flex_tbl, file = file_location)
 flex_tbl
 ```
