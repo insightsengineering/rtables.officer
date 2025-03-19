@@ -46,6 +46,9 @@ adlb <- formatters::ex_adlb
 # Convert character variables to factors and handle missing levels
 adsl <- df_explicit_na(adsl)
 adlb <- df_explicit_na(adlb)
+
+# Create a temporary file for the output
+tf <- tempfile(fileext = ".docx")
 ```
 2. Data Filtering
 Filter the dataset for specific parameters and visits:
@@ -116,11 +119,9 @@ prov_footer(result) <- "Program: demo_poc_docx.R\nDate: 2024-11-06\nVersion: 0.0
 Convert the table to a `flextable` object and export it to a Word document:
 
 ```{r}
-output_dir <- "." # Specify here where the file should be saved
-file_location <- file.path(output_dir, "example.docx")
 flx_res <- tt_to_flextable(result)
 export_as_docx(flx_res,
-  file = file_location,
+  file = tf,
   section_properties = section_properties_default(orientation = "landscape")
 )
 flx_res
@@ -143,7 +144,8 @@ flex_tbl <- tt_to_flextable(result,
   bold_titles = TRUE,
   colwidths = cw
 )
-export_as_docx(flex_tbl, file = file_location)
+
+export_as_docx(flex_tbl, file = tf)
 flex_tbl
 ```
 ### Pagination
@@ -157,6 +159,6 @@ flx_res <- tt_to_flextable(
   bold_titles = TRUE,
   theme = theme_docx_default()
 )
-export_as_docx(flx_res, file = file_location)
+export_as_docx(flx_res, file = tf)
 flx_res[[1]]
 ```

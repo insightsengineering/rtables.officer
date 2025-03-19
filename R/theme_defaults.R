@@ -233,7 +233,7 @@ theme_html_default <- function(font = "Courier",
     }
     flx <- flextable::bg(flx, i = seq_len(nr_header), bg = "grey", part = "header")
 
-    return(flx)
+    flx
   }
 }
 

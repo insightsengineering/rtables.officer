@@ -102,7 +102,12 @@ export_as_docx(tbl,
   file = tf,
   section_properties = section_properties_default(orientation = "landscape")
 )
+
+# Expected output (with default theme)
+tt_to_flextable(tbl, theme = theme_docx_default())
 ```
+
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="2000" />
 
 ## Contributions
 

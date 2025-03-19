@@ -179,14 +179,16 @@ tt_to_flextable <- function(tt,
       lapply(cinds, function(ci) colwidths[ci])
     } else {
       lapply(cinds, function(ci) {
-        return(NULL)
+        NULL
       })
     }
-    return(mapply(tt_to_flextable,
-      tt = tabs, colwidths = cl,
-      MoreArgs = args,
-      SIMPLIFY = FALSE
-    ))
+    return(
+      mapply(tt_to_flextable,
+        tt = tabs, colwidths = cl,
+        MoreArgs = args,
+        SIMPLIFY = FALSE
+      )
+    )
   }
 
   # Extract relevant information
