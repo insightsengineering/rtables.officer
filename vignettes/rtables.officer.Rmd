@@ -159,6 +159,6 @@ flx_res <- tt_to_flextable(
   bold_titles = TRUE,
   theme = theme_docx_default()
 )
-export_as_docx(flx_res, file = tf)
+export_as_docx(flx_res, file = tf, add_page_break = TRUE)
 flx_res[[1]]
 ```
