@@ -13,7 +13,7 @@ editor_options:
 
 
 ```{r, include = FALSE}
-suggested_dependent_pkgs <- c("dplyr")
+suggested_dependent_pkgs <- c("dplyr", "tern")
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -92,8 +92,14 @@ Create the layout for the table:
 ```{r}
 lyt <- basic_table() %>%
   split_cols_by("ACTARM", show_colcounts = TRUE, split_fun = keep_split_levels(levels(adlb_f$ACTARM)[c(1, 2)])) %>%
-  split_rows_by("PARAM", split_fun = drop_split_levels, label_pos = "topleft", split_label = obj_label(adlb_f$PARAM), page_by = TRUE) %>%
-  split_rows_by("AVISIT", split_fun = drop_split_levels, label_pos = "topleft", split_label = obj_label(adlb_f$AVISIT)) %>%
+  split_rows_by("PARAM",
+    split_fun = drop_split_levels, label_pos = "topleft",
+    split_label = obj_label(adlb_f$PARAM), page_by = TRUE
+  ) %>%
+  split_rows_by("AVISIT",
+    split_fun = drop_split_levels, label_pos = "topleft",
+    split_label = obj_label(adlb_f$AVISIT)
+  ) %>%
   split_cols_by_multivar(
     vars = c("AVAL", "CHG"),
     varlabels = c("Value at Visit", "Change from Baseline")
