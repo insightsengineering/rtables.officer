@@ -78,3 +78,34 @@ with:
 # install.packages("pak")
 pak::pak("insightsengineering/rtables.officer")
 ```
+
+## Example
+
+Here’s a simple example demonstrating how to create a basic table
+layout, perform analysis on various columns, and export the resultant
+table to a Word document in landscape orientation. Further reading are
+available in the
+[vignettes](https://insightsengineering.github.io/rtables.officer/latest-tag/articles/).
+
+``` r
+# Define the table layout
+lyt <- basic_table() %>%
+  split_cols_by("ARM") %>%
+  analyze(c("AGE", "BMRKR2", "COUNTRY"))
+
+# Build the table
+tbl <- build_table(lyt, ex_adsl)
+
+# Export the table to a Word document in landscape orientation
+tf <- tempfile(fileext = ".docx")
+export_as_docx(tbl,
+  file = tf,
+  section_properties = section_properties_default(orientation = "landscape")
+)
+```
+
+## Contributions
+
+To contribute to this package, please fork the repository, create a
+branch, make your changes, and submit a pull request. Your contributions
+are greatly appreciated!

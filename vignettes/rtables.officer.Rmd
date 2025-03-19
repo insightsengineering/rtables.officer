@@ -13,7 +13,7 @@ editor_options:
 
 
 ```{r, include = FALSE}
-suggested_dependent_pkgs <- c("dplyr", "random.cdisc.data")
+suggested_dependent_pkgs <- c("dplyr")
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -112,7 +112,7 @@ subtitles(result) <- c("This is a subtitle.", "This is another subtitle.")
 main_footer(result) <- "This is a demo table for illustration purpose."
 prov_footer(result) <- "Program: demo_poc_docx.R\nDate: 2024-11-06\nVersion: 0.0.1\n"
 ```
-## 6. Convert to `flextable` and Export to Word
+6. Convert to `flextable` and Export to Word
 Convert the table to a `flextable` object and export it to a Word document:
 
 ```{r}
@@ -160,5 +160,3 @@ flx_res <- tt_to_flextable(
 export_as_docx(flx_res, file = file_location)
 flx_res[[1]]
 ```
-## Contributions
-To contribute to this package, please fork the repository, create a branch, make your changes, and submit a pull request. Your contributions are greatly appreciated!
