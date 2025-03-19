@@ -69,8 +69,8 @@ theme_docx_default <- function(font = "Arial",
     checkmate::assert_int(font_size, lower = 6, upper = 12)
     checkmate::assert_string(font)
     checkmate::assert_subset(bold,
-                             eval(formals(theme_docx_default)$bold),
-                             empty.ok = TRUE
+      eval(formals(theme_docx_default)$bold),
+      empty.ok = TRUE
     )
     if (length(cell_margins) == 1) {
       cell_margins <- rep(cell_margins, 4)
@@ -99,22 +99,22 @@ theme_docx_default <- function(font = "Arial",
       flextable::valign(j = seq(2, tbl_ncol_body), valign = "top", part = "header")
 
     flx <- .apply_indentation_and_margin(flx,
-                                         cell_margins = cell_margins, tbl_row_class = tbl_row_class,
-                                         tbl_ncol_body = tbl_ncol_body
+      cell_margins = cell_margins, tbl_row_class = tbl_row_class,
+      tbl_ncol_body = tbl_ncol_body
     )
 
     # Vertical padding/spaces - rownames
     if (any(tbl_row_class == "LabelRow")) { # label rows - 3pt top
       flx <- flextable::padding(flx,
-                                j = 1, i = which(tbl_row_class == "LabelRow"),
-                                padding.top = 3 + cell_margins[3], padding.bottom = cell_margins[4], part = "body"
+        j = 1, i = which(tbl_row_class == "LabelRow"),
+        padding.top = 3 + cell_margins[3], padding.bottom = cell_margins[4], part = "body"
       )
     }
     if (any(tbl_row_class == "ContentRow")) { # content rows - 1pt top
       flx <- flextable::padding(flx,
-                                # j = 1, # removed because I suppose we want alignment with body
-                                i = which(tbl_row_class == "ContentRow"),
-                                padding.top = 1 + cell_margins[3], padding.bottom = cell_margins[4], part = "body"
+        # j = 1, # removed because I suppose we want alignment with body
+        i = which(tbl_row_class == "ContentRow"),
+        padding.top = 1 + cell_margins[3], padding.bottom = cell_margins[4], part = "body"
       )
     }
     # single line spacing (for safety) -> space = 1
@@ -215,10 +215,10 @@ theme_html_default <- function(font = "Courier",
 
     if (any(remove_internal_borders == "label_rows") && any(tbl_row_class == "LabelRow")) {
       flx <- flextable::border(flx,
-                               j = seq(2, nc_body - 1),
-                               i = which(tbl_row_class == "LabelRow"), part = "body",
-                               border.left = flextable::fp_border_default(width = 0),
-                               border.right = flextable::fp_border_default(width = 0)
+        j = seq(2, nc_body - 1),
+        i = which(tbl_row_class == "LabelRow"), part = "body",
+        border.left = flextable::fp_border_default(width = 0),
+        border.right = flextable::fp_border_default(width = 0)
       ) %>%
         flextable::border(
           j = 1,
@@ -305,8 +305,8 @@ theme_html_default <- function(font = "Courier",
       )
     }
     flx <- flextable::bold(flx,
-                           i = bld_tmp$i, j = bld_tmp$j,
-                           part = names(bold_manual)[bi]
+      i = bld_tmp$i, j = bld_tmp$j,
+      part = names(bold_manual)[bi]
     )
   }
 
@@ -322,9 +322,9 @@ theme_html_default <- function(font = "Courier",
 
   # Horizontal padding all table margin 0.19 mm
   flx <- flextable::padding(flx,
-                            j = seq(2, tbl_ncol_body),
-                            padding.left = cell_margins[1],
-                            padding.right = cell_margins[2]
+    j = seq(2, tbl_ncol_body),
+    padding.left = cell_margins[1],
+    padding.right = cell_margins[2]
   )
 
   # Vertical padding/spaces - header (3pt after)
@@ -342,9 +342,9 @@ theme_html_default <- function(font = "Courier",
 # Remove vertical borders from both sides (for titles)
 remove_vborder <- function(flx, part, ii) {
   flx <- flextable::border(flx,
-                           i = ii, part = part,
-                           border.left = flextable::fp_border_default(width = 0),
-                           border.right = flextable::fp_border_default(width = 0)
+    i = ii, part = part,
+    border.left = flextable::fp_border_default(width = 0),
+    border.right = flextable::fp_border_default(width = 0)
   )
 }
 
@@ -362,5 +362,3 @@ word_mm_to_pt <- function(mm) {
 word_inch_to_pt <- function(inch) { # nocov
   inch / 0.013888888888889 # nocov
 }
-
-

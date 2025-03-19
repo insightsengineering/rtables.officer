@@ -509,14 +509,14 @@ tt_to_flextable <- function(tt,
 
   if (any(w == "top")) {
     flx <- flextable::hline_top(flx,
-                                border = flextable::fp_border_default(width = 0),
-                                part = part
+      border = flextable::fp_border_default(width = 0),
+      part = part
     )
   }
   if (any(w == "bottom")) {
     flx <- flextable::hline_bottom(flx,
-                                   border = flextable::fp_border_default(width = 0),
-                                   part = part
+      border = flextable::fp_border_default(width = 0),
+      part = part
     )
   }
   # Inner horizontal lines removal
@@ -541,4 +541,3 @@ tt_to_flextable <- function(tt,
   }
   flx
 }
-
