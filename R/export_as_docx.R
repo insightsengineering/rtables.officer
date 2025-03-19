@@ -67,7 +67,6 @@ export_as_docx <- function(tt,
       ...
     ) %>%
       list()
-
   } else if (inherits(tt, "flextable")) {
     flex_tbl_list <- list(tt)
   } else if (inherits(tt, "list")) {
