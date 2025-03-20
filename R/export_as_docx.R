@@ -8,19 +8,20 @@
 #' @inheritParams rtables::gen_args
 #' @inheritParams tt_to_flextable
 #' @param file (`string`)\cr output file. Must have `.docx` extension.
-#' @param doc_metadata (`list` of `string`)\cr any value that can be used as metadata by
-#'   [officer::set_doc_properties()]. Important text values are `title`, `subject`, `creator`, and `description`,
-#'   while `created` is a date object.
+#' @param add_page_break (`flag`)\cr whether to add a page break after the table (`TRUE`) or not (`FALSE`).
 #' @param titles_as_header (`flag`)\cr whether the table should be self-contained with additional header rows created
 #'   for titles and subtitles (`TRUE`), or titles and subtitles should be added as a paragraph of text above the table
 #'   (`FALSE`). Defaults to `FALSE`.
 #' @param footers_as_text (`flag`)\cr whether footers should be added as a new paragraph after the table (`TRUE`) or
 #'   the table should be self-contained, implementing `flextable`-style footnotes (`FALSE`) with the same style but a
 #'   smaller font. Defaults to `TRUE`.
-#' @param template_file (`string`)\cr template file that `officer` will use as a starting point for the final
-#'   document. Document attaches the table and uses the defaults defined in the template file.
 #' @param section_properties (`officer::prop_section`)\cr an [officer::prop_section()] object which sets margins and
 #'   page size. Defaults to [section_properties_default()].
+#' @param doc_metadata (`list` of `string`)\cr any value that can be used as metadata by
+#'   [officer::set_doc_properties()]. Important text values are `title`, `subject`, `creator`, and `description`,
+#'   while `created` is a date object.
+#' @param template_file (`string`)\cr template file that `officer` will use as a starting point for the final
+#'   document. Document attaches the table and uses the defaults defined in the template file.
 #' @param ... (`any`)\cr additional arguments passed to [tt_to_flextable()].
 #'
 #' @note `export_as_docx()` has few customization options available. If you require specific formats and details,
@@ -48,65 +49,52 @@
 #' @export
 export_as_docx <- function(tt,
                            file,
-                           doc_metadata = NULL,
+                           add_page_break = FALSE,
                            titles_as_header = FALSE,
                            footers_as_text = TRUE,
-                           template_file = NULL,
                            section_properties = section_properties_default(),
+                           doc_metadata = NULL,
+                           template_file = NULL,
                            ...) {
   # Checks
-  if (inherits(tt, "VTableTree")) {
-    flex_tbl <- tt_to_flextable(tt,
-      titles_as_header = titles_as_header,
-      footers_as_text = footers_as_text,
-      ...
-    )
-    if (isFALSE(titles_as_header) || isTRUE(footers_as_text)) {
-      # Ugly but I could not find a getter for font.size
-      font_sz_body <- flex_tbl$header$styles$text$font.size$data[1, 1]
-      font_size_footer <- flex_tbl$footer$styles$text$font.size$data
-      font_sz_footer <- if (length(font_size_footer) > 0) {
-        font_size_footer[1, 1]
-      } else {
-        font_sz_body - 1
-      }
-      font_fam <- flex_tbl$header$styles$text$font.family$data[1, 1]
+  checkmate::assert_flag(add_page_break)
 
-      # Set the test as the tt
-      fpt <- officer::fp_text(font.family = font_fam, font.size = font_sz_body)
-      fpt_footer <- officer::fp_text(font.family = font_fam, font.size = font_sz_footer)
-    }
-  } else if (inherits(tt, "flextable")) {
-    flex_tbl <- tt
-  } else if (inherits(tt, "list")) {
-    export_as_docx(tt[[1]], # First paginated table that uses template_file
-      file = file,
-      doc_metadata = doc_metadata,
+  # tt can be a VTableTree, a flextable, or a list of VTableTree or flextable objects
+  if (inherits(tt, "VTableTree")) {
+    flex_tbl_list <- tt_to_flextable(tt,
       titles_as_header = titles_as_header,
       footers_as_text = footers_as_text,
-      template_file = template_file,
-      section_properties = section_properties,
       ...
-    )
-    if (length(tt) > 1) {
-      out <- mapply(
-        export_as_docx,
-        tt = tt[-1], # Remaining paginated tables
+    ) %>%
+      list()
+  } else if (inherits(tt, "flextable")) {
+    flex_tbl_list <- list(tt)
+  } else if (inherits(tt, "list")) {
+    if (inherits(tt[[1]], "VTableTree")) {
+      flex_tbl_list <- mapply(
+        tt_to_flextable,
+        tt = tt,
         MoreArgs = list(
-          file = file,
-          doc_metadata = doc_metadata,
           titles_as_header = titles_as_header,
           footers_as_text = footers_as_text,
-          template_file = file, # Uses the just-created file as template
-          section_properties = section_properties,
           ...
         )
       )
+    } else if (inherits(tt[[1]], "flextable")) {
+      flex_tbl_list <- tt
+    } else {
+      stop("tt must be a VTableTree, a flextable, or a list of VTableTree or flextable objects.")
     }
-    return()
   } else {
     stop("The table must be a VTableTree, a flextable, or a list of VTableTree or flextable objects.")
   }
+
+  # If additional text needs to be added, we need to have info about the font and size
+  if (isFALSE(titles_as_header) || isTRUE(footers_as_text)) {
+    flx_fpt <- .extract_font_and_size_from_flx(flex_tbl_list[[1]]) # Using the first only
+  }
+
+  # Check if the template file is inserted and exists
   if (!is.null(template_file) && !file.exists(template_file)) {
     template_file <- NULL
   }
@@ -120,31 +108,42 @@ export_as_docx <- function(tt,
 
   # page width and orientation settings
   doc <- officer::body_set_default_section(doc, section_properties)
-  if (flex_tbl$properties$layout != "autofit") { # fixed layout
-    page_width <- section_properties$page_size$width
-    dflx <- dim(flex_tbl)
-    if (abs(sum(unname(dflx$widths)) - page_width) > 1e-2) {
-      warning(
-        "The total table width does not match the page width. The column widths",
-        " will be resized to fit the page. Please consider modifying the parameter",
-        " total_page_width in tt_to_flextable()."
-      )
 
-      final_cwidths <- page_width * unname(dflx$widths) / sum(unname(dflx$widths))
-      flex_tbl <- flextable::width(flex_tbl, width = final_cwidths)
+  # Check page widths
+  flex_tbl_list <- lapply(flex_tbl_list, function(flx) {
+    if (flx$properties$layout != "autofit") { # fixed layout
+      page_width <- section_properties$page_size$width
+      dflx <- dim(flx)
+      if (abs(sum(unname(dflx$widths)) - page_width) > 1e-2) {
+        warning(
+          "The total table width does not match the page width. The column widths",
+          " will be resized to fit the page. Please consider modifying the parameter",
+          " total_page_width in tt_to_flextable()."
+        )
+
+        final_cwidths <- page_width * unname(dflx$widths) / sum(unname(dflx$widths))
+        flx <- flextable::width(flx, width = final_cwidths)
+      }
     }
-  }
+    flx
+  })
 
   # Extract title
   if (isFALSE(titles_as_header) && inherits(tt, "VTableTree")) {
     ts_tbl <- formatters::all_titles(tt)
     if (length(ts_tbl) > 0) {
-      doc <- add_text_par(doc, ts_tbl, fpt)
+      doc <- add_text_par(doc, ts_tbl, flx_fpt$fpt)
     }
   }
 
-  # Add the table to the document
-  doc <- flextable::body_add_flextable(doc, flex_tbl, align = "left")
+  # Add the flextable(s) to the document
+  for (flex_tbl_i in flex_tbl_list) {
+    doc <- flextable::body_add_flextable(doc, flex_tbl_i, align = "left")
+    # Add a page break after each table
+    if (isTRUE(add_page_break)) {
+      doc <- body_add_break(doc)
+    }
+  }
 
   # add footers as paragraphs
   if (isTRUE(footers_as_text) && inherits(tt, "VTableTree")) {
@@ -152,11 +151,11 @@ export_as_docx <- function(tt,
     # (this is usually done differently, i.e. inside footnotes)
     matform <- rtables::matrix_form(tt, indent_rownames = TRUE)
     if (length(matform$ref_footnotes) > 0) {
-      doc <- add_text_par(doc, matform$ref_footnotes, fpt_footer)
+      doc <- add_text_par(doc, matform$ref_footnotes, flx_fpt$fpt_footer)
     }
     # Footer lines
     if (length(formatters::all_footers(tt)) > 0) {
-      doc <- add_text_par(doc, formatters::all_footers(tt), fpt_footer)
+      doc <- add_text_par(doc, formatters::all_footers(tt), flx_fpt$fpt_footer)
     }
   }
 
@@ -169,6 +168,24 @@ export_as_docx <- function(tt,
   print(doc, target = file)
 
   invisible(TRUE)
+}
+
+.extract_font_and_size_from_flx <- function(flx) {
+  # Ugly but I could not find a getter for font.size
+  font_sz_body <- flx$header$styles$text$font.size$data[1, 1]
+  font_size_footer <- flx$footer$styles$text$font.size$data
+  font_sz_footer <- if (length(font_size_footer) > 0) {
+    font_size_footer[1, 1]
+  } else {
+    font_sz_body - 1
+  }
+  font_fam <- flx$header$styles$text$font.family$data[1, 1]
+
+  # Set the test as the tt
+  fpt <- officer::fp_text(font.family = font_fam, font.size = font_sz_body)
+  fpt_footer <- officer::fp_text(font.family = font_fam, font.size = font_sz_footer)
+
+  list("fpt" = fpt, "fpt_footer" = fpt_footer)
 }
 
 # Shorthand to add text paragraph

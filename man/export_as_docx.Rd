@@ -10,11 +10,12 @@
 export_as_docx(
   tt,
   file,
-  doc_metadata = NULL,
+  add_page_break = FALSE,
   titles_as_header = FALSE,
   footers_as_text = TRUE,
-  template_file = NULL,
   section_properties = section_properties_default(),
+  doc_metadata = NULL,
+  template_file = NULL,
   ...
 )
 
@@ -32,9 +33,7 @@ margins_landscape()
 
 \item{file}{(\code{string})\cr output file. Must have \code{.docx} extension.}
 
-\item{doc_metadata}{(\code{list} of \code{string})\cr any value that can be used as metadata by
-\code{\link[officer:set_doc_properties]{officer::set_doc_properties()}}. Important text values are \code{title}, \code{subject}, \code{creator}, and \code{description},
-while \code{created} is a date object.}
+\item{add_page_break}{(\code{flag})\cr whether to add a page break after the table (\code{TRUE}) or not (\code{FALSE}).}
 
 \item{titles_as_header}{(\code{flag})\cr whether the table should be self-contained with additional header rows created
 for titles and subtitles (\code{TRUE}), or titles and subtitles should be added as a paragraph of text above the table
@@ -44,11 +43,15 @@ for titles and subtitles (\code{TRUE}), or titles and subtitles should be added 
 the table should be self-contained, implementing \code{flextable}-style footnotes (\code{FALSE}) with the same style but a
 smaller font. Defaults to \code{TRUE}.}
 
-\item{template_file}{(\code{string})\cr template file that \code{officer} will use as a starting point for the final
-document. Document attaches the table and uses the defaults defined in the template file.}
-
 \item{section_properties}{(\code{officer::prop_section})\cr an \code{\link[officer:prop_section]{officer::prop_section()}} object which sets margins and
 page size. Defaults to \code{\link[=section_properties_default]{section_properties_default()}}.}
+
+\item{doc_metadata}{(\code{list} of \code{string})\cr any value that can be used as metadata by
+\code{\link[officer:set_doc_properties]{officer::set_doc_properties()}}. Important text values are \code{title}, \code{subject}, \code{creator}, and \code{description},
+while \code{created} is a date object.}
+
+\item{template_file}{(\code{string})\cr template file that \code{officer} will use as a starting point for the final
+document. Document attaches the table and uses the defaults defined in the template file.}
 
 \item{...}{(\code{any})\cr additional arguments passed to \code{\link[=tt_to_flextable]{tt_to_flextable()}}.}
 

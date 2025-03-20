@@ -5,27 +5,12 @@ template:
 
 navbar:
   structure:
-    left: [intro, reference, articles, dev-guide, news, reports]
+    left: [intro, reference, articles, news]
     right: [search, github]
   components:
     github:
       icon: fa-github fa-lg
       href: https://github.com/insightsengineering/rtables.officer
-    intro:
-      text: Getting Started
-      href: articles/rtables.officer.html
-    dev-guide:
-      text: Developer Guide
-      href: articles/dev_guide_ph.html
-    reports:
-      text: Reports
-      menu:
-        - text: Coverage report
-          href: coverage-report/
-        - text: Unit test report
-          href: unit-test-report/
-        - text: Non-CRAN unit test report
-          href: unit-test-report-non-cran/
 
 repo:
   url:

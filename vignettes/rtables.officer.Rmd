@@ -13,7 +13,7 @@ editor_options:
 
 
 ```{r, include = FALSE}
-suggested_dependent_pkgs <- c("dplyr")
+suggested_dependent_pkgs <- c("dplyr", "tern")
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -29,103 +29,142 @@ knitr::opts_chunk$set(
 knitr::opts_chunk$set(comment = "#")
 ```
 
-## Introduction
+Below is a step-by-step guide demonstrating how to use {rtables.officer} for creating and exporting a clinical trial results table.
 
-The `rtables` package provides a framework to create, tabulate, and
-output tables in R. Most of the design requirements for `rtables`
-have their origin in studying tables that are commonly used to report
-analyses from clinical trials; however, we were careful to keep
-`rtables` a general purpose toolkit.
+1. Setup and Data Preparation
+Load the necessary libraries and prepare the dataset:
 
-In this vignette, we give a short introduction into creating tables with `rtables` and exporting them into `docx` files with `rtables.officer`.
-
-The content of this vignette is based on the following two resources:
-
-* The [`rtables` useR 2020 presentation](https://www.youtube.com/watch?v=CBQzZ8ZhXLA)
-by Gabriel Becker
-* [`rtables` - A Framework For Creating Complex Structured Reporting Tables Via
-Multi-Level Faceted Computations](https://arxiv.org/pdf/2306.16610).
-
-The packages used in this vignette are `rtables.officer`, `rtables`, and `dplyr`:
-
-```{r, message=FALSE}
-library(rtables.officer)
+```{r}
+library(tern)
 library(dplyr)
+library(rtables.officer)
+
+# Load example datasets
+adsl <- formatters::ex_adae
+adlb <- formatters::ex_adlb
+
+# Convert character variables to factors and handle missing levels
+adsl <- df_explicit_na(adsl)
+adlb <- df_explicit_na(adlb)
+
+# Create a temporary file for the output
+tf <- tempfile(fileext = ".docx")
+```
+2. Data Filtering
+Filter the dataset for specific parameters and visits:
+
+```{r}
+adlb_f <- adlb %>%
+  dplyr::filter(
+    PARAM %in% c("Alanine Aminotransferase Measurement", "C-Reactive Protein Measurement") &
+      !(ACTARM == "B: Placebo" & AVISIT == "WEEK 1 DAY 8") &
+      AVISIT != "SCREENING"
+  )
+```
+3. Define Custom Analysis Function
+Create a custom function to perform the analysis:
+
+```{r}
+afun <- function(x, .var, .spl_context, ...) {
+  n_fun <- sum(!is.na(x), na.rm = TRUE)
+  mean_sd_fun <- if (n_fun == 0) c(NA, NA) else c(mean(x, na.rm = TRUE), sd(x, na.rm = TRUE))
+  median_fun <- if (n_fun == 0) NA else median(x, na.rm = TRUE)
+  min_max_fun <- if (n_fun == 0) c(NA, NA) else c(min(x), max(x))
+
+  is_chg <- .var == "CHG"
+  is_baseline <- .spl_context$value[which(.spl_context$split == "AVISIT")] == "BASELINE"
+  if (is_baseline && is_chg) n_fun <- mean_sd_fun <- median_fun <- min_max_fun <- NULL
+
+  in_rows(
+    "n" = n_fun,
+    "Mean (SD)" = mean_sd_fun,
+    "Median" = median_fun,
+    "Min - Max" = min_max_fun,
+    .formats = list("n" = "xx", "Mean (SD)" = "xx.xx (xx.xx)", "Median" = "xx.xx", "Min - Max" = "xx.xx - xx.xx"),
+    .format_na_strs = list("n" = "NE", "Mean (SD)" = "NE (NE)", "Median" = "NE", "Min - Max" = "NE - NE")
+  )
+}
 ```
 
-## Overview
+4. Define Table Layout
+Create the layout for the table:
 
-The `rtables` R package was designed to create and display complex
-tables with R. The cells in an `rtable` may contain any high-dimensional
-data structure which can then be displayed with cell-specific formatting
-instructions. Currently, `rtables` can output tables in `ascii`, `html`, and 
-`pdf` formats.
+```{r}
+lyt <- basic_table() %>%
+  split_cols_by("ACTARM", show_colcounts = TRUE, split_fun = keep_split_levels(levels(adlb_f$ACTARM)[c(1, 2)])) %>%
+  split_rows_by("PARAM",
+    split_fun = drop_split_levels, label_pos = "topleft",
+    split_label = obj_label(adlb_f$PARAM), page_by = TRUE
+  ) %>%
+  split_rows_by("AVISIT",
+    split_fun = drop_split_levels, label_pos = "topleft",
+    split_label = obj_label(adlb_f$AVISIT)
+  ) %>%
+  split_cols_by_multivar(
+    vars = c("AVAL", "CHG"),
+    varlabels = c("Value at Visit", "Change from Baseline")
+  ) %>%
+  analyze_colvars(afun = afun)
+```
+5. Build and Display the Table
+Build the table using the defined layout:
 
-The `rtables.officer` package is designed to support export formats related to 
-the Microsoft Office software suite, including Microsoft Word (`docx`) and 
-Microsoft PowerPoint (`pptx`).
+```{r}
+result <- build_table(lyt, adlb_f)
+result
+```
+Assign titles and footers:
 
-For a detailed guide on getting started with `rtables`, please refer to [this page](https://insightsengineering.github.io/rtables/latest-release/articles/rtables.html).
+```{r}
+main_title(result) <- "Alanine Aminotransferase Measurement"
+subtitles(result) <- c("This is a subtitle.", "This is another subtitle.")
+main_footer(result) <- "This is a demo table for illustration purpose."
+prov_footer(result) <- "Program: demo_poc_docx.R\nDate: 2024-11-06\nVersion: 0.0.1\n"
+```
+6. Convert to `flextable` and Export to Word
+Convert the table to a `flextable` object and export it to a Word document:
 
-## Data
+```{r}
+flx_res <- tt_to_flextable(result)
+export_as_docx(flx_res,
+  file = tf,
+  section_properties = section_properties_default(orientation = "landscape")
+)
+flx_res
+```
+## Advanced Customizations
+You can further customize your tables, such as setting column widths, handling pagination, and more.
 
-The data used in this vignette is a made up using random number
-generators. The data content is relatively simple: one row per
-imaginary person and one column per measurement: study arm, the
-country of origin, gender, handedness, age, and weight.
+### Column Widths
+```{r}
+cw <- propose_column_widths(result)
+cw <- cw / sum(cw)
+cw <- c(0.6, 0.1, 0.1, 0.1, 0.1)
+spd <- section_properties_default(orientation = "landscape")
+fin_cw <- cw * spd$page_size$width / 2 / sum(cw)
 
-```{r data}
-n <- 400
-
-set.seed(1)
-
-df <- tibble(
-  arm = factor(sample(c("Arm A", "Arm B"), n, replace = TRUE), levels = c("Arm A", "Arm B")),
-  country = factor(sample(c("CAN", "USA"), n, replace = TRUE, prob = c(.55, .45)), levels = c("CAN", "USA")),
-  gender = factor(sample(c("Female", "Male"), n, replace = TRUE), levels = c("Female", "Male")),
-  handed = factor(sample(c("Left", "Right"), n, prob = c(.6, .4), replace = TRUE), levels = c("Left", "Right")),
-  age = rchisq(n, 30) + 10
-) %>% mutate(
-  weight = 35 * rnorm(n, sd = .5) + ifelse(gender == "Female", 140, 180)
+flex_tbl <- tt_to_flextable(result,
+  total_page_width = spd$page_size$width / 2,
+  counts_in_newline = TRUE,
+  autofit_to_page = FALSE,
+  bold_titles = TRUE,
+  colwidths = cw
 )
 
-head(df)
+export_as_docx(flex_tbl, file = tf)
+flex_tbl
 ```
-
-Note that we use factor variables so that the level order is
-represented in the row or column order when we tabulate the
-information of `df` below.
-
-## Building a Table
-
-The aim of this vignette is to build the following table and then use `rtables.officer` to export it to a `docx` file.
-
-```{r tbl, echo=FALSE}
-lyt <- basic_table(show_colcounts = TRUE) %>%
-  split_cols_by("arm") %>%
-  split_cols_by("gender") %>%
-  split_rows_by("country") %>%
-  summarize_row_groups() %>%
-  split_rows_by("handed") %>%
-  summarize_row_groups() %>%
-  analyze("age", afun = mean, format = "xx.xx")
-
-tbl <- build_table(lyt, df)
-tbl
+### Pagination
+```{r}
+flx_res <- tt_to_flextable(
+  result,
+  paginate = TRUE,
+  titles_as_header = FALSE,
+  lpp = 250,
+  counts_in_newline = TRUE,
+  bold_titles = TRUE,
+  theme = theme_docx_default()
+)
+export_as_docx(flx_res, file = tf, add_page_break = TRUE)
+flx_res[[1]]
 ```
-
-First, we build the table as follows:
-
-```{r tbl, echo=TRUE}
-```
-
-## Exporting to a `docx` File
-
-Next, we will export the `rtables` object generated above (`tbl`) into a `docx` file, namely `example.docx`.
-
-```{r, eval=FALSE}
-output_dir <- "." # specify here where the file should be saved
-export_as_docx(tbl, file = file.path(output_dir, "example.docx"))
-```
-
-The `export_as_docx()` function used above first converts the `rtables` object into a `flextable` object and then uses the `officer` package to save the output to a `docx` file.

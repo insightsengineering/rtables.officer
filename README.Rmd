@@ -38,21 +38,60 @@ suppressPackageStartupMessages(library(dplyr))
 [![Current Version](https://img.shields.io/github/r-package/v/insightsengineering/rtables.officer/main?color=purple\&label=Development%20Version)](https://github.com/insightsengineering/rtables.officer/tree/main)
 <!-- end badges -->
 
-## Reporting Tables with R
+## Exporting `rtables` to Microsoft Word and beyond
 
-The `rtables` R package was designed to create and display complex tables with R. The cells in an `rtable` may contain
-any high-dimensional data structure which can then be displayed with cell-specific formatting instructions. Currently,
-`rtables` can export tables in `ascii`, `html`, and `pdf` formats.
+The `rtables.officer` package provides a framework to export tables created with
+[`rtables`](https://github.com/insightsengineering/rtables/) to Microsoft Word documents. To do so,
+we use the `officer` package to create a Word document and the `flextable` package to produce
+the intermediary table object that `officer` can use to create the Word document.
 
-The `rtables.officer` package is designed to support export formats related to the Microsoft Office software suite, including Microsoft Word (`docx`) and Microsoft PowerPoint (`pptx`).
+Please refer to the following packages for further information:
+- [`rtables`](https://github.com/insightsengineering/rtables/) to create tables.
+- [`flextable`](https://github.com/davidgohel/flextable) as an intermediate html table object. Many
+  aesthetic functionalities are available at this stage.
+- [`officer`](https://github.com/davidgohel/officer) to create Word documents. Please consider
+  also other exporter options (e.g. `html`) that are available from `flextable`.
 
-`rtables` and `rtables.officer` are developed and copy written by `F. Hoffmann-La Roche` and are released open source under Apache License Version 2.
+`rtables` and `rtables.officer` is developed and copy written by `F. Hoffmann-La Roche` and it is released open source under Apache License Version 2.
 
 ## Installation
 
-You can install the latest development version of `rtables.officer` directly from GitHub with:
+`rtables.officer` is available on CRAN and you can install the latest released version with:
+
+```r
+install.packages("rtables.officer")
+```
+
+or you can install the latest development version directly from GitHub with:
 
 ```r
 # install.packages("pak")
 pak::pak("insightsengineering/rtables.officer")
 ```
+
+## Example
+Here's a simple example demonstrating how to create a basic table layout, perform analysis on various columns, and export the resultant table to a Word document in landscape orientation. Further reading are available in the [vignettes](https://insightsengineering.github.io/rtables.officer/latest-tag/articles/).
+
+```{r}
+# Define the table layout
+lyt <- basic_table() %>%
+  split_cols_by("ARM") %>%
+  analyze(c("AGE", "BMRKR2", "COUNTRY"))
+
+# Build the table
+tbl <- build_table(lyt, ex_adsl)
+
+# Export the table to a Word document in landscape orientation
+tf <- tempfile(fileext = ".docx")
+export_as_docx(tbl,
+  file = tf,
+  section_properties = section_properties_default(orientation = "landscape")
+)
+
+# Expected output (with default theme)
+tt_to_flextable(tbl, theme = theme_docx_default())
+```
+
+## Contributions
+To contribute to this package, please fork the repository, create a branch, make your changes, and submit a pull request. Your contributions are greatly appreciated!
+
