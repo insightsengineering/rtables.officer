@@ -1,4 +1,4 @@
-## rtables.officer 0.0.2.9002
+## rtables.officer 0.0.2.9003
 
 ### New Features
  * Added option to flush pages when exporting to `.docx`. It is possible to put tables on separate pages by doing `export_as_docx(add_page_break = TRUE)`.
