@@ -58,9 +58,10 @@ export_as_docx <- function(tt,
                            ...) {
   # Checks
   checkmate::assert_flag(add_page_break)
+  do_tt_error <- FALSE
 
   # tt can be a VTableTree, a flextable, or a list of VTableTree or flextable objects
-  if (inherits(tt, "VTableTree")) {
+  if (inherits(tt, "VTableTree") || inherits(tt, "listing_df")) {
     flex_tbl_list <- tt_to_flextable(tt,
       titles_as_header = titles_as_header,
       footers_as_text = footers_as_text,
@@ -70,7 +71,7 @@ export_as_docx <- function(tt,
   } else if (inherits(tt, "flextable")) {
     flex_tbl_list <- list(tt)
   } else if (inherits(tt, "list")) {
-    if (inherits(tt[[1]], "VTableTree")) {
+    if (inherits(tt[[1]], "VTableTree") || inherits(tt[[1]], "listing_df")) {
       flex_tbl_list <- mapply(
         tt_to_flextable,
         tt = tt,
@@ -83,10 +84,15 @@ export_as_docx <- function(tt,
     } else if (inherits(tt[[1]], "flextable")) {
       flex_tbl_list <- tt
     } else {
-      stop("tt must be a VTableTree, a flextable, or a list of VTableTree or flextable objects.")
+      do_tt_error <- TRUE
     }
   } else {
-    stop("The table must be a VTableTree, a flextable, or a list of VTableTree or flextable objects.")
+    do_tt_error <- TRUE
+  }
+
+  # Error handling for wrong tt object
+  if (isTRUE(do_tt_error)) {
+    stop("tt must be a TableTree/listing_df, a flextable, or a list of TableTree/listing_df or flextable objects.")
   }
 
   # If additional text needs to be added, we need to have info about the font and size

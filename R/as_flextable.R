@@ -9,6 +9,8 @@
 #'
 #' @inheritParams rtables::gen_args
 #' @inheritParams rtables::paginate_table
+#' @param tt (`TableTree`, `listing_df`, or related class)\cr a `TableTree` or `listing_df` object representing
+#'   a populated table or listing.
 #' @param theme (`function` or `NULL`)\cr a theme function designed to change the layout and style of a `flextable`
 #'   object. Defaults to `theme_docx_default()`, the classic Microsoft Word output style. If `NULL`, a table with style
 #'   similar to the `rtables` default will be produced. See Details below for more information.
@@ -114,8 +116,8 @@ tt_to_flextable <- function(tt,
                             total_page_height = 10, # portrait 11 landscape 8.5
                             total_page_width = 10, # portrait 8.5 landscape 11
                             autofit_to_page = TRUE) {
-  if (!inherits(tt, "VTableTree")) {
-    stop("Input table is not an rtables' object.")
+  if (!inherits(tt, "VTableTree") && !inherits(tt, "listing_df")) {
+    stop("Input object is not an rtables' or rlistings' object.")
   }
   checkmate::assert_flag(titles_as_header)
   checkmate::assert_flag(footers_as_text)
@@ -213,10 +215,19 @@ tt_to_flextable <- function(tt,
 
   # Fix for empty strings -> they used to get wrong font and size
   content[content == ""] <- " "
-
-  flx <- flextable::qflextable(content) %>%
-    # Default rtables if no footnotes
-    .remove_hborder(part = "body", w = "bottom")
+  # browser()
+  # if (!all(is.na(matform$row_info$trailing_sep))) {
+  #   cbind(content, trailing_sep_special_col = content$ARM) %>%
+  #     as_grouped_data(groups = "trailing_sep_special_col") %>%
+  #     select(-1) %>%
+  #     flextable::qflextable()
+  #   hline(flx, i = separator_rows, border = fp_border(width = 0.5, color = "grey50"))
+  #
+  # }
+  content <- as_grouped_data(content, groups = "trailing_sep_special_col")
+    flx <- flextable::qflextable(content) %>%
+      # Default rtables if no footnotes
+      .remove_hborder(part = "body", w = "bottom")
 
   # Header addition -> NB: here we have a problem with (N=xx)
   hdr <- body[seq_len(hnum), , drop = FALSE]

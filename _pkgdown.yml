@@ -34,6 +34,7 @@ articles:
     navbar: ~
     contents:
     - rtables.officer
+    - rlistings_poc
 
   - title: Developer Guide
     contents:

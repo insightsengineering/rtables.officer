@@ -54,3 +54,19 @@ test_that("export_as_docx produces a warning if manual column widths are used", 
     ), "The total table width does not match the page width"
   )
 })
+
+test_that("export_as_docx works thanks to tt_to_flextable", {
+  lsting <- as_listing(
+    df = head(formatters::ex_adae, n = 50),
+    key_cols = c("USUBJID", "ARM"),
+    disp_cols = c("AETOXGR", "AEDECOD", "AESEV"),
+    main_title = "Listing of Adverse Events (First 50 Records)",
+    main_footer = "Source: formatters::ex_adae example dataset",
+    add_trailing_sep = "ARM"
+  )
+
+  doc_file <- tempfile(fileext = ".docx")
+  expect_no_error(
+    out <- export_as_docx(lsting, doc_file, titles_as_header = TRUE, footers_as_text = FALSE)
+  )
+})

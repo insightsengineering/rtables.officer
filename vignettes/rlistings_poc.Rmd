@@ -1,0 +1,84 @@
+---
+title: "Exporting {rlistings} (POC)"
+author: "Davide Garolini"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Exporting {rlistings}}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options:
+  chunk_output_type: console
+---
+
+```{r, include = FALSE}
+suggested_dependent_pkgs <- c("dplyr")
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = all(vapply(
+    suggested_dependent_pkgs,
+    requireNamespace,
+    logical(1),
+    quietly = TRUE
+  ))
+)
+```
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(comment = "#")
+```
+
+This vignette is a POC to show how to use {rtables.officer} to export clinical trial results listing created with {rlistings}.
+
+1. Setup and Data Preparation
+Load the necessary libraries and prepare the dataset:
+
+```{r}
+library(rlistings)
+library(dplyr)
+library(rtables.officer)
+
+lsting <- as_listing(
+  df = head(formatters::ex_adae, n = 50), 
+  key_cols = c("USUBJID", "ARM"),
+  disp_cols = c("AETOXGR", "AEDECOD", "AESEV"),
+  main_title = "Listing of Adverse Events (First 50 Records)",
+  main_footer = "Source: formatters::ex_adae example dataset", 
+  add_trailing_sep = "ARM" # for readability adds a space line between differen ARMs
+)
+```
+
+
+1b. Decorations (optional)
+
+```{r}
+# 1. Add Subtitles and Provenance Footer
+subtitles(lsting) <- c(
+  "Subset: Treatment-Emergent Events",
+  "Protocol: XYZ-123"
+)
+prov_footer(lsting) <- c(
+  paste("R Version:", R.version.string),
+  paste("rlistings Version:", packageVersion("rlistings")),
+  paste("Generated on:", Sys.time()), # Use current time
+  "File: your_script_name.R" # Add script name if applicable
+)
+```
+
+2. Convert to `flextable` and Export to Word
+Convert the table to a `flextable` object and export it to a Word document:
+
+```{r}
+flx_res <- tt_to_flextable(lsting)
+
+# Create a temporary file for the output
+tf <- tempfile(fileext = ".docx")
+# tf <- "to_rm.docx" # Test locally
+
+export_as_docx(flx_res,
+  file = tf,
+  section_properties = section_properties_default(orientation = "landscape")
+)
+flx_res
+```
