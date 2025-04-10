@@ -49,7 +49,8 @@ theme_html_default(
 word_mm_to_pt(mm)
 }
 \arguments{
-\item{tt}{(\code{TableTree} or related class)\cr a \code{TableTree} object representing a populated table.}
+\item{tt}{(\code{TableTree}, \code{listing_df}, or related class)\cr a \code{TableTree} or \code{listing_df} object representing
+a populated table or listing.}
 
 \item{theme}{(\code{function} or \code{NULL})\cr a theme function designed to change the layout and style of a \code{flextable}
 object. Defaults to \code{theme_docx_default()}, the classic Microsoft Word output style. If \code{NULL}, a table with style

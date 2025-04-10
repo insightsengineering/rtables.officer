@@ -409,11 +409,12 @@ tt_to_flextable <- function(tt,
 
   # Handling of horizontal separators -> done afterwards because otherwise count of lines is sloppy
   if (!all(is.na(matform$row_info$trailing_sep))) {
-    content <- .add_flextable_separators(
-      content,
-                                         matform$row_info$trailing_sep,
-                                         border = officer::fp_border(width = 1, color = "grey60"),
-                                         padding = 10)
+    flx <- .add_flextable_separators(
+      flx,
+      matform$row_info$trailing_sep,
+      border = officer::fp_border(width = 1, color = "grey60"),
+      padding = 10
+    )
   }
 
   # NB: autofit or fixed may be switched if widths are correctly staying in the page
@@ -600,15 +601,11 @@ tt_to_flextable <- function(tt,
 #'
 #' @keywords internal
 .add_flextable_separators <- function(ft,
-                                     trailing_sep,
-                                     border = officer::fp_border(width = 1, color = "grey60"),
-                                     padding = 10) {
-
+                                      trailing_sep,
+                                      border = officer::fp_border(width = 1, color = "grey60"),
+                                      padding = 10) {
   # --- Input Validation ---
-  if (!inherits(ft, "flextable")) {
-    stop("Input 'ft' must be a flextable object.")
-  }
-  checkmate::
+  checkmate::assert_character(trailing_sep)
 
   # Use stats:: explicitly if function is internal and stats not imported
   n_rows_body <- flextable::nrow_part(ft, part = "body")
@@ -623,10 +620,11 @@ tt_to_flextable <- function(tt,
 
   # Check length consistency
   if (length(trailing_sep) != n_rows_body) {
-    stop(sprintf(
+    warning(sprintf(
       "Length of 'trailing_sep' (%d) must equal the number of body rows in 'ft' (%d).",
       length(trailing_sep), n_rows_body
     ))
+    return(ft)
   }
 
   # --- Check for only allowed non-NA values ---
@@ -636,11 +634,15 @@ tt_to_flextable <- function(tt,
   invalid_chars <- setdiff(present_chars, allowed_chars)
 
   if (length(invalid_chars) > 0) {
-    stop(sprintf(
-      "Invalid character(s) found as trailing separators: '%s'. Only NA (no sparator), ",
-      "'-' (a line), or ' ' (padding) are allowed.",
-      paste(invalid_chars, collapse = "', '") # Quote characters for clarity
-    ))
+    stop(
+      sprintf(
+        paste0(
+          "Invalid character(s) found as trailing separators: '%s'. Only NA (no sparator), ",
+          "'-' (a line), or ' ' (padding) are allowed."
+        ),
+        paste(invalid_chars, collapse = ", ") # Quote characters for clarity
+      )
+    )
   }
 
   # --- Handle "All NA" case (optimization) ---
@@ -671,5 +673,5 @@ tt_to_flextable <- function(tt,
   }
 
   # --- Return Modified Flextable ---
-  return(ft)
+  ft
 }

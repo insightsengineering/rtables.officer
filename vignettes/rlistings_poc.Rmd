@@ -74,9 +74,8 @@ flx_res <- tt_to_flextable(lsting)
 
 # Create a temporary file for the output
 tf <- tempfile(fileext = ".docx")
-# tf <- "to_rm.docx" # Test locally
 
-export_as_docx(flx_res,
+export_as_docx(lsting,
   file = tf,
   section_properties = section_properties_default(orientation = "landscape")
 )
