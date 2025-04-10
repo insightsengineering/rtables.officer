@@ -40,11 +40,11 @@ library(dplyr)
 library(rtables.officer)
 
 lsting <- as_listing(
-  df = head(formatters::ex_adae, n = 50), 
+  df = head(formatters::ex_adae, n = 50),
   key_cols = c("USUBJID", "ARM"),
   disp_cols = c("AETOXGR", "AEDECOD", "AESEV"),
   main_title = "Listing of Adverse Events (First 50 Records)",
-  main_footer = "Source: formatters::ex_adae example dataset", 
+  main_footer = "Source: formatters::ex_adae example dataset",
   add_trailing_sep = "ARM" # for readability adds a space line between differen ARMs
 )
 ```

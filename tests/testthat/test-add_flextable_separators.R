@@ -43,7 +43,8 @@ test_that("Separator '-' successfully applies hline", {
   # Basic Checks
   expect_s3_class(ft_mod, "flextable")
   expect_equal(flextable::nrow_part(ft_mod, "body"), nrow(test_data),
-               label = "Row count remains unchanged")
+    label = "Row count remains unchanged"
+  )
 
   # Optional (potentially brittle) check: Verify border applied
   # Check border width > 0 for the first column of rows where '-' was specified
@@ -51,7 +52,8 @@ test_that("Separator '-' successfully applies hline", {
   if (length(border_rows) > 0) {
     # Note: Accessing internal structure $body$styles might change between versions
     expect_true(all(ft_mod$body$styles$cells$border.width.bottom$data[border_rows, 1] == 1.0),
-                label = "Bottom border width > 0 expected where '-' was applied")
+      label = "Bottom border width > 0 expected where '-' was applied"
+    )
   }
   # Check rows where NA was specified (should have default border width, likely 0)
   na_rows <- which(is.na(sep_ctrl))
@@ -59,7 +61,8 @@ test_that("Separator '-' successfully applies hline", {
   na_rows <- na_rows[na_rows != length(sep_ctrl)]
   if (length(na_rows) > 0) {
     expect_true(all(ft_mod$body$styles$cells$border.width.bottom$data[na_rows, 1] == 0),
-                label = "Bottom border width should be 0 where NA was applied")
+      label = "Bottom border width should be 0 where NA was applied"
+    )
   }
 })
 
@@ -80,15 +83,17 @@ test_that("Separator ' ' successfully applies padding", {
   # Basic Checks
   expect_s3_class(ft_mod, "flextable")
   expect_equal(flextable::nrow_part(ft_mod, "body"), nrow(test_data),
-               label = "Row count remains unchanged")
+    label = "Row count remains unchanged"
+  )
 
   # Optional (potentially brittle) check: Verify padding applied
   # Check bottom padding for the first column of rows where ' ' was specified
   if (length(padding_rows) > 0) {
     # Note: Accessing internal structure $body$styles might change between versions
     expect_equal(ft_mod$body$styles$pars$padding.bottom$data[padding_rows, 1],
-                 rep(custom_padding_val, length(padding_rows)),
-                 label = "Bottom padding should match specified value where ' ' was applied")
+      rep(custom_padding_val, length(padding_rows)),
+      label = "Bottom padding should match specified value where ' ' was applied"
+    )
   }
   # Check rows where NA was specified (should have default padding)
   na_rows <- which(is.na(sep_ctrl))
@@ -96,8 +101,9 @@ test_that("Separator ' ' successfully applies padding", {
     # Get default padding from original table for comparison
     default_padding <- ft_mod$body$styles$pars$padding.bottom$data[na_rows[1], ][[1]]
     expect_equal(ft_mod$body$styles$pars$padding.bottom$data[na_rows, 1],
-                 rep(default_padding, length(na_rows)),
-                 label = "Bottom padding should be default where NA was applied")
+      rep(default_padding, length(na_rows)),
+      label = "Bottom padding should be default where NA was applied"
+    )
   }
 })
 

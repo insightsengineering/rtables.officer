@@ -205,25 +205,31 @@ test_that("tt_to_flextable handles basic rlistings object correctly", {
 
   # Check 2: Dimensions
   expect_equal(flextable::nrow_part(out, part = "body"), expected_data_rows,
-               label = "Number of body rows should match input data rows (assuming no separator rows added)")
+    label = "Number of body rows should match input data rows (assuming no separator rows added)"
+  )
 
   # Column count (based on keys in flextable)
   expect_equal(length(out$col_keys), length(expected_col_keys),
-               label = "Number of columns in flextable")
+    label = "Number of columns in flextable"
+  )
 
   # Check 3: Header Structure and Content
   # Number of header rows = titles + column names row
   expect_equal(flextable::nrow_part(out, part = "header"), length(expected_titles) + 1,
-               label = "Number of header rows (titles + colnames)")
+    label = "Number of header rows (titles + colnames)"
+  )
 
   # Column keys/names (order matters)
   expect_equal(out$col_keys, expected_col_keys,
-               label = "Column keys/names in flextable")
+    label = "Column keys/names in flextable"
+  )
 
   # Check 4: Footer Content
   # This might need adjustment based on how tt_to_flextable handles footers
-  expect_match(out$footer$dataset[[1]], listing_footer, fixed = TRUE,
-               label = "Flextable footer should contain the listing's main footer text")
+  expect_match(out$footer$dataset[[1]], listing_footer,
+    fixed = TRUE,
+    label = "Flextable footer should contain the listing's main footer text"
+  )
 })
 
 test_that("tt_to_flextable handles rlistings with active separators", {
@@ -256,4 +262,3 @@ test_that("tt_to_flextable handles rlistings with active separators", {
     label = "Body row count should match original data rows"
   )
 })
-
