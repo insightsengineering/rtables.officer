@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_flextable_separators.R
 \name{add_flextable_separators}
 \alias{add_flextable_separators}
-\title{Add Conditional Separators (hline or padding) to Flextable Rows}
+\title{Add Conditional Separators (horizontal line or padding) to Flextable Rows}
 \usage{
 add_flextable_separators(
   ft,
@@ -19,7 +19,7 @@ the number of rows in the body of \code{ft}. Allowed values are NA (no
 separator), "-" (adds a horizontal line), or " " (adds bottom padding).}
 
 \item{border}{The \code{fp_border} object to use for horizontal lines when
-\code{trailing_sep} is "-". Defaults to a grey line of width 1.}
+\code{trailing_sep} is "-". Defaults to a gray line of width 1.}
 
 \item{padding}{The amount of bottom padding (in points) to add when
 \code{trailing_sep} is " ". Defaults to 10.}

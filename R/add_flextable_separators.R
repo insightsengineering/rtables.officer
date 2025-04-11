@@ -1,4 +1,4 @@
-#' Add Conditional Separators (hline or padding) to Flextable Rows
+#' Add Conditional Separators (horizontal line or padding) to Flextable Rows
 #'
 #' Modifies an existing flextable object by adding visual separators
 #' (horizontal lines or bottom padding) after specific rows based on a
@@ -9,7 +9,7 @@
 #'   the number of rows in the body of `ft`. Allowed values are NA (no
 #'   separator), "-" (adds a horizontal line), or " " (adds bottom padding).
 #' @param border The `fp_border` object to use for horizontal lines when
-#'   `trailing_sep` is "-". Defaults to a grey line of width 1.
+#'   `trailing_sep` is "-". Defaults to a gray line of width 1.
 #' @param padding The amount of bottom padding (in points) to add when
 #'   `trailing_sep` is " ". Defaults to 10.
 #'
@@ -59,7 +59,11 @@ add_flextable_separators <- function(ft,
   # Handle empty flextable case
   if (n_rows_body == 0) {
     if (length(trailing_sep) != 0) {
-      warning("Input flextable 'ft' has 0 body rows, but 'trailing_sep' is not empty. Returning original empty flextable.", call. = FALSE)
+      warning(
+        "Input flextable 'ft' has 0 body rows, but 'trailing_sep' is not empty. ",
+        "Returning original empty flextable.",
+        call. = FALSE
+      )
     }
     return(ft) # Return the empty flextable
   }
@@ -98,7 +102,7 @@ add_flextable_separators <- function(ft,
 
   # --- Apply Separators ---
   # Loop through each row index of the flextable body
-  for (i in 1:n_rows_body) {
+  for (i in seq_len(n_rows_body)) {
     sep_char <- trailing_sep[i]
 
     # Skip if NA

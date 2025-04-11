@@ -1,10 +1,10 @@
 ---
-title: "Exporting {rlistings} (POC)"
+title: "Exporting listings"
 author: "Davide Garolini"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Exporting {rlistings}}
+  %\VignetteIndexEntry{Exporting listings}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options:
@@ -29,7 +29,7 @@ knitr::opts_chunk$set(
 knitr::opts_chunk$set(comment = "#")
 ```
 
-This vignette is a POC to show how to use {rtables.officer} to export clinical trial results listing created with {rlistings}.
+This vignette shows how to use {rtables.officer} to export clinical trial results listing created with {rlistings}.
 
 1. Setup and Data Preparation
 Load the necessary libraries and prepare the dataset:
