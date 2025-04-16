@@ -14,7 +14,7 @@ tt_to_flextable(
   indent_size = NULL,
   titles_as_header = TRUE,
   bold_titles = TRUE,
-  footers_as_text = FALSE,
+  integrate_footers = TRUE,
   counts_in_newline = FALSE,
   paginate = FALSE,
   fontspec = NULL,
@@ -62,16 +62,20 @@ similar to the \code{rtables} default will be produced. See Details below for mo
 \code{\link[formatters:matrix_form]{formatters::matrix_form()}} \code{indent_size}, default is 2) is used. To work with \code{docx}, any size is multiplied by
 1 mm (2.83 pt) by default.}
 
-\item{titles_as_header}{(\code{flag})\cr whether the table should be self-contained and additional header rows created for
-the \code{\link[formatters:title_footer]{formatters::main_title()}} string and \code{\link[formatters:title_footer]{formatters::subtitles()}} character vector (one row per element).
-Defaults to \code{TRUE}. If \code{FALSE}, titles and subtitles are added as a paragraph of text above the table.}
+\item{titles_as_header}{(\code{flag})\cr Controls how titles are rendered relative to the table.
+If \code{TRUE} (default), the main title (\code{\link[formatters:title_footer]{formatters::main_title()}}) and subtitles
+(\code{\link[formatters:title_footer]{formatters::subtitles()}}) are added as distinct header rows within the
+\code{flextable} object itself. If \code{FALSE}, titles are rendered as a separate paragraph
+of text placed immediately before the table.}
 
 \item{bold_titles}{(\code{flag} or \code{integer})\cr whether titles should be bold (defaults to \code{TRUE}). If one or more
 integers are provided, these integers are used as indices for lines at which titles should be bold.}
 
-\item{footers_as_text}{(\code{flag})\cr whether footers should be added as a new paragraph after the table (\code{TRUE}) or
-the table should be self-contained, implementing \code{flextable}-style footnotes (\code{FALSE}) with the same style but a
-smaller font. Defaults to \code{FALSE}.}
+\item{integrate_footers}{(\code{flag})\cr Controls how footers are rendered relative to the table.
+If \code{TRUE} (default), footers (e.g., \code{\link[formatters:title_footer]{formatters::main_footer()}}, \code{\link[formatters:title_footer]{formatters::prov_footer()}})
+are integrated directly into the \code{flextable} object, typically appearing as footnotes
+below the table body with a smaller font. If \code{FALSE}, footers are rendered as a
+separate paragraph of text placed immediately after the table.}
 
 \item{counts_in_newline}{(\code{flag})\cr whether column counts should be printed on a new line. In \code{rtables}, column
 counts (i.e. \code{(N=xx)}) are always printed on a new line (\code{TRUE}). For \code{docx} exports it may be preferred to print

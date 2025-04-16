@@ -1,6 +1,6 @@
-#' Add Conditional Separators (horizontal line or padding) to Flextable Rows
+#' Add Conditional Separators (horizontal line or padding) to `flextable` Rows
 #'
-#' Modifies an existing flextable object by adding visual separators
+#' Modifies an existing `flextable` object by adding visual separators
 #' (horizontal lines or bottom padding) after specific rows based on a
 #' control vector, without changing the table's row count.
 #'

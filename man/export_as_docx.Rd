@@ -11,8 +11,8 @@ export_as_docx(
   tt,
   file,
   add_page_break = FALSE,
-  titles_as_header = FALSE,
-  footers_as_text = TRUE,
+  titles_as_header = TRUE,
+  integrate_footers = TRUE,
   section_properties = section_properties_default(),
   doc_metadata = NULL,
   template_file = NULL,
@@ -35,13 +35,17 @@ margins_landscape()
 
 \item{add_page_break}{(\code{flag})\cr whether to add a page break after the table (\code{TRUE}) or not (\code{FALSE}).}
 
-\item{titles_as_header}{(\code{flag})\cr whether the table should be self-contained with additional header rows created
-for titles and subtitles (\code{TRUE}), or titles and subtitles should be added as a paragraph of text above the table
-(\code{FALSE}). Defaults to \code{FALSE}.}
+\item{titles_as_header}{(\code{flag})\cr Controls how titles are rendered relative to the table.
+If \code{TRUE} (default), the main title (\code{\link[formatters:title_footer]{formatters::main_title()}}) and subtitles
+(\code{\link[formatters:title_footer]{formatters::subtitles()}}) are added as distinct header rows within the
+\code{flextable} object itself. If \code{FALSE}, titles are rendered as a separate paragraph
+of text placed immediately before the table.}
 
-\item{footers_as_text}{(\code{flag})\cr whether footers should be added as a new paragraph after the table (\code{TRUE}) or
-the table should be self-contained, implementing \code{flextable}-style footnotes (\code{FALSE}) with the same style but a
-smaller font. Defaults to \code{TRUE}.}
+\item{integrate_footers}{(\code{flag})\cr Controls how footers are rendered relative to the table.
+If \code{TRUE} (default), footers (e.g., \code{\link[formatters:title_footer]{formatters::main_footer()}}, \code{\link[formatters:title_footer]{formatters::prov_footer()}})
+are integrated directly into the \code{flextable} object, typically appearing as footnotes
+below the table body with a smaller font. If \code{FALSE}, footers are rendered as a
+separate paragraph of text placed immediately after the table.}
 
 \item{section_properties}{(\code{officer::prop_section})\cr an \code{\link[officer:prop_section]{officer::prop_section()}} object which sets margins and
 page size. Defaults to \code{\link[=section_properties_default]{section_properties_default()}}.}
@@ -67,6 +71,22 @@ From an \code{rtables} table, produce a self-contained Word document or attach i
 file (\code{template_file}). This function is based on the \code{\link[=tt_to_flextable]{tt_to_flextable()}} transformer and
 the \code{officer} package.
 }
+\details{
+Pagination Behavior for Titles and Footers (this behavior is experimental at the moment):
+
+The rendering of titles and footers interacts with table pagination as follows:
+\itemize{
+\item \strong{Titles:} When \code{titles_as_header = TRUE} (default), the integrated title
+header rows typically repeat at the top of each new page if the table spans
+multiple pages. Setting \code{titles_as_header = FALSE} renders titles as a
+separate paragraph only once before the table begins.
+\item \strong{Footers:} Regardless of the \code{integrate_footers} setting, footers appear
+only once. Integrated footnotes (\code{integrate_footers = TRUE}) appear at the
+very end of the complete table, and separate text paragraphs
+(\code{integrate_footers = FALSE}) appear after the complete table. Footers
+do not repeat on each page.
+}
+}
 \section{Functions}{
 \itemize{
 \item \code{section_properties_default()}: Helper function that defines standard portrait properties for tables.
@@ -79,7 +99,7 @@ the \code{officer} package.
 \note{
 \code{export_as_docx()} has few customization options available. If you require specific formats and details,
 we suggest that you use \code{\link[=tt_to_flextable]{tt_to_flextable()}} prior to \code{export_as_docx()}. If the table is modified first using
-\code{\link[=tt_to_flextable]{tt_to_flextable()}}, the \code{titles_as_header} and \code{footer_as_text} parameters must be re-specified.
+\code{\link[=tt_to_flextable]{tt_to_flextable()}}, the \code{titles_as_header} and \code{integrate_footers} parameters must be re-specified.
 }
 \examples{
 lyt <- basic_table() \%>\%

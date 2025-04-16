@@ -9,12 +9,6 @@
 #' @inheritParams tt_to_flextable
 #' @param file (`string`)\cr output file. Must have `.docx` extension.
 #' @param add_page_break (`flag`)\cr whether to add a page break after the table (`TRUE`) or not (`FALSE`).
-#' @param titles_as_header (`flag`)\cr whether the table should be self-contained with additional header rows created
-#'   for titles and subtitles (`TRUE`), or titles and subtitles should be added as a paragraph of text above the table
-#'   (`FALSE`). Defaults to `FALSE`.
-#' @param footers_as_text (`flag`)\cr whether footers should be added as a new paragraph after the table (`TRUE`) or
-#'   the table should be self-contained, implementing `flextable`-style footnotes (`FALSE`) with the same style but a
-#'   smaller font. Defaults to `TRUE`.
 #' @param section_properties (`officer::prop_section`)\cr an [officer::prop_section()] object which sets margins and
 #'   page size. Defaults to [section_properties_default()].
 #' @param doc_metadata (`list` of `string`)\cr any value that can be used as metadata by
@@ -26,9 +20,23 @@
 #'
 #' @note `export_as_docx()` has few customization options available. If you require specific formats and details,
 #'   we suggest that you use [tt_to_flextable()] prior to `export_as_docx()`. If the table is modified first using
-#'   [tt_to_flextable()], the `titles_as_header` and `footer_as_text` parameters must be re-specified.
+#'   [tt_to_flextable()], the `titles_as_header` and `integrate_footers` parameters must be re-specified.
 #'
 #' @return No return value, called for side effects
+#'
+#' @details
+#' Pagination Behavior for Titles and Footers (this behavior is experimental at the moment):
+#'
+#' The rendering of titles and footers interacts with table pagination as follows:
+#' * **Titles:** When `titles_as_header = TRUE` (default), the integrated title
+#'     header rows typically repeat at the top of each new page if the table spans
+#'     multiple pages. Setting `titles_as_header = FALSE` renders titles as a
+#'     separate paragraph only once before the table begins.
+#' * **Footers:** Regardless of the `integrate_footers` setting, footers appear
+#'     only once. Integrated footnotes (`integrate_footers = TRUE`) appear at the
+#'     very end of the complete table, and separate text paragraphs
+#'     (`integrate_footers = FALSE`) appear after the complete table. Footers
+#'     do not repeat on each page.
 #'
 #' @seealso [tt_to_flextable()]
 #'
@@ -50,8 +58,8 @@
 export_as_docx <- function(tt,
                            file,
                            add_page_break = FALSE,
-                           titles_as_header = FALSE,
-                           footers_as_text = TRUE,
+                           titles_as_header = TRUE,
+                           integrate_footers = TRUE,
                            section_properties = section_properties_default(),
                            doc_metadata = NULL,
                            template_file = NULL,
@@ -62,13 +70,14 @@ export_as_docx <- function(tt,
 
   # tt can be a VTableTree, a flextable, or a list of VTableTree or flextable objects
   if (inherits(tt, "VTableTree") || inherits(tt, "listing_df")) {
-    flex_tbl_list <- tt_to_flextable(tt,
+    tt <- tt_to_flextable(tt,
       titles_as_header = titles_as_header,
-      footers_as_text = footers_as_text,
+      integrate_footers = integrate_footers,
       ...
-    ) %>%
-      list()
-  } else if (inherits(tt, "flextable")) {
+    )
+  }
+
+  if (inherits(tt, "flextable")) {
     flex_tbl_list <- list(tt)
   } else if (inherits(tt, "list")) {
     if (inherits(tt[[1]], "VTableTree") || inherits(tt[[1]], "listing_df")) {
@@ -77,9 +86,10 @@ export_as_docx <- function(tt,
         tt = tt,
         MoreArgs = list(
           titles_as_header = titles_as_header,
-          footers_as_text = footers_as_text,
+          integrate_footers = integrate_footers,
           ...
-        )
+        ),
+        SIMPLIFY = FALSE
       )
     } else if (inherits(tt[[1]], "flextable")) {
       flex_tbl_list <- tt
@@ -96,7 +106,7 @@ export_as_docx <- function(tt,
   }
 
   # If additional text needs to be added, we need to have info about the font and size
-  if (isFALSE(titles_as_header) || isTRUE(footers_as_text)) {
+  if (isFALSE(titles_as_header) || isFALSE(integrate_footers)) {
     flx_fpt <- .extract_font_and_size_from_flx(flex_tbl_list[[1]]) # Using the first only
   }
 
@@ -152,7 +162,7 @@ export_as_docx <- function(tt,
   }
 
   # add footers as paragraphs
-  if (isTRUE(footers_as_text) && inherits(tt, "VTableTree")) {
+  if (isFALSE(integrate_footers) && inherits(tt, "VTableTree")) {
     # Adding referential footer line separator if present
     # (this is usually done differently, i.e. inside footnotes)
     matform <- rtables::matrix_form(tt, indent_rownames = TRUE)

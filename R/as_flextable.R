@@ -17,14 +17,18 @@
 #' @param indent_size (`numeric(1)`)\cr indentation size. If `NULL`, the default indent size of the table (see
 #'   [formatters::matrix_form()] `indent_size`, default is 2) is used. To work with `docx`, any size is multiplied by
 #'   1 mm (2.83 pt) by default.
-#' @param titles_as_header (`flag`)\cr whether the table should be self-contained and additional header rows created for
-#'   the [formatters::main_title()] string and [formatters::subtitles()] character vector (one row per element).
-#'   Defaults to `TRUE`. If `FALSE`, titles and subtitles are added as a paragraph of text above the table.
+#' @param titles_as_header (`flag`)\cr Controls how titles are rendered relative to the table.
+#'   If `TRUE` (default), the main title ([formatters::main_title()]) and subtitles
+#'   ([formatters::subtitles()]) are added as distinct header rows within the
+#'   `flextable` object itself. If `FALSE`, titles are rendered as a separate paragraph
+#'   of text placed immediately before the table.
 #' @param bold_titles (`flag` or `integer`)\cr whether titles should be bold (defaults to `TRUE`). If one or more
 #'   integers are provided, these integers are used as indices for lines at which titles should be bold.
-#' @param footers_as_text (`flag`)\cr whether footers should be added as a new paragraph after the table (`TRUE`) or
-#'   the table should be self-contained, implementing `flextable`-style footnotes (`FALSE`) with the same style but a
-#'   smaller font. Defaults to `FALSE`.
+#' @param integrate_footers (`flag`)\cr Controls how footers are rendered relative to the table.
+#'   If `TRUE` (default), footers (e.g., [formatters::main_footer()], [formatters::prov_footer()])
+#'   are integrated directly into the `flextable` object, typically appearing as footnotes
+#'   below the table body with a smaller font. If `FALSE`, footers are rendered as a
+#'   separate paragraph of text placed immediately after the table.
 #' @param counts_in_newline (`flag`)\cr whether column counts should be printed on a new line. In `rtables`, column
 #'   counts (i.e. `(N=xx)`) are always printed on a new line (`TRUE`). For `docx` exports it may be preferred to print
 #'   these counts on the same line (`FALSE`). Defaults to `FALSE`.
@@ -103,7 +107,7 @@ tt_to_flextable <- function(tt,
                             indent_size = NULL,
                             titles_as_header = TRUE,
                             bold_titles = TRUE,
-                            footers_as_text = FALSE,
+                            integrate_footers = TRUE,
                             counts_in_newline = FALSE,
                             paginate = FALSE,
                             fontspec = NULL,
@@ -116,11 +120,14 @@ tt_to_flextable <- function(tt,
                             total_page_height = 10, # portrait 11 landscape 8.5
                             total_page_width = 10, # portrait 8.5 landscape 11
                             autofit_to_page = TRUE) {
+  if (inherits(tt, "list")) {
+    stop("Please use paginate = TRUE or mapply() to create multiple outputs. export_as_docx accepts lists.")
+  }
   if (!inherits(tt, "VTableTree") && !inherits(tt, "listing_df")) {
     stop("Input object is not an rtables' or rlistings' object.")
   }
   checkmate::assert_flag(titles_as_header)
-  checkmate::assert_flag(footers_as_text)
+  checkmate::assert_flag(integrate_footers)
   checkmate::assert_flag(counts_in_newline)
   checkmate::assert_flag(autofit_to_page)
   checkmate::assert_number(total_page_width, lower = 1)
@@ -158,22 +165,22 @@ tt_to_flextable <- function(tt,
     needed_height_header_footer <- sum(rh_df$rh[rh_df$part %in% c("header", "footer")])
     starting_lpp <- nr_header + nr_footer
     cumsum_page_heights <- needed_height_header_footer + cumsum(rh_df$rh[rh_df$part == "body"])
+    # expected_lpp is still not really usable atm
     expected_lpp <- starting_lpp + max(which(cumsum_page_heights < total_page_height))
-    if (is.null(lpp)) {
-      lpp <- expected_lpp
-    } else if (expected_lpp < lpp) {
-      # lpp needs to be estimated along with cpp if not provided
-      warning(
-        "lpp is too large for the given total_page_height. Change the parameters or",
-        " each table will be too long to fit each page."
-      )
+
+    if (!is.null(lpp) && starting_lpp + 1 > lpp) {
+      stop("Header rows are more than selected lines per pages (lpp).")
     }
+
+    # Main tabulation system
     tabs <- rtables::paginate_table(tt,
       fontspec = fontspec,
       lpp = lpp,
       cpp = cpp, tf_wrap = tf_wrap, max_width = max_width, # This can only be trial an error
       ...
     )
+
+    # Indices for column width
     cinds <- lapply(tabs, function(tb) c(1, .figure_out_colinds(tb, tt) + 1L))
     args$colwidths <- NULL
     args$tt <- NULL
@@ -184,6 +191,8 @@ tt_to_flextable <- function(tt,
         NULL
       })
     }
+
+    # Main return
     return(
       mapply(tt_to_flextable,
         tt = tabs, colwidths = cl,
@@ -359,13 +368,13 @@ tt_to_flextable <- function(tt,
   }
 
   # Adding referantial footer line separator if present
-  if (length(matform$ref_footnotes) > 0 && isFALSE(footers_as_text)) {
+  if (length(matform$ref_footnotes) > 0 && isTRUE(integrate_footers)) {
     flx <- flextable::add_footer_lines(flx, values = matform$ref_footnotes) %>%
       .add_hborder(part = "body", ii = nrow(tt), border = border)
   }
 
   # Footer lines
-  if (length(formatters::all_footers(tt)) > 0 && isFALSE(footers_as_text)) {
+  if (length(formatters::all_footers(tt)) > 0 && isTRUE(integrate_footers)) {
     flx <- flextable::add_footer_lines(flx, values = formatters::all_footers(tt)) %>%
       .add_hborder(part = "body", ii = nrow(tt), border = border)
   }

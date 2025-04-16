@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_flextable_separators.R
 \name{add_flextable_separators}
 \alias{add_flextable_separators}
-\title{Add Conditional Separators (horizontal line or padding) to Flextable Rows}
+\title{Add Conditional Separators (horizontal line or padding) to \code{flextable} Rows}
 \usage{
 add_flextable_separators(
   ft,
@@ -30,7 +30,7 @@ The modified flextable object, or the original \code{ft} if all
 invalid characters in \code{trailing_sep}.
 }
 \description{
-Modifies an existing flextable object by adding visual separators
+Modifies an existing \code{flextable} object by adding visual separators
 (horizontal lines or bottom padding) after specific rows based on a
 control vector, without changing the table's row count.
 }
