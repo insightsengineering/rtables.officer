@@ -13,7 +13,7 @@ test_that("export_as_docx works thanks to tt_to_flextable", {
   ) <- "factor 3"
 
   # Get the flextable
-  flex_tbl <- tt_to_flextable(tbl, titles_as_header = TRUE, footers_as_text = FALSE)
+  flex_tbl <- tt_to_flextable(tbl, titles_as_header = TRUE, integrate_footers = TRUE)
 
   doc_file <- tempfile(fileext = ".docx")
 
@@ -67,6 +67,6 @@ test_that("export_as_docx works thanks to tt_to_flextable", {
 
   doc_file <- tempfile(fileext = ".docx")
   expect_no_error(
-    out <- export_as_docx(lsting, doc_file, titles_as_header = TRUE, footers_as_text = FALSE)
+    out <- export_as_docx(lsting, doc_file, titles_as_header = TRUE, integrate_footers = TRUE)
   )
 })
