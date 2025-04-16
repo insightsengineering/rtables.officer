@@ -74,7 +74,6 @@ flx_res <- tt_to_flextable(lsting)
 
 # Create a temporary file for the output
 tf <- tempfile(fileext = ".docx")
-# tf <- "/mnt/c/Users/garolind/Downloads/tmp.docx"
 
 export_as_docx(lsting,
   file = tf,

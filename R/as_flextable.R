@@ -461,6 +461,7 @@ tt_to_flextable <- function(tt,
       border.left = flextable::fp_border_default(width = 0),
       border.right = flextable::fp_border_default(width = 0)
     ) %>%
+    flextable::align(part = "header", i = seq_along(all_titles), align = "left") %>%
     flextable::bg(part = "header", i = seq_along(all_titles), bg = "white")
 
   if (isTRUE(bold)) {
