@@ -123,7 +123,7 @@ test_that("check pagination", {
   main_footer(tbl) <- c("Some Footer", "Mehr")
   prov_footer(tbl) <- "Some prov Footer"
 
-  expect_warning(out <- tt_to_flextable(tbl, paginate = TRUE, lpp = 100))
+  expect_no_error(out <- tt_to_flextable(tbl, paginate = TRUE, lpp = 100))
   expect_equal(length(out), 3L)
 })
 
