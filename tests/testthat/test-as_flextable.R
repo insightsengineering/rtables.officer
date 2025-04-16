@@ -123,7 +123,7 @@ test_that("check pagination", {
   main_footer(tbl) <- c("Some Footer", "Mehr")
   prov_footer(tbl) <- "Some prov Footer"
 
-  expect_warning(out <- tt_to_flextable(tbl, paginate = TRUE, lpp = 100))
+  expect_no_error(out <- tt_to_flextable(tbl, paginate = TRUE, lpp = 100))
   expect_equal(length(out), 3L)
 })
 
@@ -157,4 +157,108 @@ test_that("check colwidths in flextable object", {
   ) # if you add cw then autofit_to_page = FALSE
   dflx <- dim(flx_res)
   testthat::expect_equal(fin_cw, unname(dflx$widths))
+})
+
+test_that("tt_to_flextable works with {rlistings}' objects", {
+  lsting <- as_listing(
+    df = head(formatters::ex_adae, n = 50),
+    key_cols = c("USUBJID", "ARM"),
+    disp_cols = c("AETOXGR", "AEDECOD", "AESEV"),
+    main_title = "Listing of Adverse Events (First 50 Records)",
+    main_footer = "Source: formatters::ex_adae example dataset"
+  )
+
+  expect_no_error(out <- tt_to_flextable(lsting))
+  expect_equal(flextable::nrow_part(out), nrow(lsting))
+  expect_equal(flextable::nrow_part(out, part = "header"), length(all_titles(lsting)) + 1)
+})
+test_that("tt_to_flextable handles basic rlistings object correctly", {
+  # --- Setup ---
+  test_data <- head(formatters::ex_adae, n = 50)
+  listing_title <- "Listing of Adverse Events (First 50 Records)"
+  listing_footer <- "Source: formatters::ex_adae example dataset"
+  key_cols <- c("USUBJID", "ARM")
+  disp_cols <- c("AETOXGR", "AEDECOD", "AESEV")
+
+  lsting <- as_listing(
+    df = test_data,
+    key_cols = key_cols,
+    disp_cols = disp_cols,
+    main_title = listing_title,
+    main_footer = listing_footer
+  )
+  # Add a subtitle for header row count check robustness
+  subtitles(lsting) <- "A subtitle for testing"
+
+  expected_titles <- all_titles(lsting) # Main title + subtitle
+  expected_col_keys <- c(key_cols, disp_cols)
+  expected_data_rows <- nrow(test_data) # 50
+
+  # --- Action ---
+  # Use expect_no_error to ensure it runs and capture output
+  out <- NULL # Initialize to avoid potential issues if expect_no_error fails early
+  expect_no_error(out <- tt_to_flextable(lsting))
+
+  # --- Checks ---
+  # Check 1: Output Type
+  expect_s3_class(out, "flextable")
+
+  # Check 2: Dimensions
+  expect_equal(flextable::nrow_part(out, part = "body"), expected_data_rows,
+    label = "Number of body rows should match input data rows (assuming no separator rows added)"
+  )
+
+  # Column count (based on keys in flextable)
+  expect_equal(length(out$col_keys), length(expected_col_keys),
+    label = "Number of columns in flextable"
+  )
+
+  # Check 3: Header Structure and Content
+  # Number of header rows = titles + column names row
+  expect_equal(flextable::nrow_part(out, part = "header"), length(expected_titles) + 1,
+    label = "Number of header rows (titles + colnames)"
+  )
+
+  # Column keys/names (order matters)
+  expect_equal(out$col_keys, expected_col_keys,
+    label = "Column keys/names in flextable"
+  )
+
+  # Check 4: Footer Content
+  # This might need adjustment based on how tt_to_flextable handles footers
+  expect_match(out$footer$dataset[[1]], listing_footer,
+    fixed = TRUE,
+    label = "Flextable footer should contain the listing's main footer text"
+  )
+})
+
+test_that("tt_to_flextable handles rlistings with active separators", {
+  # Create data where the separator column *changes*
+  test_data_sep <- data.frame(
+    USUBJID = paste0("S", rep(1:2, each = 3)),
+    ARM = rep(c("A", "A", "B"), times = 2), # ARM changes within Subject 1 and 2
+    AETOXGR = rep(1:3, times = 2),
+    AEDECOD = LETTERS[1:6],
+    AESEV = rep(c("MILD", "MOD", "SEVERE"), 2)
+  )
+  # Expected separators: After row 2 (A->B), After row 5 (A->B) = 2 separators
+
+  lsting_sep <- as_listing(
+    df = test_data_sep,
+    key_cols = c("USUBJID"),
+    disp_cols = c("ARM", "AETOXGR", "AEDECOD", "AESEV"),
+    add_trailing_sep = "ARM"
+  )
+
+  out_sep <- NULL
+  expect_no_error(out_sep <- tt_to_flextable(lsting_sep))
+  expect_s3_class(out_sep, "flextable")
+
+  # *** Crucial Check: Row count should NOT change ***
+  # This assumes tt_to_flextable uses hline or padding, not adding physical rows
+  expect_equal(
+    flextable::nrow_part(out_sep, part = "body"),
+    nrow(test_data_sep), # Should equal original data rows (6)
+    label = "Body row count should match original data rows"
+  )
 })

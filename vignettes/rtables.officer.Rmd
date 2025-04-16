@@ -11,7 +11,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-
 ```{r, include = FALSE}
 suggested_dependent_pkgs <- c("dplyr", "tern")
 knitr::opts_chunk$set(
@@ -25,6 +24,7 @@ knitr::opts_chunk$set(
   ))
 )
 ```
+
 ```{r, echo=FALSE}
 knitr::opts_chunk$set(comment = "#")
 ```
@@ -167,4 +167,20 @@ flx_res <- tt_to_flextable(
 )
 export_as_docx(flx_res, file = tf, add_page_break = TRUE)
 flx_res[[1]]
+```
+
+### Horizontal separators (note `section_div = <chr>`)
+```{r}
+tbl <- basic_table() %>%
+  split_cols_by("ACTARM") %>%
+  split_rows_by("PARAM", split_fun = drop_split_levels, section_div = "-") %>%
+  split_rows_by("AVISIT", split_fun = drop_split_levels, section_div = " ") %>%
+  split_cols_by_multivar(
+    vars = c("AVAL", "CHG"), varlabels = c("Value at Visit", "Change from Baseline")
+  ) %>%
+  analyze_colvars(afun = afun) %>%
+  build_table(adlb_f)
+flx_res <- tt_to_flextable(tbl)
+export_as_docx(flx_res, file = tf)
+flx_res
 ```

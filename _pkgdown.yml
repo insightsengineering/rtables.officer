@@ -34,6 +34,7 @@ articles:
     navbar: ~
     contents:
     - rtables.officer
+    - export_rlistings
 
   - title: Developer Guide
     contents:
@@ -45,3 +46,4 @@ reference:
     contents:
     - tt_to_flextable
     - export_as_docx
+    - add_flextable_separators
