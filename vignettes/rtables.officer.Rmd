@@ -178,7 +178,7 @@ tbl <- basic_table() %>%
   split_cols_by_multivar(
     vars = c("AVAL", "CHG"), varlabels = c("Value at Visit", "Change from Baseline")
   ) %>%
-  analyze_colvars(afun = afun) %>% 
+  analyze_colvars(afun = afun) %>%
   build_table(adlb_f)
 flx_res <- tt_to_flextable(tbl)
 export_as_docx(flx_res, file = tf)
