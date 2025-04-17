@@ -1,6 +1,6 @@
 ## rtables.officer 0.1.0
 
- * Added option to flush pages when exporting to `.docx`. It is possible to put tables on separate pages by doing `export_as_docx(add_page_break = TRUE)`.
+ * Added option to start new pages when exporting different paginated tables to `.docx`. It is possible to put tables on separate pages by doing `export_as_docx(add_page_break = TRUE)`.
  * Now it is possible to transform and export also `rlistings` objects.
  * Added separator lines and padding when present in the `rlistings` or `rtables` objects.
  * Fixed bugs impeding pagination of lists of `rlistings` or `rtables` objects.
