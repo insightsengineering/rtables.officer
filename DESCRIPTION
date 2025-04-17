@@ -1,12 +1,15 @@
 Package: rtables.officer
 Title: Exporting Tools for 'rtables'
-Version: 0.0.2.9004
-Date: 2025-04-16
+Version: 0.1.0
+Date: 2025-04-17
 Authors@R: c(
     person("Gabriel", "Becker", , "gabembecker@gmail.com", role = "ctb"),
-    person("Davide", "Garolini", , "davide.garolini@roche.com", role = "aut"),
-    person("Emily", "de la Rua", , "emily.de_la_rua@contractors.roche.com", role = "aut"),
-    person("Abinaya", "Yogasekaram", , "abinaya.yogasekaram@contractors.roche.com", role = "aut"),
+    person("Davide", "Garolini", , "davide.garolini@roche.com", role = "aut",
+           comment = c(ORCID = "0000-0002-1445-1369")),
+    person("Emily", "de la Rua", , "emily.de_la_rua@contractors.roche.com", role = "aut",
+           comment = c(ORCID = "0009-0000-8738-5561")),
+    person("Abinaya", "Yogasekaram", , "abinaya.yogasekaram@contractors.roche.com", role = "aut",
+           comment = c(ORCID = "0009-0005-2083-1105")),
     person("Joe", "Zhu", , "joe.zhu@roche.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7566-2787")),
     person("F. Hoffmann-La Roche AG", role = c("cph", "fnd"))
@@ -53,8 +56,6 @@ Suggests:
 VignetteBuilder:
     knitr,
     rmarkdown
-Remotes:
-    insightsengineering/rlistings@main
 Config/Needs/verdepcheck: insightsengineering/formatters,
     insightsengineering/rtables, tidyverse/magrittr, mllg/checkmate,
     rstudio/htmltools, gagolews/stringi, tidymodels/broom, cran/car,

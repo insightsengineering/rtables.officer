@@ -24,9 +24,9 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Davide Garolini \email{davide.garolini@roche.com}
-  \item Emily de la Rua \email{emily.de_la_rua@contractors.roche.com}
-  \item Abinaya Yogasekaram \email{abinaya.yogasekaram@contractors.roche.com}
+  \item Davide Garolini \email{davide.garolini@roche.com} (\href{https://orcid.org/0000-0002-1445-1369}{ORCID})
+  \item Emily de la Rua \email{emily.de_la_rua@contractors.roche.com} (\href{https://orcid.org/0009-0000-8738-5561}{ORCID})
+  \item Abinaya Yogasekaram \email{abinaya.yogasekaram@contractors.roche.com} (\href{https://orcid.org/0009-0005-2083-1105}{ORCID})
 }
 
 Other contributors:
