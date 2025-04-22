@@ -176,7 +176,7 @@ theme_docx_default <- function(font = "Arial",
 #' )
 #'
 #' # Save the flextable as an HTML file named "test.html"
-#' flextable::save_as_html(tbl_html, path = "test.html")
+#' flextable::save_as_html(tbl_html, path = tempfile(fileext = ".html"))
 #'
 #' @export
 theme_html_default <- function(font = "Courier",
