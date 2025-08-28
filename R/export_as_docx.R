@@ -1,3 +1,41 @@
+get_template_file <- function(section_properties){
+  orient <- section_properties$page_size$orient
+  checkmate::assert_true(orient %in% c("portrait", "landscape"))
+
+  page_sz <- section_properties$page_size
+
+  size <- NULL
+  if (orient == "landscape") {
+    if (page_sz$width == 11 && page_sz$height == 8.5){
+      size <- "letter"
+    } else if (page_sz$width == 11.69 && page_sz$height == 8.27) {
+      size <- "A4"
+    }
+  } else {
+    if (page_sz$width == 8.5 && page_sz$height == 11){
+      size <- "letter"
+    } else if (page_sz$width == 8.27 && page_sz$height == 11.69) {
+      size <- "A4"
+    }
+  }
+
+  if (is.null(size)){
+    ret <- NULL
+  } else if (size == "A4") {
+    ret <- file.path(system.file(package = "rtables.officer"),
+                     ifelse(orient == "landscape",
+                            "templates/a4_landscape.docx",
+                            "templates/a4_portrait.docx"))
+  } else if (size == "letter"){
+    ret <- file.path(system.file(package = "rtables.officer"),
+                     ifelse(orient == "landscape",
+                            "templates/letter_landscape.docx",
+                            "templates/letter_portrait.docx"))
+  }
+
+  ret
+}
+
 # docx (flextable) -----------------------------------------------------------
 #' Export to a Word document
 #'
@@ -62,7 +100,7 @@ export_as_docx <- function(tt,
                            integrate_footers = TRUE,
                            section_properties = section_properties_default(),
                            doc_metadata = NULL,
-                           template_file = NULL,
+                           template_file = get_template_file(section_properties),
                            ...) {
   # Checks
   checkmate::assert_flag(add_page_break)
@@ -115,15 +153,15 @@ export_as_docx <- function(tt,
     template_file <- NULL
   }
 
+
   # Create a new empty Word document
   if (!is.null(template_file)) {
-    doc <- officer::read_docx(template_file)
+    doc <- officer::read_docx(template_file) # we need to check for landscape
   } else {
     doc <- officer::read_docx()
+    # page width and orientation settings
+    doc <- officer::body_set_default_section(doc, section_properties)
   }
-
-  # page width and orientation settings
-  doc <- officer::body_set_default_section(doc, section_properties)
 
   # Check page widths
   flex_tbl_list <- lapply(flex_tbl_list, function(flx) {

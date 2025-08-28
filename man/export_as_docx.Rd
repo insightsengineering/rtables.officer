@@ -15,7 +15,7 @@ export_as_docx(
   integrate_footers = TRUE,
   section_properties = section_properties_default(),
   doc_metadata = NULL,
-  template_file = NULL,
+  template_file = get_template_file(section_properties),
   ...
 )
 
