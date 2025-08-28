@@ -1,4 +1,4 @@
-get_template_file <- function(section_properties){
+get_template_file <- function(section_properties) {
   orient <- section_properties$page_size$orient
   checkmate::assert_true(orient %in% c("portrait", "landscape"))
 
@@ -6,31 +6,37 @@ get_template_file <- function(section_properties){
 
   size <- NULL
   if (orient == "landscape") {
-    if (page_sz$width == 11 && page_sz$height == 8.5){
+    if (page_sz$width == 11 && page_sz$height == 8.5) {
       size <- "letter"
     } else if (page_sz$width == 11.69 && page_sz$height == 8.27) {
       size <- "A4"
     }
   } else {
-    if (page_sz$width == 8.5 && page_sz$height == 11){
+    if (page_sz$width == 8.5 && page_sz$height == 11) {
       size <- "letter"
     } else if (page_sz$width == 8.27 && page_sz$height == 11.69) {
       size <- "A4"
     }
   }
 
-  if (is.null(size)){
+  if (is.null(size)) {
     ret <- NULL
   } else if (size == "A4") {
-    ret <- file.path(system.file(package = "rtables.officer"),
-                     ifelse(orient == "landscape",
-                            "templates/a4_landscape.docx",
-                            "templates/a4_portrait.docx"))
-  } else if (size == "letter"){
-    ret <- file.path(system.file(package = "rtables.officer"),
-                     ifelse(orient == "landscape",
-                            "templates/letter_landscape.docx",
-                            "templates/letter_portrait.docx"))
+    ret <- file.path(
+      system.file(package = "rtables.officer"),
+      ifelse(orient == "landscape",
+        "templates/a4_landscape.docx",
+        "templates/a4_portrait.docx"
+      )
+    )
+  } else if (size == "letter") {
+    ret <- file.path(
+      system.file(package = "rtables.officer"),
+      ifelse(orient == "landscape",
+        "templates/letter_landscape.docx",
+        "templates/letter_portrait.docx"
+      )
+    )
   }
 
   ret
