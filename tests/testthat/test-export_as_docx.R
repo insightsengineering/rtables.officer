@@ -70,3 +70,27 @@ test_that("export_as_docx works thanks to tt_to_flextable", {
     out <- export_as_docx(lsting, doc_file, titles_as_header = TRUE, integrate_footers = TRUE)
   )
 })
+
+
+test_that("Getting correct template file", {
+  root <- system.file(package = "rtables.officer")
+  expect_equal(
+    get_template_file(section_properties_default(page_size = "A4", orientation = "portrait")),
+    file.path(root, "templates/a4_portrait.docx")
+  )
+
+  expect_equal(
+    get_template_file(section_properties_default(page_size = "A4", orientation = "landscape")),
+    file.path(root, "templates/a4_landscape.docx")
+  )
+
+  expect_equal(
+    get_template_file(section_properties_default(page_size = "letter", orientation = "portrait")),
+    file.path(root, "templates/letter_portrait.docx")
+  )
+
+  expect_equal(
+    get_template_file(section_properties_default(page_size = "letter", orientation = "landscape")),
+    file.path(root, "templates/letter_landscape.docx")
+  )
+})
