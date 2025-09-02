@@ -290,7 +290,7 @@ margins_landscape <- function() {
         i = "Page numbers will not be added."
       )
     }
-  } else if(orient == "portrait") {
+  } else if (orient == "portrait") {
     if (page_sz$width == 8.5 && page_sz$height == 11) {
       size <- "letter"
     } else if (page_sz$width == 8.27 && page_sz$height == 11.69) {
@@ -308,7 +308,7 @@ margins_landscape <- function() {
     )
   }
 
-  if(!is.null(warn_msg)) {
+  if (!is.null(warn_msg)) {
     cli::cli_warn(warn_msg)
   }
 
@@ -318,20 +318,19 @@ margins_landscape <- function() {
     ret <- file.path(
       system.file(package = "rtables.officer"),
       ifelse(orient == "landscape",
-             "docx_templates/a4_landscape.docx",
-             "docx_templates/a4_portrait.docx"
+        "docx_templates/a4_landscape.docx",
+        "docx_templates/a4_portrait.docx"
       )
     )
   } else if (size == "letter") {
     ret <- file.path(
       system.file(package = "rtables.officer"),
       ifelse(orient == "landscape",
-             "docx_templates/letter_landscape.docx",
-             "docx_templates/letter_portrait.docx"
+        "docx_templates/letter_landscape.docx",
+        "docx_templates/letter_portrait.docx"
       )
     )
   }
 
   ret
 }
-
