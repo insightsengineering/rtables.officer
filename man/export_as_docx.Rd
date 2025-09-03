@@ -11,6 +11,7 @@ export_as_docx(
   tt,
   file,
   add_page_break = FALSE,
+  add_template_page_numbers = TRUE,
   titles_as_header = TRUE,
   integrate_footers = TRUE,
   section_properties = section_properties_default(),
@@ -34,6 +35,10 @@ margins_landscape()
 \item{file}{(\code{string})\cr output file. Must have \code{.docx} extension.}
 
 \item{add_page_break}{(\code{flag})\cr whether to add a page break after the table (\code{TRUE}) or not (\code{FALSE}).}
+
+\item{add_template_page_numbers}{(\code{flag})\cr whether to add page numbers to the word document as page footer. This
+uses templates to achieve it. Defaults to \code{TRUE}. Consider adding your own template file if you want
+more customization.}
 
 \item{titles_as_header}{(\code{flag})\cr Controls how titles are rendered relative to the table.
 If \code{TRUE} (default), the main title (\code{\link[formatters:title_footer]{formatters::main_title()}}) and subtitles

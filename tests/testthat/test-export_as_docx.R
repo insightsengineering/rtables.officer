@@ -70,3 +70,49 @@ test_that("export_as_docx works thanks to tt_to_flextable", {
     out <- export_as_docx(lsting, doc_file, titles_as_header = TRUE, integrate_footers = TRUE)
   )
 })
+
+
+test_that("Getting correct template file", {
+  root <- system.file(package = "rtables.officer")
+  expect_equal(
+    .get_template_file(section_properties_default(page_size = "A4", orientation = "portrait")),
+    file.path(root, "docx_templates/a4_portrait.docx")
+  )
+
+  expect_equal(
+    .get_template_file(section_properties_default(page_size = "A4", orientation = "landscape")),
+    file.path(root, "docx_templates/a4_landscape.docx")
+  )
+
+  expect_equal(
+    .get_template_file(section_properties_default(page_size = "letter", orientation = "portrait")),
+    file.path(root, "docx_templates/letter_portrait.docx")
+  )
+
+  expect_equal(
+    .get_template_file(section_properties_default(page_size = "letter", orientation = "landscape")),
+    file.path(root, "docx_templates/letter_landscape.docx")
+  )
+
+  # Warnings
+  spd <- section_properties_default(page_size = "A4", orientation = "portrait")
+  spd$page_size$width <- 6
+  expect_warning(
+    void <- .get_template_file(spd),
+    "Adding page numbers is supported only A4 and letter size."
+  )
+  spd <- section_properties_default(page_size = "A4", orientation = "landscape")
+  spd$page_size$width <- 6
+  expect_warning(
+    void <- .get_template_file(spd),
+    "Adding page numbers is supported only A4 and letter size."
+  )
+
+  # Error
+  spd <- section_properties_default(page_size = "A4", orientation = "landscape")
+  spd$page_size$orient <- "orient"
+  expect_error(
+    void <- .get_template_file(spd),
+    "Adding page numbers is supported only for landscape and portrait orientation."
+  )
+})

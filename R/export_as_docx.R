@@ -9,6 +9,9 @@
 #' @inheritParams tt_to_flextable
 #' @param file (`string`)\cr output file. Must have `.docx` extension.
 #' @param add_page_break (`flag`)\cr whether to add a page break after the table (`TRUE`) or not (`FALSE`).
+#' @param add_template_page_numbers (`flag`)\cr whether to add page numbers to the word document as page footer. This
+#'   uses templates to achieve it. Defaults to `TRUE`. Consider adding your own template file if you want
+#'   more customization.
 #' @param section_properties (`officer::prop_section`)\cr an [officer::prop_section()] object which sets margins and
 #'   page size. Defaults to [section_properties_default()].
 #' @param doc_metadata (`list` of `string`)\cr any value that can be used as metadata by
@@ -58,6 +61,7 @@
 export_as_docx <- function(tt,
                            file,
                            add_page_break = FALSE,
+                           add_template_page_numbers = TRUE,
                            titles_as_header = TRUE,
                            integrate_footers = TRUE,
                            section_properties = section_properties_default(),
@@ -66,6 +70,7 @@ export_as_docx <- function(tt,
                            ...) {
   # Checks
   checkmate::assert_flag(add_page_break)
+  checkmate::assert_flag(add_template_page_numbers)
   do_tt_error <- FALSE
 
   # tt can be a VTableTree, a flextable, or a list of VTableTree or flextable objects
@@ -115,15 +120,20 @@ export_as_docx <- function(tt,
     template_file <- NULL
   }
 
+
   # Create a new empty Word document
   if (!is.null(template_file)) {
     doc <- officer::read_docx(template_file)
   } else {
-    doc <- officer::read_docx()
+    if (isTRUE(add_template_page_numbers)) {
+      template_file <- .get_template_file(section_properties)
+    }
+    doc <- officer::read_docx(template_file)
+    if (!is.null(section_properties) && isFALSE(add_template_page_numbers)) {
+      doc <- officer::body_set_default_section(doc, section_properties)
+    }
   }
 
-  # page width and orientation settings
-  doc <- officer::body_set_default_section(doc, section_properties)
 
   # Check page widths
   flex_tbl_list <- lapply(flex_tbl_list, function(flx) {
@@ -260,4 +270,67 @@ margins_potrait <- function() {
 #' @export
 margins_landscape <- function() {
   officer::page_mar(bottom = 1, top = 1.5, left = 0.98, right = 0.95, gutter = 0)
+}
+
+
+.get_template_file <- function(section_properties) {
+  orient <- section_properties$page_size$orient
+  page_sz <- section_properties$page_size
+
+  size <- NULL
+  warn_msg <- NULL
+  if (orient == "landscape") {
+    if (page_sz$width == 11 && page_sz$height == 8.5) {
+      size <- "letter"
+    } else if (page_sz$width == 11.69 && page_sz$height == 8.27) {
+      size <- "A4"
+    } else {
+      warn_msg <- c(
+        "Adding page numbers is supported only A4 and letter size.",
+        "Page numbers will not be added."
+      )
+    }
+  } else if (orient == "portrait") {
+    if (page_sz$width == 8.5 && page_sz$height == 11) {
+      size <- "letter"
+    } else if (page_sz$width == 8.27 && page_sz$height == 11.69) {
+      size <- "A4"
+    } else {
+      warn_msg <- c(
+        "Adding page numbers is supported only A4 and letter size.",
+        "Page numbers will not be added."
+      )
+    }
+  } else {
+    stop(
+      "Adding page numbers is supported only for landscape and portrait orientation.",
+      "Page numbers will not be added."
+    )
+  }
+
+  if (!is.null(warn_msg)) {
+    warning(warn_msg)
+  }
+
+  if (is.null(size)) {
+    ret <- NULL
+  } else if (size == "A4") {
+    ret <- file.path(
+      system.file(package = "rtables.officer"),
+      ifelse(orient == "landscape",
+        "docx_templates/a4_landscape.docx",
+        "docx_templates/a4_portrait.docx"
+      )
+    )
+  } else if (size == "letter") {
+    ret <- file.path(
+      system.file(package = "rtables.officer"),
+      ifelse(orient == "landscape",
+        "docx_templates/letter_landscape.docx",
+        "docx_templates/letter_portrait.docx"
+      )
+    )
+  }
+
+  ret
 }
