@@ -1,5 +1,7 @@
 ## rtables.officer 0.1.0.9000
 
+ * Adding letter/A4 landscape/portrait docx templates.
+
 ## rtables.officer 0.1.0
 
  * Added option to start new pages when exporting different paginated tables to `.docx`. It is possible to put tables on separate pages by doing `export_as_docx(add_page_break = TRUE)`.
