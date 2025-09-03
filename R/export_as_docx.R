@@ -287,7 +287,7 @@ margins_landscape <- function() {
     } else {
       warn_msg <- c(
         "Adding page numbers is supported only A4 and letter size.",
-        i = "Page numbers will not be added."
+        "Page numbers will not be added."
       )
     }
   } else if (orient == "portrait") {
@@ -298,18 +298,18 @@ margins_landscape <- function() {
     } else {
       warn_msg <- c(
         "Adding page numbers is supported only A4 and letter size.",
-        i = "Page numbers will not be added."
+        "Page numbers will not be added."
       )
     }
   } else {
-    cli::cli_abort(
+    stop(
       "Adding page numbers is supported only for landscape and portrait orientation.",
-      i = "Page numbers will not be added."
+      "Page numbers will not be added."
     )
   }
 
   if (!is.null(warn_msg)) {
-    cli::cli_warn(warn_msg)
+    warning(warn_msg)
   }
 
   if (is.null(size)) {
