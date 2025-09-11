@@ -1,4 +1,4 @@
-## rtables.officer 0.1.0.9002
+## rtables.officer 0.1.0.9003
 
  * Adding letter/A4 landscape/portrait docx templates.
 
