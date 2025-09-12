@@ -114,7 +114,7 @@ lyt <- basic_table() \%>\%
 tbl <- build_table(lyt, ex_adsl)
 
 # See how the section_properties_portrait() function is built for customization
-tf <- tempfile(fileext = ".docx")
+tf <- tempfile(tmpdir = tempdir(check = TRUE), fileext = ".docx")
 export_as_docx(tbl,
   file = tf,
   section_properties = section_properties_default(orientation = "landscape")

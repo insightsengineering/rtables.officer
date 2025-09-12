@@ -15,7 +15,7 @@ test_that("export_as_docx works thanks to tt_to_flextable", {
   # Get the flextable
   flex_tbl <- tt_to_flextable(tbl, titles_as_header = TRUE, integrate_footers = TRUE)
 
-  doc_file <- tempfile(fileext = ".docx")
+  doc_file <- tempfile(tmpdir = tempdir(check = TRUE), fileext = ".docx")
 
   expect_silent(export_as_docx(tbl,
     file = doc_file, doc_metadata = list("title" = "meh"),
@@ -43,7 +43,7 @@ test_that("export_as_docx produces a warning if manual column widths are used", 
     analyze("Petal.Length")
   tbl <- build_table(lyt, iris)
 
-  doc_file <- tempfile(fileext = ".docx")
+  doc_file <- tempfile(tmpdir = tempdir(check = TRUE), fileext = ".docx")
 
   # Get the flextable
   expect_warning(
@@ -65,7 +65,7 @@ test_that("export_as_docx works thanks to tt_to_flextable", {
     add_trailing_sep = "ARM"
   )
 
-  doc_file <- tempfile(fileext = ".docx")
+  doc_file <- tempfile(tmpdir = tempdir(check = TRUE), fileext = ".docx")
   expect_no_error(
     out <- export_as_docx(lsting, doc_file, titles_as_header = TRUE, integrate_footers = TRUE)
   )
