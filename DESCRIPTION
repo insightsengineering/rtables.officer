@@ -34,7 +34,7 @@ Depends:
     rtables (>= 0.6.12)
 Imports:
     checkmate (>= 2.1.0),
-    flextable (>= 0.9.10),
+    flextable (>= 0.9.6),
     lifecycle (>= 0.2.0),
     officer (>= 0.7.0),
     stats,
