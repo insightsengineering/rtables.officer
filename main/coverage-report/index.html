@@ -107,8 +107,8 @@ table.table-condensed {
       </ul>
       <div class="tab-content" data-tabsetid="covr">
         <div class="tab-pane active" title="Files" data-value="Files" id="tab-covr-1">
-          <div class="datatables html-widget html-fill-item" id="htmlwidget-6ab3408ed0d55d4af1f8" style="width:100%;height:500px;"></div>
-          <script type="application/json" data-for="htmlwidget-6ab3408ed0d55d4af1f8">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["<a href=\"#\">R/export_as_docx.R<\/a>","<a href=\"#\">R/add_flextable_separators.R<\/a>","<a href=\"#\">R/theme_defaults.R<\/a>","<a href=\"#\">R/as_flextable.R<\/a>"],[336,127,364,565],[139,37,153,239],[112,31,140,231],[27,6,13,8],["6","8","26","42"],["80.58%","83.78%","91.50%","96.65%"]],"container":"<table class=\"row-border\">\n  <thead>\n    <tr>\n      <th>File<\/th>\n      <th>Lines<\/th>\n      <th>Relevant<\/th>\n      <th>Covered<\/th>\n      <th>Missed<\/th>\n      <th>Hits / Line<\/th>\n      <th>Coverage<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"searching":false,"dom":"t","paging":false,"columnDefs":[{"targets":6,"createdCell":"function(td, cellData, rowData, row, col) {\n  var percent = cellData.replace(\"%\", \"\");\n  if (percent > 90) {\n    var grad = \"linear-gradient(90deg, #edfde7 \" + cellData + \", white \" + cellData + \")\";\n  } else if (percent > 75) {\n    var grad = \"linear-gradient(90deg, #f9ffe5 \" + cellData + \", white \" + cellData + \")\";\n  } else {\n    var grad = \"linear-gradient(90deg, #fcece9 \" + cellData + \", white \" + cellData + \")\";\n  }\n  $(td).css(\"background\", grad);\n}\n"},{"className":"dt-right","targets":[1,2,3,4]},{"name":"File","targets":0},{"name":"Lines","targets":1},{"name":"Relevant","targets":2},{"name":"Covered","targets":3},{"name":"Missed","targets":4},{"name":"Hits / Line","targets":5},{"name":"Coverage","targets":6}],"order":[],"autoWidth":false,"orderClasses":false},"callback":"function(table) {\ntable.on('click.dt', 'a', function() {\n  files = $('div#files div');\n  files.not('div.hidden').addClass('hidden');\n  id = $(this).text();\n  files.filter('div[id=\\'' + id + '\\']').removeClass('hidden');\n  $('ul.nav a[data-value=Source]').text(id).tab('show');\n});\n}"},"evals":["options.columnDefs.0.createdCell","callback"],"jsHooks":[]}</script>
+          <div class="datatables html-widget html-fill-item" id="htmlwidget-19f75516d29374574bba" style="width:100%;height:500px;"></div>
+          <script type="application/json" data-for="htmlwidget-19f75516d29374574bba">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["<a href=\"#\">R/export_as_docx.R<\/a>","<a href=\"#\">R/add_flextable_separators.R<\/a>","<a href=\"#\">R/theme_defaults.R<\/a>","<a href=\"#\">R/as_flextable.R<\/a>"],[336,127,366,565],[139,37,153,239],[112,31,140,231],[27,6,13,8],["6","8","26","42"],["80.58%","83.78%","91.50%","96.65%"]],"container":"<table class=\"row-border\">\n  <thead>\n    <tr>\n      <th>File<\/th>\n      <th>Lines<\/th>\n      <th>Relevant<\/th>\n      <th>Covered<\/th>\n      <th>Missed<\/th>\n      <th>Hits / Line<\/th>\n      <th>Coverage<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"searching":false,"dom":"t","paging":false,"columnDefs":[{"targets":6,"createdCell":"function(td, cellData, rowData, row, col) {\n  var percent = cellData.replace(\"%\", \"\");\n  if (percent > 90) {\n    var grad = \"linear-gradient(90deg, #edfde7 \" + cellData + \", white \" + cellData + \")\";\n  } else if (percent > 75) {\n    var grad = \"linear-gradient(90deg, #f9ffe5 \" + cellData + \", white \" + cellData + \")\";\n  } else {\n    var grad = \"linear-gradient(90deg, #fcece9 \" + cellData + \", white \" + cellData + \")\";\n  }\n  $(td).css(\"background\", grad);\n}\n"},{"className":"dt-right","targets":[1,2,3,4]},{"name":"File","targets":0},{"name":"Lines","targets":1},{"name":"Relevant","targets":2},{"name":"Covered","targets":3},{"name":"Missed","targets":4},{"name":"Hits / Line","targets":5},{"name":"Coverage","targets":6}],"order":[],"autoWidth":false,"orderClasses":false},"callback":"function(table) {\ntable.on('click.dt', 'a', function() {\n  files = $('div#files div');\n  files.not('div.hidden').addClass('hidden');\n  id = $(this).text();\n  files.filter('div[id=\\'' + id + '\\']').removeClass('hidden');\n  $('ul.nav a[data-value=Source]').text(id).tab('show');\n});\n}"},"evals":["options.columnDefs.0.createdCell","callback"],"jsHooks":[]}</script>
         </div>
         <div class="tab-pane" title="Source" data-value="Source" id="tab-covr-2">
           <div id="files">
@@ -5326,1299 +5326,1313 @@ table.table-condensed {
                     <td class="num">179</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">#' flextable::save_as_html(tbl_html, path = tempfile(fileext = ".html"))</pre>
+                      <pre class="language-r">#' flextable::save_as_html(tbl_html,</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">180</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">#'</pre>
+                      <pre class="language-r">#'   path = tempfile(tmpdir = tempdir(check = TRUE), fileext = ".html")</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">181</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">#' @export</pre>
+                      <pre class="language-r">#' )</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">182</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">theme_html_default &lt;- function(font = "Courier",</pre>
+                      <pre class="language-r">#'</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">183</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">                               font_size = 9,</pre>
+                      <pre class="language-r">#' @export</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">184</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">                               cell_margins = 0.2,</pre>
+                      <pre class="language-r">theme_html_default &lt;- function(font = "Courier",</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">185</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">                               remove_internal_borders = "label_rows",</pre>
+                      <pre class="language-r">                               font_size = 9,</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">186</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
+                      <pre class="language-r">                               cell_margins = 0.2,</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">187</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">                               remove_internal_borders = "label_rows",</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">188</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
                       <pre class="language-r">                               border = flextable::fp_border_default(width = 1, color = "black")) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">187</td>
+                    <td class="num">189</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  function(flx, ...) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">188</td>
+                    <td class="num">190</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    if (!inherits(flx, "flextable")) {</pre>
                     </td>
                   </tr>
                   <tr class="missed">
-                    <td class="num">189</td>
+                    <td class="num">191</td>
                     <td class="coverage">!</td>
                     <td class="col-sm-12">
                       <pre class="language-r">      stop(sprintf(</pre>
                     </td>
                   </tr>
                   <tr class="missed">
-                    <td class="num">190</td>
+                    <td class="num">192</td>
                     <td class="coverage">!</td>
                     <td class="col-sm-12">
                       <pre class="language-r">        "Function `%s` supports only flextable objects.",</pre>
                     </td>
                   </tr>
                   <tr class="missed">
-                    <td class="num">191</td>
+                    <td class="num">193</td>
                     <td class="coverage">!</td>
                     <td class="col-sm-12">
                       <pre class="language-r">        "theme_box()"</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">192</td>
+                    <td class="num">194</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      ))</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">193</td>
+                    <td class="num">195</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    }</pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">194</td>
-                    <td class="coverage">3<em>x</em></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">    checkmate::assert_int(font_size, lower = 6, upper = 12)</pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">195</td>
-                    <td class="coverage">3<em>x</em></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">    checkmate::assert_string(font)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">196</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    if (length(cell_margins) == 1) {</pre>
+                      <pre class="language-r">    checkmate::assert_int(font_size, lower = 6, upper = 12)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">197</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">      cell_margins &lt;- rep(cell_margins, 4)</pre>
+                      <pre class="language-r">    checkmate::assert_string(font)</pre>
                     </td>
                   </tr>
-                  <tr class="never">
+                  <tr class="covered">
                     <td class="num">198</td>
-                    <td class="coverage"></td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    }</pre>
+                      <pre class="language-r">    if (length(cell_margins) == 1) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">199</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
+                      <pre class="language-r">      cell_margins &lt;- rep(cell_margins, 4)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">200</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    }</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">201</td>
+                    <td class="coverage">3<em>x</em></td>
+                    <td class="col-sm-12">
                       <pre class="language-r">    checkmate::assert_numeric(cell_margins, lower = 0, len = 4)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">200</td>
+                    <td class="num">202</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    checkmate::assert_character(remove_internal_borders)</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">201</td>
+                    <td class="num">203</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r"></pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">202</td>
+                    <td class="num">204</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    # Setting values coming from ...</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">203</td>
+                    <td class="num">205</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    args &lt;- list(...)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">204</td>
+                    <td class="num">206</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    tbl_row_class &lt;- args$tbl_row_class # This is internal info</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">205</td>
+                    <td class="num">207</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    nc_body &lt;- flextable::ncol_keys(flx) # respects if rownames = FALSE (only rlistings)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">206</td>
+                    <td class="num">208</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    nr_header &lt;- flextable::nrow_part(flx, "header")</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">207</td>
+                    <td class="num">209</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r"></pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">208</td>
+                    <td class="num">210</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    # Font setting</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">209</td>
+                    <td class="num">211</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flx &lt;- flextable::fontsize(flx, size = font_size, part = "all") %&gt;%</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">210</td>
+                    <td class="num">212</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      flextable::fontsize(size = font_size - 1, part = "footer") %&gt;%</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">211</td>
+                    <td class="num">213</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      flextable::font(fontname = font, part = "all")</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">212</td>
+                    <td class="num">214</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r"></pre>
-                    </td>
-                  </tr>
-                  <tr class="never">
-                    <td class="num">213</td>
-                    <td class="coverage"></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">    # all borders</pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">214</td>
-                    <td class="coverage">3<em>x</em></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">    flx &lt;- .add_borders(flx, border = border, ncol = nc_body)</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">215</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"></pre>
+                      <pre class="language-r">    # all borders</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">216</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    if (any(remove_internal_borders == "label_rows") &amp;&amp; any(tbl_row_class == "LabelRow")) {</pre>
+                      <pre class="language-r">    flx &lt;- .add_borders(flx, border = border, ncol = nc_body)</pre>
                     </td>
                   </tr>
-                  <tr class="covered">
+                  <tr class="never">
                     <td class="num">217</td>
-                    <td class="coverage">3<em>x</em></td>
+                    <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">      flx &lt;- flextable::border(flx,</pre>
+                      <pre class="language-r"></pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">218</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">        j = seq(2, nc_body - 1),</pre>
+                      <pre class="language-r">    if (any(remove_internal_borders == "label_rows") &amp;&amp; any(tbl_row_class == "LabelRow")) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">219</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">        i = which(tbl_row_class == "LabelRow"), part = "body",</pre>
+                      <pre class="language-r">      flx &lt;- flextable::border(flx,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">220</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">        border.left = flextable::fp_border_default(width = 0),</pre>
+                      <pre class="language-r">        j = seq(2, nc_body - 1),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">221</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">        border.right = flextable::fp_border_default(width = 0)</pre>
+                      <pre class="language-r">        i = which(tbl_row_class == "LabelRow"), part = "body",</pre>
                     </td>
                   </tr>
-                  <tr class="never">
+                  <tr class="covered">
                     <td class="num">222</td>
-                    <td class="coverage"></td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">      ) %&gt;%</pre>
+                      <pre class="language-r">        border.left = flextable::fp_border_default(width = 0),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">223</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">        flextable::border(</pre>
+                      <pre class="language-r">        border.right = flextable::fp_border_default(width = 0)</pre>
                     </td>
                   </tr>
-                  <tr class="covered">
+                  <tr class="never">
                     <td class="num">224</td>
-                    <td class="coverage">3<em>x</em></td>
+                    <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">          j = 1,</pre>
+                      <pre class="language-r">      ) %&gt;%</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">225</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">          i = which(tbl_row_class == "LabelRow"), part = "body",</pre>
+                      <pre class="language-r">        flextable::border(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">226</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">          border.right = flextable::fp_border_default(width = 0)</pre>
+                      <pre class="language-r">          j = 1,</pre>
                     </td>
                   </tr>
-                  <tr class="never">
+                  <tr class="covered">
                     <td class="num">227</td>
-                    <td class="coverage"></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">        ) %&gt;%</pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">228</td>
-                    <td class="coverage">3<em>x</em></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">        flextable::border(</pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">229</td>
-                    <td class="coverage">3<em>x</em></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">          j = nc_body,</pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">230</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          i = which(tbl_row_class == "LabelRow"), part = "body",</pre>
                     </td>
                   </tr>
                   <tr class="covered">
+                    <td class="num">228</td>
+                    <td class="coverage">3<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">          border.right = flextable::fp_border_default(width = 0)</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">229</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">        ) %&gt;%</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">230</td>
+                    <td class="coverage">3<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">        flextable::border(</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
                     <td class="num">231</td>
+                    <td class="coverage">3<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">          j = nc_body,</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">232</td>
+                    <td class="coverage">3<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">          i = which(tbl_row_class == "LabelRow"), part = "body",</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">233</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          border.left = flextable::fp_border_default(width = 0)</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">232</td>
+                    <td class="num">234</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        )</pre>
-                    </td>
-                  </tr>
-                  <tr class="never">
-                    <td class="num">233</td>
-                    <td class="coverage"></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">    }</pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">234</td>
-                    <td class="coverage">3<em>x</em></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">    flx &lt;- flextable::bg(flx, i = seq_len(nr_header), bg = "grey", part = "header")</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">235</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"></pre>
+                      <pre class="language-r">    }</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">236</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    flx</pre>
+                      <pre class="language-r">    flx &lt;- flextable::bg(flx, i = seq_len(nr_header), bg = "grey", part = "header")</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">237</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  }</pre>
+                      <pre class="language-r"></pre>
                     </td>
                   </tr>
-                  <tr class="never">
+                  <tr class="covered">
                     <td class="num">238</td>
-                    <td class="coverage"></td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">}</pre>
+                      <pre class="language-r">    flx</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">239</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"></pre>
+                      <pre class="language-r">  }</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">240</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"># Helper functions -------------------------------------------------------------</pre>
+                      <pre class="language-r">}</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">241</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">#</pre>
+                      <pre class="language-r"></pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">242</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"></pre>
+                      <pre class="language-r"># Helper functions -------------------------------------------------------------</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">243</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">.add_borders &lt;- function(flx, border, ncol) {</pre>
+                      <pre class="language-r">#</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">244</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  # all borders</pre>
+                      <pre class="language-r"></pre>
                     </td>
                   </tr>
-                  <tr class="covered">
+                  <tr class="never">
                     <td class="num">245</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  flx &lt;- flx %&gt;%</pre>
+                      <pre class="language-r">.add_borders &lt;- function(flx, border, ncol) {</pre>
                     </td>
                   </tr>
-                  <tr class="covered">
+                  <tr class="never">
                     <td class="num">246</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    flextable::border_outer(part = "body", border = border) %&gt;%</pre>
+                      <pre class="language-r">  # all borders</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">247</td>
                     <td class="coverage">35<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    flextable::border_outer(part = "header", border = border) %&gt;%</pre>
+                      <pre class="language-r">  flx &lt;- flx %&gt;%</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">248</td>
                     <td class="coverage">35<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    flextable::border(</pre>
+                      <pre class="language-r">    flextable::border_outer(part = "body", border = border) %&gt;%</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">249</td>
                     <td class="coverage">35<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">      part = "header", j = 1,</pre>
+                      <pre class="language-r">    flextable::border_outer(part = "header", border = border) %&gt;%</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">250</td>
                     <td class="coverage">35<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">      border.left = border,</pre>
+                      <pre class="language-r">    flextable::border(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">251</td>
                     <td class="coverage">35<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">      border.right = border</pre>
+                      <pre class="language-r">      part = "header", j = 1,</pre>
                     </td>
                   </tr>
-                  <tr class="never">
+                  <tr class="covered">
                     <td class="num">252</td>
-                    <td class="coverage"></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">    ) %&gt;%</pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">253</td>
-                    <td class="coverage">35<em>x</em></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">    flextable::border(</pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">254</td>
-                    <td class="coverage">35<em>x</em></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">      part = "header", j = 1, i = 1,</pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">255</td>
-                    <td class="coverage">35<em>x</em></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">      border.top = border</pre>
-                    </td>
-                  </tr>
-                  <tr class="never">
-                    <td class="num">256</td>
-                    <td class="coverage"></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">    ) %&gt;%</pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">257</td>
-                    <td class="coverage">35<em>x</em></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">    flextable::border(</pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">258</td>
-                    <td class="coverage">35<em>x</em></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">      part = "header", j = 1, i = flextable::nrow_part(flx, "header"),</pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">259</td>
-                    <td class="coverage">35<em>x</em></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">      border.bottom = border</pre>
-                    </td>
-                  </tr>
-                  <tr class="never">
-                    <td class="num">260</td>
-                    <td class="coverage"></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">    ) %&gt;%</pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">261</td>
-                    <td class="coverage">35<em>x</em></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">    flextable::border(</pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">262</td>
-                    <td class="coverage">35<em>x</em></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">      part = "header", j = seq(2, ncol),</pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">263</td>
                     <td class="coverage">35<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      border.left = border,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">264</td>
+                    <td class="num">253</td>
                     <td class="coverage">35<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      border.right = border</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">265</td>
+                    <td class="num">254</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    )</pre>
+                      <pre class="language-r">    ) %&gt;%</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">255</td>
+                    <td class="coverage">35<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    flextable::border(</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">256</td>
+                    <td class="coverage">35<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      part = "header", j = 1, i = 1,</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">257</td>
+                    <td class="coverage">35<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      border.top = border</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">266</td>
+                    <td class="num">258</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"></pre>
+                      <pre class="language-r">    ) %&gt;%</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">259</td>
+                    <td class="coverage">35<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    flextable::border(</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">260</td>
+                    <td class="coverage">35<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      part = "header", j = 1, i = flextable::nrow_part(flx, "header"),</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">261</td>
+                    <td class="coverage">35<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      border.bottom = border</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">262</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    ) %&gt;%</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">263</td>
+                    <td class="coverage">35<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">    flextable::border(</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">264</td>
+                    <td class="coverage">35<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      part = "header", j = seq(2, ncol),</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">265</td>
+                    <td class="coverage">35<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      border.left = border,</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">266</td>
+                    <td class="coverage">35<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      border.right = border</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">267</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  # Special bottom and top for when there is no empty row</pre>
+                      <pre class="language-r">    )</pre>
                     </td>
                   </tr>
-                  <tr class="covered">
+                  <tr class="never">
                     <td class="num">268</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  raw_header &lt;- flx$header$content$data # HACK xxx</pre>
+                      <pre class="language-r"></pre>
                     </td>
                   </tr>
-                  <tr class="covered">
+                  <tr class="never">
                     <td class="num">269</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  extracted_header &lt;- NULL</pre>
+                      <pre class="language-r">  # Special bottom and top for when there is no empty row</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">270</td>
                     <td class="coverage">35<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  for (ii in seq_len(nrow(raw_header))) {</pre>
+                      <pre class="language-r">  raw_header &lt;- flx$header$content$data # HACK xxx</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">271</td>
-                    <td class="coverage">62<em>x</em></td>
+                    <td class="coverage">35<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    extracted_header &lt;- rbind(</pre>
+                      <pre class="language-r">  extracted_header &lt;- NULL</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">272</td>
-                    <td class="coverage">62<em>x</em></td>
+                    <td class="coverage">35<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">      extracted_header,</pre>
+                      <pre class="language-r">  for (ii in seq_len(nrow(raw_header))) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">273</td>
                     <td class="coverage">62<em>x</em></td>
                     <td class="col-sm-12">
+                      <pre class="language-r">    extracted_header &lt;- rbind(</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">274</td>
+                    <td class="coverage">62<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">      extracted_header,</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">275</td>
+                    <td class="coverage">62<em>x</em></td>
+                    <td class="col-sm-12">
                       <pre class="language-r">      sapply(raw_header[ii, ], function(x) x$txt)</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">274</td>
+                    <td class="num">276</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    )</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">275</td>
+                    <td class="num">277</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  }</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">276</td>
+                    <td class="num">278</td>
                     <td class="coverage">35<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  for (ii in seq_len(nrow(extracted_header))) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">277</td>
+                    <td class="num">279</td>
                     <td class="coverage">62<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    for (jj in seq(2, ncol)) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">278</td>
+                    <td class="num">280</td>
                     <td class="coverage">168<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      if (extracted_header[ii, jj] != " ") {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">279</td>
+                    <td class="num">281</td>
                     <td class="coverage">165<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        flx &lt;- flextable::border(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">280</td>
+                    <td class="num">282</td>
                     <td class="coverage">165<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          flx,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">281</td>
+                    <td class="num">283</td>
                     <td class="coverage">165<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          part = "header", j = jj, i = ii,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">282</td>
+                    <td class="num">284</td>
                     <td class="coverage">165<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          border.bottom = border</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">283</td>
+                    <td class="num">285</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        )</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">284</td>
+                    <td class="num">286</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      }</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">285</td>
+                    <td class="num">287</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    }</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">286</td>
+                    <td class="num">288</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  }</pre>
-                    </td>
-                  </tr>
-                  <tr class="never">
-                    <td class="num">287</td>
-                    <td class="coverage"></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r"></pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">288</td>
-                    <td class="coverage">35<em>x</em></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">  flx</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">289</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">}</pre>
+                      <pre class="language-r"></pre>
                     </td>
                   </tr>
-                  <tr class="never">
+                  <tr class="covered">
                     <td class="num">290</td>
-                    <td class="coverage"></td>
+                    <td class="coverage">35<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"></pre>
+                      <pre class="language-r">  flx</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">291</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
+                      <pre class="language-r">}</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">292</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r"></pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">293</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
                       <pre class="language-r">.apply_bold_manual &lt;- function(flx, bold_manual) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">292</td>
+                    <td class="num">294</td>
                     <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (is.null(bold_manual)) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">293</td>
+                    <td class="num">295</td>
                     <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    return(flx)</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">294</td>
+                    <td class="num">296</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  }</pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">295</td>
-                    <td class="coverage">2<em>x</em></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">  checkmate::assert_list(bold_manual)</pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">296</td>
-                    <td class="coverage">2<em>x</em></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">  valid_sections &lt;- c("header", "body") # Only valid values</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">297</td>
                     <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  checkmate::assert_subset(names(bold_manual), valid_sections)</pre>
+                      <pre class="language-r">  checkmate::assert_list(bold_manual)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">298</td>
                     <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  for (bi in seq_along(bold_manual)) {</pre>
+                      <pre class="language-r">  valid_sections &lt;- c("header", "body") # Only valid values</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">299</td>
-                    <td class="coverage">3<em>x</em></td>
+                    <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    bld_tmp &lt;- bold_manual[[bi]]</pre>
+                      <pre class="language-r">  checkmate::assert_subset(names(bold_manual), valid_sections)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">300</td>
-                    <td class="coverage">3<em>x</em></td>
+                    <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    checkmate::assert_list(bld_tmp)</pre>
+                      <pre class="language-r">  for (bi in seq_along(bold_manual)) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">301</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    if (!all(c("i", "j") %in% names(bld_tmp)) || !all(vapply(bld_tmp, checkmate::test_integerish, logical(1)))) {</pre>
+                      <pre class="language-r">    bld_tmp &lt;- bold_manual[[bi]]</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">302</td>
-                    <td class="coverage">1<em>x</em></td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">      stop(</pre>
+                      <pre class="language-r">    checkmate::assert_list(bld_tmp)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">303</td>
-                    <td class="coverage">1<em>x</em></td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">        "Found an allowed section for manual bold (", names(bold_manual)[bi],</pre>
+                      <pre class="language-r">    if (!all(c("i", "j") %in% names(bld_tmp)) || !all(vapply(bld_tmp, checkmate::test_integerish, logical(1)))) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">304</td>
                     <td class="coverage">1<em>x</em></td>
                     <td class="col-sm-12">
+                      <pre class="language-r">      stop(</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">305</td>
+                    <td class="coverage">1<em>x</em></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">        "Found an allowed section for manual bold (", names(bold_manual)[bi],</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">306</td>
+                    <td class="coverage">1<em>x</em></td>
+                    <td class="col-sm-12">
                       <pre class="language-r">        ") that was not a named list with i (row) and j (col) integer vectors."</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">305</td>
+                    <td class="num">307</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      )</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">306</td>
+                    <td class="num">308</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    }</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">307</td>
+                    <td class="num">309</td>
                     <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flx &lt;- flextable::bold(flx,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">308</td>
+                    <td class="num">310</td>
                     <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      i = bld_tmp$i, j = bld_tmp$j,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">309</td>
+                    <td class="num">311</td>
                     <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      part = names(bold_manual)[bi]</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">310</td>
+                    <td class="num">312</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    )</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">311</td>
+                    <td class="num">313</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  }</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">312</td>
+                    <td class="num">314</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r"></pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">313</td>
+                    <td class="num">315</td>
                     <td class="coverage">1<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flx</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">314</td>
+                    <td class="num">316</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">}</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">315</td>
+                    <td class="num">317</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r"></pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">316</td>
+                    <td class="num">318</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">.apply_indentation_and_margin &lt;- function(flx, cell_margins, tbl_row_class, tbl_ncol_body) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">317</td>
+                    <td class="num">319</td>
                     <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flx &lt;- flx %&gt;% # summary/data rows and cells</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">318</td>
+                    <td class="num">320</td>
                     <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flextable::padding(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">319</td>
+                    <td class="num">321</td>
                     <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      padding.top = cell_margins[3],</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">320</td>
+                    <td class="num">322</td>
                     <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      padding.bottom = cell_margins[4], part = "body"</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">321</td>
+                    <td class="num">323</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    )</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">322</td>
+                    <td class="num">324</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r"></pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">323</td>
+                    <td class="num">325</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  # Horizontal padding all table margin 0.19 mm</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">324</td>
+                    <td class="num">326</td>
                     <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flx &lt;- flextable::padding(flx,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">325</td>
+                    <td class="num">327</td>
                     <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    j = seq(2, tbl_ncol_body),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">326</td>
+                    <td class="num">328</td>
                     <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    padding.left = cell_margins[1],</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">327</td>
+                    <td class="num">329</td>
                     <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    padding.right = cell_margins[2]</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">328</td>
+                    <td class="num">330</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  )</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">329</td>
+                    <td class="num">331</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r"></pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">330</td>
+                    <td class="num">332</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  # Vertical padding/spaces - header (3pt after)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">331</td>
+                    <td class="num">333</td>
                     <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flx &lt;- flx %&gt;%</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">332</td>
+                    <td class="num">334</td>
                     <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flextable::padding(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">333</td>
+                    <td class="num">335</td>
                     <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      j = seq(1, tbl_ncol_body), # also topleft</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">334</td>
+                    <td class="num">336</td>
                     <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      padding.top = cell_margins[3],</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">335</td>
+                    <td class="num">337</td>
                     <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      padding.bottom = cell_margins[4],</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">336</td>
+                    <td class="num">338</td>
                     <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      part = "header"</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">337</td>
+                    <td class="num">339</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    )</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">338</td>
+                    <td class="num">340</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r"></pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">339</td>
+                    <td class="num">341</td>
                     <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flx</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">340</td>
-                    <td class="coverage"></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">}</pre>
-                    </td>
-                  </tr>
-                  <tr class="never">
-                    <td class="num">341</td>
-                    <td class="coverage"></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r"></pre>
-                    </td>
-                  </tr>
-                  <tr class="never">
                     <td class="num">342</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"># Remove vertical borders from both sides (for titles)</pre>
+                      <pre class="language-r">}</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">343</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">remove_vborder &lt;- function(flx, part, ii) {</pre>
+                      <pre class="language-r"></pre>
                     </td>
                   </tr>
-                  <tr class="missed">
+                  <tr class="never">
                     <td class="num">344</td>
-                    <td class="coverage">!</td>
+                    <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  flx &lt;- flextable::border(flx,</pre>
+                      <pre class="language-r"># Remove vertical borders from both sides (for titles)</pre>
                     </td>
                   </tr>
-                  <tr class="missed">
+                  <tr class="never">
                     <td class="num">345</td>
-                    <td class="coverage">!</td>
+                    <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    i = ii, part = part,</pre>
+                      <pre class="language-r">remove_vborder &lt;- function(flx, part, ii) {</pre>
                     </td>
                   </tr>
                   <tr class="missed">
                     <td class="num">346</td>
                     <td class="coverage">!</td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    border.left = flextable::fp_border_default(width = 0),</pre>
+                      <pre class="language-r">  flx &lt;- flextable::border(flx,</pre>
                     </td>
                   </tr>
                   <tr class="missed">
                     <td class="num">347</td>
                     <td class="coverage">!</td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    border.right = flextable::fp_border_default(width = 0)</pre>
+                      <pre class="language-r">    i = ii, part = part,</pre>
                     </td>
                   </tr>
-                  <tr class="never">
+                  <tr class="missed">
                     <td class="num">348</td>
-                    <td class="coverage"></td>
+                    <td class="coverage">!</td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  )</pre>
+                      <pre class="language-r">    border.left = flextable::fp_border_default(width = 0),</pre>
                     </td>
                   </tr>
-                  <tr class="never">
+                  <tr class="missed">
                     <td class="num">349</td>
-                    <td class="coverage"></td>
+                    <td class="coverage">!</td>
                     <td class="col-sm-12">
-                      <pre class="language-r">}</pre>
+                      <pre class="language-r">    border.right = flextable::fp_border_default(width = 0)</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">350</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"></pre>
+                      <pre class="language-r">  )</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">351</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"></pre>
+                      <pre class="language-r">}</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">352</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">#' @describeIn tt_to_flextable Padding helper functions to transform mm to pt.</pre>
+                      <pre class="language-r"></pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">353</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">#' @param mm (`numeric(1)`)\cr the value in mm to transform to pt.</pre>
+                      <pre class="language-r"></pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">354</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">#'</pre>
+                      <pre class="language-r">#' @describeIn tt_to_flextable Padding helper functions to transform mm to pt.</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">355</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">#' @export</pre>
+                      <pre class="language-r">#' @param mm (`numeric(1)`)\cr the value in mm to transform to pt.</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">356</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">word_mm_to_pt &lt;- function(mm) {</pre>
+                      <pre class="language-r">#'</pre>
                     </td>
                   </tr>
-                  <tr class="covered">
+                  <tr class="never">
                     <td class="num">357</td>
-                    <td class="coverage">190<em>x</em></td>
+                    <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  mm / 0.3527777778</pre>
+                      <pre class="language-r">#' @export</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">358</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">}</pre>
+                      <pre class="language-r">word_mm_to_pt &lt;- function(mm) {</pre>
                     </td>
                   </tr>
-                  <tr class="never">
+                  <tr class="covered">
                     <td class="num">359</td>
-                    <td class="coverage"></td>
+                    <td class="coverage">190<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"></pre>
+                      <pre class="language-r">  mm / 0.3527777778</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">360</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"># Padding helper functions to transform mm to pt and viceversa</pre>
+                      <pre class="language-r">}</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">361</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"># # General note for word: 1pt -&gt; 0.3527777778mm -&gt; 0.013888888888889"</pre>
+                      <pre class="language-r"></pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">362</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">word_inch_to_pt &lt;- function(inch) { # nocov</pre>
+                      <pre class="language-r"># Padding helper functions to transform mm to pt and viceversa</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">363</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  inch / 0.013888888888889 # nocov</pre>
+                      <pre class="language-r"># # General note for word: 1pt -&gt; 0.3527777778mm -&gt; 0.013888888888889"</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">364</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">word_inch_to_pt &lt;- function(inch) { # nocov</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">365</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  inch / 0.013888888888889 # nocov</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">366</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">}</pre>
@@ -7005,7 +7019,7 @@ table.table-condensed {
                     <td class="num">54</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">#' tf &lt;- tempfile(fileext = ".docx")</pre>
+                      <pre class="language-r">#' tf &lt;- tempfile(tmpdir = tempdir(check = TRUE), fileext = ".docx")</pre>
                     </td>
                   </tr>
                   <tr class="never">
