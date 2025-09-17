@@ -1,6 +1,7 @@
-## rtables.officer 0.1.0.9003
+## rtables.officer 0.1.1
 
  * Adding letter/A4 landscape/portrait docx templates.
+ * Dependency version bump for `officer` version 0.7.0 and `flextable` version 0.9.10.
 
 ## rtables.officer 0.1.0
 

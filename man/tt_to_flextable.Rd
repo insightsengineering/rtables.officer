@@ -261,7 +261,9 @@ tbl_html <- tt_to_flextable(
 )
 
 # Save the flextable as an HTML file named "test.html"
-flextable::save_as_html(tbl_html, path = tempfile(fileext = ".html"))
+flextable::save_as_html(tbl_html,
+  path = tempfile(tmpdir = tempdir(check = TRUE), fileext = ".html")
+)
 
 }
 \seealso{
