@@ -31,7 +31,7 @@ Depends:
     methods,
     R (>= 2.10),
     rlistings (>= 0.2.11),
-    rtables (>= 0.6.12)
+    rtables (>= 0.6.13)
 Imports:
     checkmate (>= 2.1.0),
     flextable (>= 0.9.6),
