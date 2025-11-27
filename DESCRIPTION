@@ -45,6 +45,7 @@ Suggests:
     data.table (>= 1.17.8),
     dplyr (>= 1.0.5),
     knitr (>= 1.42),
+    processx (>= 3.8.6),
     r2rtf (>= 0.3.2),
     rmarkdown (>= 2.23),
     survival (>= 3.3-1),
