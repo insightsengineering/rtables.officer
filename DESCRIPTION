@@ -42,6 +42,7 @@ Imports:
 Suggests:
     broom (>= 1.0.5),
     car (>= 3.0-13),
+    data.table (>= 1.17.8),
     dplyr (>= 1.0.5),
     knitr (>= 1.42),
     r2rtf (>= 0.3.2),
