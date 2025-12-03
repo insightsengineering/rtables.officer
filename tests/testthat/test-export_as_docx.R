@@ -1,6 +1,8 @@
 test_that("export_as_docx works thanks to tt_to_flextable", {
   lyt <- make_big_lyt()
-  tbl <- build_table(lyt, rawdat)
+  rawdat2 <- rawdat
+  rawdat2$ARM[rawdat2$ARM == "ARM1"] <- "ARM\nOne"
+  tbl <- build_table(lyt, rawdat2)
   top_left(tbl) <- "Ethnicity"
   main_title(tbl) <- "Main title"
   subtitles(tbl) <- c("Some Many", "Subtitles")
@@ -9,11 +11,20 @@ test_that("export_as_docx works thanks to tt_to_flextable", {
   fnotes_at_path(tbl, rowpath = c("RACE", "BLACK")) <- "factor 2"
   fnotes_at_path(tbl,
     rowpath = c("RACE", "BLACK"),
-    colpath = c("ARM", "ARM1", "SEX", "F")
+    colpath = c("ARM", "ARM\nOne", "SEX", "F")
   ) <- "factor 3"
 
   # Get the flextable
   flex_tbl <- tt_to_flextable(tbl, titles_as_header = TRUE, integrate_footers = TRUE)
+
+  # Added check for border behavior
+  expect_equal(
+    apply(flex_tbl$header$styles$cells$border.width.bottom$data, 2, function(x) sum(x > 0)),
+    c(
+      2, # first column has only two bottom borders (no split above) - rownames header
+      3, 3, 3, 3 # actual column names - this needs to have one bottom border per header row
+    )
+  )
 
   doc_file <- tempfile(fileext = ".docx")
 

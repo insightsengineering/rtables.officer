@@ -286,5 +286,10 @@ test_that("tt_to_flextable handles rlistings with multiple header lines", {
 
   out <- tt_to_flextable(lsting)
 
-  expect_equal(out$header$styles$pars$border.style.bottom$nrow, 1) # Only one bottom border row
+  # Check for border behavior
+  expect_equal(
+    apply(out$header$styles$cells$border.width.bottom$data, 2, function(x) sum(x > 0)) |>
+      unname(),
+    rep(1, ncol(lsting)) # only one cell per column name
+  )
 })
