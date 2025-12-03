@@ -262,3 +262,29 @@ test_that("tt_to_flextable handles rlistings with active separators", {
     label = "Body row count should match original data rows"
   )
 })
+
+test_that("tt_to_flextable handles rlistings with multiple header lines", {
+  # Create a simple listing
+  test_data_simple <- data.frame(
+    USUBJID = paste0("S", 1:3),
+    ARM = c("A", "A", "B"),
+    AETOXGR = 1:3,
+    AEDECOD = LETTERS[1:3],
+    AESEV = c("MILD", "MOD", "SEVERE")
+  ) |> formatters::var_relabel(
+    USUBJID = "Subject ID",
+    ARM = "Treatment Arm",
+    AETOXGR = "Toxicity \nGrade", # origin of the issue
+    AEDECOD = "Adverse Event"
+)
+  lsting <- as_listing(
+    df = test_data_simple,
+    key_cols = c("USUBJID"),
+    disp_cols = c("ARM", "AETOXGR", "AEDECOD", "AESEV"),
+    add_trailing_sep = NULL # No separators
+  )
+
+  out <- tt_to_flextable(lsting)
+
+  expect_equal(out$header$styles$pars$border.style.bottom$nrow, 1) # Only one bottom border row
+})

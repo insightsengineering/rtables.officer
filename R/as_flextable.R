@@ -203,7 +203,7 @@ tt_to_flextable <- function(tt,
   }
 
   # Extract relevant information
-  matform <- rtables::matrix_form(tt, fontspec = fontspec, indent_rownames = FALSE)
+  matform <- rtables::matrix_form(tt, fontspec = fontspec, indent_rownames = FALSE, expand_newlines = FALSE)
   body <- formatters::mf_strings(matform) # Contains header
   spans <- formatters::mf_spans(matform) # Contains header
   mpf_aligns <- formatters::mf_aligns(matform) # Contains header
