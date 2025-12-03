@@ -275,6 +275,7 @@ theme_html_default <- function(font = "Courier",
       sapply(raw_header[ii, ], function(x) x$txt)
     )
   }
+
   for (ii in seq_len(nrow(extracted_header))) {
     for (jj in seq(2, ncol)) {
       if (extracted_header[ii, jj] != " ") {
