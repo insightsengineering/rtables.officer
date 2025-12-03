@@ -1,4 +1,5 @@
 test_that("export_as_docx works thanks to tt_to_flextable", {
+  withr::local_options(list(warn = 2))
   lyt <- make_big_lyt()
   rawdat2 <- rawdat
   rawdat2$ARM[rawdat2$ARM == "ARM1"] <- "ARM\nOne"
