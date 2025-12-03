@@ -19,7 +19,8 @@ test_that("export_as_docx works thanks to tt_to_flextable", {
 
   # Added check for border behavior
   expect_equal(
-    apply(flex_tbl$header$styles$cells$border.width.bottom$data, 2, function(x) sum(x > 0)),
+    apply(flex_tbl$header$styles$cells$border.width.bottom$data, 2, function(x) sum(x > 0)) |>
+      unname(),
     c(
       2, # first column has only two bottom borders (no split above) - rownames header
       3, 3, 3, 3 # actual column names - this needs to have one bottom border per header row
