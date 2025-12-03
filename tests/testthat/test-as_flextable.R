@@ -276,7 +276,7 @@ test_that("tt_to_flextable handles rlistings with multiple header lines", {
     ARM = "Treatment Arm",
     AETOXGR = "Toxicity \nGrade", # origin of the issue
     AEDECOD = "Adverse Event"
-)
+  )
   lsting <- as_listing(
     df = test_data_simple,
     key_cols = c("USUBJID"),
