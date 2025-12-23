@@ -1,5 +1,7 @@
 ## rtables.officer 0.1.1.9004
 
+ * Fix issue with extra borders when header had `"\n"` special characters in `tt_as_flextable()`.
+
 ## rtables.officer 0.1.1
 
  * Adding letter/A4 landscape/portrait docx templates.
