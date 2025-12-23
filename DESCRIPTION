@@ -1,14 +1,14 @@
 Package: rtables.officer
 Title: Exporting Tools for 'rtables'
-Version: 0.1.1.9001
-Date: 2025-11-26
+Version: 0.1.1.9004
+Date: 2025-12-23
 Authors@R: c(
     person("Gabriel", "Becker", , "gabembecker@gmail.com", role = "ctb"),
     person("Davide", "Garolini", , "davide.garolini@roche.com", role = "aut",
            comment = c(ORCID = "0000-0002-1445-1369")),
-    person("Emily", "de la Rua", , "emily.de_la_rua@contractors.roche.com", role = "aut",
+    person("Emily", "de la Rua", , "emilydelarua@gmail.com", role = "aut",
            comment = c(ORCID = "0009-0000-8738-5561")),
-    person("Abinaya", "Yogasekaram", , "abinaya.yogasekaram@contractors.roche.com", role = "aut",
+    person("Abinaya", "Yogasekaram", , "ayogasek@gmail.com", role = "aut",
            comment = c(ORCID = "0009-0005-2083-1105")),
     person("Joe", "Zhu", , "joe.zhu@roche.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7566-2787")),
@@ -26,17 +26,17 @@ URL: https://github.com/insightsengineering/rtables.officer,
     https://insightsengineering.github.io/rtables.officer/
 BugReports: https://github.com/insightsengineering/rtables.officer/issues
 Depends:
-    formatters (>= 0.5.11),
+    formatters (>= 0.5.12),
     magrittr (>= 1.5),
     methods,
-    R (>= 2.10),
-    rlistings (>= 0.2.11),
-    rtables (>= 0.6.13)
+    R (>= 4.4.0),
+    rlistings (>= 0.2.13),
+    rtables (>= 0.6.15)
 Imports:
     checkmate (>= 2.1.0),
-    flextable (>= 0.9.6),
+    flextable (>= 0.9.10),
     lifecycle (>= 0.2.0),
-    officer (>= 0.7.0),
+    officer (>= 0.7.1),
     stats,
     stringi (>= 1.6)
 Suggests:
@@ -44,10 +44,11 @@ Suggests:
     car (>= 3.0-13),
     dplyr (>= 1.0.5),
     knitr (>= 1.42),
-    r2rtf (>= 0.3.2),
+    r2rtf (>= 1.2.0),
+    Rcpp (>= 1.1.0),
     rmarkdown (>= 2.23),
     survival (>= 3.3-1),
-    tern (>= 0.9.7),
+    tern (>= 0.9.10),
     testthat (>= 3.0.4),
     tibble (>= 3.2.1),
     tidyr (>= 1.1.3),
