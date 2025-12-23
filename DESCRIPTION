@@ -29,14 +29,14 @@ Depends:
     formatters (>= 0.5.12),
     magrittr (>= 1.5),
     methods,
-    R (>= 2.10),
+    R (>= 4.4.0),
     rlistings (>= 0.2.13),
     rtables (>= 0.6.15)
 Imports:
     checkmate (>= 2.1.0),
-    flextable (>= 0.9.6),
+    flextable (>= 0.9.10),
     lifecycle (>= 0.2.0),
-    officer (>= 0.7.0),
+    officer (>= 0.7.1),
     stats,
     stringi (>= 1.6)
 Suggests:
