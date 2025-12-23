@@ -45,6 +45,7 @@ Suggests:
     dplyr (>= 1.0.5),
     knitr (>= 1.42),
     r2rtf (>= 1.2.0),
+    Rcpp (>= 1.1.0),
     rmarkdown (>= 2.23),
     survival (>= 3.3-1),
     tern (>= 0.9.10),
