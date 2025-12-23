@@ -17,18 +17,18 @@ test_that("export_as_docx works thanks to tt_to_flextable", {
 
   doc_file <- tempfile(tmpdir = tempdir(check = TRUE), fileext = ".docx")
 
-  expect_silent(export_as_docx(tbl,
+  expect_no_error(export_as_docx(tbl,
     file = doc_file, doc_metadata = list("title" = "meh"),
     template_file = doc_file,
     section_properties = section_properties_default()
   ))
   # flx table in input
-  expect_silent(export_as_docx(flex_tbl,
+  expect_no_error(export_as_docx(flex_tbl,
     file = doc_file, doc_metadata = list("title" = "meh"),
     template_file = doc_file,
     section_properties = section_properties_default(page_size = "A4")
   ))
-  expect_silent(export_as_docx(tbl,
+  expect_no_error(export_as_docx(tbl,
     file = doc_file, doc_metadata = list("title" = "meh"),
     template_file = doc_file,
     section_properties = section_properties_default(orientation = "landscape")
