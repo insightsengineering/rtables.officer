@@ -1,6 +1,6 @@
 # Changelog
 
-## rtables.officer 0.1.1.9001
+## rtables.officer 0.1.1.9002
 
 ## rtables.officer 0.1.1
 
