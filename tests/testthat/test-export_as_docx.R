@@ -1,6 +1,9 @@
-testthat::skip_if_not("DejaVu Sans" %in% systemfonts::system_fonts()$family, message = "DejaVu Sans not available")
-
 test_that("export_as_docx works thanks to tt_to_flextable", {
+  testthat::skip_if_not(
+    systemfonts::font_info("DejaVu Sans")$family == "DejaVu Sans",
+    message = "DejaVu Sans font not found; skipping export test."
+  )
+
   withr::local_options(list(warn = 2))
   lyt <- make_big_lyt()
   rawdat2 <- rawdat
@@ -71,6 +74,11 @@ test_that("export_as_docx produces a warning if manual column widths are used", 
 })
 
 test_that("export_as_docx works thanks to tt_to_flextable", {
+  testthat::skip_if_not(
+    systemfonts::font_info("DejaVu Sans")$family == "DejaVu Sans",
+    message = "DejaVu Sans font not found; skipping export test."
+  )
+
   lsting <- as_listing(
     df = head(formatters::ex_adae, n = 50),
     key_cols = c("USUBJID", "ARM"),
