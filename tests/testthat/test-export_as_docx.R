@@ -4,6 +4,11 @@ test_that("export_as_docx works thanks to tt_to_flextable", {
     message = "DejaVu Sans font not found; skipping export test."
   )
 
+  testthat::skip_if_not(
+    "DejaVu Sans" %in% names(postscriptFonts()),
+    message = "DejaVu Sans not in PostScript font database"
+  )
+
   withr::local_options(list(warn = 2))
   lyt <- make_big_lyt()
   rawdat2 <- rawdat
