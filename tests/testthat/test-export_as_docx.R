@@ -51,8 +51,8 @@ test_that("export_as_docx works thanks to tt_to_flextable", {
 })
 
 test_that("export_as_docx produces a warning if manual column widths are used", {
-  lyt <- basic_table() %>%
-    split_rows_by("Species") %>%
+  lyt <- basic_table() |>
+    split_rows_by("Species") |>
     analyze("Petal.Length")
   tbl <- build_table(lyt, iris)
 

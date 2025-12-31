@@ -2,7 +2,6 @@
 "_PACKAGE"
 
 #' @importFrom lifecycle deprecated
-#' @importFrom magrittr %>%
 #' @importFrom stats setNames
 #' @import methods
 #' @import formatters

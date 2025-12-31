@@ -27,7 +27,6 @@ URL: https://github.com/insightsengineering/rtables.officer,
 BugReports: https://github.com/insightsengineering/rtables.officer/issues
 Depends:
     formatters (>= 0.5.12),
-    magrittr (>= 1.5),
     methods,
     R (>= 4.4.0),
     rlistings (>= 0.2.13),
@@ -45,7 +44,6 @@ Suggests:
     dplyr (>= 1.0.5),
     knitr (>= 1.42),
     r2rtf (>= 1.2.0),
-    Rcpp (>= 1.1.0),
     rmarkdown (>= 2.23),
     survival (>= 3.3-1),
     tern (>= 0.9.10),
