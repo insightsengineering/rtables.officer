@@ -95,7 +95,7 @@ table.table-condensed {
   font-size: 11px;
 }</style>
   <div class="col-md-8 col-md-offset-2">
-    <h2>rtables.officer coverage - 90.98%</h2>
+    <h2>rtables.officer coverage - 90.53%</h2>
     <div class="tabbable">
       <ul class="nav nav-tabs" data-tabsetid="covr">
         <li class="active">
@@ -107,8 +107,8 @@ table.table-condensed {
       </ul>
       <div class="tab-content" data-tabsetid="covr">
         <div class="tab-pane active" title="Files" data-value="Files" id="tab-covr-1">
-          <div class="datatables html-widget html-fill-item" id="htmlwidget-dbb4e224cbc554d73256" style="width:100%;height:500px;"></div>
-          <script type="application/json" data-for="htmlwidget-dbb4e224cbc554d73256">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["<a href=\"#\">R/export_as_docx.R<\/a>","<a href=\"#\">R/add_flextable_separators.R<\/a>","<a href=\"#\">R/theme_defaults.R<\/a>","<a href=\"#\">R/as_flextable.R<\/a>"],[336,127,366,565],[139,37,153,239],[112,31,140,231],[27,6,13,8],["6","8","26","42"],["80.58%","83.78%","91.50%","96.65%"]],"container":"<table class=\"row-border\">\n  <thead>\n    <tr>\n      <th>File<\/th>\n      <th>Lines<\/th>\n      <th>Relevant<\/th>\n      <th>Covered<\/th>\n      <th>Missed<\/th>\n      <th>Hits / Line<\/th>\n      <th>Coverage<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"searching":false,"dom":"t","paging":false,"columnDefs":[{"targets":6,"createdCell":"function(td, cellData, rowData, row, col) {\n  var percent = cellData.replace(\"%\", \"\");\n  if (percent > 90) {\n    var grad = \"linear-gradient(90deg, #edfde7 \" + cellData + \", white \" + cellData + \")\";\n  } else if (percent > 75) {\n    var grad = \"linear-gradient(90deg, #f9ffe5 \" + cellData + \", white \" + cellData + \")\";\n  } else {\n    var grad = \"linear-gradient(90deg, #fcece9 \" + cellData + \", white \" + cellData + \")\";\n  }\n  $(td).css(\"background\", grad);\n}\n"},{"className":"dt-right","targets":[1,2,3,4]},{"name":"File","targets":0},{"name":"Lines","targets":1},{"name":"Relevant","targets":2},{"name":"Covered","targets":3},{"name":"Missed","targets":4},{"name":"Hits / Line","targets":5},{"name":"Coverage","targets":6}],"order":[],"autoWidth":false,"orderClasses":false},"callback":"function(table) {\ntable.on('click.dt', 'a', function() {\n  files = $('div#files div');\n  files.not('div.hidden').addClass('hidden');\n  id = $(this).text();\n  files.filter('div[id=\\'' + id + '\\']').removeClass('hidden');\n  $('ul.nav a[data-value=Source]').text(id).tab('show');\n});\n}"},"evals":["options.columnDefs.0.createdCell","callback"],"jsHooks":[]}</script>
+          <div class="datatables html-widget html-fill-item" id="htmlwidget-13970387aa27dfcf90e4" style="width:100%;height:500px;"></div>
+          <script type="application/json" data-for="htmlwidget-13970387aa27dfcf90e4">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["<a href=\"#\">R/export_as_docx.R<\/a>","<a href=\"#\">R/add_flextable_separators.R<\/a>","<a href=\"#\">R/theme_defaults.R<\/a>","<a href=\"#\">R/as_flextable.R<\/a>"],[336,127,367,565],[139,37,153,239],[109,31,140,231],[30,6,13,8],["5","8","24","38"],["78.42%","83.78%","91.50%","96.65%"]],"container":"<table class=\"row-border\">\n  <thead>\n    <tr>\n      <th>File<\/th>\n      <th>Lines<\/th>\n      <th>Relevant<\/th>\n      <th>Covered<\/th>\n      <th>Missed<\/th>\n      <th>Hits / Line<\/th>\n      <th>Coverage<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"searching":false,"dom":"t","paging":false,"columnDefs":[{"targets":6,"createdCell":"function(td, cellData, rowData, row, col) {\n  var percent = cellData.replace(\"%\", \"\");\n  if (percent > 90) {\n    var grad = \"linear-gradient(90deg, #edfde7 \" + cellData + \", white \" + cellData + \")\";\n  } else if (percent > 75) {\n    var grad = \"linear-gradient(90deg, #f9ffe5 \" + cellData + \", white \" + cellData + \")\";\n  } else {\n    var grad = \"linear-gradient(90deg, #fcece9 \" + cellData + \", white \" + cellData + \")\";\n  }\n  $(td).css(\"background\", grad);\n}\n"},{"className":"dt-right","targets":[1,2,3,4]},{"name":"File","targets":0},{"name":"Lines","targets":1},{"name":"Relevant","targets":2},{"name":"Covered","targets":3},{"name":"Missed","targets":4},{"name":"Hits / Line","targets":5},{"name":"Coverage","targets":6}],"order":[],"autoWidth":false,"orderClasses":false},"callback":"function(table) {\ntable.on('click.dt', 'a', function() {\n  files = $('div#files div');\n  files.not('div.hidden').addClass('hidden');\n  id = $(this).text();\n  files.filter('div[id=\\'' + id + '\\']').removeClass('hidden');\n  $('ul.nav a[data-value=Source]').text(id).tab('show');\n});\n}"},"evals":["options.columnDefs.0.createdCell","callback"],"jsHooks":[]}</script>
         </div>
         <div class="tab-pane" title="Source" data-value="Source" id="tab-covr-2">
           <div id="files">
@@ -707,14 +707,14 @@ table.table-condensed {
                     <td class="num">85</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">#' ) %&gt;%</pre>
+                      <pre class="language-r">#' ) |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">86</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">#'   split_cols_by("ARM") %&gt;%</pre>
+                      <pre class="language-r">#'   split_cols_by("ARM") |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="never">
@@ -971,7 +971,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">123</td>
-                    <td class="coverage">40<em>x</em></td>
+                    <td class="coverage">38<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (inherits(tt, "list")) {</pre>
                     </td>
@@ -992,7 +992,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">126</td>
-                    <td class="coverage">40<em>x</em></td>
+                    <td class="coverage">38<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (!inherits(tt, "VTableTree") &amp;&amp; !inherits(tt, "listing_df")) {</pre>
                     </td>
@@ -1013,56 +1013,56 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">129</td>
-                    <td class="coverage">40<em>x</em></td>
+                    <td class="coverage">38<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  checkmate::assert_flag(titles_as_header)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">130</td>
-                    <td class="coverage">40<em>x</em></td>
+                    <td class="coverage">38<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  checkmate::assert_flag(integrate_footers)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">131</td>
-                    <td class="coverage">40<em>x</em></td>
+                    <td class="coverage">38<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  checkmate::assert_flag(counts_in_newline)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">132</td>
-                    <td class="coverage">40<em>x</em></td>
+                    <td class="coverage">38<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  checkmate::assert_flag(autofit_to_page)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">133</td>
-                    <td class="coverage">40<em>x</em></td>
+                    <td class="coverage">38<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  checkmate::assert_number(total_page_width, lower = 1)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">134</td>
-                    <td class="coverage">40<em>x</em></td>
+                    <td class="coverage">38<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  checkmate::assert_number(total_page_height, lower = 1)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">135</td>
-                    <td class="coverage">40<em>x</em></td>
+                    <td class="coverage">38<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  checkmate::assert_numeric(colwidths, lower = 0, len = ncol(tt) + 1, null.ok = TRUE)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">136</td>
-                    <td class="coverage">40<em>x</em></td>
+                    <td class="coverage">38<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (!is.null(colwidths)) {</pre>
                     </td>
@@ -1090,7 +1090,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">140</td>
-                    <td class="coverage">40<em>x</em></td>
+                    <td class="coverage">38<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  left_right_fixed_margins &lt;- word_mm_to_pt(1.9)</pre>
                     </td>
@@ -1111,7 +1111,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">143</td>
-                    <td class="coverage">40<em>x</em></td>
+                    <td class="coverage">38<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (paginate) {</pre>
                     </td>
@@ -1552,42 +1552,42 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">206</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  matform &lt;- rtables::matrix_form(tt, fontspec = fontspec, indent_rownames = FALSE)</pre>
+                      <pre class="language-r">  matform &lt;- rtables::matrix_form(tt, fontspec = fontspec, indent_rownames = FALSE, expand_newlines = FALSE)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">207</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  body &lt;- formatters::mf_strings(matform) # Contains header</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">208</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  spans &lt;- formatters::mf_spans(matform) # Contains header</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">209</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  mpf_aligns &lt;- formatters::mf_aligns(matform) # Contains header</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">210</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  hnum &lt;- formatters::mf_nlheader(matform) # Number of lines for the header</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">211</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  rdf &lt;- rtables::make_row_df(tt) # Row-wise info</pre>
                     </td>
@@ -1608,7 +1608,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">214</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (any(grepl("dec", mpf_aligns))) {</pre>
                     </td>
@@ -1671,7 +1671,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">223</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  content &lt;- as.data.frame(body[-seq_len(hnum), , drop = FALSE])</pre>
                     </td>
@@ -1692,7 +1692,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">226</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  content[content == ""] &lt;- " "</pre>
                     </td>
@@ -1706,9 +1706,9 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">228</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  flx &lt;- flextable::qflextable(content) %&gt;%</pre>
+                      <pre class="language-r">  flx &lt;- flextable::qflextable(content) |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="never">
@@ -1720,7 +1720,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">230</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    .remove_hborder(part = "body", w = "bottom")</pre>
                     </td>
@@ -1741,7 +1741,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">233</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  hdr &lt;- body[seq_len(hnum), , drop = FALSE]</pre>
                     </td>
@@ -1762,56 +1762,56 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">236</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (hnum &gt; 1) { # otherwise nothing to do</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">237</td>
-                    <td class="coverage">20<em>x</em></td>
+                    <td class="coverage">17<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    det_nclab &lt;- apply(hdr, 2, grepl, pattern = "\\(N=[0-9]+\\)$")</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">238</td>
-                    <td class="coverage">20<em>x</em></td>
+                    <td class="coverage">17<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    has_nclab &lt;- apply(det_nclab, 1, any) # vector of rows with (N=xx)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">239</td>
-                    <td class="coverage">20<em>x</em></td>
+                    <td class="coverage">17<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    whsnc &lt;- which(has_nclab) # which rows have it</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">240</td>
-                    <td class="coverage">20<em>x</em></td>
+                    <td class="coverage">17<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    if (any(has_nclab)) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">241</td>
-                    <td class="coverage">16<em>x</em></td>
+                    <td class="coverage">13<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      for (i in seq_along(whsnc)) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">242</td>
-                    <td class="coverage">26<em>x</em></td>
+                    <td class="coverage">23<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        wi &lt;- whsnc[i]</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">243</td>
-                    <td class="coverage">26<em>x</em></td>
+                    <td class="coverage">23<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        what_is_nclab &lt;- det_nclab[wi, ] # extract detected row</pre>
                     </td>
@@ -1825,7 +1825,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">245</td>
-                    <td class="coverage">26<em>x</em></td>
+                    <td class="coverage">23<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        colcounts_split_chr &lt;- if (isFALSE(counts_in_newline)) {</pre>
                     </td>
@@ -1874,21 +1874,21 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">252</td>
-                    <td class="coverage">26<em>x</em></td>
+                    <td class="coverage">23<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        hdr[wi, what_is_nclab] &lt;- paste(hdr[wi - 1, what_is_nclab],</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">253</td>
-                    <td class="coverage">26<em>x</em></td>
+                    <td class="coverage">23<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          hdr[wi, what_is_nclab],</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">254</td>
-                    <td class="coverage">26<em>x</em></td>
+                    <td class="coverage">23<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          sep = colcounts_split_chr</pre>
                     </td>
@@ -1902,7 +1902,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">256</td>
-                    <td class="coverage">26<em>x</em></td>
+                    <td class="coverage">23<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        hdr[wi - 1, what_is_nclab] &lt;- ""</pre>
                     </td>
@@ -1923,7 +1923,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">259</td>
-                    <td class="coverage">26<em>x</em></td>
+                    <td class="coverage">23<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        row_to_pop &lt;- wi - 1</pre>
                     </td>
@@ -1944,56 +1944,56 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">262</td>
-                    <td class="coverage">26<em>x</em></td>
+                    <td class="coverage">23<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        what_to_put_up &lt;- hdr[row_to_pop, what_is_nclab, drop = FALSE]</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">263</td>
-                    <td class="coverage">26<em>x</em></td>
+                    <td class="coverage">23<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        if (all(!nzchar(what_to_put_up)) &amp;&amp; row_to_pop &gt; 1) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">264</td>
-                    <td class="coverage">13<em>x</em></td>
+                    <td class="coverage">10<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          reconstructed_hdr &lt;- rbind(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">265</td>
-                    <td class="coverage">13<em>x</em></td>
+                    <td class="coverage">10<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">            cbind(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">266</td>
-                    <td class="coverage">13<em>x</em></td>
+                    <td class="coverage">10<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">              hdr[seq(row_to_pop), !what_is_nclab],</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">267</td>
-                    <td class="coverage">13<em>x</em></td>
+                    <td class="coverage">10<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">              rbind(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">268</td>
-                    <td class="coverage">13<em>x</em></td>
+                    <td class="coverage">10<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">                what_to_put_up,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">269</td>
-                    <td class="coverage">13<em>x</em></td>
+                    <td class="coverage">10<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">                hdr[seq(row_to_pop - 1), what_is_nclab]</pre>
                     </td>
@@ -2014,7 +2014,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">272</td>
-                    <td class="coverage">13<em>x</em></td>
+                    <td class="coverage">10<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">            hdr[seq(row_to_pop + 1, nrow(hdr)), ]</pre>
                     </td>
@@ -2028,14 +2028,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">274</td>
-                    <td class="coverage">13<em>x</em></td>
+                    <td class="coverage">10<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          row_to_pop &lt;- 1</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">275</td>
-                    <td class="coverage">13<em>x</em></td>
+                    <td class="coverage">10<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          hdr &lt;- reconstructed_hdr</pre>
                     </td>
@@ -2063,42 +2063,42 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">279</td>
-                    <td class="coverage">26<em>x</em></td>
+                    <td class="coverage">23<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        if (all(!nzchar(hdr[row_to_pop, ]))) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">280</td>
-                    <td class="coverage">25<em>x</em></td>
+                    <td class="coverage">22<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          hdr &lt;- hdr[-row_to_pop, , drop = FALSE]</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">281</td>
-                    <td class="coverage">25<em>x</em></td>
+                    <td class="coverage">22<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          spans &lt;- spans[-row_to_pop, , drop = FALSE]</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">282</td>
-                    <td class="coverage">25<em>x</em></td>
+                    <td class="coverage">22<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          body &lt;- body[-row_to_pop, , drop = FALSE]</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">283</td>
-                    <td class="coverage">25<em>x</em></td>
+                    <td class="coverage">22<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          mpf_aligns &lt;- mpf_aligns[-row_to_pop, , drop = FALSE]</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">284</td>
-                    <td class="coverage">25<em>x</em></td>
+                    <td class="coverage">22<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          hnum &lt;- hnum - 1</pre>
                     </td>
@@ -2112,14 +2112,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">286</td>
-                    <td class="coverage">25<em>x</em></td>
+                    <td class="coverage">22<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          whsnc &lt;- whsnc - 1</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">287</td>
-                    <td class="coverage">25<em>x</em></td>
+                    <td class="coverage">22<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          det_nclab &lt;- det_nclab[-row_to_pop, , drop = FALSE]</pre>
                     </td>
@@ -2168,7 +2168,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">294</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  hdr[hdr == ""] &lt;- " "</pre>
                     </td>
@@ -2182,35 +2182,35 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">296</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  flx &lt;- flx %&gt;%</pre>
+                      <pre class="language-r">  flx &lt;- flx |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">297</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flextable::set_header_labels( # Needed bc headers must be unique</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">298</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      values = setNames(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">299</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        as.vector(hdr[hnum, , drop = TRUE]),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">300</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        names(content)</pre>
                     </td>
@@ -2245,56 +2245,56 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">305</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (hnum &gt; 1) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">306</td>
-                    <td class="coverage">18<em>x</em></td>
+                    <td class="coverage">15<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    for (i in seq(hnum - 1, 1)) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">307</td>
-                    <td class="coverage">28<em>x</em></td>
+                    <td class="coverage">25<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      sel &lt;- formatters::spans_to_viscell(spans[i, ])</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">308</td>
-                    <td class="coverage">28<em>x</em></td>
+                    <td class="coverage">25<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      flx &lt;- flextable::add_header_row(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">309</td>
-                    <td class="coverage">28<em>x</em></td>
+                    <td class="coverage">25<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        flx,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">310</td>
-                    <td class="coverage">28<em>x</em></td>
+                    <td class="coverage">25<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        top = TRUE,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">311</td>
-                    <td class="coverage">28<em>x</em></td>
+                    <td class="coverage">25<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        values = as.vector(hdr[i, sel]),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">312</td>
-                    <td class="coverage">28<em>x</em></td>
+                    <td class="coverage">25<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        colwidths = as.integer(spans[i, sel]) # xxx to fix</pre>
                     </td>
@@ -2336,14 +2336,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">318</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  nr_body &lt;- flextable::nrow_part(flx, part = "body")</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">319</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  nr_header &lt;- flextable::nrow_part(flx, part = "header")</pre>
                     </td>
@@ -2364,21 +2364,21 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">322</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  flx &lt;- flx %&gt;%</pre>
+                      <pre class="language-r">  flx &lt;- flx |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">323</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    .remove_hborder(part = "header", w = "all") %&gt;%</pre>
+                      <pre class="language-r">    .remove_hborder(part = "header", w = "all") |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">324</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    .add_hborder("header", ii = c(0, hnum), border = border)</pre>
                     </td>
@@ -2399,21 +2399,21 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">327</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  flx &lt;- flx %&gt;%</pre>
+                      <pre class="language-r">  flx &lt;- flx |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">328</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    .apply_alignments(mpf_aligns[seq_len(hnum), , drop = FALSE], "header") %&gt;%</pre>
+                      <pre class="language-r">    .apply_alignments(mpf_aligns[seq_len(hnum), , drop = FALSE], "header") |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">329</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    .apply_alignments(mpf_aligns[-seq_len(hnum), , drop = FALSE], "body")</pre>
                     </td>
@@ -2434,14 +2434,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">332</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  checkmate::check_number(indent_size, null.ok = TRUE)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">333</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (is.null(indent_size)) {</pre>
                     </td>
@@ -2455,7 +2455,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">335</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    indent_size &lt;- matform$indent_size * word_mm_to_pt(1) # default is 2mm (5.7pt)</pre>
                     </td>
@@ -2497,42 +2497,42 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">341</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  for (i in seq_len(nr_body)) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">342</td>
-                    <td class="coverage">592<em>x</em></td>
+                    <td class="coverage">511<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flx &lt;- flextable::padding(flx,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">343</td>
-                    <td class="coverage">592<em>x</em></td>
+                    <td class="coverage">511<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      i = i, j = 1,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">344</td>
-                    <td class="coverage">592<em>x</em></td>
+                    <td class="coverage">511<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      padding.left = indent_size * rdf$indent[[i]] + left_right_fixed_margins, # margins</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">345</td>
-                    <td class="coverage">592<em>x</em></td>
+                    <td class="coverage">511<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      padding.right = left_right_fixed_margins, # 0.19 mmm in pt (so not to touch the border)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">346</td>
-                    <td class="coverage">592<em>x</em></td>
+                    <td class="coverage">511<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      part = "body"</pre>
                     </td>
@@ -2574,28 +2574,28 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">352</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  for (i in seq_len(nr_header)) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">353</td>
-                    <td class="coverage">64<em>x</em></td>
+                    <td class="coverage">59<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    leading_spaces_count &lt;- nchar(hdr[i, 1]) - nchar(stringi::stri_replace(hdr[i, 1], regex = "^ +", ""))</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">354</td>
-                    <td class="coverage">64<em>x</em></td>
+                    <td class="coverage">59<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    header_indent_size &lt;- leading_spaces_count * word_mm_to_pt(1)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">355</td>
-                    <td class="coverage">64<em>x</em></td>
+                    <td class="coverage">59<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    hdr[i, 1] &lt;- stringi::stri_replace(hdr[i, 1], regex = "^ +", "")</pre>
                     </td>
@@ -2618,14 +2618,14 @@ table.table-condensed {
                     <td class="num">358</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    # top_left_tmp2 &lt;- paste0(top_left_tmp, collapse = "\n") %&gt;%</pre>
+                      <pre class="language-r">    # top_left_tmp2 &lt;- paste0(top_left_tmp, collapse = "\n") |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">359</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    #   flextable::as_chunk() %&gt;%</pre>
+                      <pre class="language-r">    #   flextable::as_chunk() |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="never">
@@ -2644,35 +2644,35 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">362</td>
-                    <td class="coverage">64<em>x</em></td>
+                    <td class="coverage">59<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flx &lt;- flextable::padding(flx,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">363</td>
-                    <td class="coverage">64<em>x</em></td>
+                    <td class="coverage">59<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      i = i, j = 1,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">364</td>
-                    <td class="coverage">64<em>x</em></td>
+                    <td class="coverage">59<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      padding.left = header_indent_size + left_right_fixed_margins, # margins</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">365</td>
-                    <td class="coverage">64<em>x</em></td>
+                    <td class="coverage">59<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      padding.right = left_right_fixed_margins, # 0.19 mmm in pt (so not to touch the border)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">366</td>
-                    <td class="coverage">64<em>x</em></td>
+                    <td class="coverage">59<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      part = "header"</pre>
                     </td>
@@ -2707,21 +2707,21 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">371</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (length(matform$ref_footnotes) &gt; 0 &amp;&amp; isTRUE(integrate_footers)) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">372</td>
-                    <td class="coverage">7<em>x</em></td>
+                    <td class="coverage">4<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    flx &lt;- flextable::add_footer_lines(flx, values = matform$ref_footnotes) %&gt;%</pre>
+                      <pre class="language-r">    flx &lt;- flextable::add_footer_lines(flx, values = matform$ref_footnotes) |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">373</td>
-                    <td class="coverage">7<em>x</em></td>
+                    <td class="coverage">4<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      .add_hborder(part = "body", ii = nrow(tt), border = border)</pre>
                     </td>
@@ -2749,21 +2749,21 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">377</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (length(formatters::all_footers(tt)) &gt; 0 &amp;&amp; isTRUE(integrate_footers)) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">378</td>
-                    <td class="coverage">14<em>x</em></td>
+                    <td class="coverage">11<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    flx &lt;- flextable::add_footer_lines(flx, values = formatters::all_footers(tt)) %&gt;%</pre>
+                      <pre class="language-r">    flx &lt;- flextable::add_footer_lines(flx, values = formatters::all_footers(tt)) |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">379</td>
-                    <td class="coverage">14<em>x</em></td>
+                    <td class="coverage">11<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      .add_hborder(part = "body", ii = nrow(tt), border = border)</pre>
                     </td>
@@ -2791,7 +2791,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">383</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flx &lt;- .apply_themes(flx, theme = theme, tbl_row_class = rtables::make_row_df(tt)$node_class)</pre>
                     </td>
@@ -2812,14 +2812,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">386</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (is.null(fontspec)) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">387</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    fontspec &lt;- .extract_fontspec(flx)</pre>
                     </td>
@@ -2840,7 +2840,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">390</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (is.null(colwidths)) {</pre>
                     </td>
@@ -2854,7 +2854,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">392</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    colwidths &lt;- formatters::propose_column_widths(matform, fontspec = fontspec, indent_size = indent_size)</pre>
                     </td>
@@ -2882,35 +2882,35 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">396</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (titles_as_header &amp;&amp; length(formatters::all_titles(tt)) &gt; 0 &amp;&amp; any(nzchar(formatters::all_titles(tt)))) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">397</td>
-                    <td class="coverage">23<em>x</em></td>
+                    <td class="coverage">20<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    flx &lt;- .add_titles_as_header(flx, all_titles = formatters::all_titles(tt), bold = bold_titles) %&gt;%</pre>
+                      <pre class="language-r">    flx &lt;- .add_titles_as_header(flx, all_titles = formatters::all_titles(tt), bold = bold_titles) |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">398</td>
-                    <td class="coverage">23<em>x</em></td>
+                    <td class="coverage">20<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      flextable::border(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">399</td>
-                    <td class="coverage">23<em>x</em></td>
+                    <td class="coverage">20<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        part = "header", i = length(formatters::all_titles(tt)),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">400</td>
-                    <td class="coverage">23<em>x</em></td>
+                    <td class="coverage">20<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        border.bottom = border</pre>
                     </td>
@@ -2945,7 +2945,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">405</td>
-                    <td class="coverage">34<em>x</em></td>
+                    <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  final_cwidths &lt;- total_page_width * colwidths / sum(colwidths)</pre>
                     </td>
@@ -2959,7 +2959,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">407</td>
-                    <td class="coverage">34<em>x</em></td>
+                    <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flx &lt;- flextable::width(flx, width = final_cwidths)</pre>
                     </td>
@@ -2980,42 +2980,42 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">410</td>
-                    <td class="coverage">34<em>x</em></td>
+                    <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flx &lt;- flextable::set_table_properties(flx,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">411</td>
-                    <td class="coverage">34<em>x</em></td>
+                    <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    layout = ifelse(autofit_to_page, "autofit", "fixed"),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">412</td>
-                    <td class="coverage">34<em>x</em></td>
+                    <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    align = "left",</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">413</td>
-                    <td class="coverage">34<em>x</em></td>
+                    <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    opts_word = list(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">414</td>
-                    <td class="coverage">34<em>x</em></td>
+                    <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      "split" = FALSE,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">415</td>
-                    <td class="coverage">34<em>x</em></td>
+                    <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      "keep_with_next" = TRUE</pre>
                     </td>
@@ -3050,7 +3050,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">420</td>
-                    <td class="coverage">34<em>x</em></td>
+                    <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (!all(is.na(matform$row_info$trailing_sep))) {</pre>
                     </td>
@@ -3120,7 +3120,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">430</td>
-                    <td class="coverage">34<em>x</em></td>
+                    <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flx &lt;- flextable::fix_border_issues(flx) # Fixes some rendering gaps in borders</pre>
                     </td>
@@ -3134,7 +3134,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">432</td>
-                    <td class="coverage">34<em>x</em></td>
+                    <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flx</pre>
                     </td>
@@ -3274,7 +3274,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">452</td>
-                    <td class="coverage">23<em>x</em></td>
+                    <td class="coverage">20<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  all_titles &lt;- all_titles[nzchar(all_titles)] # Remove empty titles (use " ")</pre>
                     </td>
@@ -3288,16 +3288,16 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">454</td>
-                    <td class="coverage">23<em>x</em></td>
+                    <td class="coverage">20<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  flx &lt;- flx %&gt;%</pre>
+                      <pre class="language-r">  flx &lt;- flx |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">455</td>
-                    <td class="coverage">23<em>x</em></td>
+                    <td class="coverage">20<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    flextable::add_header_lines(values = all_titles, top = TRUE) %&gt;%</pre>
+                      <pre class="language-r">    flextable::add_header_lines(values = all_titles, top = TRUE) |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="never">
@@ -3309,42 +3309,42 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">457</td>
-                    <td class="coverage">23<em>x</em></td>
+                    <td class="coverage">20<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flextable::border(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">458</td>
-                    <td class="coverage">23<em>x</em></td>
+                    <td class="coverage">20<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      part = "header", i = seq_along(all_titles),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">459</td>
-                    <td class="coverage">23<em>x</em></td>
+                    <td class="coverage">20<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      border.top = flextable::fp_border_default(width = 0),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">460</td>
-                    <td class="coverage">23<em>x</em></td>
+                    <td class="coverage">20<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      border.bottom = flextable::fp_border_default(width = 0),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">461</td>
-                    <td class="coverage">23<em>x</em></td>
+                    <td class="coverage">20<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      border.left = flextable::fp_border_default(width = 0),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">462</td>
-                    <td class="coverage">23<em>x</em></td>
+                    <td class="coverage">20<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      border.right = flextable::fp_border_default(width = 0)</pre>
                     </td>
@@ -3353,19 +3353,19 @@ table.table-condensed {
                     <td class="num">463</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    ) %&gt;%</pre>
+                      <pre class="language-r">    ) |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">464</td>
-                    <td class="coverage">23<em>x</em></td>
+                    <td class="coverage">20<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    flextable::align(part = "header", i = seq_along(all_titles), align = "left") %&gt;%</pre>
+                      <pre class="language-r">    flextable::align(part = "header", i = seq_along(all_titles), align = "left") |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">465</td>
-                    <td class="coverage">23<em>x</em></td>
+                    <td class="coverage">20<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flextable::bg(part = "header", i = seq_along(all_titles), bg = "white")</pre>
                     </td>
@@ -3379,14 +3379,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">467</td>
-                    <td class="coverage">23<em>x</em></td>
+                    <td class="coverage">20<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (isTRUE(bold)) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">468</td>
-                    <td class="coverage">20<em>x</em></td>
+                    <td class="coverage">17<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flx &lt;- flextable::bold(flx, part = "header", i = seq_along(all_titles))</pre>
                     </td>
@@ -3442,7 +3442,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">476</td>
-                    <td class="coverage">22<em>x</em></td>
+                    <td class="coverage">19<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flx</pre>
                     </td>
@@ -3470,7 +3470,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">480</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (is.null(theme)) {</pre>
                     </td>
@@ -3498,7 +3498,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">484</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  theme_list &lt;- if (is.list(theme)) theme else list(theme)</pre>
                     </td>
@@ -3512,28 +3512,28 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">486</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  for (them in theme_list) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">487</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flx &lt;- them(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">488</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      flx,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">489</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      tbl_row_class = tbl_row_class # These are ignored if not in the theme</pre>
                     </td>
@@ -3561,7 +3561,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">493</td>
-                    <td class="coverage">34<em>x</em></td>
+                    <td class="coverage">32<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flx</pre>
                     </td>
@@ -3589,21 +3589,21 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">497</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  font_sz &lt;- test_flx$header$styles$text$font.size$data[1, 1]</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">498</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  font_fam &lt;- test_flx$header$styles$text$font.family$data[1, 1]</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">499</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  font_fam &lt;- "Courier" # Fix if we need it -&gt; coming from gpar and fontfamily Arial not being recognized</pre>
                     </td>
@@ -3617,7 +3617,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">501</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  formatters::font_spec(font_family = font_fam, font_size = font_sz, lineheight = 1)</pre>
                     </td>
@@ -3652,7 +3652,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">506</td>
-                    <td class="coverage">72<em>x</em></td>
+                    <td class="coverage">68<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  search_chars &lt;- unique(c(aligns_df))</pre>
                     </td>
@@ -3673,63 +3673,63 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">509</td>
-                    <td class="coverage">72<em>x</em></td>
+                    <td class="coverage">68<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  for (char in search_chars) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">510</td>
-                    <td class="coverage">134<em>x</em></td>
+                    <td class="coverage">124<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    indexes &lt;- which(aligns_df == char, arr.ind = TRUE)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">511</td>
-                    <td class="coverage">134<em>x</em></td>
+                    <td class="coverage">124<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    tmp_inds &lt;- as.data.frame(indexes)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">512</td>
-                    <td class="coverage">134<em>x</em></td>
+                    <td class="coverage">124<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    flx &lt;- flx %&gt;%</pre>
+                      <pre class="language-r">    flx &lt;- flx |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">513</td>
-                    <td class="coverage">134<em>x</em></td>
+                    <td class="coverage">124<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      flextable::align(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">514</td>
-                    <td class="coverage">134<em>x</em></td>
+                    <td class="coverage">124<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        i = tmp_inds[["row"]],</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">515</td>
-                    <td class="coverage">134<em>x</em></td>
+                    <td class="coverage">124<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        j = tmp_inds[["col"]],</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">516</td>
-                    <td class="coverage">134<em>x</em></td>
+                    <td class="coverage">124<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        align = char,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">517</td>
-                    <td class="coverage">134<em>x</em></td>
+                    <td class="coverage">124<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        part = part</pre>
                     </td>
@@ -3757,7 +3757,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">521</td>
-                    <td class="coverage">72<em>x</em></td>
+                    <td class="coverage">68<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flx</pre>
                     </td>
@@ -3806,14 +3806,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">528</td>
-                    <td class="coverage">72<em>x</em></td>
+                    <td class="coverage">68<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (length(w) == 1 &amp;&amp; w == "all") {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">529</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    w &lt;- eval(formals(.remove_hborder)$w)</pre>
                     </td>
@@ -3834,28 +3834,28 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">532</td>
-                    <td class="coverage">72<em>x</em></td>
+                    <td class="coverage">68<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (any(w == "top")) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">533</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flx &lt;- flextable::hline_top(flx,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">534</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      border = flextable::fp_border_default(width = 0),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">535</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      part = part</pre>
                     </td>
@@ -3876,28 +3876,28 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">538</td>
-                    <td class="coverage">72<em>x</em></td>
+                    <td class="coverage">68<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (any(w == "bottom")) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">539</td>
-                    <td class="coverage">72<em>x</em></td>
+                    <td class="coverage">68<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flx &lt;- flextable::hline_bottom(flx,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">540</td>
-                    <td class="coverage">72<em>x</em></td>
+                    <td class="coverage">68<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      border = flextable::fp_border_default(width = 0),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">541</td>
-                    <td class="coverage">72<em>x</em></td>
+                    <td class="coverage">68<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      part = part</pre>
                     </td>
@@ -3925,35 +3925,35 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">545</td>
-                    <td class="coverage">72<em>x</em></td>
+                    <td class="coverage">68<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (any(w == "inner")) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">546</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flx &lt;- flextable::border_inner_h(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">547</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      flx,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">548</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      border = flextable::fp_border_default(width = 0),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">549</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      part = part</pre>
                     </td>
@@ -3974,7 +3974,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">552</td>
-                    <td class="coverage">72<em>x</em></td>
+                    <td class="coverage">68<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flx</pre>
                     </td>
@@ -4009,21 +4009,21 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">557</td>
-                    <td class="coverage">57<em>x</em></td>
+                    <td class="coverage">49<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (any(ii == 0)) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">558</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flx &lt;- flextable::border(flx, i = 1, border.top = border, part = part)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">559</td>
-                    <td class="coverage">36<em>x</em></td>
+                    <td class="coverage">34<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    ii &lt;- ii[!(ii == 0)]</pre>
                     </td>
@@ -4037,14 +4037,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">561</td>
-                    <td class="coverage">57<em>x</em></td>
+                    <td class="coverage">49<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (length(ii) &gt; 0) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">562</td>
-                    <td class="coverage">57<em>x</em></td>
+                    <td class="coverage">49<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flx &lt;- flextable::border(flx, i = ii, border.bottom = border, part = part)</pre>
                     </td>
@@ -4058,7 +4058,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">564</td>
-                    <td class="coverage">57<em>x</em></td>
+                    <td class="coverage">49<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flx</pre>
                     </td>
@@ -4505,14 +4505,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">62</td>
-                    <td class="coverage">25<em>x</em></td>
+                    <td class="coverage">23<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  function(flx, ...) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">63</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    if (!inherits(flx, "flextable")) {</pre>
                     </td>
@@ -4554,35 +4554,35 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">69</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    checkmate::assert_int(font_size, lower = 6, upper = 12)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">70</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    checkmate::assert_string(font)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">71</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    checkmate::assert_subset(bold,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">72</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      eval(formals(theme_docx_default)$bold),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">73</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      empty.ok = TRUE</pre>
                     </td>
@@ -4596,7 +4596,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">75</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    if (length(cell_margins) == 1) {</pre>
                     </td>
@@ -4617,7 +4617,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">78</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    checkmate::assert_numeric(cell_margins, lower = 0, len = 4)</pre>
                     </td>
@@ -4638,21 +4638,21 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">81</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    args &lt;- list(...)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">82</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    tbl_row_class &lt;- args$tbl_row_class</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">83</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    tbl_ncol_body &lt;- flextable::ncol_keys(flx) # tbl_ncol_body respects if rownames = FALSE (only rlistings)</pre>
                     </td>
@@ -4673,21 +4673,21 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">86</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    flx &lt;- flextable::fontsize(flx, size = font_size, part = "all") %&gt;%</pre>
+                      <pre class="language-r">    flx &lt;- flextable::fontsize(flx, size = font_size, part = "all") |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">87</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">      flextable::fontsize(size = font_size - 1, part = "footer") %&gt;%</pre>
+                      <pre class="language-r">      flextable::fontsize(size = font_size - 1, part = "footer") |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">88</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      flextable::font(fontname = font, part = "all")</pre>
                     </td>
@@ -4708,7 +4708,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">91</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flx &lt;- .add_borders(flx, border = border, ncol = tbl_ncol_body)</pre>
                     </td>
@@ -4729,23 +4729,23 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">94</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    flx &lt;- flx %&gt;%</pre>
+                      <pre class="language-r">    flx &lt;- flx |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">95</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">      flextable::valign(j = seq(2, tbl_ncol_body), valign = "top", part = "body") %&gt;%</pre>
+                      <pre class="language-r">      flextable::valign(j = seq(2, tbl_ncol_body), valign = "top", part = "body") |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">96</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">      flextable::valign(j = 1, valign = "top", part = "all") %&gt;%</pre>
+                      <pre class="language-r">      flextable::valign(j = 1, valign = "top", part = "all") |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="never">
@@ -4757,14 +4757,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">98</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">      flextable::valign(j = 1, valign = "top", part = "header") %&gt;%</pre>
+                      <pre class="language-r">      flextable::valign(j = 1, valign = "top", part = "header") |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">99</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      flextable::valign(j = seq(2, tbl_ncol_body), valign = "top", part = "header")</pre>
                     </td>
@@ -4778,21 +4778,21 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">101</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flx &lt;- .apply_indentation_and_margin(flx,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">102</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      cell_margins = cell_margins, tbl_row_class = tbl_row_class,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">103</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      tbl_ncol_body = tbl_ncol_body</pre>
                     </td>
@@ -4820,28 +4820,28 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">107</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    if (any(tbl_row_class == "LabelRow")) { # label rows - 3pt top</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">108</td>
-                    <td class="coverage">22<em>x</em></td>
+                    <td class="coverage">19<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      flx &lt;- flextable::padding(flx,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">109</td>
-                    <td class="coverage">22<em>x</em></td>
+                    <td class="coverage">19<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        j = 1, i = which(tbl_row_class == "LabelRow"),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">110</td>
-                    <td class="coverage">22<em>x</em></td>
+                    <td class="coverage">19<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        padding.top = 3 + cell_margins[3], padding.bottom = cell_margins[4], part = "body"</pre>
                     </td>
@@ -4862,14 +4862,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">113</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    if (any(tbl_row_class == "ContentRow")) { # content rows - 1pt top</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">114</td>
-                    <td class="coverage">6<em>x</em></td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      flx &lt;- flextable::padding(flx,</pre>
                     </td>
@@ -4883,14 +4883,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">116</td>
-                    <td class="coverage">6<em>x</em></td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        i = which(tbl_row_class == "ContentRow"),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">117</td>
-                    <td class="coverage">6<em>x</em></td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        padding.top = 1 + cell_margins[3], padding.bottom = cell_margins[4], part = "body"</pre>
                     </td>
@@ -4918,7 +4918,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">121</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flx &lt;- flextable::line_spacing(flx, space = 1, part = "all")</pre>
                     </td>
@@ -4939,14 +4939,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">124</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    if (any(bold == "header")) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">125</td>
-                    <td class="coverage">30<em>x</em></td>
+                    <td class="coverage">28<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      flx &lt;- flextable::bold(flx, j = seq(2, tbl_ncol_body), part = "header") # Done with theme</pre>
                     </td>
@@ -4967,14 +4967,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">128</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    if (any(bold == "content_rows")) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">129</td>
-                    <td class="coverage">30<em>x</em></td>
+                    <td class="coverage">28<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      if (is.null(tbl_row_class)) {</pre>
                     </td>
@@ -4995,7 +4995,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">132</td>
-                    <td class="coverage">30<em>x</em></td>
+                    <td class="coverage">28<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      flx &lt;- flextable::bold(flx, j = 1, i = which(tbl_row_class == "ContentRow"), part = "body")</pre>
                     </td>
@@ -5009,14 +5009,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">134</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    if (any(bold == "label_rows")) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">135</td>
-                    <td class="coverage">30<em>x</em></td>
+                    <td class="coverage">28<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      if (is.null(tbl_row_class)) {</pre>
                     </td>
@@ -5037,7 +5037,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">138</td>
-                    <td class="coverage">30<em>x</em></td>
+                    <td class="coverage">28<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      flx &lt;- flextable::bold(flx, j = 1, i = which(tbl_row_class == "LabelRow"), part = "body")</pre>
                     </td>
@@ -5058,14 +5058,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">141</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    if (any(bold == "top_left")) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">142</td>
-                    <td class="coverage">30<em>x</em></td>
+                    <td class="coverage">28<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      flx &lt;- flextable::bold(flx, j = 1, part = "header")</pre>
                     </td>
@@ -5093,7 +5093,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">146</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flx &lt;- .apply_bold_manual(flx, bold_manual)</pre>
                     </td>
@@ -5107,7 +5107,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">148</td>
-                    <td class="coverage">31<em>x</em></td>
+                    <td class="coverage">29<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flx</pre>
                     </td>
@@ -5200,7 +5200,7 @@ table.table-condensed {
                     <td class="num">161</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">#' lyt &lt;- basic_table() %&gt;%</pre>
+                      <pre class="language-r">#' lyt &lt;- basic_table() |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="never">
@@ -5214,7 +5214,7 @@ table.table-condensed {
                     <td class="num">163</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">#'   split_cols_by("ARM") %&gt;%</pre>
+                      <pre class="language-r">#'   split_cols_by("ARM") |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="never">
@@ -5550,14 +5550,14 @@ table.table-condensed {
                     <td class="num">211</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    flx &lt;- flextable::fontsize(flx, size = font_size, part = "all") %&gt;%</pre>
+                      <pre class="language-r">    flx &lt;- flextable::fontsize(flx, size = font_size, part = "all") |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">212</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">      flextable::fontsize(size = font_size - 1, part = "footer") %&gt;%</pre>
+                      <pre class="language-r">      flextable::fontsize(size = font_size - 1, part = "footer") |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
@@ -5641,7 +5641,7 @@ table.table-condensed {
                     <td class="num">224</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">      ) %&gt;%</pre>
+                      <pre class="language-r">      ) |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
@@ -5676,7 +5676,7 @@ table.table-condensed {
                     <td class="num">229</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">        ) %&gt;%</pre>
+                      <pre class="language-r">        ) |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
@@ -5800,49 +5800,49 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">247</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  flx &lt;- flx %&gt;%</pre>
+                      <pre class="language-r">  flx &lt;- flx |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">248</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    flextable::border_outer(part = "body", border = border) %&gt;%</pre>
+                      <pre class="language-r">    flextable::border_outer(part = "body", border = border) |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">249</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    flextable::border_outer(part = "header", border = border) %&gt;%</pre>
+                      <pre class="language-r">    flextable::border_outer(part = "header", border = border) |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">250</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flextable::border(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">251</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      part = "header", j = 1,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">252</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      border.left = border,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">253</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      border.right = border</pre>
                     </td>
@@ -5851,26 +5851,26 @@ table.table-condensed {
                     <td class="num">254</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    ) %&gt;%</pre>
+                      <pre class="language-r">    ) |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">255</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flextable::border(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">256</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      part = "header", j = 1, i = 1,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">257</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      border.top = border</pre>
                     </td>
@@ -5879,26 +5879,26 @@ table.table-condensed {
                     <td class="num">258</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    ) %&gt;%</pre>
+                      <pre class="language-r">    ) |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">259</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flextable::border(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">260</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      part = "header", j = 1, i = flextable::nrow_part(flx, "header"),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">261</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      border.bottom = border</pre>
                     </td>
@@ -5907,33 +5907,33 @@ table.table-condensed {
                     <td class="num">262</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    ) %&gt;%</pre>
+                      <pre class="language-r">    ) |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">263</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flextable::border(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">264</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      part = "header", j = seq(2, ncol),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">265</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      border.left = border,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">266</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      border.right = border</pre>
                     </td>
@@ -5961,42 +5961,42 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">270</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  raw_header &lt;- flx$header$content$data # HACK xxx</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">271</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  extracted_header &lt;- NULL</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">272</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  for (ii in seq_len(nrow(raw_header))) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">273</td>
-                    <td class="coverage">62<em>x</em></td>
+                    <td class="coverage">57<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    extracted_header &lt;- rbind(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">274</td>
-                    <td class="coverage">62<em>x</em></td>
+                    <td class="coverage">57<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      extracted_header,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">275</td>
-                    <td class="coverage">62<em>x</em></td>
+                    <td class="coverage">57<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      sapply(raw_header[ii, ], function(x) x$txt)</pre>
                     </td>
@@ -6015,529 +6015,529 @@ table.table-condensed {
                       <pre class="language-r">  }</pre>
                     </td>
                   </tr>
-                  <tr class="covered">
+                  <tr class="never">
                     <td class="num">278</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r"></pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">279</td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  for (ii in seq_len(nrow(extracted_header))) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">279</td>
-                    <td class="coverage">62<em>x</em></td>
+                    <td class="num">280</td>
+                    <td class="coverage">57<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    for (jj in seq(2, ncol)) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">280</td>
-                    <td class="coverage">168<em>x</em></td>
+                    <td class="num">281</td>
+                    <td class="coverage">148<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      if (extracted_header[ii, jj] != " ") {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">281</td>
-                    <td class="coverage">165<em>x</em></td>
+                    <td class="num">282</td>
+                    <td class="coverage">145<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        flx &lt;- flextable::border(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">282</td>
-                    <td class="coverage">165<em>x</em></td>
+                    <td class="num">283</td>
+                    <td class="coverage">145<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          flx,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">283</td>
-                    <td class="coverage">165<em>x</em></td>
+                    <td class="num">284</td>
+                    <td class="coverage">145<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          part = "header", j = jj, i = ii,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">284</td>
-                    <td class="coverage">165<em>x</em></td>
+                    <td class="num">285</td>
+                    <td class="coverage">145<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">          border.bottom = border</pre>
-                    </td>
-                  </tr>
-                  <tr class="never">
-                    <td class="num">285</td>
-                    <td class="coverage"></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">        )</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">286</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">      }</pre>
+                      <pre class="language-r">        )</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">287</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    }</pre>
+                      <pre class="language-r">      }</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">288</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  }</pre>
+                      <pre class="language-r">    }</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">289</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
+                      <pre class="language-r">  }</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">290</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
                       <pre class="language-r"></pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">290</td>
-                    <td class="coverage">35<em>x</em></td>
+                    <td class="num">291</td>
+                    <td class="coverage">33<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flx</pre>
-                    </td>
-                  </tr>
-                  <tr class="never">
-                    <td class="num">291</td>
-                    <td class="coverage"></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">}</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">292</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"></pre>
+                      <pre class="language-r">}</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">293</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">.apply_bold_manual &lt;- function(flx, bold_manual) {</pre>
+                      <pre class="language-r"></pre>
                     </td>
                   </tr>
-                  <tr class="covered">
+                  <tr class="never">
                     <td class="num">294</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  if (is.null(bold_manual)) {</pre>
+                      <pre class="language-r">.apply_bold_manual &lt;- function(flx, bold_manual) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">295</td>
                     <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
+                      <pre class="language-r">  if (is.null(bold_manual)) {</pre>
+                    </td>
+                  </tr>
+                  <tr class="covered">
+                    <td class="num">296</td>
+                    <td class="coverage">28<em>x</em></td>
+                    <td class="col-sm-12">
                       <pre class="language-r">    return(flx)</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">296</td>
+                    <td class="num">297</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  }</pre>
-                    </td>
-                  </tr>
-                  <tr class="covered">
-                    <td class="num">297</td>
-                    <td class="coverage">2<em>x</em></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">  checkmate::assert_list(bold_manual)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">298</td>
                     <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  valid_sections &lt;- c("header", "body") # Only valid values</pre>
+                      <pre class="language-r">  checkmate::assert_list(bold_manual)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">299</td>
                     <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  checkmate::assert_subset(names(bold_manual), valid_sections)</pre>
+                      <pre class="language-r">  valid_sections &lt;- c("header", "body") # Only valid values</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">300</td>
                     <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  for (bi in seq_along(bold_manual)) {</pre>
+                      <pre class="language-r">  checkmate::assert_subset(names(bold_manual), valid_sections)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">301</td>
-                    <td class="coverage">3<em>x</em></td>
+                    <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    bld_tmp &lt;- bold_manual[[bi]]</pre>
+                      <pre class="language-r">  for (bi in seq_along(bold_manual)) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">302</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    checkmate::assert_list(bld_tmp)</pre>
+                      <pre class="language-r">    bld_tmp &lt;- bold_manual[[bi]]</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">303</td>
                     <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    if (!all(c("i", "j") %in% names(bld_tmp)) || !all(vapply(bld_tmp, checkmate::test_integerish, logical(1)))) {</pre>
+                      <pre class="language-r">    checkmate::assert_list(bld_tmp)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">304</td>
-                    <td class="coverage">1<em>x</em></td>
+                    <td class="coverage">3<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">      stop(</pre>
+                      <pre class="language-r">    if (!all(c("i", "j") %in% names(bld_tmp)) || !all(vapply(bld_tmp, checkmate::test_integerish, logical(1)))) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">305</td>
                     <td class="coverage">1<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">        "Found an allowed section for manual bold (", names(bold_manual)[bi],</pre>
+                      <pre class="language-r">      stop(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">306</td>
                     <td class="coverage">1<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">        ") that was not a named list with i (row) and j (col) integer vectors."</pre>
+                      <pre class="language-r">        "Found an allowed section for manual bold (", names(bold_manual)[bi],</pre>
                     </td>
                   </tr>
-                  <tr class="never">
+                  <tr class="covered">
                     <td class="num">307</td>
-                    <td class="coverage"></td>
+                    <td class="coverage">1<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">      )</pre>
+                      <pre class="language-r">        ") that was not a named list with i (row) and j (col) integer vectors."</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">308</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    }</pre>
+                      <pre class="language-r">      )</pre>
                     </td>
                   </tr>
-                  <tr class="covered">
+                  <tr class="never">
                     <td class="num">309</td>
-                    <td class="coverage">2<em>x</em></td>
+                    <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    flx &lt;- flextable::bold(flx,</pre>
+                      <pre class="language-r">    }</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">310</td>
                     <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">      i = bld_tmp$i, j = bld_tmp$j,</pre>
+                      <pre class="language-r">    flx &lt;- flextable::bold(flx,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">311</td>
                     <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">      part = names(bold_manual)[bi]</pre>
+                      <pre class="language-r">      i = bld_tmp$i, j = bld_tmp$j,</pre>
                     </td>
                   </tr>
-                  <tr class="never">
+                  <tr class="covered">
                     <td class="num">312</td>
-                    <td class="coverage"></td>
+                    <td class="coverage">2<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    )</pre>
+                      <pre class="language-r">      part = names(bold_manual)[bi]</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">313</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  }</pre>
+                      <pre class="language-r">    )</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">314</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
+                      <pre class="language-r">  }</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">315</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
                       <pre class="language-r"></pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">315</td>
+                    <td class="num">316</td>
                     <td class="coverage">1<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flx</pre>
                     </td>
                   </tr>
                   <tr class="never">
-                    <td class="num">316</td>
-                    <td class="coverage"></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">}</pre>
-                    </td>
-                  </tr>
-                  <tr class="never">
                     <td class="num">317</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"></pre>
+                      <pre class="language-r">}</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">318</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
+                      <pre class="language-r"></pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">319</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
                       <pre class="language-r">.apply_indentation_and_margin &lt;- function(flx, cell_margins, tbl_row_class, tbl_ncol_body) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">319</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="num">320</td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  flx &lt;- flx %&gt;% # summary/data rows and cells</pre>
+                      <pre class="language-r">  flx &lt;- flx |&gt; # summary/data rows and cells</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">320</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="num">321</td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flextable::padding(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">321</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="num">322</td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      padding.top = cell_margins[3],</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">322</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="num">323</td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      padding.bottom = cell_margins[4], part = "body"</pre>
-                    </td>
-                  </tr>
-                  <tr class="never">
-                    <td class="num">323</td>
-                    <td class="coverage"></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">    )</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">324</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"></pre>
+                      <pre class="language-r">    )</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">325</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
+                      <pre class="language-r"></pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">326</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
                       <pre class="language-r">  # Horizontal padding all table margin 0.19 mm</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">326</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="num">327</td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flx &lt;- flextable::padding(flx,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">327</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="num">328</td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    j = seq(2, tbl_ncol_body),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">328</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="num">329</td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    padding.left = cell_margins[1],</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">329</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="num">330</td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    padding.right = cell_margins[2]</pre>
-                    </td>
-                  </tr>
-                  <tr class="never">
-                    <td class="num">330</td>
-                    <td class="coverage"></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">  )</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">331</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"></pre>
+                      <pre class="language-r">  )</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">332</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
+                      <pre class="language-r"></pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">333</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
                       <pre class="language-r">  # Vertical padding/spaces - header (3pt after)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">333</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="num">334</td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  flx &lt;- flx %&gt;%</pre>
+                      <pre class="language-r">  flx &lt;- flx |&gt;</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">334</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="num">335</td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flextable::padding(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">335</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="num">336</td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      j = seq(1, tbl_ncol_body), # also topleft</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">336</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="num">337</td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      padding.top = cell_margins[3],</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">337</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="num">338</td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      padding.bottom = cell_margins[4],</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">338</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="num">339</td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      part = "header"</pre>
-                    </td>
-                  </tr>
-                  <tr class="never">
-                    <td class="num">339</td>
-                    <td class="coverage"></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">    )</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">340</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
+                      <pre class="language-r">    )</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">341</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
                       <pre class="language-r"></pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">341</td>
-                    <td class="coverage">32<em>x</em></td>
+                    <td class="num">342</td>
+                    <td class="coverage">30<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flx</pre>
-                    </td>
-                  </tr>
-                  <tr class="never">
-                    <td class="num">342</td>
-                    <td class="coverage"></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">}</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">343</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"></pre>
+                      <pre class="language-r">}</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">344</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"># Remove vertical borders from both sides (for titles)</pre>
+                      <pre class="language-r"></pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">345</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">remove_vborder &lt;- function(flx, part, ii) {</pre>
+                      <pre class="language-r"># Remove vertical borders from both sides (for titles)</pre>
                     </td>
                   </tr>
-                  <tr class="missed">
+                  <tr class="never">
                     <td class="num">346</td>
-                    <td class="coverage">!</td>
+                    <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  flx &lt;- flextable::border(flx,</pre>
+                      <pre class="language-r">remove_vborder &lt;- function(flx, part, ii) {</pre>
                     </td>
                   </tr>
                   <tr class="missed">
                     <td class="num">347</td>
                     <td class="coverage">!</td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    i = ii, part = part,</pre>
+                      <pre class="language-r">  flx &lt;- flextable::border(flx,</pre>
                     </td>
                   </tr>
                   <tr class="missed">
                     <td class="num">348</td>
                     <td class="coverage">!</td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    border.left = flextable::fp_border_default(width = 0),</pre>
+                      <pre class="language-r">    i = ii, part = part,</pre>
                     </td>
                   </tr>
                   <tr class="missed">
                     <td class="num">349</td>
                     <td class="coverage">!</td>
                     <td class="col-sm-12">
-                      <pre class="language-r">    border.right = flextable::fp_border_default(width = 0)</pre>
+                      <pre class="language-r">    border.left = flextable::fp_border_default(width = 0),</pre>
                     </td>
                   </tr>
-                  <tr class="never">
+                  <tr class="missed">
                     <td class="num">350</td>
-                    <td class="coverage"></td>
+                    <td class="coverage">!</td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  )</pre>
+                      <pre class="language-r">    border.right = flextable::fp_border_default(width = 0)</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">351</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">}</pre>
+                      <pre class="language-r">  )</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">352</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"></pre>
+                      <pre class="language-r">}</pre>
                     </td>
                   </tr>
                   <tr class="never">
@@ -6551,88 +6551,95 @@ table.table-condensed {
                     <td class="num">354</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">#' @describeIn tt_to_flextable Padding helper functions to transform mm to pt.</pre>
+                      <pre class="language-r"></pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">355</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">#' @param mm (`numeric(1)`)\cr the value in mm to transform to pt.</pre>
+                      <pre class="language-r">#' @describeIn tt_to_flextable Padding helper functions to transform mm to pt.</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">356</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">#'</pre>
+                      <pre class="language-r">#' @param mm (`numeric(1)`)\cr the value in mm to transform to pt.</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">357</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">#' @export</pre>
+                      <pre class="language-r">#'</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">358</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
+                      <pre class="language-r">#' @export</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">359</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
                       <pre class="language-r">word_mm_to_pt &lt;- function(mm) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
-                    <td class="num">359</td>
-                    <td class="coverage">190<em>x</em></td>
+                    <td class="num">360</td>
+                    <td class="coverage">177<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  mm / 0.3527777778</pre>
-                    </td>
-                  </tr>
-                  <tr class="never">
-                    <td class="num">360</td>
-                    <td class="coverage"></td>
-                    <td class="col-sm-12">
-                      <pre class="language-r">}</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">361</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"></pre>
+                      <pre class="language-r">}</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">362</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"># Padding helper functions to transform mm to pt and viceversa</pre>
+                      <pre class="language-r"></pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">363</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r"># # General note for word: 1pt -&gt; 0.3527777778mm -&gt; 0.013888888888889"</pre>
+                      <pre class="language-r"># Padding helper functions to transform mm to pt and viceversa</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">364</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">word_inch_to_pt &lt;- function(inch) { # nocov</pre>
+                      <pre class="language-r"># # General note for word: 1pt -&gt; 0.3527777778mm -&gt; 0.013888888888889"</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">365</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
-                      <pre class="language-r">  inch / 0.013888888888889 # nocov</pre>
+                      <pre class="language-r">word_inch_to_pt &lt;- function(inch) { # nocov</pre>
                     </td>
                   </tr>
                   <tr class="never">
                     <td class="num">366</td>
+                    <td class="coverage"></td>
+                    <td class="col-sm-12">
+                      <pre class="language-r">  inch / 0.013888888888889 # nocov</pre>
+                    </td>
+                  </tr>
+                  <tr class="never">
+                    <td class="num">367</td>
                     <td class="coverage"></td>
                     <td class="col-sm-12">
                       <pre class="language-r">}</pre>
@@ -7143,21 +7150,21 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">72</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  checkmate::assert_flag(add_page_break)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">73</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  checkmate::assert_flag(add_template_page_numbers)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">74</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  do_tt_error &lt;- FALSE</pre>
                     </td>
@@ -7178,28 +7185,28 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">77</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (inherits(tt, "VTableTree") || inherits(tt, "listing_df")) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">78</td>
-                    <td class="coverage">7<em>x</em></td>
+                    <td class="coverage">5<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    tt &lt;- tt_to_flextable(tt,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">79</td>
-                    <td class="coverage">7<em>x</em></td>
+                    <td class="coverage">5<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      titles_as_header = titles_as_header,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">80</td>
-                    <td class="coverage">7<em>x</em></td>
+                    <td class="coverage">5<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      integrate_footers = integrate_footers,</pre>
                     </td>
@@ -7234,14 +7241,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">85</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (inherits(tt, "flextable")) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">86</td>
-                    <td class="coverage">7<em>x</em></td>
+                    <td class="coverage">4<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flex_tbl_list &lt;- list(tt)</pre>
                     </td>
@@ -7402,7 +7409,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">109</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (isTRUE(do_tt_error)) {</pre>
                     </td>
@@ -7437,7 +7444,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">114</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (isFALSE(titles_as_header) || isFALSE(integrate_footers)) {</pre>
                     </td>
@@ -7472,14 +7479,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">119</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (!is.null(template_file) &amp;&amp; !file.exists(template_file)) {</pre>
                     </td>
                   </tr>
-                  <tr class="covered">
+                  <tr class="missed">
                     <td class="num">120</td>
-                    <td class="coverage">1<em>x</em></td>
+                    <td class="coverage">!</td>
                     <td class="col-sm-12">
                       <pre class="language-r">    template_file &lt;- NULL</pre>
                     </td>
@@ -7514,14 +7521,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">125</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (!is.null(template_file)) {</pre>
                     </td>
                   </tr>
-                  <tr class="covered">
+                  <tr class="missed">
                     <td class="num">126</td>
-                    <td class="coverage">2<em>x</em></td>
+                    <td class="coverage">!</td>
                     <td class="col-sm-12">
                       <pre class="language-r">    doc &lt;- officer::read_docx(template_file)</pre>
                     </td>
@@ -7535,14 +7542,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">128</td>
-                    <td class="coverage">8<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    if (isTRUE(add_template_page_numbers)) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">129</td>
-                    <td class="coverage">8<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      template_file &lt;- .get_template_file(section_properties)</pre>
                     </td>
@@ -7556,14 +7563,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">131</td>
-                    <td class="coverage">8<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    doc &lt;- officer::read_docx(template_file)</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">132</td>
-                    <td class="coverage">8<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    if (!is.null(section_properties) &amp;&amp; isFALSE(add_template_page_numbers)) {</pre>
                     </td>
@@ -7612,14 +7619,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">139</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  flex_tbl_list &lt;- lapply(flex_tbl_list, function(flx) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">140</td>
-                    <td class="coverage">13<em>x</em></td>
+                    <td class="coverage">10<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    if (flx$properties$layout != "autofit") { # fixed layout</pre>
                     </td>
@@ -7717,7 +7724,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">154</td>
-                    <td class="coverage">13<em>x</em></td>
+                    <td class="coverage">10<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    flx</pre>
                     </td>
@@ -7745,7 +7752,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">158</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (isFALSE(titles_as_header) &amp;&amp; inherits(tt, "VTableTree")) {</pre>
                     </td>
@@ -7801,14 +7808,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">166</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  for (flex_tbl_i in flex_tbl_list) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">167</td>
-                    <td class="coverage">13<em>x</em></td>
+                    <td class="coverage">10<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    doc &lt;- flextable::body_add_flextable(doc, flex_tbl_i, align = "left")</pre>
                     </td>
@@ -7822,7 +7829,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">169</td>
-                    <td class="coverage">13<em>x</em></td>
+                    <td class="coverage">10<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    if (isTRUE(add_page_break)) {</pre>
                     </td>
@@ -7864,7 +7871,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">175</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (isFALSE(integrate_footers) &amp;&amp; inherits(tt, "VTableTree")) {</pre>
                     </td>
@@ -7955,7 +7962,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">188</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (!is.null(doc_metadata)) {</pre>
                     </td>
@@ -7967,9 +7974,9 @@ table.table-condensed {
                       <pre class="language-r">    # Checks for values rely on officer function</pre>
                     </td>
                   </tr>
-                  <tr class="covered">
+                  <tr class="missed">
                     <td class="num">190</td>
-                    <td class="coverage">3<em>x</em></td>
+                    <td class="coverage">!</td>
                     <td class="col-sm-12">
                       <pre class="language-r">    doc &lt;- do.call(officer::set_doc_properties, c(list("x" = doc), doc_metadata))</pre>
                     </td>
@@ -7997,7 +8004,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">194</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  print(doc, target = file)</pre>
                     </td>
@@ -8011,7 +8018,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">196</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  invisible(TRUE)</pre>
                     </td>
@@ -8270,35 +8277,35 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">233</td>
-                    <td class="coverage">16<em>x</em></td>
+                    <td class="coverage">15<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  page_size &lt;- page_size[1]</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">234</td>
-                    <td class="coverage">16<em>x</em></td>
+                    <td class="coverage">15<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  orientation &lt;- orientation[1]</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">235</td>
-                    <td class="coverage">16<em>x</em></td>
+                    <td class="coverage">15<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  checkmate::assert_choice(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">236</td>
-                    <td class="coverage">16<em>x</em></td>
+                    <td class="coverage">15<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    page_size,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">237</td>
-                    <td class="coverage">16<em>x</em></td>
+                    <td class="coverage">15<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    eval(formals(section_properties_default)$page_size)</pre>
                     </td>
@@ -8312,21 +8319,21 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">239</td>
-                    <td class="coverage">16<em>x</em></td>
+                    <td class="coverage">15<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  checkmate::assert_choice(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">240</td>
-                    <td class="coverage">16<em>x</em></td>
+                    <td class="coverage">15<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    orientation,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">241</td>
-                    <td class="coverage">16<em>x</em></td>
+                    <td class="coverage">15<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    eval(formals(section_properties_default)$orientation)</pre>
                     </td>
@@ -8347,28 +8354,28 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">244</td>
-                    <td class="coverage">16<em>x</em></td>
+                    <td class="coverage">15<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (page_size == "letter") {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">245</td>
-                    <td class="coverage">11<em>x</em></td>
+                    <td class="coverage">10<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    page_size &lt;- officer::page_size(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">246</td>
-                    <td class="coverage">11<em>x</em></td>
+                    <td class="coverage">10<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      orient = orientation,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">247</td>
-                    <td class="coverage">11<em>x</em></td>
+                    <td class="coverage">10<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      width = 8.5, height = 11</pre>
                     </td>
@@ -8438,28 +8445,28 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">257</td>
-                    <td class="coverage">16<em>x</em></td>
+                    <td class="coverage">15<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  officer::prop_section(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">258</td>
-                    <td class="coverage">16<em>x</em></td>
+                    <td class="coverage">15<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    page_size = page_size,</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">259</td>
-                    <td class="coverage">16<em>x</em></td>
+                    <td class="coverage">15<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    type = "continuous",</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">260</td>
-                    <td class="coverage">16<em>x</em></td>
+                    <td class="coverage">15<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    page_margins = margins_potrait()</pre>
                     </td>
@@ -8508,7 +8515,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">267</td>
-                    <td class="coverage">16<em>x</em></td>
+                    <td class="coverage">15<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  officer::page_mar(bottom = 0.98, top = 0.95, left = 1.5, right = 1, gutter = 0)</pre>
                     </td>
@@ -8578,14 +8585,14 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">277</td>
-                    <td class="coverage">15<em>x</em></td>
+                    <td class="coverage">14<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  orient &lt;- section_properties$page_size$orient</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">278</td>
-                    <td class="coverage">15<em>x</em></td>
+                    <td class="coverage">14<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  page_sz &lt;- section_properties$page_size</pre>
                     </td>
@@ -8599,21 +8606,21 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">280</td>
-                    <td class="coverage">15<em>x</em></td>
+                    <td class="coverage">14<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  size &lt;- NULL</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">281</td>
-                    <td class="coverage">15<em>x</em></td>
+                    <td class="coverage">14<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  warn_msg &lt;- NULL</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">282</td>
-                    <td class="coverage">15<em>x</em></td>
+                    <td class="coverage">14<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (orient == "landscape") {</pre>
                     </td>
@@ -8690,21 +8697,21 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">293</td>
-                    <td class="coverage">11<em>x</em></td>
+                    <td class="coverage">10<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  } else if (orient == "portrait") {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">294</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    if (page_sz$width == 8.5 &amp;&amp; page_sz$height == 11) {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">295</td>
-                    <td class="coverage">8<em>x</em></td>
+                    <td class="coverage">7<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      size &lt;- "letter"</pre>
                     </td>
@@ -8816,7 +8823,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">311</td>
-                    <td class="coverage">14<em>x</em></td>
+                    <td class="coverage">13<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (!is.null(warn_msg)) {</pre>
                     </td>
@@ -8844,7 +8851,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">315</td>
-                    <td class="coverage">14<em>x</em></td>
+                    <td class="coverage">13<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  if (is.null(size)) {</pre>
                     </td>
@@ -8858,7 +8865,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">317</td>
-                    <td class="coverage">12<em>x</em></td>
+                    <td class="coverage">11<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  } else if (size == "A4") {</pre>
                     </td>
@@ -8914,42 +8921,42 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">325</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  } else if (size == "letter") {</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">326</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">    ret &lt;- file.path(</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">327</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      system.file(package = "rtables.officer"),</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">328</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">      ifelse(orient == "landscape",</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">329</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        "docx_templates/letter_landscape.docx",</pre>
                     </td>
                   </tr>
                   <tr class="covered">
                     <td class="num">330</td>
-                    <td class="coverage">10<em>x</em></td>
+                    <td class="coverage">9<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">        "docx_templates/letter_portrait.docx"</pre>
                     </td>
@@ -8984,7 +8991,7 @@ table.table-condensed {
                   </tr>
                   <tr class="covered">
                     <td class="num">335</td>
-                    <td class="coverage">14<em>x</em></td>
+                    <td class="coverage">13<em>x</em></td>
                     <td class="col-sm-12">
                       <pre class="language-r">  ret</pre>
                     </td>
