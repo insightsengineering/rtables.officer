@@ -43,6 +43,7 @@ Suggests:
     dplyr (>= 1.0.5),
     knitr (>= 1.42),
     rmarkdown (>= 2.23),
+    tern (>= 0.9.10),
     testthat (>= 3.3.0),
     tibble (>= 3.2.1),
     tidyr (>= 1.1.3),
