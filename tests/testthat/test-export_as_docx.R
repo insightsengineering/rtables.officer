@@ -1,3 +1,5 @@
+testthat::skip_if_not(gdtools::font_family_exists("DejaVu Sans"), message = "DejaVu Sans not available")
+
 test_that("export_as_docx works thanks to tt_to_flextable", {
   withr::local_options(list(warn = 2))
   lyt <- make_big_lyt()
