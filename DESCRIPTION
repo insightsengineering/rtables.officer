@@ -37,7 +37,8 @@ Imports:
     lifecycle (>= 0.2.0),
     officer (>= 0.7.1),
     stats,
-    stringi (>= 1.6)
+    stringi (>= 1.6),
+    systemfonts
 Suggests:
     broom (>= 1.0.5),
     car (>= 3.0-13),
