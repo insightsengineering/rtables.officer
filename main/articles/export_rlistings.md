@@ -25,8 +25,8 @@ library(dplyr)
 # 
 #     intersect, setdiff, setequal, union
 library(rtables.officer)
-# Loading required package: magrittr
 # Loading required package: rtables
+# Loading required package: magrittr
 # 
 # Attaching package: 'rtables'
 # The following object is masked from 'package:utils':
