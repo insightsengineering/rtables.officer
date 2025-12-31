@@ -8,12 +8,12 @@ test_that("Can create flextable object that works with different styles", {
     )
   }
 
-  lyt <- basic_table() %>%
-    split_cols_by("ARM") %>%
-    split_cols_by("SEX", split_fun = keep_split_levels(c("M", "F"))) %>%
-    split_rows_by("STRATA1") %>%
-    summarize_row_groups() %>%
-    split_rows_by("RACE", split_fun = keep_split_levels(c("WHITE", "ASIAN"))) %>%
+  lyt <- basic_table() |>
+    split_cols_by("ARM") |>
+    split_cols_by("SEX", split_fun = keep_split_levels(c("M", "F"))) |>
+    split_rows_by("STRATA1") |>
+    summarize_row_groups() |>
+    split_rows_by("RACE", split_fun = keep_split_levels(c("WHITE", "ASIAN"))) |>
     analyze("AGE", afun = analysisfun)
 
 
@@ -51,20 +51,20 @@ test_that("Can create flextable object that works with different styles", {
   expect_error(tt_to_flextable(tbl, theme = custom_theme), regexp = "header")
 
   # header colcounts not in a newline works
-  topleft_t1 <- topleft_t2 <- basic_table(show_colcounts = TRUE) %>%
-    split_rows_by("ARM", label_pos = "topleft") %>%
+  topleft_t1 <- topleft_t2 <- basic_table(show_colcounts = TRUE) |>
+    split_rows_by("ARM", label_pos = "topleft") |>
     split_cols_by("STRATA1")
 
-  topleft_t1 <- topleft_t1 %>%
-    analyze("BMRKR1") %>%
+  topleft_t1 <- topleft_t1 |>
+    analyze("BMRKR1") |>
     build_table(DM)
   topleft_t1a <- tt_to_flextable(topleft_t1, counts_in_newline = FALSE)
   topleft_t1b <- tt_to_flextable(topleft_t1, counts_in_newline = TRUE)
 
-  topleft_t2 <- topleft_t2 %>%
-    split_rows_by("SEX", label_pos = "topleft") %>%
-    analyze("BMRKR1") %>%
-    build_table(DM) %>%
+  topleft_t2 <- topleft_t2 |>
+    split_rows_by("SEX", label_pos = "topleft") |>
+    analyze("BMRKR1") |>
+    build_table(DM) |>
     tt_to_flextable(counts_in_newline = FALSE)
 
   expect_equal(flextable::nrow_part(topleft_t2, part = "header"), 2L)
@@ -73,12 +73,12 @@ test_that("Can create flextable object that works with different styles", {
 })
 
 test_that("tt_to_flextable does not create different cells when colcounts (or multiple) on different lines", {
-  lyt <- basic_table(show_colcounts = TRUE) %>%
-    split_rows_by("ARM", label_pos = "topleft") %>%
-    split_rows_by("STRATA1", label_pos = "topleft") %>%
-    split_cols_by("STRATA1", split_fun = keep_split_levels("B"), show_colcounts = TRUE) %>%
-    split_cols_by("SEX", split_fun = keep_split_levels(c("F", "M"))) %>%
-    split_cols_by("COUNTRY", split_fun = keep_split_levels("CHN")) %>%
+  lyt <- basic_table(show_colcounts = TRUE) |>
+    split_rows_by("ARM", label_pos = "topleft") |>
+    split_rows_by("STRATA1", label_pos = "topleft") |>
+    split_cols_by("STRATA1", split_fun = keep_split_levels("B"), show_colcounts = TRUE) |>
+    split_cols_by("SEX", split_fun = keep_split_levels(c("F", "M"))) |>
+    split_cols_by("COUNTRY", split_fun = keep_split_levels("CHN")) |>
     analyze("AGE")
 
   tbl <- build_table(lyt, ex_adsl)
@@ -89,12 +89,12 @@ test_that("tt_to_flextable does not create different cells when colcounts (or mu
 })
 
 test_that("check titles bold and html theme", {
-  lyt <- basic_table(show_colcounts = TRUE) %>%
-    split_rows_by("ARM", label_pos = "topleft") %>%
-    split_rows_by("STRATA1", label_pos = "topleft") %>%
-    split_cols_by("STRATA1", split_fun = keep_split_levels("B"), show_colcounts = TRUE) %>%
-    split_cols_by("SEX", split_fun = keep_split_levels(c("F", "M"))) %>%
-    split_cols_by("COUNTRY", split_fun = keep_split_levels("CHN")) %>%
+  lyt <- basic_table(show_colcounts = TRUE) |>
+    split_rows_by("ARM", label_pos = "topleft") |>
+    split_rows_by("STRATA1", label_pos = "topleft") |>
+    split_cols_by("STRATA1", split_fun = keep_split_levels("B"), show_colcounts = TRUE) |>
+    split_cols_by("SEX", split_fun = keep_split_levels(c("F", "M"))) |>
+    split_cols_by("COUNTRY", split_fun = keep_split_levels("CHN")) |>
     analyze("AGE")
 
   tbl <- build_table(lyt, ex_adsl)
@@ -108,12 +108,12 @@ test_that("check titles bold and html theme", {
 })
 
 test_that("check pagination", {
-  lyt <- basic_table(show_colcounts = TRUE) %>%
-    split_rows_by("ARM", label_pos = "topleft", page_by = TRUE) %>%
-    split_rows_by("STRATA1", label_pos = "topleft") %>%
-    split_cols_by("STRATA1", split_fun = keep_split_levels("B"), show_colcounts = TRUE) %>%
-    split_cols_by("SEX", split_fun = keep_split_levels(c("F", "M"))) %>%
-    split_cols_by("COUNTRY", split_fun = keep_split_levels("CHN")) %>%
+  lyt <- basic_table(show_colcounts = TRUE) |>
+    split_rows_by("ARM", label_pos = "topleft", page_by = TRUE) |>
+    split_rows_by("STRATA1", label_pos = "topleft") |>
+    split_cols_by("STRATA1", split_fun = keep_split_levels("B"), show_colcounts = TRUE) |>
+    split_cols_by("SEX", split_fun = keep_split_levels(c("F", "M"))) |>
+    split_cols_by("COUNTRY", split_fun = keep_split_levels("CHN")) |>
     analyze("AGE")
 
   tbl <- build_table(lyt, ex_adsl)
@@ -128,12 +128,12 @@ test_that("check pagination", {
 })
 
 test_that("check colwidths in flextable object", {
-  lyt <- basic_table(show_colcounts = TRUE) %>%
-    split_rows_by("ARM", label_pos = "topleft", page_by = TRUE) %>%
-    split_rows_by("STRATA1", label_pos = "topleft") %>%
-    split_cols_by("STRATA1", split_fun = keep_split_levels("B"), show_colcounts = TRUE) %>%
-    split_cols_by("SEX", split_fun = keep_split_levels(c("F", "M"))) %>%
-    split_cols_by("COUNTRY", split_fun = keep_split_levels("CHN")) %>%
+  lyt <- basic_table(show_colcounts = TRUE) |>
+    split_rows_by("ARM", label_pos = "topleft", page_by = TRUE) |>
+    split_rows_by("STRATA1", label_pos = "topleft") |>
+    split_cols_by("STRATA1", split_fun = keep_split_levels("B"), show_colcounts = TRUE) |>
+    split_cols_by("SEX", split_fun = keep_split_levels(c("F", "M"))) |>
+    split_cols_by("COUNTRY", split_fun = keep_split_levels("CHN")) |>
     analyze("AGE")
 
   tbl <- build_table(lyt, ex_adsl)
@@ -260,5 +260,36 @@ test_that("tt_to_flextable handles rlistings with active separators", {
     flextable::nrow_part(out_sep, part = "body"),
     nrow(test_data_sep), # Should equal original data rows (6)
     label = "Body row count should match original data rows"
+  )
+})
+
+test_that("tt_to_flextable handles rlistings with multiple header lines", {
+  # Create a simple listing
+  test_data_simple <- data.frame(
+    USUBJID = paste0("S", 1:3),
+    ARM = c("A", "A", "B"),
+    AETOXGR = 1:3,
+    AEDECOD = LETTERS[1:3],
+    AESEV = c("MILD", "MOD", "SEVERE")
+  ) |> formatters::var_relabel(
+    USUBJID = "Subject ID",
+    ARM = "Treatment Arm",
+    AETOXGR = "Toxicity \nGrade", # origin of the issue
+    AEDECOD = "Adverse Event"
+  )
+  lsting <- as_listing(
+    df = test_data_simple,
+    key_cols = c("USUBJID"),
+    disp_cols = c("ARM", "AETOXGR", "AEDECOD", "AESEV"),
+    add_trailing_sep = NULL # No separators
+  )
+
+  out <- tt_to_flextable(lsting)
+
+  # Check for border behavior
+  expect_equal(
+    apply(out$header$styles$cells$border.width.bottom$data, 2, function(x) sum(x > 0)) |>
+      unname(),
+    rep(1, ncol(lsting)) # only one cell per column name
   )
 })

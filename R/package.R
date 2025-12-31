@@ -2,9 +2,8 @@
 "_PACKAGE"
 
 #' @importFrom lifecycle deprecated
-#' @importFrom magrittr %>%
 #' @importFrom stats setNames
-#' @import methods
+#' @importFrom systemfonts system_fonts
 #' @import formatters
 #' @import rlistings
 #' @import rtables

@@ -82,8 +82,8 @@
 #' lyt <- basic_table(
 #'   title = "Title says Whaaaat", subtitles = "Oh, ok.",
 #'   main_footer = "ha HA! Footer!"
-#' ) %>%
-#'   split_cols_by("ARM") %>%
+#' ) |>
+#'   split_cols_by("ARM") |>
 #'   analyze("AGE", afun = analysisfun)
 #'
 #' tbl <- build_table(lyt, ex_adsl)
@@ -203,7 +203,7 @@ tt_to_flextable <- function(tt,
   }
 
   # Extract relevant information
-  matform <- rtables::matrix_form(tt, fontspec = fontspec, indent_rownames = FALSE)
+  matform <- rtables::matrix_form(tt, fontspec = fontspec, indent_rownames = FALSE, expand_newlines = FALSE)
   body <- formatters::mf_strings(matform) # Contains header
   spans <- formatters::mf_spans(matform) # Contains header
   mpf_aligns <- formatters::mf_aligns(matform) # Contains header
@@ -225,7 +225,7 @@ tt_to_flextable <- function(tt,
   # Fix for empty strings -> they used to get wrong font and size
   content[content == ""] <- " "
 
-  flx <- flextable::qflextable(content) %>%
+  flx <- flextable::qflextable(content) |>
     # Default rtables if no footnotes
     .remove_hborder(part = "body", w = "bottom")
 
@@ -293,7 +293,7 @@ tt_to_flextable <- function(tt,
   # Fix for empty strings
   hdr[hdr == ""] <- " "
 
-  flx <- flx %>%
+  flx <- flx |>
     flextable::set_header_labels( # Needed bc headers must be unique
       values = setNames(
         as.vector(hdr[hnum, , drop = TRUE]),
@@ -319,13 +319,13 @@ tt_to_flextable <- function(tt,
   nr_header <- flextable::nrow_part(flx, part = "header")
 
   # Polish the inner horizontal borders from the header
-  flx <- flx %>%
-    .remove_hborder(part = "header", w = "all") %>%
+  flx <- flx |>
+    .remove_hborder(part = "header", w = "all") |>
     .add_hborder("header", ii = c(0, hnum), border = border)
 
   # ALIGNS - horizontal
-  flx <- flx %>%
-    .apply_alignments(mpf_aligns[seq_len(hnum), , drop = FALSE], "header") %>%
+  flx <- flx |>
+    .apply_alignments(mpf_aligns[seq_len(hnum), , drop = FALSE], "header") |>
     .apply_alignments(mpf_aligns[-seq_len(hnum), , drop = FALSE], "body")
 
   # Rownames indentation
@@ -355,8 +355,8 @@ tt_to_flextable <- function(tt,
     hdr[i, 1] <- stringi::stri_replace(hdr[i, 1], regex = "^ +", "")
 
     # This solution does not keep indentation
-    # top_left_tmp2 <- paste0(top_left_tmp, collapse = "\n") %>%
-    #   flextable::as_chunk() %>%
+    # top_left_tmp2 <- paste0(top_left_tmp, collapse = "\n") |>
+    #   flextable::as_chunk() |>
     #   flextable::as_paragraph()
     # flx <- flextable::compose(flx, i = hnum, j = 1, value = top_left_tmp2, part = "header")
     flx <- flextable::padding(flx,
@@ -369,13 +369,13 @@ tt_to_flextable <- function(tt,
 
   # Adding referantial footer line separator if present
   if (length(matform$ref_footnotes) > 0 && isTRUE(integrate_footers)) {
-    flx <- flextable::add_footer_lines(flx, values = matform$ref_footnotes) %>%
+    flx <- flextable::add_footer_lines(flx, values = matform$ref_footnotes) |>
       .add_hborder(part = "body", ii = nrow(tt), border = border)
   }
 
   # Footer lines
   if (length(formatters::all_footers(tt)) > 0 && isTRUE(integrate_footers)) {
-    flx <- flextable::add_footer_lines(flx, values = formatters::all_footers(tt)) %>%
+    flx <- flextable::add_footer_lines(flx, values = formatters::all_footers(tt)) |>
       .add_hborder(part = "body", ii = nrow(tt), border = border)
   }
 
@@ -394,7 +394,7 @@ tt_to_flextable <- function(tt,
 
   # Title lines (after theme for problems with lines)
   if (titles_as_header && length(formatters::all_titles(tt)) > 0 && any(nzchar(formatters::all_titles(tt)))) {
-    flx <- .add_titles_as_header(flx, all_titles = formatters::all_titles(tt), bold = bold_titles) %>%
+    flx <- .add_titles_as_header(flx, all_titles = formatters::all_titles(tt), bold = bold_titles) |>
       flextable::border(
         part = "header", i = length(formatters::all_titles(tt)),
         border.bottom = border
@@ -451,8 +451,8 @@ tt_to_flextable <- function(tt,
 .add_titles_as_header <- function(flx, all_titles, bold = TRUE) {
   all_titles <- all_titles[nzchar(all_titles)] # Remove empty titles (use " ")
 
-  flx <- flx %>%
-    flextable::add_header_lines(values = all_titles, top = TRUE) %>%
+  flx <- flx |>
+    flextable::add_header_lines(values = all_titles, top = TRUE) |>
     # Remove the added borders
     flextable::border(
       part = "header", i = seq_along(all_titles),
@@ -460,8 +460,8 @@ tt_to_flextable <- function(tt,
       border.bottom = flextable::fp_border_default(width = 0),
       border.left = flextable::fp_border_default(width = 0),
       border.right = flextable::fp_border_default(width = 0)
-    ) %>%
-    flextable::align(part = "header", i = seq_along(all_titles), align = "left") %>%
+    ) |>
+    flextable::align(part = "header", i = seq_along(all_titles), align = "left") |>
     flextable::bg(part = "header", i = seq_along(all_titles), bg = "white")
 
   if (isTRUE(bold)) {
@@ -509,7 +509,7 @@ tt_to_flextable <- function(tt,
   for (char in search_chars) {
     indexes <- which(aligns_df == char, arr.ind = TRUE)
     tmp_inds <- as.data.frame(indexes)
-    flx <- flx %>%
+    flx <- flx |>
       flextable::align(
         i = tmp_inds[["row"]],
         j = tmp_inds[["col"]],

@@ -83,19 +83,19 @@ theme_docx_default <- function(font = "Arial",
     tbl_ncol_body <- flextable::ncol_keys(flx) # tbl_ncol_body respects if rownames = FALSE (only rlistings)
 
     # Font setting
-    flx <- flextable::fontsize(flx, size = font_size, part = "all") %>%
-      flextable::fontsize(size = font_size - 1, part = "footer") %>%
+    flx <- flextable::fontsize(flx, size = font_size, part = "all") |>
+      flextable::fontsize(size = font_size - 1, part = "footer") |>
       flextable::font(fontname = font, part = "all")
 
     # Add all borders (very specific fix too)
     flx <- .add_borders(flx, border = border, ncol = tbl_ncol_body)
 
     # Vertical alignment -> all top for now
-    flx <- flx %>%
-      flextable::valign(j = seq(2, tbl_ncol_body), valign = "top", part = "body") %>%
-      flextable::valign(j = 1, valign = "top", part = "all") %>%
+    flx <- flx |>
+      flextable::valign(j = seq(2, tbl_ncol_body), valign = "top", part = "body") |>
+      flextable::valign(j = 1, valign = "top", part = "all") |>
       # topleft styling (-> bottom aligned) xxx merge_at() could merge these, but let's see
-      flextable::valign(j = 1, valign = "top", part = "header") %>%
+      flextable::valign(j = 1, valign = "top", part = "header") |>
       flextable::valign(j = seq(2, tbl_ncol_body), valign = "top", part = "header")
 
     flx <- .apply_indentation_and_margin(flx,
@@ -158,9 +158,9 @@ theme_docx_default <- function(font = "Arial",
 #' # html theme
 #'
 #' # Define a layout for the table
-#' lyt <- basic_table() %>%
+#' lyt <- basic_table() |>
 #'   # Split columns by the "ARM" variable
-#'   split_cols_by("ARM") %>%
+#'   split_cols_by("ARM") |>
 #'   # Analyze the "AGE", "BMRKR2", and "COUNTRY" variables
 #'   analyze(c("AGE", "BMRKR2", "COUNTRY"))
 #'
@@ -208,8 +208,8 @@ theme_html_default <- function(font = "Courier",
     nr_header <- flextable::nrow_part(flx, "header")
 
     # Font setting
-    flx <- flextable::fontsize(flx, size = font_size, part = "all") %>%
-      flextable::fontsize(size = font_size - 1, part = "footer") %>%
+    flx <- flextable::fontsize(flx, size = font_size, part = "all") |>
+      flextable::fontsize(size = font_size - 1, part = "footer") |>
       flextable::font(fontname = font, part = "all")
 
     # all borders
@@ -221,12 +221,12 @@ theme_html_default <- function(font = "Courier",
         i = which(tbl_row_class == "LabelRow"), part = "body",
         border.left = flextable::fp_border_default(width = 0),
         border.right = flextable::fp_border_default(width = 0)
-      ) %>%
+      ) |>
         flextable::border(
           j = 1,
           i = which(tbl_row_class == "LabelRow"), part = "body",
           border.right = flextable::fp_border_default(width = 0)
-        ) %>%
+        ) |>
         flextable::border(
           j = nc_body,
           i = which(tbl_row_class == "LabelRow"), part = "body",
@@ -244,22 +244,22 @@ theme_html_default <- function(font = "Courier",
 
 .add_borders <- function(flx, border, ncol) {
   # all borders
-  flx <- flx %>%
-    flextable::border_outer(part = "body", border = border) %>%
-    flextable::border_outer(part = "header", border = border) %>%
+  flx <- flx |>
+    flextable::border_outer(part = "body", border = border) |>
+    flextable::border_outer(part = "header", border = border) |>
     flextable::border(
       part = "header", j = 1,
       border.left = border,
       border.right = border
-    ) %>%
+    ) |>
     flextable::border(
       part = "header", j = 1, i = 1,
       border.top = border
-    ) %>%
+    ) |>
     flextable::border(
       part = "header", j = 1, i = flextable::nrow_part(flx, "header"),
       border.bottom = border
-    ) %>%
+    ) |>
     flextable::border(
       part = "header", j = seq(2, ncol),
       border.left = border,
@@ -275,6 +275,7 @@ theme_html_default <- function(font = "Courier",
       sapply(raw_header[ii, ], function(x) x$txt)
     )
   }
+
   for (ii in seq_len(nrow(extracted_header))) {
     for (jj in seq(2, ncol)) {
       if (extracted_header[ii, jj] != " ") {
@@ -316,7 +317,7 @@ theme_html_default <- function(font = "Courier",
 }
 
 .apply_indentation_and_margin <- function(flx, cell_margins, tbl_row_class, tbl_ncol_body) {
-  flx <- flx %>% # summary/data rows and cells
+  flx <- flx |> # summary/data rows and cells
     flextable::padding(
       padding.top = cell_margins[3],
       padding.bottom = cell_margins[4], part = "body"
@@ -330,7 +331,7 @@ theme_html_default <- function(font = "Courier",
   )
 
   # Vertical padding/spaces - header (3pt after)
-  flx <- flx %>%
+  flx <- flx |>
     flextable::padding(
       j = seq(1, tbl_ncol_body), # also topleft
       padding.top = cell_margins[3],

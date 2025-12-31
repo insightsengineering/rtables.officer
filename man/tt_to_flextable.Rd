@@ -188,8 +188,8 @@ analysisfun <- function(x, ...) {
 lyt <- basic_table(
   title = "Title says Whaaaat", subtitles = "Oh, ok.",
   main_footer = "ha HA! Footer!"
-) \%>\%
-  split_cols_by("ARM") \%>\%
+) |>
+  split_cols_by("ARM") |>
   analyze("AGE", afun = analysisfun)
 
 tbl <- build_table(lyt, ex_adsl)
@@ -243,9 +243,9 @@ flx <- tt_to_flextable(tbl, theme = my_theme())
 # html theme
 
 # Define a layout for the table
-lyt <- basic_table() \%>\%
+lyt <- basic_table() |>
   # Split columns by the "ARM" variable
-  split_cols_by("ARM") \%>\%
+  split_cols_by("ARM") |>
   # Analyze the "AGE", "BMRKR2", and "COUNTRY" variables
   analyze(c("AGE", "BMRKR2", "COUNTRY"))
 
