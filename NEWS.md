@@ -1,3 +1,5 @@
+## rtables.officer 0.1.2.9000
+
 ## rtables.officer 0.1.2
 
  * Fix issue with extra borders when header had `"\n"` special characters in `tt_as_flextable()`.
