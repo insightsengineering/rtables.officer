@@ -1,6 +1,8 @@
 # Changelog
 
-## rtables.officer 0.1.1.9005
+## rtables.officer 0.1.2
+
+CRAN release: 2026-01-08
 
 - Fix issue with extra borders when header had `"\n"` special characters
   in `tt_as_flextable()`.
