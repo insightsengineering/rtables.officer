@@ -1,7 +1,7 @@
 Package: rtables.officer
 Title: Exporting Tools for 'rtables'
 Version: 0.1.2
-Date: 2025-12-31
+Date: 2026-01-07
 Authors@R: c(
     person("Gabriel", "Becker", , "gabembecker@gmail.com", role = "ctb"),
     person("Davide", "Garolini", , "davide.garolini@roche.com", role = "aut",
