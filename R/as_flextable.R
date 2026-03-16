@@ -516,7 +516,7 @@ tt_to_flextable <- function(tt,
 #' aligns_df <- matrix(data = "right", nrow = nrow(df), ncol = ncol(df))
 #' aligns_df[3, 3] <- "center"
 #' aligns_df[5, 2] <- "center"
-#' flx <- df %>% flextable()
+#' flx <- flextable::flextable(df)
 #' apply_alignments(flx = flx, aligns_df = aligns_df, part = "body")
 apply_alignments <- function(flx, aligns_df, part) {
 
