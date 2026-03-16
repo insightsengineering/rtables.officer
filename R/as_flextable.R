@@ -67,7 +67,7 @@
 #' This is ignored if not used in the theme. See [theme_docx_default()] for an example on how to retrieve and use these
 #' values.
 #'
-#' @seealso [export_as_docx()]
+#' @seealso [export_as_docx()], [apply_alignments()]
 #'
 #' @examples
 #' analysisfun <- function(x, ...) {
@@ -499,54 +499,6 @@ tt_to_flextable <- function(tt,
   font_fam <- "Courier" # Fix if we need it -> coming from gpar and fontfamily Arial not being recognized
 
   formatters::font_spec(font_family = font_fam, font_size = font_sz, lineheight = 1)
-}
-
-#' Apply alignments to a flextable
-#'
-#' @param flx (`flextable`)\cr a `flextable` object to which alignments will be applied.
-#' @param aligns_df (`matrix`)\cr a `matrix` object containing the alignments that will be applied.
-#' @param part (`character`)\cr the part of flx where the alignments will be applied.
-#' Once of: "header", "body" or "footer".
-#'
-#' @returns a `flextable` object with the alignments updated.
-#' @export
-#'
-#' @examples
-#' df <- head(iris)
-#' aligns_df <- matrix(data = "right", nrow = nrow(df), ncol = ncol(df))
-#' aligns_df[3, 3] <- "center"
-#' aligns_df[5, 2] <- "center"
-#' flx <- flextable::flextable(df)
-#' apply_alignments(flx = flx, aligns_df = aligns_df, part = "body")
-apply_alignments <- function(flx, aligns_df, part) {
-
-  checkmate::assert_class(flx, "flextable")
-  checkmate::assert_matrix(aligns_df)
-  checkmate::assert_choice(part, choices = c("header", "body", "footer"))
-  checkmate::assert_true(nrow(aligns_df) == flextable::nrow_part(flx, part))
-  checkmate::assert_true(ncol(aligns_df) == ncol(flx[[part]]$dataset))
-
-  # List of characters you want to search for
-  search_chars <- unique(c(aligns_df))
-
-  # Loop through each character and find its indexes
-  for (char in search_chars) {
-    indexes <- which(aligns_df == char, arr.ind = TRUE)
-    tmp_inds <- as.data.frame(indexes)
-    unique_cols <- unique(tmp_inds$col)
-    for (j in unique_cols) {
-      unique_rows <- unique(tmp_inds[tmp_inds$col == j, "row"])
-      flx <- flx |>
-        flextable::align(
-          i = unique_rows,
-          j = j,
-          align = char,
-          part = part
-        )
-    }
-  }
-
-  flx
 }
 
 

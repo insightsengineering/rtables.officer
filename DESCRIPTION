@@ -70,3 +70,5 @@ Collate:
     'export_as_docx.R'
     'package.R'
     'theme_defaults.R'
+    'apply_styling.R'
+    'font_extract.R'

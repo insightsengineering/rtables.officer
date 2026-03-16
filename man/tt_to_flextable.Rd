@@ -267,5 +267,7 @@ flextable::save_as_html(tbl_html,
 
 }
 \seealso{
-\code{\link[=export_as_docx]{export_as_docx()}}
+\code{\link[=export_as_docx]{export_as_docx()}}, \code{\link[=apply_alignments]{apply_alignments()}}
+
+\code{\link[=apply_bold_manual]{apply_bold_manual()}}
 }

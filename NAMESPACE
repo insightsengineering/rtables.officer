@@ -2,7 +2,9 @@
 
 export(add_flextable_separators)
 export(apply_alignments)
+export(apply_bold_manual)
 export(export_as_docx)
+export(extract_font_and_size_from_flx)
 export(margins_landscape)
 export(margins_potrait)
 export(section_properties_default)
