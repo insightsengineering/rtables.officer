@@ -10,11 +10,8 @@ apply_bold_manual(flx, bold_manual)
 \item{flx}{(\code{flextable})\cr a \code{flextable} object to which manual bolding will be applied.}
 
 \item{bold_manual}{(\code{list})\cr a named \code{list} containing the specification for
-the manual bolding.\cr
-Valid names for this list are: "header", "body".\cr
-Each of these elements should also be a named list of numeric vectors,
-with valid names being "i" and "j".\cr
-See examples for more information.}
+the manual bolding, in the format
+\code{list("header" = list("i" = c(), "j" = c()), "body" = list("i" = c(), "j" = c()))}}
 }
 \value{
 a \code{flextable} object with the bolding updated.

@@ -3,7 +3,7 @@
 #' @param flx (`flextable`)\cr a `flextable` object to which alignments will be applied.
 #' @param aligns_df (`matrix`)\cr a `matrix` object containing the alignments that will be applied.
 #' @param part (`character`)\cr the part of flx where the alignments will be applied.
-#' Once of: "header", "body" or "footer".
+#' One of: "header", "body" or "footer".
 #'
 #' @returns a `flextable` object with the alignments updated.
 #' @export
@@ -52,11 +52,8 @@ apply_alignments <- function(flx, aligns_df, part) {
 #'
 #' @param flx (`flextable`)\cr a `flextable` object to which manual bolding will be applied.
 #' @param bold_manual (`list`)\cr a named `list` containing the specification for
-#' the manual bolding.\cr
-#' Valid names for this list are: "header", "body".\cr
-#' Each of these elements should also be a named list of numeric vectors,
-#' with valid names being "i" and "j".\cr
-#' See examples for more information.
+#' the manual bolding, in the format
+#' `list("header" = list("i" = c(), "j" = c()), "body" = list("i" = c(), "j" = c()))`
 #'
 #' @returns a `flextable` object with the bolding updated.
 #' @export

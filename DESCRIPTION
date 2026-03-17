@@ -71,4 +71,4 @@ Collate:
     'package.R'
     'theme_defaults.R'
     'apply_styling.R'
-    'font_extract.R'
+    'extract_from_flx.R'

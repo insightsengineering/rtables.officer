@@ -12,7 +12,7 @@ apply_alignments(flx, aligns_df, part)
 \item{aligns_df}{(\code{matrix})\cr a \code{matrix} object containing the alignments that will be applied.}
 
 \item{part}{(\code{character})\cr the part of flx where the alignments will be applied.
-Once of: "header", "body" or "footer".}
+One of: "header", "body" or "footer".}
 }
 \value{
 a \code{flextable} object with the alignments updated.
