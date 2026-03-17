@@ -3,7 +3,7 @@
 #' @param flx (`flextable`)\cr a `flextable` object to which alignments will be applied.
 #' @param aligns_df (`matrix`)\cr a `matrix` object containing the alignments that will be applied.
 #' @param part (`character`)\cr the part of flx where the alignments will be applied.
-#' One of: "header", "body" or "footer".
+#'   One of: "header", "body" or "footer".
 #'
 #' @returns a `flextable` object with the alignments updated.
 #' @export
@@ -18,7 +18,6 @@
 #' flx <- flextable::flextable(df)
 #' apply_alignments(flx = flx, aligns_df = aligns_df, part = "body")
 apply_alignments <- function(flx, aligns_df, part) {
-
   checkmate::assert_class(flx, "flextable")
   checkmate::assert_matrix(aligns_df)
   checkmate::assert_choice(part, choices = c("header", "body", "footer"))
@@ -52,8 +51,8 @@ apply_alignments <- function(flx, aligns_df, part) {
 #'
 #' @param flx (`flextable`)\cr a `flextable` object to which manual bolding will be applied.
 #' @param bold_manual (`list`)\cr a named `list` containing the specification for
-#' the manual bolding, in the format
-#' `list("header" = list("i" = c(), "j" = c()), "body" = list("i" = c(), "j" = c()))`
+#'   the manual bolding, in the format
+#'   `list("header" = list("i" = c(), "j" = c()), "body" = list("i" = c(), "j" = c()))`
 #'
 #' @returns a `flextable` object with the bolding updated.
 #' @export
@@ -86,8 +85,8 @@ apply_bold_manual <- function(flx, bold_manual) {
       )
     }
     flx <- flextable::bold(flx,
-                           i = bld_tmp$i, j = bld_tmp$j,
-                           part = names(bold_manual)[bi]
+      i = bld_tmp$i, j = bld_tmp$j,
+      part = names(bold_manual)[bi]
     )
   }
 

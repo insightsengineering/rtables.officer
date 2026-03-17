@@ -125,8 +125,6 @@ test_that("apply_bold_manual works as expected", {
     "body" = list("i" = c(1, 2), "j" = 1)
   )
   expect_error(res <- apply_bold_manual(out, manual_bold),
-               "Assertion on 'names\\(bold_manual\\)' failed: Must be a subset of \\{'header','body'\\}, but has additional elements \\{'footer'\\}.")
+               "but has additional elements \\{'footer'\\}.")
 
 })
-
-

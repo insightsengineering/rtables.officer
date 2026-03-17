@@ -47,3 +47,14 @@ reference:
     - tt_to_flextable
     - export_as_docx
     - add_flextable_separators
+
+  - title: Styling Functions
+    desc: These functions apply styling to a flextable
+    contents:
+    - apply_alignments
+    - apply_bold_manual
+
+  - title: Attributes Functions
+    desc: These functions extract attributes from a flextable
+    contents:
+    - extract_font_and_size_from_flx

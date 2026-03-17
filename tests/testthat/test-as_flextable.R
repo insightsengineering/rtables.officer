@@ -293,4 +293,3 @@ test_that("tt_to_flextable handles rlistings with multiple header lines", {
     rep(1, ncol(lsting)) # only one cell per column name
   )
 })
-
