@@ -7,6 +7,7 @@ for creating and exporting a clinical trial results table.
     the dataset:
 
 ``` r
+
 library(tern)
 # Loading required package: rtables
 # Loading required package: formatters
@@ -50,6 +51,7 @@ tf <- tempfile(fileext = ".docx")
     visits:
 
 ``` r
+
 adlb_f <- adlb %>%
   dplyr::filter(
     PARAM %in% c("Alanine Aminotransferase Measurement", "C-Reactive Protein Measurement") &
@@ -62,6 +64,7 @@ adlb_f <- adlb %>%
     the analysis:
 
 ``` r
+
 afun <- function(x, .var, .spl_context, ...) {
   n_fun <- sum(!is.na(x), na.rm = TRUE)
   mean_sd_fun <- if (n_fun == 0) c(NA, NA) else c(mean(x, na.rm = TRUE), sd(x, na.rm = TRUE))
@@ -86,6 +89,7 @@ afun <- function(x, .var, .spl_context, ...) {
 4.  Define Table Layout Create the layout for the table:
 
 ``` r
+
 lyt <- basic_table() %>%
   split_cols_by("ACTARM", show_colcounts = TRUE, split_fun = keep_split_levels(levels(adlb_f$ACTARM)[c(1, 2)])) %>%
   split_rows_by("PARAM",
@@ -107,6 +111,7 @@ lyt <- basic_table() %>%
     layout:
 
 ``` r
+
 result <- build_table(lyt, adlb_f)
 result
 #                                                      A: Drug X                              B: Placebo              
@@ -180,6 +185,7 @@ result
 Assign titles and footers:
 
 ``` r
+
 main_title(result) <- "Alanine Aminotransferase Measurement"
 subtitles(result) <- c("This is a subtitle.", "This is another subtitle.")
 main_footer(result) <- "This is a demo table for illustration purpose."
@@ -190,6 +196,7 @@ prov_footer(result) <- "Program: demo_poc_docx.R\nDate: 2024-11-06\nVersion: 0.0
     `flextable` object and export it to a Word document:
 
 ``` r
+
 flx_res <- tt_to_flextable(result)
 export_as_docx(flx_res,
   file = tf,
@@ -208,6 +215,7 @@ handling pagination, and more.
 ### Column Widths
 
 ``` r
+
 cw <- propose_column_widths(result)
 cw <- cw / sum(cw)
 cw <- c(0.6, 0.1, 0.1, 0.1, 0.1)
@@ -234,6 +242,7 @@ flex_tbl
 ### Pagination
 
 ``` r
+
 flx_res <- tt_to_flextable(
   result,
   paginate = TRUE,
@@ -252,6 +261,7 @@ flx_res[[1]]
 ### Horizontal separators (note `section_div = <chr>`)
 
 ``` r
+
 tbl <- basic_table() %>%
   split_cols_by("ACTARM") %>%
   split_rows_by("PARAM", split_fun = drop_split_levels, section_div = "-") %>%
@@ -266,4 +276,68 @@ export_as_docx(flx_res, file = tf)
 flx_res
 ```
 
-[TABLE]
+|  | A: Drug X |  | B: Placebo |  | C: Combination |  |
+|----|----|----|----|----|----|----|
+|  | Value at Visit | Change from Baseline | Value at Visit | Change from Baseline | Value at Visit | Change from Baseline |
+| Alanine Aminotransferase Measurement |  |  |  |  |  |  |
+| BASELINE |  |  |  |  |  |  |
+| n | 134 |  | 134 |  | 132 |  |
+| Mean (SD) | 49.57 (8.32) |  | 50.31 (8.34) |  | 50.90 (7.82) |  |
+| Median | 49.57 |  | 50.15 |  | 50.77 |  |
+| Min - Max | 23.97 - 70.85 |  | 26.22 - 79.12 |  | 27.63 - 67.45 |  |
+| WEEK 1 DAY 8 |  |  |  |  |  |  |
+| n | 134 | 134 | 0 | 0 | 132 | 132 |
+| Mean (SD) | 48.60 (7.96) | -0.97 (11.70) | NE (NE) | NE (NE) | 51.11 (7.79) | 0.20 (10.92) |
+| Median | 48.42 | -1.02 | NE | NE | 50.80 | 0.05 |
+| Min - Max | 27.71 - 64.64 | -25.05 - 39.39 | NE - NE | NE - NE | 29.75 - 71.40 | -27.38 - 31.08 |
+| WEEK 2 DAY 15 |  |  |  |  |  |  |
+| n | 134 | 134 | 134 | 134 | 132 | 132 |
+| Mean (SD) | 49.41 (8.47) | -0.16 (12.01) | 50.25 (8.53) | -0.06 (12.53) | 48.49 (7.18) | -2.41 (10.97) |
+| Median | 48.34 | 0.08 | 49.97 | -0.74 | 49.22 | -0.96 |
+| Min - Max | 24.34 - 71.06 | -26.31 - 34.35 | 24.38 - 71.07 | -36.75 - 28.78 | 26.22 - 63.35 | -28.56 - 31.29 |
+| WEEK 3 DAY 22 |  |  |  |  |  |  |
+| n | 134 | 134 | 134 | 134 | 132 | 132 |
+| Mean (SD) | 50.26 (7.51) | 0.69 (11.52) | 49.67 (7.74) | -0.63 (11.21) | 48.86 (7.89) | -2.05 (11.10) |
+| Median | 50.09 | 0.90 | 49.75 | -0.36 | 47.68 | -2.13 |
+| Min - Max | 33.04 - 68.98 | -32.07 - 32.51 | 33.71 - 66.49 | -37.04 - 30.00 | 30.39 - 66.99 | -24.65 - 22.20 |
+| WEEK 4 DAY 29 |  |  |  |  |  |  |
+| n | 134 | 134 | 134 | 134 | 132 | 132 |
+| Mean (SD) | 50.70 (9.17) | 1.13 (13.01) | 49.26 (8.69) | -1.04 (12.59) | 49.65 (7.99) | -1.25 (10.62) |
+| Median | 49.53 | 0.71 | 48.30 | -2.37 | 49.77 | -1.29 |
+| Min - Max | 29.75 - 78.99 | -34.00 - 37.59 | 32.99 - 73.97 | -33.16 - 34.47 | 25.52 - 68.62 | -24.26 - 30.60 |
+| WEEK 5 DAY 36 |  |  |  |  |  |  |
+| n | 134 | 134 | 134 | 134 | 132 | 132 |
+| Mean (SD) | 50.84 (7.85) | 1.26 (12.11) | 49.72 (8.45) | -0.59 (12.63) | 49.98 (8.34) | -0.92 (11.14) |
+| Median | 51.44 | 1.85 | 50.23 | 1.46 | 51.01 | -1.98 |
+| Min - Max | 31.89 - 70.34 | -32.06 - 32.18 | 30.64 - 68.11 | -38.08 - 25.27 | 24.82 - 65.57 | -31.24 - 33.22 |
+| C-Reactive Protein Measurement |  |  |  |  |  |  |
+| BASELINE |  |  |  |  |  |  |
+| n | 134 |  | 134 |  | 132 |  |
+| Mean (SD) | 48.95 (9.44) |  | 50.08 (7.87) |  | 50.21 (8.41) |  |
+| Median | 49.55 |  | 50.12 |  | 49.84 |  |
+| Min - Max | 28.96 - 75.23 |  | 29.91 - 73.35 |  | 30.45 - 72.25 |  |
+| WEEK 1 DAY 8 |  |  |  |  |  |  |
+| n | 134 | 134 | 0 | 0 | 132 | 132 |
+| Mean (SD) | 51.86 (8.08) | 2.91 (12.48) | NE (NE) | NE (NE) | 50.25 (9.37) | 0.05 (13.07) |
+| Median | 51.23 | 2.94 | NE | NE | 50.70 | -0.30 |
+| Min - Max | 28.47 - 72.90 | -28.23 - 41.19 | NE - NE | NE - NE | 27.78 - 71.18 | -32.05 - 30.13 |
+| WEEK 2 DAY 15 |  |  |  |  |  |  |
+| n | 134 | 134 | 134 | 134 | 132 | 132 |
+| Mean (SD) | 49.75 (8.27) | 0.80 (12.55) | 50.87 (7.42) | 0.79 (10.69) | 49.12 (8.25) | -1.09 (11.12) |
+| Median | 50.44 | 0.48 | 51.51 | 0.82 | 48.69 | -1.41 |
+| Min - Max | 29.02 - 69.08 | -34.08 - 30.43 | 30.70 - 67.70 | -22.15 - 27.16 | 20.63 - 70.52 | -30.24 - 19.81 |
+| WEEK 3 DAY 22 |  |  |  |  |  |  |
+| n | 134 | 134 | 134 | 134 | 132 | 132 |
+| Mean (SD) | 50.06 (8.32) | 1.12 (12.36) | 49.27 (7.52) | -0.81 (10.62) | 49.80 (7.65) | -0.41 (12.05) |
+| Median | 49.93 | 3.14 | 48.78 | 0.15 | 49.48 | -1.16 |
+| Min - Max | 26.70 - 69.37 | -36.68 - 31.78 | 30.70 - 67.76 | -30.71 - 29.92 | 30.14 - 72.89 | -28.84 - 34.60 |
+| WEEK 4 DAY 29 |  |  |  |  |  |  |
+| n | 134 | 134 | 134 | 134 | 132 | 132 |
+| Mean (SD) | 51.61 (8.13) | 2.66 (12.22) | 49.47 (8.21) | -0.61 (11.10) | 49.76 (7.60) | -0.45 (11.57) |
+| Median | 52.26 | 3.17 | 48.81 | -1.27 | 50.17 | 0.73 |
+| Min - Max | 31.45 - 71.21 | -31.34 - 41.61 | 27.07 - 67.32 | -24.90 - 23.50 | 32.09 - 68.46 | -32.97 - 32.80 |
+| WEEK 5 DAY 36 |  |  |  |  |  |  |
+| n | 134 | 134 | 134 | 134 | 132 | 132 |
+| Mean (SD) | 49.71 (8.76) | 0.76 (13.36) | 50.83 (7.59) | 0.75 (11.28) | 49.06 (7.66) | -1.15 (11.62) |
+| Median | 49.22 | -0.25 | 50.25 | 0.46 | 49.20 | -1.48 |
+| Min - Max | 25.97 - 69.62 | -39.98 - 33.63 | 33.32 - 70.27 | -25.59 - 33.12 | 32.20 - 73.64 | -33.52 - 31.58 |

@@ -1,5 +1,17 @@
 # Changelog
 
+## rtables.officer 0.1.2.9001
+
+- Exported functions
+  [`apply_alignments()`](https://insightsengineering.github.io/rtables.officer/reference/apply_alignments.md),
+  [`apply_bold_manual()`](https://insightsengineering.github.io/rtables.officer/reference/apply_bold_manual.md)
+  and
+  [`extract_font_and_size_from_flx()`](https://insightsengineering.github.io/rtables.officer/reference/extract_font_and_size_from_flx.md)
+  ([\#66](https://github.com/insightsengineering/rtables.officer/issues/66))
+- Minor fix in
+  [`apply_alignments()`](https://insightsengineering.github.io/rtables.officer/reference/apply_alignments.md)
+  to update alignments in specific cells of the flextable.
+
 ## rtables.officer 0.1.2
 
 CRAN release: 2026-01-08

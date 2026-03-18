@@ -23,3 +23,19 @@ These functions create ascii or html representations of the table
 
   Add Conditional Separators (horizontal line or padding) to `flextable`
   Rows
+
+## Styling Functions
+
+These functions apply styling to a flextable
+
+- [`apply_alignments()`](https://insightsengineering.github.io/rtables.officer/reference/apply_alignments.md)
+  : Apply alignments to a flextable
+- [`apply_bold_manual()`](https://insightsengineering.github.io/rtables.officer/reference/apply_bold_manual.md)
+  : Apply manual bolding to a flextable
+
+## Attributes Functions
+
+These functions extract attributes from a flextable
+
+- [`extract_font_and_size_from_flx()`](https://insightsengineering.github.io/rtables.officer/reference/extract_font_and_size_from_flx.md)
+  : Extract font and size from a flextable

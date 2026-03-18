@@ -61,6 +61,7 @@ License Version 2.
 released version with:
 
 ``` r
+
 install.packages("rtables.officer")
 ```
 
@@ -68,6 +69,7 @@ or you can install the latest development version directly from GitHub
 with:
 
 ``` r
+
 # install.packages("pak")
 pak::pak("insightsengineering/rtables.officer")
 ```
@@ -81,6 +83,7 @@ available in the
 [vignettes](https://insightsengineering.github.io/rtables.officer/latest-tag/articles/).
 
 ``` r
+
 # Define the table layout
 lyt <- basic_table() %>%
   split_cols_by("ARM") %>%

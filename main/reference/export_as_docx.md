@@ -36,29 +36,29 @@ margins_landscape()
 
 - tt:
 
-  (`TableTree` or related class)  
+  (`TableTree` or related class)\
   a `TableTree` object representing a populated table.
 
 - file:
 
-  (`string`)  
+  (`string`)\
   output file. Must have `.docx` extension.
 
 - add_page_break:
 
-  (`flag`)  
+  (`flag`)\
   whether to add a page break after the table (`TRUE`) or not (`FALSE`).
 
 - add_template_page_numbers:
 
-  (`flag`)  
+  (`flag`)\
   whether to add page numbers to the word document as page footer. This
   uses templates to achieve it. Defaults to `TRUE`. Consider adding your
   own template file if you want more customization.
 
 - titles_as_header:
 
-  (`flag`)  
+  (`flag`)\
   Controls how titles are rendered relative to the table. If `TRUE`
   (default), the main title
   ([`formatters::main_title()`](https://insightsengineering.github.io/formatters/latest-tag/reference/title_footer.html))
@@ -70,7 +70,7 @@ margins_landscape()
 
 - integrate_footers:
 
-  (`flag`)  
+  (`flag`)\
   Controls how footers are rendered relative to the table. If `TRUE`
   (default), footers (e.g.,
   [`formatters::main_footer()`](https://insightsengineering.github.io/formatters/latest-tag/reference/title_footer.html),
@@ -82,7 +82,7 @@ margins_landscape()
 
 - section_properties:
 
-  ([`officer::prop_section`](https://davidgohel.github.io/officer/reference/prop_section.html))  
+  ([`officer::prop_section`](https://davidgohel.github.io/officer/reference/prop_section.html))\
   an
   [`officer::prop_section()`](https://davidgohel.github.io/officer/reference/prop_section.html)
   object which sets margins and page size. Defaults to
@@ -90,7 +90,7 @@ margins_landscape()
 
 - doc_metadata:
 
-  (`list` of `string`)  
+  (`list` of `string`)\
   any value that can be used as metadata by
   [`officer::set_doc_properties()`](https://davidgohel.github.io/officer/reference/set_doc_properties.html).
   Important text values are `title`, `subject`, `creator`, and
@@ -98,14 +98,14 @@ margins_landscape()
 
 - template_file:
 
-  (`string`)  
+  (`string`)\
   template file that `officer` will use as a starting point for the
   final document. Document attaches the table and uses the defaults
   defined in the template file.
 
 - ...:
 
-  (`any`)  
+  (`any`)\
   additional arguments passed to
   [`tt_to_flextable()`](https://insightsengineering.github.io/rtables.officer/reference/tt_to_flextable.md).
 
@@ -165,7 +165,8 @@ re-specified.
 
 ## See also
 
-[`tt_to_flextable()`](https://insightsengineering.github.io/rtables.officer/reference/tt_to_flextable.md)
+[`tt_to_flextable()`](https://insightsengineering.github.io/rtables.officer/reference/tt_to_flextable.md),
+[`extract_font_and_size_from_flx()`](https://insightsengineering.github.io/rtables.officer/reference/extract_font_and_size_from_flx.md)
 
 ## Examples
 

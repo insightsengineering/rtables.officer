@@ -27,13 +27,13 @@ Source:
 [`DESCRIPTION`](https://github.com/insightsengineering/rtables.officer/blob/main/DESCRIPTION)
 
 Garolini D, de la Rua E, Yogasekaram A, Zhu J (2026). *rtables.officer:
-Exporting Tools for 'rtables'*. R package version 0.1.2,
+Exporting Tools for 'rtables'*. R package version 0.1.2.9001,
 <https://github.com/insightsengineering/rtables.officer>.
 
     @Manual{,
       title = {rtables.officer: Exporting Tools for 'rtables'},
       author = {Davide Garolini and Emily {de la Rua} and Abinaya Yogasekaram and Joe Zhu},
       year = {2026},
-      note = {R package version 0.1.2},
+      note = {R package version 0.1.2.9001},
       url = {https://github.com/insightsengineering/rtables.officer},
     }
