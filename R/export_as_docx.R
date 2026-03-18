@@ -41,7 +41,7 @@
 #'     (`integrate_footers = FALSE`) appear after the complete table. Footers
 #'     do not repeat on each page.
 #'
-#' @seealso [tt_to_flextable()]
+#' @seealso [tt_to_flextable()], [extract_font_and_size_from_flx()]
 #'
 #' @examples
 #' lyt <- basic_table() %>%
@@ -112,7 +112,7 @@ export_as_docx <- function(tt,
 
   # If additional text needs to be added, we need to have info about the font and size
   if (isFALSE(titles_as_header) || isFALSE(integrate_footers)) {
-    flx_fpt <- .extract_font_and_size_from_flx(flex_tbl_list[[1]]) # Using the first only
+    flx_fpt <- extract_font_and_size_from_flx(flex_tbl_list[[1]]) # Using the first only
   }
 
   # Check if the template file is inserted and exists
@@ -194,24 +194,6 @@ export_as_docx <- function(tt,
   print(doc, target = file)
 
   invisible(TRUE)
-}
-
-.extract_font_and_size_from_flx <- function(flx) {
-  # Ugly but I could not find a getter for font.size
-  font_sz_body <- flx$header$styles$text$font.size$data[1, 1]
-  font_size_footer <- flx$footer$styles$text$font.size$data
-  font_sz_footer <- if (length(font_size_footer) > 0) {
-    font_size_footer[1, 1]
-  } else {
-    font_sz_body - 1
-  }
-  font_fam <- flx$header$styles$text$font.family$data[1, 1]
-
-  # Set the test as the tt
-  fpt <- officer::fp_text(font.family = font_fam, font.size = font_sz_body)
-  fpt_footer <- officer::fp_text(font.family = font_fam, font.size = font_sz_footer)
-
-  list("fpt" = fpt, "fpt_footer" = fpt_footer)
 }
 
 # Shorthand to add text paragraph

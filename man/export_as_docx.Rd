@@ -122,5 +122,5 @@ export_as_docx(tbl,
 
 }
 \seealso{
-\code{\link[=tt_to_flextable]{tt_to_flextable()}}
+\code{\link[=tt_to_flextable]{tt_to_flextable()}}, \code{\link[=extract_font_and_size_from_flx]{extract_font_and_size_from_flx()}}
 }

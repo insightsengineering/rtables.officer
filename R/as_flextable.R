@@ -67,7 +67,7 @@
 #' This is ignored if not used in the theme. See [theme_docx_default()] for an example on how to retrieve and use these
 #' values.
 #'
-#' @seealso [export_as_docx()]
+#' @seealso [export_as_docx()], [apply_alignments()]
 #'
 #' @examples
 #' analysisfun <- function(x, ...) {
@@ -325,8 +325,8 @@ tt_to_flextable <- function(tt,
 
   # ALIGNS - horizontal
   flx <- flx |>
-    .apply_alignments(mpf_aligns[seq_len(hnum), , drop = FALSE], "header") |>
-    .apply_alignments(mpf_aligns[-seq_len(hnum), , drop = FALSE], "body")
+    apply_alignments(mpf_aligns[seq_len(hnum), , drop = FALSE], "header") |>
+    apply_alignments(mpf_aligns[-seq_len(hnum), , drop = FALSE], "body")
 
   # Rownames indentation
   checkmate::check_number(indent_size, null.ok = TRUE)
@@ -499,26 +499,6 @@ tt_to_flextable <- function(tt,
   font_fam <- "Courier" # Fix if we need it -> coming from gpar and fontfamily Arial not being recognized
 
   formatters::font_spec(font_family = font_fam, font_size = font_sz, lineheight = 1)
-}
-
-.apply_alignments <- function(flx, aligns_df, part) {
-  # List of characters you want to search for
-  search_chars <- unique(c(aligns_df))
-
-  # Loop through each character and find its indexes
-  for (char in search_chars) {
-    indexes <- which(aligns_df == char, arr.ind = TRUE)
-    tmp_inds <- as.data.frame(indexes)
-    flx <- flx |>
-      flextable::align(
-        i = tmp_inds[["row"]],
-        j = tmp_inds[["col"]],
-        align = char,
-        part = part
-      )
-  }
-
-  flx
 }
 
 

@@ -17,6 +17,8 @@
 #'   groupings/names are `c("header", "body")`.
 #' @param border (`flextable::fp_border()`)\cr border style. Defaults to `flextable::fp_border_default(width = 0.5)`.
 #'
+#' @seealso [apply_bold_manual()]
+#'
 #' @examples
 #' # Example 4: Creating a custom theme -----------------------------------------
 #' special_bold <- list(
@@ -143,7 +145,7 @@ theme_docx_default <- function(font = "Arial",
     }
 
     # If you want specific cells to be bold
-    flx <- .apply_bold_manual(flx, bold_manual)
+    flx <- apply_bold_manual(flx, bold_manual)
 
     flx
   }
@@ -286,31 +288,6 @@ theme_html_default <- function(font = "Courier",
         )
       }
     }
-  }
-
-  flx
-}
-
-.apply_bold_manual <- function(flx, bold_manual) {
-  if (is.null(bold_manual)) {
-    return(flx)
-  }
-  checkmate::assert_list(bold_manual)
-  valid_sections <- c("header", "body") # Only valid values
-  checkmate::assert_subset(names(bold_manual), valid_sections)
-  for (bi in seq_along(bold_manual)) {
-    bld_tmp <- bold_manual[[bi]]
-    checkmate::assert_list(bld_tmp)
-    if (!all(c("i", "j") %in% names(bld_tmp)) || !all(vapply(bld_tmp, checkmate::test_integerish, logical(1)))) {
-      stop(
-        "Found an allowed section for manual bold (", names(bold_manual)[bi],
-        ") that was not a named list with i (row) and j (col) integer vectors."
-      )
-    }
-    flx <- flextable::bold(flx,
-      i = bld_tmp$i, j = bld_tmp$j,
-      part = names(bold_manual)[bi]
-    )
   }
 
   flx
