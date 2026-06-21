@@ -123,7 +123,8 @@ See \code{flextable::set_table_properties(layout)} for more details.}
 \item{font}{(\code{string})\cr font. Defaults to \code{"Arial"}. If the font given is not available, the \code{flextable} default
 is used instead. For options, consult the family column from \code{systemfonts::system_fonts()}.}
 
-\item{font_size}{(\code{integer(1)})\cr font size. Defaults to 9.}
+\item{font_size}{(\code{integer(1)})\cr font size. Defaults to 8 for \code{theme_docx_default()} and 9 for
+\code{theme_html_default()}.}
 
 \item{cell_margins}{(\code{numeric(1)} or \code{numeric(4)})\cr a numeric or a vector of four numbers indicating
 \code{c("left", "right", "top", "bottom")}. It defaults to 0 for top and bottom, and to 0.19 \code{mm} in Word \code{pt}
