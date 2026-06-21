@@ -63,7 +63,6 @@ Encoding: UTF-8
 Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
 Collate:
     'add_flextable_separators.R'
     'as_flextable.R'
@@ -72,3 +71,4 @@ Collate:
     'theme_defaults.R'
     'apply_styling.R'
     'extract_from_flx.R'
+Config/roxygen2/version: 8.0.0

@@ -31,7 +31,7 @@ tt_to_flextable(
 
 theme_docx_default(
   font = "Arial",
-  font_size = 9,
+  font_size = 8,
   cell_margins = c(word_mm_to_pt(1.9), word_mm_to_pt(1.9), 0, 0),
   bold = c("header", "content_rows", "label_rows", "top_left"),
   bold_manual = NULL,
@@ -40,7 +40,7 @@ theme_docx_default(
 
 theme_html_default(
   font = "Courier",
-  font_size = 9,
+  font_size = 8,
   cell_margins = 0.2,
   remove_internal_borders = "label_rows",
   border = flextable::fp_border_default(width = 1, color = "black")
@@ -63,8 +63,8 @@ similar to the \code{rtables} default will be produced. See Details below for mo
 1 mm (2.83 pt) by default.}
 
 \item{titles_as_header}{(\code{flag})\cr Controls how titles are rendered relative to the table.
-If \code{TRUE} (default), the main title (\code{\link[formatters:title_footer]{formatters::main_title()}}) and subtitles
-(\code{\link[formatters:title_footer]{formatters::subtitles()}}) are added as distinct header rows within the
+If \code{TRUE} (default), the main title (\code{\link[formatters:main_title]{formatters::main_title()}}) and subtitles
+(\code{\link[formatters:subtitles]{formatters::subtitles()}}) are added as distinct header rows within the
 \code{flextable} object itself. If \code{FALSE}, titles are rendered as a separate paragraph
 of text placed immediately before the table.}
 
@@ -72,7 +72,7 @@ of text placed immediately before the table.}
 integers are provided, these integers are used as indices for lines at which titles should be bold.}
 
 \item{integrate_footers}{(\code{flag})\cr Controls how footers are rendered relative to the table.
-If \code{TRUE} (default), footers (e.g., \code{\link[formatters:title_footer]{formatters::main_footer()}}, \code{\link[formatters:title_footer]{formatters::prov_footer()}})
+If \code{TRUE} (default), footers (e.g., \code{\link[formatters:main_footer]{formatters::main_footer()}}, \code{\link[formatters:prov_footer]{formatters::prov_footer()}})
 are integrated directly into the \code{flextable} object, typically appearing as footnotes
 below the table body with a smaller font. If \code{FALSE}, footers are rendered as a
 separate paragraph of text placed immediately after the table.}
@@ -95,7 +95,7 @@ calculating string widths and heights, as returned by \code{\link[formatters:fon
 \code{NA} (the default) indicates \code{cpp} should be inferred from the page size; \code{NULL} indicates no horizontal
 pagination should be done regardless of page size.}
 
-\item{...}{(\code{any})\cr additional parameters to be passed to the pagination function. See \code{\link[rtables:paginate]{rtables::paginate_table()}}
+\item{...}{(\code{any})\cr additional parameters to be passed to the pagination function. See \code{\link[rtables:paginate_table]{rtables::paginate_table()}}
 for options. If \code{paginate = FALSE} this argument is ignored.}
 
 \item{colwidths}{(\code{numeric})\cr column widths for the resulting flextable(s). If \code{NULL}, the column widths estimated
