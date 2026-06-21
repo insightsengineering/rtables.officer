@@ -30,13 +30,13 @@ test_that("extract_font_and_size_from_flx works as expected", {
   expect_no_error(res <- extract_font_and_size_from_flx(out))
   expect_equal(names(res), c("fpt", "fpt_footer"))
   expect_equal(res[["fpt"]],
-               flextable::fp_text_default(font.size = 9,
+               flextable::fp_text_default(font.size = 8,
                                           font.family = "Arial",
                                           hansi.family = "Arial",
                                           eastasia.family = "Arial",
                                           cs.family = "Arial"))
   expect_equal(res[["fpt_footer"]],
-               flextable::fp_text_default(font.size = 8,
+               flextable::fp_text_default(font.size = 7,
                                           font.family = "Arial",
                                           hansi.family = "Arial",
                                           eastasia.family = "Arial",
