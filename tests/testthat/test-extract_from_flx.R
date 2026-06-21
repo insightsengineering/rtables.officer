@@ -1,5 +1,4 @@
 test_that("extract_font_and_size_from_flx works as expected", {
-
   test_data_simple <- data.frame(
     USUBJID = paste0("S", 1:3),
     ARM = c("A", "A", "B"),
@@ -29,22 +28,31 @@ test_that("extract_font_and_size_from_flx works as expected", {
   out <- tt_to_flextable(lsting)
   expect_no_error(res <- extract_font_and_size_from_flx(out))
   expect_equal(names(res), c("fpt", "fpt_footer"))
-  expect_equal(res[["fpt"]],
-               flextable::fp_text_default(font.size = 8,
-                                          font.family = "Arial",
-                                          hansi.family = "Arial",
-                                          eastasia.family = "Arial",
-                                          cs.family = "Arial"))
-  expect_equal(res[["fpt_footer"]],
-               flextable::fp_text_default(font.size = 7,
-                                          font.family = "Arial",
-                                          hansi.family = "Arial",
-                                          eastasia.family = "Arial",
-                                          cs.family = "Arial"))
+  expect_equal(
+    res[["fpt"]],
+    flextable::fp_text_default(
+      font.size = 8,
+      font.family = "Arial",
+      hansi.family = "Arial",
+      eastasia.family = "Arial",
+      cs.family = "Arial"
+    )
+  )
+  expect_equal(
+    res[["fpt_footer"]],
+    flextable::fp_text_default(
+      font.size = 7,
+      font.family = "Arial",
+      hansi.family = "Arial",
+      eastasia.family = "Arial",
+      cs.family = "Arial"
+    )
+  )
 
 
   # cases with error
-  expect_error(res <- extract_font_and_size_from_flx(NULL),
-               "Assertion on 'flx' failed: Must inherit from class 'flextable', but has class 'NULL'.")
-
+  expect_error(
+    res <- extract_font_and_size_from_flx(NULL),
+    "Assertion on 'flx' failed: Must inherit from class 'flextable', but has class 'NULL'."
+  )
 })
