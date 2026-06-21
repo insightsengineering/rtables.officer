@@ -2,7 +2,7 @@
 
 * Exported functions `apply_alignments()`, `apply_bold_manual()` and `extract_font_and_size_from_flx()` (#66)
 * Minor fix in `apply_alignments()` to update alignments in specific cells of the flextable.
-* `theme_docx_default()` now defaults to `font_size = 8` (was 9) to match the standard TLG body font size. Pass `font_size = 9` to restore the previous output. (#71)
+* `theme_docx_default()` and `theme_html_default()` now default to `font_size = 8` (was 9) to match the standard TLG body font size. Pass `font_size = 9` to restore the previous output. (#71)
 
 ## rtables.officer 0.1.2
 
