@@ -5,7 +5,7 @@
 #'
 #' @param font (`string`)\cr font. Defaults to `"Arial"`. If the font given is not available, the `flextable` default
 #'   is used instead. For options, consult the family column from `systemfonts::system_fonts()`.
-#' @param font_size (`integer(1)`)\cr font size. Defaults to 9.
+#' @param font_size (`integer(1)`)\cr font size. Defaults to 8.
 #' @param cell_margins (`numeric(1)` or `numeric(4)`)\cr a numeric or a vector of four numbers indicating
 #'   `c("left", "right", "top", "bottom")`. It defaults to 0 for top and bottom, and to 0.19 `mm` in Word `pt`
 #'   for left and right.
@@ -56,7 +56,7 @@
 #'
 #' @export
 theme_docx_default <- function(font = "Arial",
-                               font_size = 9,
+                               font_size = 8,
                                cell_margins = c(word_mm_to_pt(1.9), word_mm_to_pt(1.9), 0, 0), # Default in docx
                                bold = c("header", "content_rows", "label_rows", "top_left"),
                                bold_manual = NULL,
@@ -184,7 +184,7 @@ theme_docx_default <- function(font = "Arial",
 #'
 #' @export
 theme_html_default <- function(font = "Courier",
-                               font_size = 9,
+                               font_size = 8,
                                cell_margins = 0.2,
                                remove_internal_borders = "label_rows",
                                border = flextable::fp_border_default(width = 1, color = "black")) {

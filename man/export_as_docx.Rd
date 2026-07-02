@@ -41,13 +41,13 @@ uses templates to achieve it. Defaults to \code{TRUE}. Consider adding your own 
 more customization.}
 
 \item{titles_as_header}{(\code{flag})\cr Controls how titles are rendered relative to the table.
-If \code{TRUE} (default), the main title (\code{\link[formatters:title_footer]{formatters::main_title()}}) and subtitles
-(\code{\link[formatters:title_footer]{formatters::subtitles()}}) are added as distinct header rows within the
+If \code{TRUE} (default), the main title (\code{\link[formatters:main_title]{formatters::main_title()}}) and subtitles
+(\code{\link[formatters:subtitles]{formatters::subtitles()}}) are added as distinct header rows within the
 \code{flextable} object itself. If \code{FALSE}, titles are rendered as a separate paragraph
 of text placed immediately before the table.}
 
 \item{integrate_footers}{(\code{flag})\cr Controls how footers are rendered relative to the table.
-If \code{TRUE} (default), footers (e.g., \code{\link[formatters:title_footer]{formatters::main_footer()}}, \code{\link[formatters:title_footer]{formatters::prov_footer()}})
+If \code{TRUE} (default), footers (e.g., \code{\link[formatters:main_footer]{formatters::main_footer()}}, \code{\link[formatters:prov_footer]{formatters::prov_footer()}})
 are integrated directly into the \code{flextable} object, typically appearing as footnotes
 below the table body with a smaller font. If \code{FALSE}, footers are rendered as a
 separate paragraph of text placed immediately after the table.}

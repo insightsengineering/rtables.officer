@@ -24,6 +24,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Joe Zhu \email{joe.zhu@roche.com} (\href{https://orcid.org/0000-0001-7566-2787}{ORCID})
   \item Davide Garolini \email{davide.garolini@roche.com} (\href{https://orcid.org/0000-0002-1445-1369}{ORCID})
   \item Emily de la Rua \email{emilydelarua@gmail.com} (\href{https://orcid.org/0009-0000-8738-5561}{ORCID})
   \item Abinaya Yogasekaram \email{ayogasek@gmail.com} (\href{https://orcid.org/0009-0005-2083-1105}{ORCID})
