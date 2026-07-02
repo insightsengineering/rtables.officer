@@ -1,118 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="add_flextable_separators" timestamp="2026-07-01T16:53:43Z" hostname="a941000243a6" tests="16" skipped="0" failures="0" errors="0" time="0.213">
-    <testcase time="0.0559999999999998" classname="add_flextable_separators" name="Errors_are_thrown_for_invalid_inputs_and_values"/>
-    <testcase time="0.0210000000000001" classname="add_flextable_separators" name="Errors_are_thrown_for_invalid_inputs_and_values"/>
-    <testcase time="0.01" classname="add_flextable_separators" name="Errors_are_thrown_for_invalid_inputs_and_values"/>
-    <testcase time="0.00499999999999989" classname="add_flextable_separators" name="Errors_are_thrown_for_invalid_inputs_and_values"/>
-    <testcase time="0.036" classname="add_flextable_separators" name="Separator_successfully_applies_hline"/>
+  <testsuite name="add_flextable_separators" timestamp="2026-07-02T07:37:39Z" hostname="2d85cd3fd42a" tests="16" skipped="0" failures="0" errors="0" time="0.189">
+    <testcase time="0.0409999999999999" classname="add_flextable_separators" name="Errors_are_thrown_for_invalid_inputs_and_values"/>
+    <testcase time="0.0190000000000001" classname="add_flextable_separators" name="Errors_are_thrown_for_invalid_inputs_and_values"/>
+    <testcase time="0.0169999999999999" classname="add_flextable_separators" name="Errors_are_thrown_for_invalid_inputs_and_values"/>
+    <testcase time="0.00500000000000012" classname="add_flextable_separators" name="Errors_are_thrown_for_invalid_inputs_and_values"/>
+    <testcase time="0.0289999999999999" classname="add_flextable_separators" name="Separator_successfully_applies_hline"/>
     <testcase time="0.002" classname="add_flextable_separators" name="Separator_successfully_applies_hline"/>
     <testcase time="0.00300000000000011" classname="add_flextable_separators" name="Separator_successfully_applies_hline"/>
-    <testcase time="0.00299999999999989" classname="add_flextable_separators" name="Separator_successfully_applies_hline"/>
     <testcase time="0.002" classname="add_flextable_separators" name="Separator_successfully_applies_hline"/>
-    <testcase time="0.0369999999999999" classname="add_flextable_separators" name="Separator_successfully_applies_padding"/>
+    <testcase time="0.002" classname="add_flextable_separators" name="Separator_successfully_applies_hline"/>
+    <testcase time="0.0349999999999999" classname="add_flextable_separators" name="Separator_successfully_applies_padding"/>
     <testcase time="0.002" classname="add_flextable_separators" name="Separator_successfully_applies_padding"/>
     <testcase time="0.002" classname="add_flextable_separators" name="Separator_successfully_applies_padding"/>
-    <testcase time="0.00300000000000011" classname="add_flextable_separators" name="Separator_successfully_applies_padding"/>
+    <testcase time="0.002" classname="add_flextable_separators" name="Separator_successfully_applies_padding"/>
     <testcase time="0.00299999999999989" classname="add_flextable_separators" name="Separator_successfully_applies_padding"/>
-    <testcase time="0.0250000000000001" classname="add_flextable_separators" name="Separator_NA_results_in_no_changes"/>
-    <testcase time="0.00299999999999989" classname="add_flextable_separators" name="Separator_NA_results_in_no_changes"/>
+    <testcase time="0.022" classname="add_flextable_separators" name="Separator_NA_results_in_no_changes"/>
+    <testcase time="0.00300000000000011" classname="add_flextable_separators" name="Separator_NA_results_in_no_changes"/>
   </testsuite>
-  <testsuite name="apply_styling" timestamp="2026-07-01T16:53:43Z" hostname="a941000243a6" tests="16" skipped="0" failures="0" errors="0" time="0.49">
-    <testcase time="0.288" classname="apply_styling" name="apply_alignments_works_as_expected"/>
-    <testcase time="0.00200000000000022" classname="apply_styling" name="apply_alignments_works_as_expected"/>
-    <testcase time="0.00199999999999978" classname="apply_styling" name="apply_alignments_works_as_expected"/>
+  <testsuite name="apply_styling" timestamp="2026-07-02T07:37:39Z" hostname="2d85cd3fd42a" tests="16" skipped="0" failures="0" errors="0" time="0.452">
+    <testcase time="0.269" classname="apply_styling" name="apply_alignments_works_as_expected"/>
     <testcase time="0.00300000000000011" classname="apply_styling" name="apply_alignments_works_as_expected"/>
-    <testcase time="0.00099999999999989" classname="apply_styling" name="apply_alignments_works_as_expected"/>
-    <testcase time="0.00300000000000011" classname="apply_styling" name="apply_alignments_works_as_expected"/>
-    <testcase time="0.00700000000000012" classname="apply_styling" name="apply_alignments_works_as_expected"/>
-    <testcase time="0.00299999999999967" classname="apply_styling" name="apply_alignments_works_as_expected"/>
-    <testcase time="0.00500000000000034" classname="apply_styling" name="apply_alignments_works_as_expected"/>
-    <testcase time="0.004" classname="apply_styling" name="apply_alignments_works_as_expected"/>
+    <testcase time="0.002" classname="apply_styling" name="apply_alignments_works_as_expected"/>
+    <testcase time="0.002" classname="apply_styling" name="apply_alignments_works_as_expected"/>
+    <testcase time="0.002" classname="apply_styling" name="apply_alignments_works_as_expected"/>
+    <testcase time="0.002" classname="apply_styling" name="apply_alignments_works_as_expected"/>
+    <testcase time="0.002" classname="apply_styling" name="apply_alignments_works_as_expected"/>
+    <testcase time="0.002" classname="apply_styling" name="apply_alignments_works_as_expected"/>
     <testcase time="0.00499999999999989" classname="apply_styling" name="apply_alignments_works_as_expected"/>
-    <testcase time="0.146" classname="apply_styling" name="apply_bold_manual_works_as_expected"/>
-    <testcase time="0.00200000000000022" classname="apply_styling" name="apply_bold_manual_works_as_expected"/>
-    <testcase time="0.00499999999999989" classname="apply_styling" name="apply_bold_manual_works_as_expected"/>
-    <testcase time="0.0089999999999999" classname="apply_styling" name="apply_bold_manual_works_as_expected"/>
+    <testcase time="0.004" classname="apply_styling" name="apply_alignments_works_as_expected"/>
+    <testcase time="0.004" classname="apply_styling" name="apply_alignments_works_as_expected"/>
+    <testcase time="0.139" classname="apply_styling" name="apply_bold_manual_works_as_expected"/>
+    <testcase time="0.00299999999999967" classname="apply_styling" name="apply_bold_manual_works_as_expected"/>
     <testcase time="0.00500000000000034" classname="apply_styling" name="apply_bold_manual_works_as_expected"/>
+    <testcase time="0.004" classname="apply_styling" name="apply_bold_manual_works_as_expected"/>
+    <testcase time="0.004" classname="apply_styling" name="apply_bold_manual_works_as_expected"/>
   </testsuite>
-  <testsuite name="as_flextable" timestamp="2026-07-01T16:53:43Z" hostname="a941000243a6" tests="28" skipped="0" failures="0" errors="0" time="9.134">
-    <testcase time="1.055" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
-    <testcase time="0.429" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
-    <testcase time="0.483" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
-    <testcase time="0.563000000000001" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
-    <testcase time="1.379" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
-    <testcase time="0.00300000000000011" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
-    <testcase time="0.00300000000000011" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
-    <testcase time="0.731" classname="as_flextable" name="tt_to_flextable_does_not_create_different_cells_when_colcounts_or_multiple_on_different_lines"/>
-    <testcase time="0.541" classname="as_flextable" name="check_titles_bold_and_html_theme"/>
-    <testcase time="0.316" classname="as_flextable" name="check_titles_bold_and_html_theme"/>
-    <testcase time="0.374999999999999" classname="as_flextable" name="check_titles_bold_and_html_theme"/>
-    <testcase time="1.517" classname="as_flextable" name="check_pagination"/>
+  <testsuite name="as_flextable" timestamp="2026-07-02T07:37:40Z" hostname="2d85cd3fd42a" tests="28" skipped="0" failures="0" errors="0" time="7.614">
+    <testcase time="0.972" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
+    <testcase time="0.398" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
+    <testcase time="0.598" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
+    <testcase time="0.379" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
+    <testcase time="0.818000000000001" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
+    <testcase time="0.00800000000000001" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
+    <testcase time="0.00199999999999978" classname="as_flextable" name="Can_create_flextable_object_that_works_with_different_styles"/>
+    <testcase time="0.641" classname="as_flextable" name="tt_to_flextable_does_not_create_different_cells_when_colcounts_or_multiple_on_different_lines"/>
+    <testcase time="0.48" classname="as_flextable" name="check_titles_bold_and_html_theme"/>
+    <testcase time="0.276999999999999" classname="as_flextable" name="check_titles_bold_and_html_theme"/>
+    <testcase time="0.257000000000001" classname="as_flextable" name="check_titles_bold_and_html_theme"/>
+    <testcase time="1.319" classname="as_flextable" name="check_pagination"/>
     <testcase time="0.00300000000000011" classname="as_flextable" name="check_pagination"/>
-    <testcase time="0.609999999999999" classname="as_flextable" name="check_colwidths_in_flextable_object"/>
-    <testcase time="0.395" classname="as_flextable" name="tt_to_flextable_works_with_rlistings_objects"/>
+    <testcase time="0.474" classname="as_flextable" name="check_colwidths_in_flextable_object"/>
+    <testcase time="0.353" classname="as_flextable" name="tt_to_flextable_works_with_rlistings_objects"/>
     <testcase time="0.00300000000000011" classname="as_flextable" name="tt_to_flextable_works_with_rlistings_objects"/>
-    <testcase time="0.00600000000000023" classname="as_flextable" name="tt_to_flextable_works_with_rlistings_objects"/>
-    <testcase time="0.371" classname="as_flextable" name="tt_to_flextable_handles_basic_rlistings_object_correctly"/>
+    <testcase time="0.00499999999999901" classname="as_flextable" name="tt_to_flextable_works_with_rlistings_objects"/>
+    <testcase time="0.329000000000001" classname="as_flextable" name="tt_to_flextable_handles_basic_rlistings_object_correctly"/>
+    <testcase time="0.00200000000000067" classname="as_flextable" name="tt_to_flextable_handles_basic_rlistings_object_correctly"/>
+    <testcase time="0.00199999999999889" classname="as_flextable" name="tt_to_flextable_handles_basic_rlistings_object_correctly"/>
+    <testcase time="0.00300000000000011" classname="as_flextable" name="tt_to_flextable_handles_basic_rlistings_object_correctly"/>
+    <testcase time="0.00300000000000011" classname="as_flextable" name="tt_to_flextable_handles_basic_rlistings_object_correctly"/>
+    <testcase time="0.00200000000000067" classname="as_flextable" name="tt_to_flextable_handles_basic_rlistings_object_correctly"/>
     <testcase time="0.000999999999999446" classname="as_flextable" name="tt_to_flextable_handles_basic_rlistings_object_correctly"/>
-    <testcase time="0.00300000000000011" classname="as_flextable" name="tt_to_flextable_handles_basic_rlistings_object_correctly"/>
-    <testcase time="0.00300000000000011" classname="as_flextable" name="tt_to_flextable_handles_basic_rlistings_object_correctly"/>
-    <testcase time="0.00300000000000011" classname="as_flextable" name="tt_to_flextable_handles_basic_rlistings_object_correctly"/>
-    <testcase time="0.00300000000000011" classname="as_flextable" name="tt_to_flextable_handles_basic_rlistings_object_correctly"/>
-    <testcase time="0.000999999999999446" classname="as_flextable" name="tt_to_flextable_handles_basic_rlistings_object_correctly"/>
-    <testcase time="0.168000000000001" classname="as_flextable" name="tt_to_flextable_handles_rlistings_with_active_separators"/>
-    <testcase time="0.000999999999999446" classname="as_flextable" name="tt_to_flextable_handles_rlistings_with_active_separators"/>
+    <testcase time="0.144" classname="as_flextable" name="tt_to_flextable_handles_rlistings_with_active_separators"/>
+    <testcase time="0.00200000000000067" classname="as_flextable" name="tt_to_flextable_handles_rlistings_with_active_separators"/>
     <testcase time="0.00300000000000011" classname="as_flextable" name="tt_to_flextable_handles_rlistings_with_active_separators"/>
-    <testcase time="0.164999999999999" classname="as_flextable" name="tt_to_flextable_handles_rlistings_with_multiple_header_lines"/>
+    <testcase time="0.135999999999999" classname="as_flextable" name="tt_to_flextable_handles_rlistings_with_multiple_header_lines"/>
   </testsuite>
-  <testsuite name="export_as_docx" timestamp="2026-07-01T16:53:52Z" hostname="a941000243a6" tests="10" skipped="1" failures="0" errors="0" time="1.593">
-    <testcase time="0.011000000000001" classname="export_as_docx" name="export_as_docx_works_thanks_to_tt_to_flextable">
+  <testsuite name="export_as_docx" timestamp="2026-07-02T07:37:47Z" hostname="2d85cd3fd42a" tests="10" skipped="1" failures="0" errors="0" time="1.315">
+    <testcase time="0.0080000000000009" classname="export_as_docx" name="export_as_docx_works_thanks_to_tt_to_flextable">
       <skipped message="Reason: DejaVu Sans not in PostScript font database ('test-export_as_docx.R:7:3')"/>
     </testcase>
-    <testcase time="0.455" classname="export_as_docx" name="export_as_docx_produces_a_warning_if_manual_column_widths_are_used"/>
-    <testcase time="1.077" classname="export_as_docx" name="export_as_docx_works_thanks_to_tt_to_flextable"/>
-    <testcase time="0.00799999999999912" classname="export_as_docx" name="Getting_correct_template_file"/>
-    <testcase time="0.00400000000000134" classname="export_as_docx" name="Getting_correct_template_file"/>
-    <testcase time="0.00999999999999979" classname="export_as_docx" name="Getting_correct_template_file"/>
+    <testcase time="0.360999999999999" classname="export_as_docx" name="export_as_docx_produces_a_warning_if_manual_column_widths_are_used"/>
+    <testcase time="0.918000000000001" classname="export_as_docx" name="export_as_docx_works_thanks_to_tt_to_flextable"/>
     <testcase time="0.00699999999999967" classname="export_as_docx" name="Getting_correct_template_file"/>
-    <testcase time="0.00900000000000034" classname="export_as_docx" name="Getting_correct_template_file"/>
-    <testcase time="0.00699999999999967" classname="export_as_docx" name="Getting_correct_template_file"/>
-    <testcase time="0.00499999999999901" classname="export_as_docx" name="Getting_correct_template_file"/>
+    <testcase time="0.00300000000000011" classname="export_as_docx" name="Getting_correct_template_file"/>
+    <testcase time="0.00300000000000011" classname="export_as_docx" name="Getting_correct_template_file"/>
+    <testcase time="0.00300000000000011" classname="export_as_docx" name="Getting_correct_template_file"/>
+    <testcase time="0.00399999999999956" classname="export_as_docx" name="Getting_correct_template_file"/>
+    <testcase time="0.00399999999999956" classname="export_as_docx" name="Getting_correct_template_file"/>
+    <testcase time="0.00399999999999956" classname="export_as_docx" name="Getting_correct_template_file"/>
   </testsuite>
-  <testsuite name="extract_from_flx" timestamp="2026-07-01T16:53:54Z" hostname="a941000243a6" tests="9" skipped="0" failures="0" errors="0" time="0.336">
-    <testcase time="0.155000000000001" classname="extract_from_flx" name="extract_font_and_size_from_flx_works_as_expected"/>
+  <testsuite name="extract_from_flx" timestamp="2026-07-02T07:37:49Z" hostname="2d85cd3fd42a" tests="9" skipped="0" failures="0" errors="0" time="0.281">
+    <testcase time="0.127000000000001" classname="extract_from_flx" name="extract_font_and_size_from_flx_works_as_expected"/>
+    <testcase time="0.00300000000000011" classname="extract_from_flx" name="extract_font_and_size_from_flx_works_as_expected"/>
     <testcase time="0.00300000000000011" classname="extract_from_flx" name="extract_font_and_size_from_flx_works_as_expected"/>
     <testcase time="0.00399999999999956" classname="extract_from_flx" name="extract_font_and_size_from_flx_works_as_expected"/>
+    <testcase time="0.131" classname="extract_from_flx" name="extract_font_and_size_from_flx_works_as_expected"/>
     <testcase time="0.00300000000000011" classname="extract_from_flx" name="extract_font_and_size_from_flx_works_as_expected"/>
-    <testcase time="0.151" classname="extract_from_flx" name="extract_font_and_size_from_flx_works_as_expected"/>
-    <testcase time="0.00500000000000078" classname="extract_from_flx" name="extract_font_and_size_from_flx_works_as_expected"/>
-    <testcase time="0.00499999999999901" classname="extract_from_flx" name="extract_font_and_size_from_flx_works_as_expected"/>
+    <testcase time="0.00300000000000011" classname="extract_from_flx" name="extract_font_and_size_from_flx_works_as_expected"/>
+    <testcase time="0.00300000000000011" classname="extract_from_flx" name="extract_font_and_size_from_flx_works_as_expected"/>
     <testcase time="0.00399999999999956" classname="extract_from_flx" name="extract_font_and_size_from_flx_works_as_expected"/>
-    <testcase time="0.00600000000000023" classname="extract_from_flx" name="extract_font_and_size_from_flx_works_as_expected"/>
   </testsuite>
-  <testsuite name="pagination" timestamp="2026-07-01T16:53:54Z" hostname="a941000243a6" tests="22" skipped="0" failures="0" errors="0" time="3.46">
-    <testcase time="0.0730000000000004" classname="pagination" name="export_as_docx_handles_list_generated_by_tt_to_flextable_paginate_TRUE_"/>
-    <testcase time="0.455" classname="pagination" name="export_as_docx_handles_list_generated_by_tt_to_flextable_paginate_TRUE_"/>
+  <testsuite name="pagination" timestamp="2026-07-02T07:37:49Z" hostname="2d85cd3fd42a" tests="22" skipped="0" failures="0" errors="0" time="2.826">
+    <testcase time="0.0600000000000005" classname="pagination" name="export_as_docx_handles_list_generated_by_tt_to_flextable_paginate_TRUE_"/>
+    <testcase time="0.357999999999999" classname="pagination" name="export_as_docx_handles_list_generated_by_tt_to_flextable_paginate_TRUE_"/>
     <testcase time="0.00300000000000011" classname="pagination" name="export_as_docx_handles_list_generated_by_tt_to_flextable_paginate_TRUE_"/>
-    <testcase time="0.00300000000000011" classname="pagination" name="export_as_docx_handles_list_generated_by_tt_to_flextable_paginate_TRUE_"/>
-    <testcase time="0.00300000000000011" classname="pagination" name="export_as_docx_handles_list_generated_by_tt_to_flextable_paginate_TRUE_"/>
-    <testcase time="0.139999999999999" classname="pagination" name="export_as_docx_handles_list_generated_by_tt_to_flextable_paginate_TRUE_"/>
-    <testcase time="0.277000000000001" classname="pagination" name="export_as_docx_handles_list_generated_by_tt_to_flextable_paginate_TRUE_"/>
-    <testcase time="0.00399999999999956" classname="pagination" name="export_as_docx_handles_list_generated_by_tt_to_flextable_paginate_TRUE_"/>
     <testcase time="0.00200000000000067" classname="pagination" name="export_as_docx_handles_list_generated_by_tt_to_flextable_paginate_TRUE_"/>
-    <testcase time="0.868" classname="pagination" name="export_as_docx_works_with_explicit_list_of_rlistings_rtables_objects"/>
-    <testcase time="0.00399999999999956" classname="pagination" name="export_as_docx_works_with_explicit_list_of_rlistings_rtables_objects"/>
-    <testcase time="0.000999999999999446" classname="pagination" name="export_as_docx_works_with_explicit_list_of_rlistings_rtables_objects"/>
-    <testcase time="0.945" classname="pagination" name="export_as_docx_works_with_pagination_via_lpp_cpp_arguments"/>
+    <testcase time="0.00300000000000011" classname="pagination" name="export_as_docx_handles_list_generated_by_tt_to_flextable_paginate_TRUE_"/>
+    <testcase time="0.112" classname="pagination" name="export_as_docx_handles_list_generated_by_tt_to_flextable_paginate_TRUE_"/>
+    <testcase time="0.201000000000001" classname="pagination" name="export_as_docx_handles_list_generated_by_tt_to_flextable_paginate_TRUE_"/>
+    <testcase time="0.00300000000000011" classname="pagination" name="export_as_docx_handles_list_generated_by_tt_to_flextable_paginate_TRUE_"/>
+    <testcase time="0.000999999999999446" classname="pagination" name="export_as_docx_handles_list_generated_by_tt_to_flextable_paginate_TRUE_"/>
+    <testcase time="0.737" classname="pagination" name="export_as_docx_works_with_explicit_list_of_rlistings_rtables_objects"/>
+    <testcase time="0.00199999999999889" classname="pagination" name="export_as_docx_works_with_explicit_list_of_rlistings_rtables_objects"/>
+    <testcase time="0.00200000000000067" classname="pagination" name="export_as_docx_works_with_explicit_list_of_rlistings_rtables_objects"/>
+    <testcase time="0.798999999999999" classname="pagination" name="export_as_docx_works_with_pagination_via_lpp_cpp_arguments"/>
     <testcase time="0.00300000000000011" classname="pagination" name="export_as_docx_works_with_pagination_via_lpp_cpp_arguments"/>
-    <testcase time="0.00199999999999889" classname="pagination" name="export_as_docx_works_with_pagination_via_lpp_cpp_arguments"/>
-    <testcase time="0.367000000000001" classname="pagination" name="export_as_docx_works_with_column_widths_and_autofit_settings"/>
+    <testcase time="0.00100000000000122" classname="pagination" name="export_as_docx_works_with_pagination_via_lpp_cpp_arguments"/>
+    <testcase time="0.277999999999999" classname="pagination" name="export_as_docx_works_with_column_widths_and_autofit_settings"/>
     <testcase time="0.00100000000000122" classname="pagination" name="export_as_docx_works_with_column_widths_and_autofit_settings"/>
-    <testcase time="0.00300000000000011" classname="pagination" name="export_as_docx_works_with_column_widths_and_autofit_settings"/>
-    <testcase time="0.00199999999999889" classname="pagination" name="export_as_docx_works_with_column_widths_and_autofit_settings"/>
-    <testcase time="0.300000000000001" classname="pagination" name="export_as_docx_works_with_column_widths_and_autofit_settings"/>
-    <testcase time="0.00300000000000011" classname="pagination" name="export_as_docx_works_with_column_widths_and_autofit_settings"/>
-    <testcase time="0.000999999999997669" classname="pagination" name="export_as_docx_works_with_column_widths_and_autofit_settings"/>
+    <testcase time="0.00399999999999956" classname="pagination" name="export_as_docx_works_with_column_widths_and_autofit_settings"/>
+    <testcase time="0.000999999999999446" classname="pagination" name="export_as_docx_works_with_column_widths_and_autofit_settings"/>
+    <testcase time="0.251000000000001" classname="pagination" name="export_as_docx_works_with_column_widths_and_autofit_settings"/>
+    <testcase time="0.00299999999999834" classname="pagination" name="export_as_docx_works_with_column_widths_and_autofit_settings"/>
+    <testcase time="0.00100000000000122" classname="pagination" name="export_as_docx_works_with_column_widths_and_autofit_settings"/>
   </testsuite>
 </testsuites>
