@@ -1,4 +1,4 @@
-## rtables.officer 0.1.2.9001
+## rtables.officer 0.1.2.9002
 
 * Exported functions `apply_alignments()`, `apply_bold_manual()` and `extract_font_and_size_from_flx()` (#66)
 * Minor fix in `apply_alignments()` to update alignments in specific cells of the flextable.
