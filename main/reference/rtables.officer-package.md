@@ -26,6 +26,9 @@ Useful links:
 
 Authors:
 
+- Joe Zhu <joe.zhu@roche.com>
+  ([ORCID](https://orcid.org/0000-0001-7566-2787))
+
 - Davide Garolini <davide.garolini@roche.com>
   ([ORCID](https://orcid.org/0000-0002-1445-1369))
 

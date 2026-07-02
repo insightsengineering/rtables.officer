@@ -1,6 +1,6 @@
 # Changelog
 
-## rtables.officer 0.1.2.9001
+## rtables.officer 0.1.2.9002
 
 - Exported functions
   [`apply_alignments()`](https://insightsengineering.github.io/rtables.officer/reference/apply_alignments.md),
@@ -11,6 +11,12 @@
 - Minor fix in
   [`apply_alignments()`](https://insightsengineering.github.io/rtables.officer/reference/apply_alignments.md)
   to update alignments in specific cells of the flextable.
+- [`theme_docx_default()`](https://insightsengineering.github.io/rtables.officer/reference/tt_to_flextable.md)
+  and
+  [`theme_html_default()`](https://insightsengineering.github.io/rtables.officer/reference/tt_to_flextable.md)
+  now default to `font_size = 8` (was 9) to match the standard TLG body
+  font size. Pass `font_size = 9` to restore the previous output.
+  ([\#71](https://github.com/insightsengineering/rtables.officer/issues/71))
 
 ## rtables.officer 0.1.2
 
